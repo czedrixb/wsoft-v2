@@ -1,0 +1,21 @@
+.text-stacks-marquee {
+    --duration: 45;
+
+    width: max-content;
+    white-space: nowrap;
+    display: flex;
+    gap: .1rem;
+    padding-left: .1rem;
+    animation: marquee calc(var(--duration) * 1s) linear infinite;
+
+    &-reverse {
+        @extend .text-stacks-marquee;
+        animation-direction: reverse;
+    }
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
