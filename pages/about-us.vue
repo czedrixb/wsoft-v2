@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div
+    <!-- <div
       class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[24rem] overflow-hidden relative mb-10"
     >
       <video class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -33,7 +33,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-10"
