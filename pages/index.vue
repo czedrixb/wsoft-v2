@@ -3,7 +3,7 @@
     <div
       class="w-full h-[30rem] md:h-[39rem] lg:h-[35rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video
+      <video
         class="absolute inset-0 w-full h-full object-cover"
         autoplay
         loop
@@ -12,7 +12,7 @@
       >
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video> -->
+      </video>
 
       <div
         class="absolute inset-0 bg-main opacity-80 flex justify-center items-center"
