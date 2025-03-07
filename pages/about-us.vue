@@ -1,12 +1,6 @@
 <template>
   <div>
-    <PageHeader
-      title="About Us"
-      description="W Soft Labs delivers cutting-edge solutions to optimize business
-            operations. Leveraging the latest IT advancements, we empower
-            organizations efficiently. Stay competitive with us as your trusted
-            technology partner."
-    />
+    <PageHeader :title="$t('About Us')" :description="$t('about-text')" />
 
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-10"
@@ -25,26 +19,17 @@
           <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] mb-5 xl:mb-7"
           >
-            Innovating Business Operations with Technology
+            {{ $t("innovating-business") }}
           </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] mb-5 xl:mb-7"
           >
-            W Soft Labs is dedicated to providing cutting-edge solutions that
-            optimize business operations and drive success. Leveraging the
-            latest advancements in information technology, we develop tailored
-            solutions to streamline processes and empower organizations to
-            achieve their goals efficiently.
+            {{ $t("dedicated-providing") }}
           </p>
 
           <p class="font-inter text-[18px] text-[#475766] font-[300] xl:mb-7">
-            By staying ahead of emerging technologies and industry trends, W
-            Soft Labs ensures that our clients remain competitive in today's
-            dynamic market landscape. With W Soft Labs as your technology
-            partner, you can trust that your business operations are in capable
-            hands, allowing you to focus on what you do best while we take care
-            of the rest.
+            {{ $t("staying-ahead") }}
           </p>
         </div>
       </div>
@@ -58,15 +43,13 @@
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
       >
-        Why Choose Us?
+        {{ $t("why-choose") }}
       </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
       >
-        At W Soft Labs, we provide more than just innovative solutions; we offer
-        a collaborative partnership that drives your business forward. Here's
-        why you should choose us:
+        {{ $t("provide-more") }}
       </p>
 
       <div class="mx-auto lg:max-w-screen-md">
@@ -84,17 +67,13 @@
               <div
                 class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
               >
-                Cutting-edge Solutions
+                {{ $t("cutting-edge") }}
               </div>
 
               <p
                 class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
               >
-                We specialize in developing cutting-edge solutions that are
-                tailored to your specific needs. Our team stays at the forefront
-                of information technology, ensuring you receive the latest
-                advancements that optimize your business operations and drive
-                success.
+                {{ $t("specialize-developing") }}
               </p>
             </div>
           </div>
@@ -109,17 +88,13 @@
               <div
                 class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
               >
-                Expertise and Innovation
+                {{ $t("expertise-innovation") }}
               </div>
 
               <p
                 class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
               >
-                With a deep understanding of emerging technologies and industry
-                trends, we bring expertise and innovation to every project. By
-                leveraging our knowledge, we keep your business competitive in
-                today's dynamic market landscape, helping you stay ahead of the
-                curve.
+                {{ $t("deep-understanding") }}
               </p>
             </div>
           </div>
@@ -134,17 +109,13 @@
               <div
                 class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
               >
-                Reliable Technology Partner
+                {{ $t("reliable-tech") }}
               </div>
 
               <p
                 class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
               >
-                Trust is paramount in any partnership. With W Soft Labs as your
-                technology partner, you can rely on us to handle your business
-                operations efficiently, allowing you to focus on your core
-                competencies. Our commitment is to support your success, every
-                step of the way.
+                {{ $t("trust-paramount") }}
               </p>
             </div>
           </div>
@@ -156,15 +127,13 @@
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
       >
-        Our Team
+        {{ $t("our-team") }}
       </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-12 lg:mb-16"
       >
-        At W Soft Labs, we provide more than just innovative solutions; we offer
-        a collaborative partnership that drives your business forward. Here's
-        why you should choose us:
+        {{ $t("provide-more") }}
       </p>
 
       <div class="mx-auto lg:max-w-screen-lg">
@@ -188,7 +157,9 @@
                 >
                   WonSeok Jung
                 </div>
-                <div class="text-[16px] font-[300] text-[#475766]">CEO</div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("ceo") }}
+                </div>
               </div>
             </div>
           </div>
@@ -213,7 +184,7 @@
                   Kang Jun Lee
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Senior Developer
+                  {{ $t("senior-dev") }}
                 </div>
               </div>
             </div>
@@ -239,7 +210,7 @@
                   Amron Florence Arda
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Project Officer
+                  {{ $t("project-officer") }}
                 </div>
               </div>
             </div>
@@ -265,7 +236,7 @@
                   Benito Orbino
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Full Stack Developer
+                  {{ $t("full-stack") }}
                 </div>
               </div>
             </div>
@@ -291,7 +262,7 @@
                   Rhoda Grace Brito
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Marketing Specialist
+                  {{ $t("marketing-specialist") }}
                 </div>
               </div>
             </div>
@@ -317,7 +288,7 @@
                   Czedrix Barcena
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Developer
+                  {{ $t("developer") }}
                 </div>
               </div>
             </div>
@@ -343,7 +314,7 @@
                   Orland Salas
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  UI / UX Designer
+                  {{ $t("designer") }}
                 </div>
               </div>
             </div>
@@ -369,7 +340,7 @@
                   Raymond John Yorong
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Developer
+                  {{ $t("developer") }}
                 </div>
               </div>
             </div>
@@ -395,7 +366,7 @@
                   Leslie Palmos
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Human Resource Manager
+                  {{ $t("human-resource") }}
                 </div>
               </div>
             </div>
@@ -421,7 +392,7 @@
                   Salvacion Parreño
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  Corporate Secretary
+                  {{ $t("corporate-secretary") }}
                 </div>
               </div>
             </div>
@@ -447,7 +418,7 @@
                   Raymond De La Cruz
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  UI / UX Designer
+                  {{ $t("designer") }}
                 </div>
               </div>
             </div>

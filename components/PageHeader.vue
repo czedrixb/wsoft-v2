@@ -8,9 +8,10 @@
     </video> -->
     <div class="absolute inset-0 bg-main opacity-[.60] hidden lg:block"></div>
     <div class="absolute inset-0 flex justify-center">
-      <img
+      <NuxtImg
         src="/images/about-us/hero-overlay.png"
-        class="max-w-[160%] md:max-w-[96%]"
+        width="1500px"
+        height="800px"
         alt="hero-overlay"
       />
     </div>

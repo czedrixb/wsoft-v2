@@ -55,7 +55,7 @@
             height="24px"
             sizes="24px"
             alt="tech-stack-icon"
-            src="/images/home/devtools/devicon_vuejs.webp"
+            src="/images/home/devtools/devicon_vue.webp"
             class="mr-1 flex"
           />
           <span>Vue</span>
@@ -284,7 +284,7 @@
             height="24px"
             sizes="24px"
             alt="tech-stack-icon"
-            src="/images/home/devtools/devicon_vuejs.webp"
+            src="/images/home/devtools/devicon_vue.webp"
             class="mr-1 flex"
           />
           <span>Vue</span>

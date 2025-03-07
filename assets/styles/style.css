@@ -14,3 +14,20 @@
 .bg-main {
   background-color: #e6ecf5;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* HIDE ARROWS */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+li,
+p,
+div {
+  word-break: keep-all;
+}

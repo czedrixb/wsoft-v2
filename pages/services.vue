@@ -1,9 +1,6 @@
 <template>
   <div>
-    <PageHeader
-      title="Services"
-      description="Our skilled developers and designers will create a stunning, user-friendly website tailored to your specific company requirements. We ensure an engaging user experience that captivates your audience, from adaptable designs to seamless functionality."
-    />
+    <PageHeader :title="$t('Services')" :description="$t('services-text')" />
 
     <div
       class="px-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-10 overflow-hidden"
@@ -17,16 +14,13 @@
               <div
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
-                UI/UX & AI-Powered Solutions
+                {{ $t("ui-ai") }}
               </div>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
               >
-                We build high-performing websites and web applications tailored
-                to your business needs. Whether it’s a dynamic website or a
-                scalable web app, we ensure seamless functionality, engaging
-                design, and smooth user experiences that drive growth.
+                {{ $t("build-high") }}
               </p>
             </div>
 
@@ -47,17 +41,13 @@
               <div
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
-                Website & Web App Development
+                {{ $t("website-web") }}
               </div>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
               >
-                From intuitive UI design to AI-driven automation, we enhance
-                digital experiences that keep users engaged. Our expertise in
-                design and smart technologies, like chatbots and predictive
-                analytics, helps businesses improve usability, efficiency, and
-                customer satisfaction.
+                {{ $t("intuitive-ai") }}
               </p>
 
               <img
@@ -70,16 +60,13 @@
               <div
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
-                Maintenance & Support
+                {{ $t("maintenance-support") }}
               </div>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
               >
-                Keep your website and applications running at peak performance
-                with our reliable maintenance services. We handle updates,
-                security checks, and optimizations, so you can focus on growing
-                your business without worrying about technical issues.
+                {{ $t("keep-website") }}
               </p>
 
               <img
@@ -97,7 +84,7 @@
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-10"
       >
-        Introduction to Development
+        {{ $t("introduction-development") }}
       </div>
 
       <div class="mx-auto lg:max-w-screen-lg xl:max-w-screen-xl">
@@ -112,7 +99,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                Custom Design & UI/UX
+                {{ $t("custom-design") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -120,7 +107,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Custom website & template-based designs
+                  {{ $t("custom-website") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -128,7 +115,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Responsive, user-friendly layouts
+                  {{ $t("responsive-user") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -136,7 +123,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Engaging UI/UX for better usability
+                  {{ $t("engaging-ui") }}
                 </p>
               </div>
             </div>
@@ -151,7 +138,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                Content Management & Media
+                {{ $t("content-management") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -159,7 +146,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Easy-to-use content editor
+                  {{ $t("easy-use") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -167,7 +154,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Image, file, and video uploads (YouTube, audio, playback)
+                  {{ $t("image-file") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -175,7 +162,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Auto-tagging and data visualization
+                  {{ $t("auto-tagging") }}
                 </p>
               </div>
             </div>
@@ -190,7 +177,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                Admin & Business Management
+                {{ $t("admin-business") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -198,7 +185,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Inquiry & content editing system
+                  {{ $t("inquiry-content") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -206,7 +193,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Inventory, order, and delivery tracking
+                  {{ $t("inventory-order") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -214,7 +201,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Secure payment processing
+                  {{ $t("secure-payment") }}
                 </p>
               </div>
             </div>
@@ -229,7 +216,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                User Interaction & Communication
+                {{ $t("user-interaction") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -237,7 +224,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Job requests & quotation calculator
+                  {{ $t("job-interaction") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -245,7 +232,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Seller & company dashboards
+                  {{ $t("seller-company") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -253,7 +240,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Messaging, questionnaires, and team collaboration
+                  {{ $t("messaging-questionnaires") }}
                 </p>
               </div>
             </div>
@@ -268,7 +255,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                Advanced Features & Security
+                {{ $t("advanced-features") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -276,7 +263,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Interactive calendar UI & pop-ups
+                  {{ $t("interactive-calendar") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -284,7 +271,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Location-based map integrations
+                  {{ $t("location-based") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -292,7 +279,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  reCAPTCHA security protection
+                  {{ $t("recaptcha") }}
                 </p>
               </div>
             </div>
@@ -307,7 +294,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                E-Commerce & Product Listings
+                {{ $t("product-listing") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -315,7 +302,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Item catalogs with detailed pages
+                  {{ $t("items-catalog") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -323,7 +310,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Wishlist & star rating system
+                  {{ $t("wishlist-star") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -331,7 +318,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  Smooth checkout & payment experience
+                  {{ $t("smooth-checkout") }}
                 </p>
               </div>
             </div>

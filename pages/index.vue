@@ -42,7 +42,7 @@
           <p
             class="text-center text-[#475766] font-[300] text-[18px] px-5 md:px-0"
           >
-            Elevate your business with W Soft Labs’ AI and custom development.
+            {{ $t("elevate-business") }}
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <button
             class="btn lg:btn-lg bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
           >
-            Talk with an Expert
+            {{ $t("Talk with an Expert") }}
           </button>
         </NuxtLink>
       </div>
@@ -90,14 +90,14 @@
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
-            100% Projects Success Rate
+            {{ $t("project-success") }}
           </div>
         </div>
         <div>
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
-            95% Customer Retention Rate
+            {{ $t("customer-retention") }}
           </div>
           <div class="py-20 hidden md:block"></div>
         </div>
@@ -105,7 +105,7 @@
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
-            21 Projects Completed
+            {{ $t("project-completed") }}
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@
         <div
           class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
-          Your Trusted Partner in Web and App Development
+          {{ $t("trusted-partner") }}
         </div>
       </div>
 
@@ -129,10 +129,7 @@
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%]"
       >
-        W Soft Labs delivers cutting-edge solutions to optimize business
-        operations. Leveraging the latest IT advancements, we empower
-        organizations efficiently. Stay competitive with us as your trusted
-        technology partner.
+        {{ $t("delivers-cutting") }}
       </p>
     </div>
 
@@ -153,18 +150,13 @@
           <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
           >
-            Website Development
+            {{ $t("web-dev") }}
           </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
           >
-            We create websites that work for you. Whether you’re a small
-            business or a large enterprise, our team specializes in designing
-            dynamic, user-friendly websites that reflect your brand and meet
-            your needs. From beautiful designs to smooth functionality, we make
-            sure your online presence grabs attention and connects with your
-            audience.
+            {{ $t("create-website") }}
           </p>
         </div>
         <div
@@ -205,17 +197,13 @@
           <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
           >
-            Web Application Development
+            {{ $t("web-app") }}
           </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
           >
-            We build innovative web apps that help your business thrive. Our
-            team creates custom solutions designed to simplify your operations,
-            improve user experiences, and fuel growth. From the initial idea to
-            final launch, we ensure your web applications are strong, scalable,
-            and ready to support your future success.
+            {{ $t("build-innovative") }}
           </p>
         </div>
         <div
@@ -256,17 +244,13 @@
           <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
           >
-            UI Design
+            {{ $t("ui-design") }}
           </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
           >
-            We design intuitive, user-friendly interfaces that make the digital
-            world easier and more enjoyable. Our team focuses on creating
-            smooth, engaging experiences that captivate users. From the first
-            wireframe to the final design, we ensure every detail enhances
-            usability and keeps your audience connected.
+            {{ $t("design-intuitive") }}
           </p>
         </div>
         <div
@@ -307,17 +291,13 @@
           <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
           >
-            AI Utilization Service
+            {{ $t("ai-utilization") }}
           </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
           >
-            Cut customer service costs, speed up response times, and boost
-            customer satisfaction with our AI solutions. We use advanced
-            automation and smart technologies to streamline your operations.
-            Whether it’s chatbots or predictive analytics, we help you work more
-            efficiently and create a better experience for your customers.
+            {{ $t("cut-customer") }}
           </p>
         </div>
         <div
@@ -348,14 +328,13 @@
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
       >
-        Our Successful Projects
+        Our {{ $t("successful-projects") }}
       </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-[#475766] text-center lg:max-w-screen-sm mx-auto mb-12"
       >
-        At W Soft Labs, we’re dedicated to helping you grow your business with
-        tailored solutions that boost productivity and efficiency.
+        {{ $t("dedicated-helping") }}
       </p>
 
       <!-- LARGE SCREEN -->
@@ -387,7 +366,7 @@
                 <div
                   class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
                 >
-                  Academic Administration Management System
+                  {{ $t("academic-administration") }}
                 </div>
               </div>
             </div>
@@ -441,3 +420,28 @@
     <ContactEmail />
   </div>
 </template>
+ <script setup>
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+const staticMetaTitle = t("home-title");
+const staticMetaDescription = t("home-description");
+const staticMetaKeywords = [
+  t("home-meta-keyword"),
+  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
+].join(", ");
+
+useHead({
+  title: staticMetaTitle,
+  meta: [
+    { name: "description", content: staticMetaDescription },
+    { name: "keywords", content: staticMetaKeywords },
+    { property: "og:title", content: staticMetaTitle },
+    { property: "og:description", content: staticMetaDescription },
+    { property: "og:type", content: "website" },
+    // { property: "og:image", content: "/images/thumbnail.jpg" },
+  ],
+});
+</script>

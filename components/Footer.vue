@@ -18,7 +18,7 @@
               to="/"
               class="mx-4 text-[16px] text-[#475766] transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
             >
-              <li>Home</li>
+              <li>{{ $t("Home") }}</li>
             </NuxtLink>
             <NuxtLink
               v-for="link in navLinks"
@@ -26,7 +26,7 @@
               :to="link.to"
               class="mx-4 text-[16px] text-[#475766] transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
             >
-              <li>{{ link.title }}</li>
+              <li>{{ $t(link.title) }}</li>
             </NuxtLink>
           </ul>
 
@@ -48,22 +48,10 @@
       <div
         class="flex flex-col sm:flex-col gap-y-5 md:flex-row md:justify-between justify-center items-center"
       >
-        <div class="flex gap-x-2">
-          <button
-            v-for="language in ['English', 'Korean']"
-            :key="language"
-            @click="setActiveLanguage(language)"
-            class="btn font-[400] btn-ghost border-none transition-all duration-300 px-8 btn-sm h-[40px]"
-            :class="{
-              'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white':
-                activeLanguage === language,
-              'bg-transparent text-gray-500': activeLanguage !== language,
-            }"
-          >
-            {{ language }}
-          </button>
+        <Language />
+        <div class="text-[#535353] font-[400]">
+          {{ $t("all-rights") }} © 2025
         </div>
-        <div class="text-[#535353] font-[400]">All Rights Reserved © 2025</div>
       </div>
     </div>
   </div>
@@ -71,11 +59,4 @@
 
 <script setup>
 import navLinks from "./navigation";
-import { ref } from "vue";
-
-const activeLanguage = ref("English");
-
-const setActiveLanguage = (language) => {
-  activeLanguage.value = language;
-};
 </script>

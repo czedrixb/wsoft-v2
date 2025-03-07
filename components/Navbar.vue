@@ -34,14 +34,14 @@
             :to="link.to"
             class="mx-3 text-[16px] font-[400] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
           >
-            <li>{{ link.title }}</li>
+            <li>{{ $t(link.title) }}</li>
           </NuxtLink>
         </ul>
         <NuxtLink to="/contact-us">
           <button
             class="btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
           >
-            Talk with an Expert
+            {{ $t("Talk with an Expert") }}
           </button>
         </NuxtLink>
       </div>
@@ -84,7 +84,7 @@
             class="text-[16px] font-[400]"
           >
             <NuxtLink @click="isMenuOpen = false" :to="link.to">{{
-              link.title
+              $t(link.title)
             }}</NuxtLink>
           </li>
         </ul>
@@ -94,7 +94,7 @@
             <button
               class="btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none"
             >
-              Talk with an Expert
+              {{ $t("Talk with an Expert") }}
             </button>
           </NuxtLink>
         </div>
