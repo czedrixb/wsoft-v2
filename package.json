@@ -27,7 +27,10 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.1",
     "daisyui": "^4.12.23",
+    "eslint": "^9.22.0",
+    "rollup": "^4.34.9",
     "sass": "^1.85.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1"
   }
 }
