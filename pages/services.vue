@@ -330,28 +330,3 @@
     <ContactEmail />
   </div>
 </template>
-
-<script setup>
-import { useHead } from "@vueuse/head";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-
-const staticMetaTitle = t("services-title");
-const staticMetaDescription = t("services-description");
-const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`services-meta-keyword-${i + 1}`)
-).join(", ");
-
-useHead({
-  title: staticMetaTitle,
-  meta: [
-    { name: "description", content: staticMetaDescription },
-    { name: "keywords", content: staticMetaKeywords },
-    { property: "og:title", content: staticMetaTitle },
-    { property: "og:description", content: staticMetaDescription },
-    { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
-  ],
-});
-</script>

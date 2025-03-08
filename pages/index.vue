@@ -3,7 +3,7 @@
     <div
       class="w-full h-[30rem] md:h-[39rem] lg:h-[35rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video
+      <video
         class="absolute inset-0 w-full h-full object-cover"
         autoplay
         loop
@@ -12,7 +12,7 @@
       >
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video> -->
+      </video>
 
       <div
         class="absolute inset-0 bg-main opacity-80 flex justify-center items-center"
@@ -420,28 +420,3 @@
     <ContactEmail />
   </div>
 </template>
- <script setup>
-import { useHead } from "@vueuse/head";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-
-const staticMetaTitle = t("home-title");
-const staticMetaDescription = t("home-description");
-const staticMetaKeywords = [
-  t("home-meta-keyword"),
-  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
-].join(", ");
-
-useHead({
-  title: staticMetaTitle,
-  meta: [
-    { name: "description", content: staticMetaDescription },
-    { name: "keywords", content: staticMetaKeywords },
-    { property: "og:title", content: staticMetaTitle },
-    { property: "og:description", content: staticMetaDescription },
-    { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
-  ],
-});
-</script>

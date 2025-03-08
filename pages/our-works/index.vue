@@ -32,9 +32,6 @@
 </template>
 
 <script setup>
-import { useHead } from "@vueuse/head";
-import { useI18n } from "vue-i18n";
-
 const projects = {
   "academic-administration-management-system": {
     title: "academic-administration",
@@ -81,21 +78,4 @@ const projects = {
     image: "tcp.png",
   },
 };
-
-const { t } = useI18n();
-
-const staticMetaTitle = t("works-title");
-const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`our-work-meta-keyword-${i + 1}`)
-).join(", ");
-
-useHead({
-  title: staticMetaTitle,
-  meta: [
-    { name: "keywords", content: staticMetaKeywords },
-    { property: "og:title", content: staticMetaTitle },
-    { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
-  ],
-});
 </script>

@@ -5,13 +5,4 @@ export default defineNuxtConfig({
     css: ['@/assets/styles/style.css', '@/assets/styles/marquee.scss', '@mdi/font/css/materialdesignicons.css'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
   plugins: ['~/plugins/i18n.js'],
-      app: {
-    head: {
-      titleTemplate: 'WSoft Labs',
-      meta: [
-        { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'WSoft Labs' },
-      ],
-    },
-  },
 })

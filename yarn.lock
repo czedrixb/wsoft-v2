@@ -1865,16 +1865,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.11.20, @unhead/dom@npm:^1.7.0":
-  version: 1.11.20
-  resolution: "@unhead/dom@npm:1.11.20"
-  dependencies:
-    "@unhead/schema": "npm:1.11.20"
-    "@unhead/shared": "npm:1.11.20"
-  checksum: 10c0/344a61a00418ddc6f06b33f313b589945df18e43af29ab8e19e1df97a102f55bfbc7e8e163f7e8f0a415c58c48ad9878d552b29fdf83080e05cdcf30724a17c6
-  languageName: node
-  linkType: hard
-
 "@unhead/schema@npm:1.11.19":
   version: 1.11.19
   resolution: "@unhead/schema@npm:1.11.19"
@@ -1882,16 +1872,6 @@ __metadata:
     hookable: "npm:^5.5.3"
     zhead: "npm:^2.2.4"
   checksum: 10c0/555d615e7fcf879afda8ff3441fbb33f106c52e9b1f632bdbc3bb469a4d04c0e73aa71adc530ef754ceafb8cd9b7572470c1c01b85019b52fe6b7e8ce3c7a8d3
-  languageName: node
-  linkType: hard
-
-"@unhead/schema@npm:1.11.20, @unhead/schema@npm:^1.7.0":
-  version: 1.11.20
-  resolution: "@unhead/schema@npm:1.11.20"
-  dependencies:
-    hookable: "npm:^5.5.3"
-    zhead: "npm:^2.2.4"
-  checksum: 10c0/f2f968639bbd18f90ddfb83b77c9256bc4c0379ab75efa24dc759f3f597aae707d4dde97df690823f8902eab31d73a5faa8bdd8daf18c6ac8e4503a78b42be74
   languageName: node
   linkType: hard
 
@@ -1905,16 +1885,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/shared@npm:1.11.20":
-  version: 1.11.20
-  resolution: "@unhead/shared@npm:1.11.20"
-  dependencies:
-    "@unhead/schema": "npm:1.11.20"
-    packrup: "npm:^0.1.2"
-  checksum: 10c0/65ab0230e6338541f7a62e131c6d82b1160c71c86479fdb17d733fb5187422f6e287739cf50a1e7556690fb10951990d06e861e7aa3a90def479cb7a5ec638fa
-  languageName: node
-  linkType: hard
-
 "@unhead/ssr@npm:^1.11.18":
   version: 1.11.19
   resolution: "@unhead/ssr@npm:1.11.19"
@@ -1922,16 +1892,6 @@ __metadata:
     "@unhead/schema": "npm:1.11.19"
     "@unhead/shared": "npm:1.11.19"
   checksum: 10c0/dd165e1b7ebb51640358a745c0d1112cf74394f11e934a62608f50afdf63275f5db8e84f33e7a3648472874cd1023b8d88e4c52346f5698a313c148afc7068d6
-  languageName: node
-  linkType: hard
-
-"@unhead/ssr@npm:^1.7.0":
-  version: 1.11.20
-  resolution: "@unhead/ssr@npm:1.11.20"
-  dependencies:
-    "@unhead/schema": "npm:1.11.20"
-    "@unhead/shared": "npm:1.11.20"
-  checksum: 10c0/f4ca6809a2436d23dbb4b57aaaa8981cac97eebd34c0c6237377e86cbd90c26079305adf97db9334966ebd4514ad62985648b653512ec35df916f6448d7624e5
   languageName: node
   linkType: hard
 
@@ -1946,20 +1906,6 @@ __metadata:
   peerDependencies:
     vue: ">=2.7 || >=3"
   checksum: 10c0/511c4b7eacbbe3bc8b194f8642a30fb2a9f002d4516ca35e218671c4baafc971be046e9370d572c09032c18ab26963c9c5e7aab56dc23f540d6fb54029edc821
-  languageName: node
-  linkType: hard
-
-"@unhead/vue@npm:^1.7.0":
-  version: 1.11.20
-  resolution: "@unhead/vue@npm:1.11.20"
-  dependencies:
-    "@unhead/schema": "npm:1.11.20"
-    "@unhead/shared": "npm:1.11.20"
-    hookable: "npm:^5.5.3"
-    unhead: "npm:1.11.20"
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 10c0/75f1cd8d671de363b02bc8ad2aaf6dc7fb0a402bdd306046ad71608d370190b539e74d6b03ab455d9c2453c5dd62956a235f92d74b09b98c336b68b2d3911602
   languageName: node
   linkType: hard
 
@@ -2241,20 +2187,6 @@ __metadata:
   version: 3.5.13
   resolution: "@vue/shared@npm:3.5.13"
   checksum: 10c0/2c940ef907116f1c2583ca1d7733984e5705983ab07054c4e72f1d95eb0f7bdf4d01efbdaee1776c2008f79595963f44e98fced057f5957d86d57b70028f5025
-  languageName: node
-  linkType: hard
-
-"@vueuse/head@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@vueuse/head@npm:2.0.0"
-  dependencies:
-    "@unhead/dom": "npm:^1.7.0"
-    "@unhead/schema": "npm:^1.7.0"
-    "@unhead/ssr": "npm:^1.7.0"
-    "@unhead/vue": "npm:^1.7.0"
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 10c0/0c8c51951eb3d4e8394cc04ba6f1fc36a6e6dfbde9ef677c525b10e14d06007f71df9f2c90d6b02afc6476ca53582070c834357a7af205bf8ef856fe5303f7a1
   languageName: node
   linkType: hard
 
@@ -6081,7 +6013,6 @@ __metadata:
     "@nuxt/image": "npm:1.9.0"
     "@nuxtjs/i18n": "npm:^9.2.1"
     "@nuxtjs/tailwindcss": "npm:^6.13.1"
-    "@vueuse/head": "npm:^2.0.0"
     daisyui: "npm:^4.12.23"
     emailjs-com: "npm:^3.2.0"
     nuxt: "npm:^3.15.4"
@@ -8404,18 +8335,6 @@ __metadata:
     "@unhead/shared": "npm:1.11.19"
     hookable: "npm:^5.5.3"
   checksum: 10c0/65979dec679634c3ca95ff803250e8a85faf5e8ffd881a25a82c6f76701f787bde3dad2ff8bc3be2c5c6237dfe12ffbd0cf79f34c14de1e95f60944ece4a9ba5
-  languageName: node
-  linkType: hard
-
-"unhead@npm:1.11.20":
-  version: 1.11.20
-  resolution: "unhead@npm:1.11.20"
-  dependencies:
-    "@unhead/dom": "npm:1.11.20"
-    "@unhead/schema": "npm:1.11.20"
-    "@unhead/shared": "npm:1.11.20"
-    hookable: "npm:^5.5.3"
-  checksum: 10c0/cce50a79509984679d3b8f7a2299f7ec7e252c8efdac76e9156ffa816c04c53ff25e526ead88df4cb67dc016b98c37adec8c3e93b7322a972561d3f4cd1c21d8
   languageName: node
   linkType: hard
 
