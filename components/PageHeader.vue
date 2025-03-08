@@ -2,10 +2,10 @@
   <div
     class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[24rem] overflow-hidden relative mb-10"
   >
-    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+    <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
       <source src="/images/about-us/bg-hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-    </video>
+    </video> -->
     <div class="absolute inset-0 bg-main opacity-[.60] hidden lg:block"></div>
     <div class="absolute inset-0 flex justify-center">
       <NuxtImg
