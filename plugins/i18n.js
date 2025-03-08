@@ -6,7 +6,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const i18n = createI18n({
     legacy: false,
     locale: "ko",
-    fallbackLocale: "en",
+    fallbackLocale: "ko",
     messages: {
       en: enMessages,
       ko: koMessages,

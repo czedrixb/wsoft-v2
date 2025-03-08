@@ -105,7 +105,7 @@
 
 <script setup>
 import { ref } from "vue";
-import navLinks from "./navigation";
+import navLinks from "@/navigation";
 
 const isMenuOpen = ref(false);
 </script>
