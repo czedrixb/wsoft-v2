@@ -58,5 +58,5 @@
 </template>
 
 <script setup>
-import navLinks from "./navigation.js";
+import navLinks from "./navigation";
 </script>

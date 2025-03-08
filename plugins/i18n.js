@@ -5,8 +5,8 @@ import koMessages from "~/locales/ko.json";
 export default defineNuxtPlugin((nuxtApp) => {
   const i18n = createI18n({
     legacy: false,
-    locale: "ko",
-    fallbackLocale: "ko",
+    locale: "en",
+    fallbackLocale: "en",
     messages: {
       en: enMessages,
       ko: koMessages,
