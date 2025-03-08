@@ -9,10 +9,10 @@
         loop
         muted
         playsinline
-      > -->
+      >
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> -->
 
       <div
         class="absolute inset-0 bg-main opacity-80 flex justify-center items-center"
