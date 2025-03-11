@@ -29,5 +29,35 @@ input[type="number"] {
 li,
 p,
 div {
-  word-break: keep-all;
+  word-break: keep-all !important;
+}
+
+.floating-item {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .bg-animate {
+    width: 20rem;
+    left: 7%;
+  }
+}
+
+@media (max-width: 400px) {
+  .bg-animate {
+    width: 22rem;
+    left: -5%;
+  }
 }

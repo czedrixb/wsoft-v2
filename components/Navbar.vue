@@ -105,7 +105,20 @@
 
 <script setup>
 import { ref } from "vue";
-import navLinks from "./navigation";
 
 const isMenuOpen = ref(false);
+const navLinks = [
+  {
+    title: "About Us",
+    to: "/about-us",
+  },
+  {
+    title: "Services",
+    to: "/services",
+  },
+  {
+    title: "Our Works",
+    to: "/our-works",
+  },
+];
 </script>

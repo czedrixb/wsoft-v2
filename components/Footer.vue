@@ -58,5 +58,18 @@
 </template>
 
 <script setup>
-import navLinks from "./navigation";
+const navLinks = [
+  {
+    title: "About Us",
+    to: "/about-us",
+  },
+  {
+    title: "Services",
+    to: "/services",
+  },
+  {
+    title: "Our Works",
+    to: "/our-works",
+  },
+];
 </script>

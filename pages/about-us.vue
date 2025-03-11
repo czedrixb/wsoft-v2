@@ -40,83 +40,91 @@
     </div>
 
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto mb-10">
-      <div
-        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
-      >
-        {{ $t("why-choose") }}
-      </div>
-
-      <p
-        class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
-      >
-        {{ $t("provide-more") }}
-      </p>
-
-      <div class="mx-auto lg:max-w-screen-md">
+      <div class="relative">
+        <DotLottieVue
+          class="absolute top-0 left-0 h-full z-0 opacity-50"
+          autoplay
+          loop
+          src="https://lottie.host/629be379-16b6-4e84-a306-082de2ae9fc4/ylCdRSYXuR.lottie"
+        />
         <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-5 gap-x-5 lg:gap-10"
+          class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
-          <div class="flex justify-center md:pt-20">
-            <div
-              class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
-            >
-              <div class="flex justify-center my-5">
-                <img src="/images/about-us/puzzle.png" alt="cutting-edge" />
-              </div>
+          {{ $t("why-choose") }}
+        </div>
 
+        <p
+          class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
+        >
+          {{ $t("provide-more") }}
+        </p>
+
+        <div class="mx-auto lg:max-w-screen-md">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-y-5 gap-x-5 lg:gap-10"
+          >
+            <div class="flex justify-center md:pt-20">
               <div
-                class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
-                {{ $t("cutting-edge") }}
-              </div>
+                <div class="flex justify-center my-5">
+                  <img src="/images/about-us/puzzle.png" alt="cutting-edge" />
+                </div>
 
-              <p
-                class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
-              >
-                {{ $t("specialize-developing") }}
-              </p>
+                <div
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                >
+                  {{ $t("cutting-edge") }}
+                </div>
+
+                <p
+                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                >
+                  {{ $t("specialize-developing") }}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="flex justify-center md:pb-20">
-            <div
-              class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
-            >
-              <div class="flex justify-center my-5">
-                <img src="/images/about-us/shield.png" alt="expertise" />
-              </div>
-
+            <div class="flex justify-center md:pb-20">
               <div
-                class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
-                {{ $t("expertise-innovation") }}
-              </div>
+                <div class="flex justify-center my-5">
+                  <img src="/images/about-us/shield.png" alt="expertise" />
+                </div>
 
-              <p
-                class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
-              >
-                {{ $t("deep-understanding") }}
-              </p>
+                <div
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                >
+                  {{ $t("expertise-innovation") }}
+                </div>
+
+                <p
+                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                >
+                  {{ $t("deep-understanding") }}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="md:col-span-2 flex justify-center">
-            <div
-              class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
-            >
-              <div class="flex justify-center my-5">
-                <img src="/images/about-us/sticky.png" alt="technology" />
-              </div>
-
+            <div class="md:col-span-2 flex justify-center">
               <div
-                class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
+                class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
-                {{ $t("reliable-tech") }}
-              </div>
+                <div class="flex justify-center my-5">
+                  <img src="/images/about-us/sticky.png" alt="technology" />
+                </div>
 
-              <p
-                class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
-              >
-                {{ $t("trust-paramount") }}
-              </p>
+                <div
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
+                >
+                  {{ $t("reliable-tech") }}
+                </div>
+
+                <p
+                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                >
+                  {{ $t("trust-paramount") }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -430,3 +438,29 @@
     <ContactEmail />
   </div>
 </template>
+
+<script setup>
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+
+const { t } = useI18n();
+
+const staticMetaTitle = t("about-title");
+const staticMetaDescription = t("about-us-description");
+const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
+  t(`about-us-meta-keyword-${i + 1}`)
+).join(", ");
+
+useHead({
+  title: staticMetaTitle,
+  meta: [
+    { name: "description", content: staticMetaDescription },
+    { name: "keywords", content: staticMetaKeywords },
+    { property: "og:title", content: staticMetaTitle },
+    { property: "og:description", content: staticMetaDescription },
+    { property: "og:type", content: "website" },
+    // { property: "og:image", content: "/images/thumbnail.jpg" },
+  ],
+});
+</script>

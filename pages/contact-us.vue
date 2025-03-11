@@ -201,4 +201,23 @@ import {
   message,
   handleSubmit,
 } from "@/composables/useContact";
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+const staticMetaTitle = t("contact-title");
+const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
+  t(`contact-us-meta-keyword-${i + 1}`)
+).join(", ");
+
+useHead({
+  title: staticMetaTitle,
+  meta: [
+    { name: "keywords", content: staticMetaKeywords },
+    { property: "og:title", content: staticMetaTitle },
+    { property: "og:type", content: "website" },
+    // { property: "og:image", content: "/images/thumbnail.jpg" },
+  ],
+});
 </script>

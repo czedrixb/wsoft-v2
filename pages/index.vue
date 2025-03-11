@@ -86,14 +86,15 @@
       <div
         class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-1 mb-10 md:mb-0"
       >
-        <div>
+        <div class="floating-item">
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
             {{ $t("project-success") }}
           </div>
         </div>
-        <div>
+
+        <div class="floating-item">
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
@@ -101,7 +102,8 @@
           </div>
           <div class="py-20 hidden md:block"></div>
         </div>
-        <div>
+
+        <div class="floating-item">
           <div
             class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
           >
@@ -110,225 +112,50 @@
         </div>
       </div>
 
-      <div class="flex justify-center mx-auto mb-5">
-        <div
-          class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
-        >
-          {{ $t("trusted-partner") }}
-        </div>
-      </div>
-
-      <div class="flex justify-center mb-5">
-        <img
-          src="/images/home/partner.png"
-          class="lg:w-[600px]"
-          alt="partner"
+      <div class="relative">
+        <DotLottieVue
+          class="absolute top-0 left-0 h-full z-0 opacity-50"
+          autoplay
+          loop
+          src="https://lottie.host/629be379-16b6-4e84-a306-082de2ae9fc4/ylCdRSYXuR.lottie"
         />
-      </div>
-
-      <p
-        class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%]"
-      >
-        {{ $t("delivers-cutting") }}
-      </p>
-    </div>
-
-    <div class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl py-16">
-      <div
-        class="flex flex-col relative justify-between items-center gap-y-8 lg:flex-row mb-14"
-      >
-        <div class="text-left lg:w-[45%]">
-          <div class="block lg:hidden">
+        <div class="z-20 relative">
+          <div class="flex justify-center mx-auto mb-5">
             <div
-              class="radial-progress bg-white text-[#C1C1C1] mb-5"
-              style="--value: 100; --size: 3rem; --thickness: 2px"
-              role="progressbar"
+              class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
             >
-              1
+              {{ $t("trusted-partner") }}
             </div>
           </div>
-          <div
-            class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
-          >
-            {{ $t("web-dev") }}
+
+          <div class="flex justify-center mb-5">
+            <img
+              src="/images/home/partner.png"
+              class="lg:w-[600px]"
+              alt="partner"
+            />
           </div>
 
           <p
-            class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+            class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%]"
           >
-            {{ $t("create-website") }}
+            {{ $t("delivers-cutting") }}
           </p>
-        </div>
-        <div
-          class="divider bg-[#C5C5C5] h-[1.5px] hidden lg:block lg:!w-[1.5px] lg:divider-horizontal"
-        ></div>
-        <div class="flex justify-end">
-          <img
-            src="/images/home/web-development.png"
-            class="lg:w-[430px] xl:w-[500px]"
-            alt="web-development"
-          />
-        </div>
-        <div
-          class="absolute hidden lg:block lg:left-[47.7%] xl:left-[50%] bottom-[50%]"
-        >
-          <div
-            class="radial-progress bg-white border-[#159ADE] text-[#159ADE]"
-            style="--value: 25; --size: 3rem; --thickness: 2px"
-            role="progressbar"
-          >
-            1
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col relative justify-between items-center gap-y-5 lg:flex-row mb-14"
-      >
-        <div class="text-left lg:w-[45%]">
-          <div class="block lg:hidden">
-            <div
-              class="radial-progress bg-white text-[#C1C1C1] mb-5"
-              style="--value: 100; --size: 3rem; --thickness: 2px"
-              role="progressbar"
-            >
-              2
-            </div>
-          </div>
-          <div
-            class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
-          >
-            {{ $t("web-app") }}
-          </div>
-
-          <p
-            class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
-          >
-            {{ $t("build-innovative") }}
-          </p>
-        </div>
-        <div
-          class="divider hidden lg:block bg-[#C5C5C5] h-[1.5px] lg:!w-[1.5px] lg:divider-horizontal"
-        ></div>
-        <div class="flex justify-end">
-          <img
-            src="/images/home/web-application.png"
-            class="lg:w-[430px] xl:w-[500px]"
-            alt="web-development"
-          />
-        </div>
-        <div
-          class="absolute hidden lg:block lg:left-[47.7%] xl:left-[50%] bottom-[50%]"
-        >
-          <div
-            class="radial-progress bg-white border-[#159ADE] text-[#159ADE]"
-            style="--value: 50; --size: 3rem; --thickness: 2px"
-            role="progressbar"
-          >
-            2
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col relative justify-between items-center gap-y-5 lg:flex-row mb-14"
-      >
-        <div class="text-left lg:w-[45%]">
-          <div class="block lg:hidden">
-            <div
-              class="radial-progress bg-white text-[#C1C1C1] mb-5"
-              style="--value: 100; --size: 3rem; --thickness: 2px"
-              role="progressbar"
-            >
-              3
-            </div>
-          </div>
-          <div
-            class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
-          >
-            {{ $t("ui-design") }}
-          </div>
-
-          <p
-            class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
-          >
-            {{ $t("design-intuitive") }}
-          </p>
-        </div>
-        <div
-          class="divider hidden lg:block bg-[#C5C5C5] h-[1.5px] lg:!w-[1.5px] lg:divider-horizontal"
-        ></div>
-        <div class="flex justify-end">
-          <img
-            src="/images/home/ui-design.png"
-            class="lg:w-[430px] xl:w-[500px]"
-            alt="web-development"
-          />
-        </div>
-        <div
-          class="absolute hidden lg:block lg:left-[47.7%] xl:left-[50%] bottom-[50%]"
-        >
-          <div
-            class="radial-progress bg-white border-[#159ADE] text-[#159ADE]"
-            style="--value: 75; --size: 3rem; --thickness: 2px"
-            role="progressbar"
-          >
-            3
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col relative justify-between items-center gap-y-5 lg:flex-row"
-      >
-        <div class="text-left lg:w-[45%]">
-          <div class="block lg:hidden">
-            <div
-              class="radial-progress bg-white text-[#C1C1C1] mb-5"
-              style="--value: 100; --size: 3rem; --thickness: 2px"
-              role="progressbar"
-            >
-              4
-            </div>
-          </div>
-          <div
-            class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
-          >
-            {{ $t("ai-utilization") }}
-          </div>
-
-          <p
-            class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
-          >
-            {{ $t("cut-customer") }}
-          </p>
-        </div>
-        <div
-          class="divider hidden lg:block bg-[#C5C5C5] h-[1.5px] lg:!w-[1.5px] lg:divider-horizontal"
-        ></div>
-        <div class="flex justify-end">
-          <img
-            src="/images/home/ai-utilization.png"
-            class="lg:w-[430px] xl:w-[500px]"
-            alt="web-development"
-          />
-        </div>
-        <div
-          class="absolute hidden lg:block lg:left-[47.7%] xl:left-[50%] bottom-[50%]"
-        >
-          <div
-            class="radial-progress bg-white border-[#159ADE] text-[#159ADE]"
-            style="--value: 100; --size: 3rem; --thickness: 2px"
-            role="progressbar"
-          >
-            4
-          </div>
         </div>
       </div>
     </div>
 
-    <div class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl py-16 mb-10">
+    <div class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl my-10 py-16">
+      <BriefServices />
+    </div>
+
+    <div
+      class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl pb-0 md:py-16 mb-0 md:mb-10"
+    >
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
       >
-        Our {{ $t("successful-projects") }}
+        {{ $t("successful-projects") }}
       </div>
 
       <p
@@ -356,7 +183,7 @@
                 <img
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
-                  alt=""
+                  alt="shadow"
                 />
               </div>
 
@@ -372,11 +199,31 @@
             </div>
           </div>
           <div class="md:flex">
-            <img
-              src="/images/home/project-2.png"
-              class="max-w-100"
-              alt="mob-app-1"
-            />
+            <div class="relative overflow-hidden group hidden md:block">
+              <img
+                src="/images/home/project-2.png"
+                class="max-w-100"
+                alt="content-management"
+              />
+              <div
+                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("content-management") }}
+                </div>
+              </div>
+            </div>
           </div>
           <div class="md:flex">
             <img
@@ -386,22 +233,72 @@
             />
           </div>
           <div class="md:col-span-2 md:flex">
-            <img
-              src="/images/home/project-4.png"
-              class="max-w-100"
-              alt="digigooz"
-            />
+            <div class="relative overflow-hidden group hidden md:block">
+              <img
+                src="/images/home/project-4.png"
+                class="max-w-100"
+                alt="digigooz"
+              />
+              <div
+                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("blockchain") }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- SMALL SCREEN -->
       <div class="block md:hidden">
-        <div class="mb-5">
+        <div class="relative mb-5">
           <img src="/images/home/project-1-mobile.png" alt="dashboard-mobs" />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("academic-administration") }}
+            </div>
+          </div>
         </div>
-        <div class="mb-5">
+        <div class="relative mb-5">
           <img src="/images/home/project-2-mobile.png" alt="mob-app-1-mobile" />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("content-management") }}
+            </div>
+          </div>
         </div>
         <div class="mb-5">
           <img
@@ -409,8 +306,23 @@
             alt=" mob-app-2-mobile"
           />
         </div>
-        <div class="mb-5">
+        <div class="relative mb-5">
           <img src="/images/home/project-4-mobile.png" alt="digigooz-mobile" />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("blockchain") }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -420,3 +332,29 @@
     <ContactEmail />
   </div>
 </template>
+ <script setup>
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+
+const { t } = useI18n();
+
+const staticMetaTitle = t("home-title");
+const staticMetaDescription = t("home-description");
+const staticMetaKeywords = [
+  t("home-meta-keyword"),
+  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
+].join(", ");
+
+useHead({
+  title: staticMetaTitle,
+  meta: [
+    { name: "description", content: staticMetaDescription },
+    { name: "keywords", content: staticMetaKeywords },
+    { property: "og:title", content: staticMetaTitle },
+    { property: "og:description", content: staticMetaDescription },
+    { property: "og:type", content: "website" },
+    // { property: "og:image", content: "/images/thumbnail.jpg" },
+  ],
+});
+</script>

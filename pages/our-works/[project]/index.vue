@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <OurWorksHeader :title="$t(project?.title)" :tools="project?.tools || []" />
 
     <div
@@ -29,80 +29,120 @@
 
       <div
         v-if="project.image1"
-        class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
+        class="relative mb-12 md:mb-[5rem] md:py-[5rem]"
       >
-        <NuxtImg
-          width="500px"
-          height="100%"
-          preload
-          :alt="project?.image1"
-          :src="`/images/our-works/${project?.image1}`"
-        />
-        <div class="lg:w-[80%] mx-auto">
-          <div
-            class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
-          >
-            {{ $t(project?.title1) }}
+        <div
+          v-if="project.image1"
+          class="grid grid-cols-1 md:grid-cols-2 items-center gap-5"
+        >
+          <div class="absolute left-0 md:left-[-67%] lg:left-[-37%] z-0">
+            <img
+              src="/images/home/shadow-overlay.png"
+              class="max-w-full"
+              alt="shadow-overlay"
+            />
           </div>
+          <NuxtImg
+            width="500px"
+            height="100%"
+            class="z-20"
+            preload
+            :alt="project?.image1"
+            :src="`/images/our-works/${project?.image1}`"
+          />
+          <div class="lg:w-[80%] mx-auto z-20">
+            <div
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+            >
+              {{ $t(project?.title1) }}
+            </div>
 
-          <p
-            class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
-          >
-            {{ $t(project?.text1) }}
-          </p>
+            <p
+              class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+            >
+              {{ $t(project?.text1) }}
+            </p>
+          </div>
         </div>
       </div>
 
       <div
         v-if="project.image2"
-        class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
+        class="relative mb-12 md:mb-[5rem] md:py-[5rem]"
       >
-        <div class="lg:w-[80%] mx-auto order-2 md:order-1">
-          <div
-            class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
-          >
-            {{ $t(project?.title2) }}
-          </div>
-
-          <p
-            class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
-          >
-            {{ $t(project?.text2) }}
-          </p>
+        <div
+          class="absolute right-0 md:right-[-67%] md:bottom-0 lg:right-[-37%] z-0"
+        >
+          <img
+            src="/images/home/shadow-overlay.png"
+            class="max-w-full"
+            alt="shadow-overlay"
+          />
         </div>
-        <NuxtImg
-          width="100%"
-          height="100%"
-          preload
-          alt="academic"
-          :src="`/images/our-works/${project?.image2}`"
-          class="order-1 md:order-2"
-        />
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-5">
+          <div class="lg:w-[80%] mx-auto order-2 md:order-1 z-20">
+            <div
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+            >
+              {{ $t(project?.title2) }}
+            </div>
+
+            <p
+              class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+            >
+              {{ $t(project?.text2) }}
+            </p>
+          </div>
+          <NuxtImg
+            width="100%"
+            height="100%"
+            preload
+            alt="academic"
+            :src="`/images/our-works/${project?.image2}`"
+            class="order-1 md:order-2 z-20"
+          />
+        </div>
       </div>
 
       <div
         v-if="project.image3"
-        class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
+        class="relative mb-12 md:mb-[5rem] md:py-[5rem]"
       >
-        <NuxtImg
-          width="500px"
-          height="100%"
-          preload
-          alt="academic"
-          :src="`/images/our-works/${project?.image3}`"
-        />
-        <div class="lg:w-[80%] mx-auto">
+        <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl">
           <div
-            class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+            class="absolute left-0 md:left-[-67%] md:bottom-[5%] lg:left-[-37%] z-0"
           >
-            {{ $t(project?.title3) }}
+            <img
+              src="/images/home/shadow-overlay.png"
+              class="max-w-full"
+              alt="shadow-overlay"
+            />
           </div>
-
-          <p
-            class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
           >
-            {{ $t(project?.text3) }}
-          </p>
+            <NuxtImg
+              width="500px"
+              height="100%"
+              class="z-20"
+              preload
+              alt="academic"
+              :src="`/images/our-works/${project?.image3}`"
+            />
+            <div class="lg:w-[80%] mx-auto z-20">
+              <div
+                class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+              >
+                {{ $t(project?.title3) }}
+              </div>
+
+              <p
+                class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+              >
+                {{ $t(project?.text3) }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -112,6 +152,9 @@
 </template>
 
 <script setup>
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+
 const route = useRoute();
 const projects = {
   "academic-administration-management-system": {
@@ -276,4 +319,18 @@ const projects = {
   },
 };
 const project = computed(() => projects[route.params.project]);
+
+// const staticMetaTitle = t("works-title");
+// const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
+//   t(`our-work-meta-keyword-${i + 1}`)
+// ).join(", ");
+
+// useHead({
+//   title: staticMetaTitle,
+//   meta: [
+//     { name: "keywords", content: staticMetaKeywords },
+//     { property: "og:title", content: staticMetaTitle },
+//     { property: "og:type", content: "website" },
+//   ],
+// });
 </script>
