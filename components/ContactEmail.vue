@@ -20,23 +20,31 @@
               >
                 {{ $t("help-transform") }}
               </p>
-
-              <label
-                class="input md:input-md lg:input-lg md:py-7 rounded-full bg-white flex items-center lg:w-[90%] xl:w-[80%] gap-2 lg:pe-2"
-              >
-                <input
-                  type="email"
-                  v-model="email"
-                  class="grow"
-                  :placeholder="$t('enter-email')"
-                />
-                <button
-                  @click="handleSubmit"
-                  class="btn btn-md font-inter md:text-[15px] lg:text-[18px] md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+              <form @submit.prevent="submitForm">
+                <label
+                  class="input md:input-md lg:input-lg md:py-7 rounded-full bg-white flex items-center lg:w-[90%] xl:w-[80%] gap-2 lg:pe-2"
                 >
-                  {{ $t("send") }}
-                </button>
-              </label>
+                  <input
+                    type="email"
+                    v-model="email"
+                    class="grow text-black"
+                    :placeholder="$t('enter-email')"
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-md font-inter md:text-[15px] lg:text-[18px] md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+                  >
+                    {{ $t("send") }}
+                  </button>
+                </label>
+                <p v-if="errors.email" class="text-white text-sm mt-2">
+                  {{
+                    errors.email.includes("required")
+                      ? $t("email-required")
+                      : $t("invalid-email")
+                  }}
+                </p>
+              </form>
             </div>
           </div>
         </div>
@@ -56,22 +64,31 @@
               {{ $t("help-transform") }}
             </p>
 
-            <label
-              class="input py-8 md:input-md lg:input-lg rounded-full bg-white flex items-center lg:w-[90%] xl:w-[80%] gap-2 pe-2"
-            >
-              <input
-                type="email"
-                v-model="email"
-                class="grow"
-                :placeholder="$t('enter-email')"
-              />
-              <button
-                @click="handleSubmit"
-                class="btn md:btn-sm lg:btn-md font-inter text-[18px] px-8 md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+            <form @submit.prevent="submitForm">
+              <label
+                class="input py-8 md:input-md lg:input-lg rounded-full bg-white flex items-center lg:w-[90%] xl:w-[80%] gap-2 pe-2"
               >
-                {{ $t("send") }}
-              </button>
-            </label>
+                <input
+                  type="email"
+                  v-model="email"
+                  class="grow text-black"
+                  :placeholder="$t('enter-email')"
+                />
+                <button
+                  type="submit"
+                  class="btn md:btn-sm lg:btn-md font-inter text-[18px] px-8 md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+                >
+                  {{ $t("send") }}
+                </button>
+              </label>
+              <p v-if="errors.email" class="text-white text-sm mt-2">
+                {{
+                  errors.email.includes("required")
+                    ? $t("email-required")
+                    : $t("invalid-email")
+                }}
+              </p>
+            </form>
           </div>
         </div>
 
@@ -89,26 +106,8 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-import { handleSubmit } from "@/composables/useContact";
+<script setup>
+import { useEmailSubscription } from "@/composables/useEmailSubscription";
 
-export default {
-  setup() {
-    const email = ref("");
-
-    const handleEmailSubmit = () => {
-      if (email.value && !message.value) {
-        message.value = "Wants to receive promotional email updates";
-      }
-
-      handleSubmit();
-    };
-
-    return {
-      email,
-      handleEmailSubmit,
-    };
-  },
-};
+const { email, submitForm, errors } = useEmailSubscription();
 </script>

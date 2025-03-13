@@ -24,7 +24,7 @@
               </p>
             </div>
 
-            <form @submit.prevent="handleSubmit">
+            <form @submit.prevent="submitForm">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <fieldset class="fieldset w-100">
                   <legend class="fieldset-legend mb-1 text-[#475766]">
@@ -33,18 +33,36 @@
                   <input
                     type="text"
                     v-model="first_name"
-                    class="input bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    :class="[
+                      'input w-full border bg-white rounded-2xl focus:ring-2',
+                      errors.first_name
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                        : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                    ]"
                     :placeholder="$t('first-name')"
                   />
+                  <p v-if="errors.first_name" class="text-red-500 text-sm mt-2">
+                    {{ $t("first-name-required") }}
+                  </p>
                 </fieldset>
+
                 <fieldset class="fieldset w-100 pt-7">
                   <input
                     type="text"
                     v-model="last_name"
-                    class="input bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    :class="[
+                      'input w-full border bg-white rounded-2xl focus:ring-2',
+                      errors.last_name
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                        : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                    ]"
                     :placeholder="$t('last-name')"
                   />
+                  <p v-if="errors.last_name" class="text-red-500 text-sm mt-2">
+                    {{ $t("last-name-required") }}
+                  </p>
                 </fieldset>
+
                 <fieldset class="fieldset md:col-span-2">
                   <legend class="fieldset-legend mb-1 text-[#475766]">
                     {{ $t("email-address") }}
@@ -52,10 +70,23 @@
                   <input
                     type="email"
                     v-model="email"
-                    class="input bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    :class="[
+                      'input w-full border bg-white rounded-2xl focus:ring-2',
+                      errors.email
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                        : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                    ]"
                     :placeholder="$t('enter-email')"
                   />
+                  <p v-if="errors.email" class="text-red-500 text-sm mt-2">
+                    {{
+                      errors.email.includes("required")
+                        ? $t("email-required")
+                        : $t("invalid-email")
+                    }}
+                  </p>
                 </fieldset>
+
                 <fieldset class="fieldset md:col-span-2">
                   <legend class="fieldset-legend mb-1 text-[#475766]">
                     {{ $t("phone-number") }}
@@ -63,10 +94,23 @@
                   <input
                     type="number"
                     v-model="phone"
-                    class="input bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    :class="[
+                      'input w-full border bg-white rounded-2xl focus:ring-2',
+                      errors.phone
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                        : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                    ]"
                     :placeholder="$t('enter-phone')"
                   />
+                  <p v-if="errors.phone" class="text-red-500 text-sm mt-2">
+                    {{
+                      errors.phone.includes("required")
+                        ? $t("phone-required")
+                        : $t("invalid-phone")
+                    }}
+                  </p>
                 </fieldset>
+
                 <fieldset class="fieldset md:col-span-2">
                   <legend class="fieldset-legend mb-1 text-[#475766]">
                     {{ $t("company") }}
@@ -74,10 +118,12 @@
                   <input
                     type="text"
                     v-model="company"
-                    class="input bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    class="input w-full border border-[#475766] bg-white rounded-2xl focus:border-[#2375E9] focus:ring-2"
                     :placeholder="$t('enter-company')"
                   />
+                  <p class="text-red-500 text-sm">{{ errors.company }}</p>
                 </fieldset>
+
                 <fieldset class="fieldset md:col-span-2">
                   <legend class="fieldset-legend mb-1 text-[#475766]">
                     {{ $t("message") }}
@@ -85,13 +131,22 @@
                   <textarea
                     v-model="message"
                     :placeholder="$t('enter-message')"
-                    class="textarea textarea-md text-[16px] bg-white w-[100%] border border-[#475766] rounded-2xl focus:border-[#2375E9] focus:ring-[#2375E9] focus:ring-2"
+                    :class="[
+                      'textarea text-[16px] w-full border bg-white rounded-2xl focus:ring-2',
+                      errors.message
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                        : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                    ]"
                   ></textarea>
+                  <p v-if="errors.message" class="text-red-500 text-sm mt-0">
+                    {{ $t("message-required") }}
+                  </p>
                 </fieldset>
+
                 <div>
                   <button
                     type="submit"
-                    class="btn px-10 text-[16px] bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+                    class="btn border-0 px-10 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white rounded-full hover:scale-105 transition-all duration-300"
                   >
                     {{ $t("submit") }}
                   </button>
@@ -192,17 +247,20 @@
 </template>
 
 <script setup>
-import {
+import { useHead } from "@vueuse/head";
+import { useI18n } from "vue-i18n";
+import { useContact } from "@/composables/useContact";
+
+const {
   first_name,
   last_name,
   email,
   phone,
   company,
   message,
-  handleSubmit,
-} from "@/composables/useContact";
-import { useHead } from "@vueuse/head";
-import { useI18n } from "vue-i18n";
+  submitForm,
+  errors,
+} = useContact();
 
 const { t } = useI18n();
 
@@ -217,7 +275,6 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>

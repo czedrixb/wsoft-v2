@@ -61,3 +61,27 @@ div {
     left: -5%;
   }
 }
+
+.toast-success {
+  background-color: #28a745 !important;
+  color: white !important;
+}
+
+.toast-error {
+  background-color: #dc3545 !important;
+  color: white !important;
+}
+
+.toast-success .swal2-title,
+.toast-error .swal2-title {
+  color: white !important;
+}
+
+.toast-success .swal2-html-container,
+.toast-error .swal2-html-container {
+  color: white !important;
+}
+
+.swal2-toast .swal2-icon {
+  background: transparent !important;
+}

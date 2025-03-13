@@ -175,6 +175,32 @@
           <div class="flex justify-center">
             <div>
               <img
+                src="/images/about-us/gale.png"
+                class="max-w-full mb-5"
+                alt="gale"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Gale
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Leslie Palmos
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("operation-manager") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
                 src="/images/about-us/joseph.png"
                 class="max-w-full mb-5"
                 alt="joseph"
@@ -227,24 +253,24 @@
           <div class="flex justify-center">
             <div>
               <img
-                src="/images/about-us/ben.png"
+                src="/images/about-us/salve.png"
                 class="max-w-full mb-5"
-                alt="ben"
+                alt="salve"
               />
 
               <div class="flex flex-col gap-y-1 text-center">
                 <div
                   class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
                 >
-                  Ben
+                  Salve
                 </div>
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Benito Orbino
+                  Salvacion Parreño
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("full-stack") }}
+                  {{ $t("corporate-secretary") }}
                 </div>
               </div>
             </div>
@@ -279,6 +305,32 @@
           <div class="flex justify-center">
             <div>
               <img
+                src="/images/about-us/ben.png"
+                class="max-w-full mb-5"
+                alt="ben"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Ben
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Benito Orbino
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("developer") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
                 src="/images/about-us/czedrix.png"
                 class="max-w-full mb-5"
                 alt="czedrix"
@@ -297,32 +349,6 @@
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/orland.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Orland
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Orland Salas
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("designer") }}
                 </div>
               </div>
             </div>
@@ -357,58 +383,6 @@
           <div class="flex justify-center">
             <div>
               <img
-                src="/images/about-us/gale.png"
-                class="max-w-full mb-5"
-                alt="gale"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Gale
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Leslie Palmos
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("human-resource") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/salve.png"
-                class="max-w-full mb-5"
-                alt="salve"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Salve
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Salvacion Parreño
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("corporate-secretary") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
                 src="/images/about-us/mon.png"
                 class="max-w-full mb-5"
                 alt="mon"
@@ -424,6 +398,32 @@
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
                   Raymond De La Cruz
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("designer") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/orland.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Orland
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Orland Salas
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("designer") }}

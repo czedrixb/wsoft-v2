@@ -226,11 +226,31 @@
             </div>
           </div>
           <div class="md:flex">
-            <img
-              src="/images/home/project-3.png"
-              class="max-w-100"
-              alt=" mob-app-2"
-            />
+            <div class="relative overflow-hidden group hidden md:block">
+              <img
+                src="/images/home/project-3.png"
+                class="max-w-100"
+                alt=" mob-app-2"
+              />
+              <div
+                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("foreign-language") }}
+                </div>
+              </div>
+            </div>
           </div>
           <div class="md:col-span-2 md:flex">
             <div class="relative overflow-hidden group hidden md:block">
@@ -300,11 +320,25 @@
             </div>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="relative mb-5">
           <img
             src="/images/home/project-3-mobile.png"
             alt=" mob-app-2-mobile"
           />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+            />
+          </div>
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("foreign-language") }}
+            </div>
+          </div>
         </div>
         <div class="relative mb-5">
           <img src="/images/home/project-4-mobile.png" alt="digigooz-mobile" />
