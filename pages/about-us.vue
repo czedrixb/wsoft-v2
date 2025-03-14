@@ -42,11 +42,22 @@
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto mb-10">
       <div class="relative">
         <DotLottieVue
-          class="absolute top-0 left-0 h-full z-0 opacity-50"
+          background="transparent"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style="width: 1500px; height: 1500px"
           autoplay
           loop
-          src="https://lottie.host/629be379-16b6-4e84-a306-082de2ae9fc4/ylCdRSYXuR.lottie"
+          src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
         />
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
+        >
+          <img
+            src="/images/blue-gradient.png"
+            class="w-[10000px]"
+            alt="shadow-overlay"
+          />
+        </div>
         <div
           class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >

@@ -81,14 +81,14 @@
     </div>
 
     <div
-      class="mx-auto px-8 md:px-0 md:max-w-screen-sm lg:max-w-screen-lg md mt-16"
+      class="mx-auto px-8 md:px-0 md:max-w-screen-sm lg:max-w-screen-lg md mt-[15rem]"
     >
       <div
         class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-1 mb-10 md:mb-0"
       >
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
+            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
           >
             {{ $t("project-success") }}
           </div>
@@ -96,7 +96,7 @@
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
+            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
           >
             {{ $t("customer-retention") }}
           </div>
@@ -105,7 +105,7 @@
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white shadow-md font-poppins text-center text-black py-3 w-[15rem]"
+            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
           >
             {{ $t("project-completed") }}
           </div>
@@ -113,12 +113,24 @@
       </div>
 
       <div class="relative">
-        <DotLottieVue
-          class="absolute top-0 left-0 h-full z-0 opacity-50"
-          autoplay
-          loop
-          src="https://lottie.host/629be379-16b6-4e84-a306-082de2ae9fc4/ylCdRSYXuR.lottie"
-        />
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <DotLottieVue
+            background="transparent"
+            style="width: 1500px; height: 1500px"
+            autoplay
+            loop
+            src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
+          />
+        </div>
+        <div class="absolute inset-0 z-20 opacity-100">
+          <img
+            src="/images/blue-gradient.png"
+            class="w-[5000px]"
+            alt="shadow-overlay"
+          />
+        </div>
         <div class="z-20 relative">
           <div class="flex justify-center mx-auto mb-5">
             <div
@@ -145,7 +157,9 @@
       </div>
     </div>
 
-    <div class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl my-10 py-16">
+    <div
+      class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl md:mt-[15rem] mb-10 py-16 z-50 relative"
+    >
       <BriefServices />
     </div>
 

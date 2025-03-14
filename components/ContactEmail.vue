@@ -93,11 +93,21 @@
         </div>
 
         <div
-          class="absolute left-[50%] bottom-[50%] md:bottom-[-3%] md:left-[48%] lg:left-[54%] xl:left-[57%] xl:bottom-[-25%]"
+          class="absolute left-[45%] bottom-[50%] md:bottom-[10%] md:left-[48%] lg:bottom-[-10%] lg:left-[50%] xl:left-[50%] xl:bottom-[0%] w-[100%] animate-moveRightLeft"
         >
           <img
-            src="/images/home/email-overlay.png"
-            class="w-[200px] md:w-[400px] lg:w-[480px]"
+            src="/images/home/left-photo.png"
+            class="w-[180px] md:w-[300px] lg:w-[330px]"
+            alt="img-email"
+          />
+        </div>
+
+        <div
+          class="absolute left-[60%] bottom-[50%] md:bottom-[-10%] md:left-[65%] lg:bottom-[-25%] lg:left-[68%] xl:left-[63%] xl:bottom-[-25%] w-[100%] animate-moveLeftRight"
+        >
+          <img
+            src="/images/home/right-photo.png"
+            class="w-[180px] md:w-[300px] lg:w-[330px]"
             alt="img-email"
           />
         </div>
