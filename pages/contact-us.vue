@@ -146,9 +146,15 @@
                 <div>
                   <button
                     type="submit"
-                    class="btn border-0 px-10 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white rounded-full hover:scale-105 transition-all duration-300"
+                    class="relative font-[400] text-[16px] px-14 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
                   >
-                    {{ $t("submit") }}
+                    <span class="relative z-10"> {{ $t("submit") }}</span>
+                    <span
+                      class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+                    ></span>
+                    <span
+                      class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+                    ></span>
                   </button>
                 </div>
               </div>

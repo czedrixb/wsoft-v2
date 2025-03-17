@@ -3,7 +3,11 @@
     <div class="navbar text-black py-5">
       <div class="flex-1">
         <NuxtLink to="/">
-          <img src="/images/logo.svg" class="w-[200px]" alt="wsoft-logo" />
+          <img
+            src="/images/logo.svg"
+            class="w-[200px] lg:w-[250px]"
+            alt="wsoft-logo"
+          />
         </NuxtLink>
       </div>
       <div class="flex-none">
@@ -32,22 +36,27 @@
             v-for="link in navLinks"
             :key="link.title"
             :to="link.to"
-            class="mx-3 text-[16px] font-[400] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+            class="mx-3 text-[16px] lg:text-[18px] font-[400] font-inter transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
           >
             <li>{{ $t(link.title) }}</li>
           </NuxtLink>
         </ul>
         <NuxtLink to="/contact-us">
           <button
-            class="btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+            class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
-            {{ $t("Talk with an Expert") }}
+            <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10"
+            ></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px]"
+            ></span>
           </button>
         </NuxtLink>
       </div>
     </div>
 
-    <!-- Animated Mobile Menu Modal -->
     <transition
       enter-active-class="transition duration-300 ease-out"
       enter-from-class="opacity-0 scale-95"
@@ -71,7 +80,7 @@
           <NuxtLink to="/">
             <img
               src="/images/logo.svg"
-              class="w-[180px] mb-3"
+              class="w-[250px] mb-3"
               alt="wsoft-logo"
             />
           </NuxtLink>
@@ -81,7 +90,7 @@
           <li
             v-for="link in navLinks"
             :key="link.title"
-            class="text-[16px] font-[400]"
+            class="text-[18px] font-[400] active:!bg-transparent active:!border-0 active:!text-black"
           >
             <NuxtLink @click="isMenuOpen = false" :to="link.to">{{
               $t(link.title)
@@ -90,11 +99,17 @@
         </ul>
 
         <div class="text-center">
-          <NuxtLink to="/contact-us">
+          <NuxtLink @click="isMenuOpen = false" to="/contact-us">
             <button
-              class="btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none"
+              class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
             >
-              {{ $t("Talk with an Expert") }}
+              <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
+              <span
+                class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10"
+              ></span>
+              <span
+                class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px]"
+              ></span>
             </button>
           </NuxtLink>
         </div>
@@ -122,3 +137,13 @@ const navLinks = [
   },
 ];
 </script>
+
+<style scoped>
+.menu li > *:not(ul, .menu-title, details, .btn):active,
+.menu li > *:not(ul, .menu-title, details, .btn).active,
+.menu li > details > summary:active {
+  background-color: transparent !important;
+  --tw-text-opacity: 1;
+  color: black !important;
+}
+</style>

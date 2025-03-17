@@ -32,9 +32,15 @@
                   />
                   <button
                     type="submit"
-                    class="btn btn-md font-inter md:text-[15px] lg:text-[18px] md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+                    class="relative btn-md font-inter md:text-[15px] lg:text-[18px] md:px-8 lg:px-8 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
                   >
-                    {{ $t("send") }}
+                    <span class="relative z-10"> {{ $t("send") }}</span>
+                    <span
+                      class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+                    ></span>
+                    <span
+                      class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+                    ></span>
                   </button>
                 </label>
                 <p v-if="errors.email" class="text-white text-sm mt-2">
@@ -76,9 +82,15 @@
                 />
                 <button
                   type="submit"
-                  class="btn md:btn-sm lg:btn-md font-inter text-[18px] px-8 md:px-8 lg:px-8 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+                  class="relative md:btn-sm lg:btn-md font-inter text-[18px] px-8 py-4 md:px-8 lg:px-8 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
                 >
-                  {{ $t("send") }}
+                  <span class="relative z-10"> {{ $t("send") }}</span>
+                  <span
+                    class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+                  ></span>
+                  <span
+                    class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+                  ></span>
                 </button>
               </label>
               <p v-if="errors.email" class="text-white text-sm mt-2">

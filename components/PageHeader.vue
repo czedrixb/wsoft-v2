@@ -6,7 +6,9 @@
       <source src="/images/about-us/bg-hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video> -->
-    <div class="absolute inset-0 bg-main opacity-[.60] hidden lg:block"></div>
+    <div
+      class="absolute inset-0 bg-[#ebf0f7] opacity-[.60] hidden lg:block"
+    ></div>
     <div class="absolute inset-0 flex justify-center">
       <NuxtImg
         src="/images/about-us/hero-overlay.png"

@@ -174,7 +174,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  WonSeok Jung
+                  {{ $t("matt") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("ceo") }}
@@ -200,7 +200,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Leslie Palmos
+                  {{ $t("gale") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("operation-manager") }}
@@ -226,7 +226,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Kang Jun Lee
+                  {{ $t("joseph") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("senior-dev") }}
@@ -252,7 +252,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Amron Florence Arda
+                  {{ $t("jaimie") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("project-officer") }}
@@ -278,7 +278,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Salvacion Parreño
+                  {{ $t("salve") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("corporate-secretary") }}
@@ -304,7 +304,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Rhoda Grace Brito
+                  {{ $t("lora") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("marketing-specialist") }}
@@ -330,7 +330,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Benito Orbino
+                  {{ $t("ben") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("developer") }}
@@ -356,7 +356,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Czedrix Barcena
+                  {{ $t("czedrix") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("developer") }}
@@ -382,7 +382,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Raymond John Yorong
+                  {{ $t("rj") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("developer") }}
@@ -408,7 +408,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Raymond De La Cruz
+                  {{ $t("mon") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("designer") }}
@@ -434,7 +434,7 @@
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  Orland Salas
+                  {{ $t("orland") }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
                   {{ $t("designer") }}

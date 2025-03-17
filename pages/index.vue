@@ -1,66 +1,73 @@
 <template>
   <div>
     <div
-      class="w-full h-[30rem] md:h-[39rem] lg:h-[35rem] xl:h-[42rem] relative overflow-hidden"
+      class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video
-        class="absolute inset-0 w-full h-full object-cover"
-        autoplay
-        loop
-        muted
-        playsinline
-      >
+      <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video> -->
 
+      <div class="absolute inset-0 bg-[#ebf0f7] opacity-[.80]"></div>
+
       <div
-        class="absolute inset-0 bg-main opacity-80 flex justify-center items-center"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
       >
-        <div>
-          <div class="flex justify-center mb-5">
-            <img
-              src="/images/home/w-softlabs.svg"
-              class="w-[340px] lg:w-[583px]"
-              alt="w-softlabs"
-            />
-          </div>
-          <div
-            class="mb-5 lg:mb-12 text-[2.5rem] lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent"
-          >
-            업무 효율을 극대화
-          </div>
-
-          <div class="flex justify-center mb-6">
-            <img
-              src="/images/home/jumbotron.webp"
-              class="w-[125px] lg:w-[168px]"
-              alt="w-softlabs"
-            />
-          </div>
-
-          <p
-            class="text-center text-[#475766] font-[300] text-[18px] px-5 md:px-0"
-          >
-            {{ $t("elevate-business") }}
-          </p>
+        <div class="flex justify-center">
+          <img
+            src="/images/home/w-softlabs.svg"
+            class="w-[340px] mb-3 lg:w-[583px]"
+            alt="w-softlabs"
+          />
         </div>
-      </div>
 
-      <div
-        class="absolute inset-0 top-[85%] left-[31%] md:top-[78%] md:left-[40%] lg:top-[88%] lg:left-[40%] xl:left-[43%] 2xl:left-[46%] z-40"
-      >
-        <NuxtLink to="/contact-us">
-          <button
-            class="btn lg:btn-lg bg-gradient-to-r from-[#2375E9] to-[#02C7D0] font-[400] text-white rounded-full border-none transition-all duration-300 transform hover:scale-105"
+        <div
+          class="relative h-[8rem] overflow-hidden flex justify-center md:h-[5rem] lg:mb-[3rem]"
+        >
+          <transition
+            enter-active-class="animate-fade-up"
+            leave-active-class="opacity-0"
           >
-            {{ $t("Talk with an Expert") }}
+            <div
+              :key="currentWord"
+              class="absolute text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full"
+            >
+              {{ currentWord }}
+            </div>
+          </transition>
+        </div>
+
+        <div class="flex justify-center mb-6">
+          <img
+            src="/images/home/jumbotron.webp"
+            class="w-[125px] lg:w-[168px]"
+            alt="w-softlabs"
+          />
+        </div>
+
+        <p
+          class="text-center text-[#475766] opacity-100 font-[300] font-[inter] text-[18px] px-5 md:px-0 mb-[3rem]"
+        >
+          {{ $t("elevate-business") }}
+        </p>
+
+        <NuxtLink class="flex justify-center z-50" to="/contact-us">
+          <button
+            class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+          >
+            <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+            ></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+            ></span>
           </button>
         </NuxtLink>
       </div>
 
       <div
-        class="absolute left-[-104%] bottom-[-2%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%] xxl:left-[-20%]"
+        class="absolute right-[-104%] bottom-[10%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%]"
       >
         <img
           src="/images/home/shadow-overlay.png"
@@ -68,9 +75,8 @@
           alt="shadow-overlay"
         />
       </div>
-
       <div
-        class="absolute right-[-104%] bottom-[-2%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%] xxl:right-[-20%]"
+        class="absolute left-[-104%] bottom-[10%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%]"
       >
         <img
           src="/images/home/shadow-overlay.png"
@@ -81,7 +87,7 @@
     </div>
 
     <div
-      class="mx-auto px-8 md:px-0 md:max-w-screen-sm lg:max-w-screen-lg md mt-[15rem]"
+      class="mx-auto px-8 md:px-0 md:max-w-screen-sm mt-[5rem] lg:max-w-screen-lg lg:mt-[15rem]"
     >
       <div
         class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-1 mb-10 md:mb-0"
@@ -124,7 +130,7 @@
             src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
           />
         </div>
-        <div class="absolute inset-0 z-20 opacity-100">
+        <div class="absolute top-[30%] md:inset-0 z-20 opacity-100 w-full">
           <img
             src="/images/blue-gradient.png"
             class="w-[5000px]"
@@ -134,7 +140,7 @@
         <div class="z-20 relative">
           <div class="flex justify-center mx-auto mb-5">
             <div
-              class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] lg:text-[40px] md:px-0 text-[#475766] mb-5"
             >
               {{ $t("trusted-partner") }}
             </div>
@@ -143,7 +149,7 @@
           <div class="flex justify-center mb-5">
             <img
               src="/images/home/partner.png"
-              class="lg:w-[600px]"
+              class="lg:w-[800px]"
               alt="partner"
             />
           </div>
@@ -184,7 +190,10 @@
           class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 grid-rows-2 gap-10"
         >
           <div class="md:col-span-2 h-1px md:flex">
-            <div class="relative overflow-hidden group hidden md:block">
+            <NuxtLink
+              to="/our-works/academic-administration-management-system"
+              class="relative overflow-hidden group hidden md:block"
+            >
               <img
                 src="/images/home/project-1.png"
                 class="max-w-full h-[25rem] md:h-auto"
@@ -210,10 +219,13 @@
                   {{ $t("academic-administration") }}
                 </div>
               </div>
-            </div>
+            </NuxtLink>
           </div>
           <div class="md:flex">
-            <div class="relative overflow-hidden group hidden md:block">
+            <NuxtLink
+              to="/our-works/content-management-system"
+              class="relative overflow-hidden group hidden md:block"
+            >
               <img
                 src="/images/home/project-2.png"
                 class="max-w-100"
@@ -237,10 +249,13 @@
                   {{ $t("content-management") }}
                 </div>
               </div>
-            </div>
+            </NuxtLink>
           </div>
           <div class="md:flex">
-            <div class="relative overflow-hidden group hidden md:block">
+            <NuxtLink
+              to="/our-works/foreign-language-learning-system"
+              class="relative overflow-hidden group hidden md:block"
+            >
               <img
                 src="/images/home/project-3.png"
                 class="max-w-100"
@@ -264,10 +279,13 @@
                   {{ $t("foreign-language") }}
                 </div>
               </div>
-            </div>
+            </NuxtLink>
           </div>
           <div class="md:col-span-2 md:flex">
-            <div class="relative overflow-hidden group hidden md:block">
+            <NuxtLink
+              to="/our-works/blockchain"
+              class="relative overflow-hidden group hidden md:block"
+            >
               <img
                 src="/images/home/project-4.png"
                 class="max-w-100"
@@ -291,14 +309,17 @@
                   {{ $t("blockchain") }}
                 </div>
               </div>
-            </div>
+            </NuxtLink>
           </div>
         </div>
       </div>
 
       <!-- SMALL SCREEN -->
-      <div class="block md:hidden">
-        <div class="relative mb-5">
+      <div class="flex flex-col gap-y-5 md:hidden mb-[5rem]">
+        <NuxtLink
+          to="/our-works/academic-administration-management-system"
+          class="relative"
+        >
           <img src="/images/home/project-1-mobile.png" alt="dashboard-mobs" />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
@@ -315,8 +336,8 @@
               {{ $t("academic-administration") }}
             </div>
           </div>
-        </div>
-        <div class="relative mb-5">
+        </NuxtLink>
+        <NuxtLink to="/our-works/content-management-system" class="relative">
           <img src="/images/home/project-2-mobile.png" alt="mob-app-1-mobile" />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
@@ -333,8 +354,11 @@
               {{ $t("content-management") }}
             </div>
           </div>
-        </div>
-        <div class="relative mb-5">
+        </NuxtLink>
+        <NuxtLink
+          to="/our-works/foreign-language-learning-system"
+          class="relative"
+        >
           <img
             src="/images/home/project-3-mobile.png"
             alt=" mob-app-2-mobile"
@@ -353,8 +377,8 @@
               {{ $t("foreign-language") }}
             </div>
           </div>
-        </div>
-        <div class="relative mb-5">
+        </NuxtLink>
+        <NuxtLink to="/our-works/blockchain" class="relative">
           <img src="/images/home/project-4-mobile.png" alt="digigooz-mobile" />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
@@ -371,7 +395,7 @@
               {{ $t("blockchain") }}
             </div>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
 
@@ -384,6 +408,32 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+
+const heroWords = [
+  "업무 효율을 극대화",
+  "데이터로 세상을 이해",
+  "가능성을 연결",
+  "성장 엔진을 설계",
+  "인공지능으로 혁신",
+  "신뢰를 설계",
+  "무한한 가능성을 창조",
+  "데이터로 혁신",
+  "비즈니스를 스마트하게",
+  "기술의 미래를 선도",
+];
+
+const currentIndex = ref(0);
+
+const currentWord = computed(() => heroWords[currentIndex.value]);
+
+onMounted(() => {
+  const interval = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % heroWords.length;
+  }, 3000);
+
+  onUnmounted(() => clearInterval(interval));
+});
 
 const { t } = useI18n();
 
@@ -406,3 +456,20 @@ useHead({
   ],
 });
 </script>
+
+<style scoped>
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-in-out;
+}
+</style>
