@@ -122,13 +122,13 @@
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          <DotLottieVue
+          <!-- <DotLottieVue
             background="transparent"
             style="width: 1500px; height: 1500px"
             autoplay
             loop
             src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
-          />
+          /> -->
         </div>
         <div class="absolute top-[30%] md:inset-0 z-20 opacity-100 w-full">
           <img
@@ -164,9 +164,10 @@
     </div>
 
     <div
-      class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl md:mt-[15rem] mb-10 py-16 z-50 relative"
+      class="mx-auto px-8 max-w-screen-2xl md:mt-[15rem] mb-10 py-16 z-50 relative"
+      ref="scrollContainer"
     >
-      <BriefServices />
+      <BriefServices ref="briefServices" />
     </div>
 
     <div
@@ -409,6 +410,7 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted, onUnmounted } from "vue";
+import { gsap } from "gsap";
 
 const heroWords = [
   "업무 효율을 극대화",
@@ -454,6 +456,45 @@ useHead({
     { property: "og:type", content: "website" },
     // { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
+});
+
+const scrollContainer = ref(null);
+const briefServices = ref(null);
+
+const checkScrollPosition = () => {
+  const rect = scrollContainer.value.getBoundingClientRect();
+  const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+  if (isInView && briefServices.value) {
+    gsap.to(briefServices.value, {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100vh",
+      zIndex: 1000,
+      duration: 1,
+      overwrite: true,
+    });
+  } else if (briefServices.value) {
+    gsap.to(briefServices.value, {
+      position: "relative",
+      height: "auto",
+      width: "auto",
+      zIndex: 0,
+      duration: 1,
+      overwrite: true,
+    });
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", checkScrollPosition);
+  checkScrollPosition(); // Check on mount
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", checkScrollPosition);
 });
 </script>
 

@@ -1821,6 +1821,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/progressbar.js@npm:^1":
+  version: 1.1.7
+  resolution: "@types/progressbar.js@npm:1.1.7"
+  checksum: 10c0/21a21cbb645f8d10a6347870388e52a9159ba276761df95af4dea83ddeaa72d4c82b3d174fd1850a629238882ea66883bebe0c2014ef985eae2fc35a83b917d2
+  languageName: node
+  linkType: hard
+
 "@types/resolve@npm:1.20.2":
   version: 1.20.2
   resolution: "@types/resolve@npm:1.20.2"
@@ -4262,7 +4269,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:~2.3.2, fsevents@npm:~2.3.3":
+"fsevents@npm:^2.3.2, fsevents@npm:~2.3.2, fsevents@npm:~2.3.3":
   version: 2.3.3
   resolution: "fsevents@npm:2.3.3"
   dependencies:
@@ -4272,7 +4279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A~2.3.3#optional!builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A^2.3.2#optional!builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A~2.3.3#optional!builtin<compat/fsevents>":
   version: 2.3.3
   resolution: "fsevents@patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
   dependencies:
@@ -4498,6 +4505,13 @@ __metadata:
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 10c0/386d011a553e02bc594ac2ca0bd6d9e4c22d7fa8cfbfc448a6d148c59ea881b092db9dbe3547ae4b88e55f1b01f7c4a2ecc53b310c042793e63aa44cf6c257f2
+  languageName: node
+  linkType: hard
+
+"gsap@npm:^3.12.7":
+  version: 3.12.7
+  resolution: "gsap@npm:3.12.7"
+  checksum: 10c0/48691602da4c0aaa61a8fe7426e5e2f873e9edb4b7e732b90928c815a47dd1e94d05174bd6f04e73a11184cb0df8c0d2b98d58cd1cbd2df01e33769f6aa8ff11
   languageName: node
   linkType: hard
 
@@ -5418,6 +5432,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.merge@npm:^4.6.2":
+  version: 4.6.2
+  resolution: "lodash.merge@npm:4.6.2"
+  checksum: 10c0/402fa16a1edd7538de5b5903a90228aa48eb5533986ba7fa26606a49db2572bf414ff73a2c9f5d5fd36b31c46a5d5c7e1527749c07cbcf965ccff5fbdf32c506
+  languageName: node
+  linkType: hard
+
 "lodash.throttle@npm:^4.0.1":
   version: 4.1.1
   resolution: "lodash.throttle@npm:4.1.1"
@@ -6132,11 +6153,14 @@ __metadata:
     "@nuxt/image": "npm:1.9.0"
     "@nuxtjs/i18n": "npm:^9.2.1"
     "@nuxtjs/tailwindcss": "npm:^6.13.1"
+    "@types/progressbar.js": "npm:^1"
     "@vueuse/head": "npm:^2.0.0"
     aos: "npm:^2.3.4"
     daisyui: "npm:^4.12.23"
     emailjs-com: "npm:^3.2.0"
+    gsap: "npm:^3.12.7"
     nuxt: "npm:^3.15.4"
+    progressbar.js: "npm:^1.1.1"
     sass: "npm:^1.85.1"
     sweetalert2: "npm:^11.17.2"
     typescript: "npm:^5.8.2"
@@ -7060,6 +7084,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"progressbar.js@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "progressbar.js@npm:1.1.1"
+  dependencies:
+    lodash.merge: "npm:^4.6.2"
+    shifty: "npm:^2.8.3"
+  checksum: 10c0/cb120fdfea2ab7b40b57435841ee76f14cae986f7fcfe8df0844faecd2b12798c5fc7ed8699c8074d071e28cd4ed18f7ecf15136eed09ada616aaadbf3b3f146
+  languageName: node
+  linkType: hard
+
 "promise-retry@npm:^2.0.1":
   version: 2.0.1
   resolution: "promise-retry@npm:2.0.1"
@@ -7635,6 +7669,18 @@ __metadata:
   version: 1.8.2
   resolution: "shell-quote@npm:1.8.2"
   checksum: 10c0/85fdd44f2ad76e723d34eb72c753f04d847ab64e9f1f10677e3f518d0e5b0752a176fd805297b30bb8c3a1556ebe6e77d2288dbd7b7b0110c7e941e9e9c20ce1
+  languageName: node
+  linkType: hard
+
+"shifty@npm:^2.8.3":
+  version: 2.20.4
+  resolution: "shifty@npm:2.20.4"
+  dependencies:
+    fsevents: "npm:^2.3.2"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 10c0/e7d5464068eac020928436b9c99f6ef9295988b517b41281cf5f4cee128bb76a17e7c5aace3b3c3217b68e7137f0837428c499464a70d860cb7ad9203de8402f
   languageName: node
   linkType: hard
 
