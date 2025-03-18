@@ -59,11 +59,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useNuxtApp } from "#app";
 
-gsap.registerPlugin(ScrollTrigger);
+const { $gsap, $ScrollTrigger } = useNuxtApp();
 
 const services = ref([
   {
@@ -97,70 +96,46 @@ const services = ref([
 ]);
 
 onMounted(() => {
-  gsap.utils.toArray(".service-section").forEach((section) => {
+  if (!$gsap || !$ScrollTrigger) return; // Ensure GSAP is available
+
+  $gsap.utils.toArray(".service-section").forEach((section) => {
     const textLeft = section.querySelector(".text-left");
     const imageRight = section.querySelector(".flex.justify-end");
 
-    gsap.set(textLeft, { y: "-50%" });
-    gsap.set(imageRight, { y: "50%" });
+    $gsap.set(textLeft, { y: "-50%" });
+    $gsap.set(imageRight, { y: "50%" });
 
-    ScrollTrigger.create({
+    $ScrollTrigger.create({
       trigger: section,
       start: "top 70%",
       end: "bottom 30%",
       scroller: ".service-sections",
       onEnter: () => {
-        gsap.to(textLeft, {
-          y: "0%",
-          duration: 1,
-          ease: "power3.out",
-        });
-        gsap.to(imageRight, {
-          y: "0%",
-          duration: 1,
-          ease: "power3.out",
-        });
+        $gsap.to(textLeft, { y: "0%", duration: 1, ease: "power3.out" });
+        $gsap.to(imageRight, { y: "0%", duration: 1, ease: "power3.out" });
       },
       onLeave: () => {
-        gsap.to(textLeft, {
-          y: "-50%",
-          duration: 1,
-          ease: "power3.in",
-        });
-        gsap.to(imageRight, {
-          y: "50%",
-          duration: 1,
-          ease: "power3.in",
-        });
+        $gsap.to(textLeft, { y: "-50%", duration: 1, ease: "power3.in" });
+        $gsap.to(imageRight, { y: "50%", duration: 1, ease: "power3.in" });
       },
       onEnterBack: () => {
-        gsap.to(textLeft, {
-          y: "0%",
-          duration: 1,
-          ease: "power3.out",
-        });
-        gsap.to(imageRight, {
-          y: "0%",
-          duration: 1,
-          ease: "power3.out",
-        });
+        $gsap.to(textLeft, { y: "0%", duration: 1, ease: "power3.out" });
+        $gsap.to(imageRight, { y: "0%", duration: 1, ease: "power3.out" });
       },
       onLeaveBack: () => {
-        gsap.to(textLeft, {
-          y: "-50%",
-          duration: 1,
-          ease: "power3.in",
-        });
-        gsap.to(imageRight, {
-          y: "50%",
-          duration: 1,
-          ease: "power3.in",
-        });
+        $gsap.to(textLeft, { y: "-50%", duration: 1, ease: "power3.in" });
+        $gsap.to(imageRight, { y: "50%", duration: 1, ease: "power3.in" });
       },
       markers: false,
       toggleActions: "play none none reverse",
     });
   });
+
+  $ScrollTrigger.refresh();
+});
+
+onBeforeUnmount(() => {
+  $ScrollTrigger.kill(); // Clean up ScrollTrigger when component unmounts
 });
 </script>
 
