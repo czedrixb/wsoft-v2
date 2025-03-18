@@ -122,13 +122,13 @@
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          <DotLottieVue
+          <!-- <DotLottieVue
             background="transparent"
             style="width: 1500px; height: 1500px"
             autoplay
             loop
             src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
-          />
+          /> -->
         </div>
         <div class="absolute top-[30%] md:inset-0 z-20 opacity-100 w-full">
           <img
@@ -163,9 +163,7 @@
       </div>
     </div>
 
-    <div
-      class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl md:mt-[15rem] mb-10 py-16 z-50 relative"
-    >
+    <div class="mx-auto px-8 max-w-screen-2xl md:mt-[15rem] mb-10 py-16">
       <BriefServices />
     </div>
 

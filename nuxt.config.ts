@@ -4,7 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
     css: ['@/assets/styles/style.css', '@/assets/styles/marquee.scss', '@mdi/font/css/materialdesignicons.css'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
-  plugins: ['~/plugins/i18n.js'],
+  plugins: [
+    '~/plugins/i18n.js',
+    { src: '~/plugins/gsap.client.js', mode: 'client' }
+  ],
       app: {
     head: {
       titleTemplate: 'WSoft Labs',
