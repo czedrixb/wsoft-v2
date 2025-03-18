@@ -411,6 +411,9 @@ import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const heroWords = [
   "업무 효율을 극대화",
