@@ -17,9 +17,7 @@
     "@vueuse/head": "^2.0.0",
     "aos": "^2.3.4",
     "emailjs-com": "^3.2.0",
-    "gsap": "^3.12.7",
     "nuxt": "^3.15.4",
-    "progressbar.js": "^1.1.1",
     "sweetalert2": "^11.17.2",
     "vee-validate": "4",
     "vue": "latest",
@@ -30,7 +28,6 @@
   "packageManager": "yarn@4.4.0+sha512.91d93b445d9284e7ed52931369bc89a663414e5582d00eea45c67ddc459a2582919eece27c412d6ffd1bd0793ff35399381cb229326b961798ce4f4cc60ddfdb",
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.1",
-    "@types/progressbar.js": "^1",
     "daisyui": "^4.12.23",
     "sass": "^1.85.1",
     "typescript": "^5.8.2"
