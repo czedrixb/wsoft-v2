@@ -13,7 +13,7 @@
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
       >
-        <div class="flex justify-center">
+        <div class="flex justify-center lg:mb-[1rem]">
           <img
             src="/images/home/w-softlabs.svg"
             class="w-[340px] mb-3 lg:w-[583px]"
@@ -22,7 +22,7 @@
         </div>
 
         <div
-          class="relative h-[8rem] overflow-hidden flex justify-center md:h-[5rem] lg:mb-[3rem]"
+          class="relative h-[5rem] overflow-hidden flex justify-center lg:mb-[2rem]"
         >
           <transition
             enter-active-class="animate-fade-up"
@@ -183,7 +183,7 @@
       </p>
 
       <!-- LARGE SCREEN -->
-      <div class="hidden md:block">
+      <div class="hidden md:block mb-[3rem]">
         <div
           class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 grid-rows-2 gap-10"
         >
@@ -313,7 +313,7 @@
       </div>
 
       <!-- SMALL SCREEN -->
-      <div class="flex flex-col gap-y-5 md:hidden mb-[5rem]">
+      <div class="flex flex-col gap-y-5 md:hidden mb-[3rem]">
         <NuxtLink
           to="/our-works/academic-administration-management-system"
           class="relative"
@@ -395,9 +395,27 @@
           </div>
         </NuxtLink>
       </div>
+
+      <div class="flex justify-center mb-[5rem]">
+        <NuxtLink class="flex justify-center z-50" to="/our-works">
+          <button
+            class="relative font-[400] text-[18px] px-12 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+          >
+            <span class="relative z-10">{{ $t("see-more") }}</span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+            ></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+            ></span>
+          </button>
+        </NuxtLink>
+      </div>
     </div>
 
-    <TechStackMarquee />
+    <div class="mb-[12rem]">
+      <TechStackMarquee />
+    </div>
 
     <ContactEmail />
   </div>
@@ -410,14 +428,14 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const heroWords = [
   "업무 효율을 극대화",
-  "데이터로 세상을 이해",
+  // "데이터로 세상을 이해",
   "가능성을 연결",
   "성장 엔진을 설계",
   "인공지능으로 혁신",
   "신뢰를 설계",
-  "무한한 가능성을 창조",
+  // "무한한 가능성을 창조",
   "데이터로 혁신",
-  "비즈니스를 스마트하게",
+  // "비즈니스를 스마트하게",
   "기술의 미래를 선도",
 ];
 

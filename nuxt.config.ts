@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
   plugins: [
     '~/plugins/i18n.js',
-    { src: '~/plugins/gsap.client.js', mode: 'client' }
+  { src: '~/plugins/gsap.client.js', mode: 'client' }
   ],
       app: {
     head: {

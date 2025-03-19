@@ -3,13 +3,11 @@
     <PageHeader :title="$t('Services')" :description="$t('services-text')" />
 
     <div
-      class="px-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-10 overflow-hidden"
+      class="px-5 py-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-10 overflow-hidden"
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div class="flex">
-          <div
-            class="card bg-white shadow-md text-primary-content p-5 pb-0 flex flex-col justify-between"
-          >
+          <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
             <div>
               <div
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
@@ -45,7 +43,7 @@
               </div>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-14"
               >
                 {{ $t("intuitive-ai") }}
               </p>
@@ -64,7 +62,7 @@
               </div>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-14"
               >
                 {{ $t("keep-website") }}
               </p>

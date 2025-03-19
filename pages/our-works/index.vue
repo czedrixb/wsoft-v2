@@ -8,6 +8,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10">
         <div v-for="(project, key) in projects" :key="key">
           <NuxtLink :to="`/our-works/${key}`">
+            <div class="block md:hidden mb-1">
+              <div
+                class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
+              >
+                {{ $t(project.title) }}
+              </div>
+            </div>
             <NuxtImg
               width="600px"
               height="100%"
@@ -15,7 +22,7 @@
               :alt="project.title"
               class="mb-5"
             />
-            <div>
+            <div class="hidden md:block">
               <div
                 class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
               >

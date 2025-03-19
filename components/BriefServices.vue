@@ -135,7 +135,9 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  $ScrollTrigger.kill(); // Clean up ScrollTrigger when component unmounts
+  if ($ScrollTrigger && typeof $ScrollTrigger.killAll === "function") {
+    $ScrollTrigger.killAll();
+  }
 });
 </script>
 

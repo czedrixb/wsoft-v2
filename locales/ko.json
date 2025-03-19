@@ -79,7 +79,7 @@
   "services-meta-keyword-8": "한국 디지털 전환 서비스",
   "services-meta-keyword-9": "WSoft 기술 솔루션 한국",
   "services-meta-keyword-10": "한국 최고의 웹 및 AI 서비스",
-  "works-title": "WSoft Labs | 우리의 작품",
+  "works-title": "WSoft Labs | 진행된 프로젝트",
   "our-work-meta-keyword-1": "한국 웹 개발 포트폴리오",
   "our-work-meta-keyword-2": "우리의 웹 및 앱 프로젝트",
   "our-work-meta-keyword-3": "WSoft의 완료된 IT 프로젝트",
@@ -106,7 +106,7 @@
   "Home": "홈",
   "About Us": "회사 소개",
   "Services": "서비스",
-  "Our Works": "우리의 작품",
+  "Our Works": "진행된 프로젝트",
   "Talk with an Expert": "전문가와 상담하기",
   "elevate-business": "W Soft Labs의 AI 및 맞춤 개발로 비즈니스를 향상시키세요.",
   "project-success": "100% 프로젝트 성공률",
@@ -184,7 +184,7 @@
   "items-catalog": "상세 페이지가 포함된 제품 카탈로그",
   "wishlist-star": "위시리스트 및 별점 시스템",
   "smooth-checkout": "매끄러운 결제 및 체크아웃 경험",
-    "our-works-text": "우리는 성공을 이끄는 고품질의 혁신적인 디지털 솔루션을 제공하는 데 자부심을 갖고 있습니다. 맞춤형 웹사이트와 강력한 웹 애플리케이션부터 AI 기반 플랫폼까지, 당사의 포트폴리오는 탁월한 품질, 사용성 및 성능에 대한 헌신을 보여줍니다.",
+  "our-works-text": "우리는 성공을 이끄는 고품질의 혁신적인 디지털 솔루션을 제공하는 데 자부심을 갖고 있습니다. 맞춤형 웹사이트와 강력한 웹 애플리케이션부터 AI 기반 플랫폼까지, 당사의 포트폴리오는 탁월한 품질, 사용성 및 성능에 대한 헌신을 보여줍니다.",
   "content-managmeent": "콘텐츠 관리 시스템",
   "blockchain": "블록체인",
   "youtube-content": "유튜브 콘텐츠 학습 시스템",
@@ -299,5 +299,6 @@
   "czedrix": "체드릭 바르세나",
   "rj": "레이몬드 존 요롱",
   "mon": "레이몬드 델라 크루즈",
-  "orland": "올랜드 살라스"
+  "orland": "올랜드 살라스",
+  "see-more": "더 보기"
 }

@@ -2,7 +2,7 @@
   <div class="bg-[#ebf0f7]">
     <div class="navbar text-black py-5">
       <div class="flex-1">
-        <NuxtLink to="/">
+        <NuxtLink to="/" @click="handleNavigation('/')">
           <img
             src="/images/logo.svg"
             class="w-[200px] lg:w-[250px]"
@@ -36,12 +36,13 @@
             v-for="link in navLinks"
             :key="link.title"
             :to="link.to"
+            @click="handleNavigation(link.to)"
             class="mx-3 text-[16px] lg:text-[18px] font-[400] font-inter transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
           >
             <li>{{ $t(link.title) }}</li>
           </NuxtLink>
         </ul>
-        <NuxtLink to="/contact-us">
+        <NuxtLink to="/contact-us" @click="handleNavigation('/contact-us')">
           <button
             class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
@@ -77,7 +78,7 @@
         </button>
 
         <div class="text-center">
-          <NuxtLink to="/">
+          <NuxtLink to="/" @click="isMenuOpen = false">
             <img
               src="/images/logo.svg"
               class="w-[250px] mb-3"

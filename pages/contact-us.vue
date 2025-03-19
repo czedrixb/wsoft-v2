@@ -63,8 +63,8 @@
             class="card bg-white shadow-md text-primary-content w-[100%] overflow-hidden"
           >
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-              <div class="relative overflow-hidden">
-                <div class="absolute md:left-[-20%] lg:left-[-25%] w-full">
+              <div class="relative overflow-hidden md:hidden lg:block">
+                <div class="absolute md:left-[-20%] lg:left-[-25%] w-full z-0">
                   <NuxtImg
                     src="/images/contact-us/overlay-gradient.png"
                     width="453px"
@@ -73,18 +73,18 @@
                   />
                 </div>
                 <div
-                  class="absolute md:left-[12%] md:top-[25%] lg:top-[12%] xl:left-[22%] xl:top-[11%] w-full"
+                  class="absolute md:left-[18%] lg:top-[16%] xl:left-[22%] xl:top-[-1%] w-full"
                 >
                   <NuxtImg
                     src="/images/contact-us/contact-phone.png"
-                    width="447px"
-                    height="912px"
+                    width="600px"
+                    height="100%"
                     alt="contact-phone"
                     class="z-20"
                   />
                 </div>
               </div>
-              <div class="p-8">
+              <div class="p-8 md:col-span-2 lg:col-span-1">
                 <div>
                   <div
                     class="font-poppins font-[600] text-[22px] lg:text-[30px] md:px-0 text-[#475766] mb-0"

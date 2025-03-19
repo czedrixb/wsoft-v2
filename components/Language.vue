@@ -18,14 +18,23 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
-const activeLanguage = ref("en");
+const activeLanguage = ref("ko");
 
 const setActiveLanguage = (language) => {
   locale.value = language;
   activeLanguage.value = language;
+  localStorage.setItem("lang", language);
 };
+
+onMounted(() => {
+  const savedLanguage = localStorage.getItem("lang");
+  if (savedLanguage) {
+    locale.value = savedLanguage;
+    activeLanguage.value = savedLanguage;
+  }
+});
 </script>

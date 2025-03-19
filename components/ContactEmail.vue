@@ -6,6 +6,7 @@
       <div
         class="bg-[url('/images/home/bg-email.jpg')] bg-cover bg-center bg-no-repeat rounded-2xl py-10 h-full md:h-[25rem] flex items-center relative"
       >
+        <!-- LARGE SCREEN -->
         <div class="hidden md:block">
           <div class="grid grid-cols-2 px-2 md:px-16">
             <div>
@@ -55,6 +56,7 @@
           </div>
         </div>
 
+        <!-- SMALL SCREEN -->
         <div class="block md:hidden">
           <div class="grid grid-cols-2 px-2">
             <div
@@ -105,7 +107,7 @@
         </div>
 
         <div
-          class="absolute left-[45%] bottom-[50%] md:bottom-[10%] md:left-[48%] lg:bottom-[-10%] lg:left-[50%] xl:left-[50%] xl:bottom-[0%] w-[100%] animate-moveRightLeft"
+          class="absolute left-[45%] bottom-[59%] md:bottom-[10%] md:left-[48%] lg:bottom-[-10%] lg:left-[50%] xl:left-[50%] xl:bottom-[0%] w-[100%] animate-moveRightLeft"
         >
           <img
             src="/images/home/left-photo.png"
@@ -115,7 +117,7 @@
         </div>
 
         <div
-          class="absolute left-[60%] bottom-[50%] md:bottom-[-10%] md:left-[65%] lg:bottom-[-25%] lg:left-[68%] xl:left-[63%] xl:bottom-[-25%] w-[100%] animate-moveLeftRight"
+          class="absolute left-[60%] bottom-[59%] md:bottom-[-10%] md:left-[65%] lg:bottom-[-25%] lg:left-[68%] xl:left-[63%] xl:bottom-[-25%] w-[100%] animate-moveLeftRight"
         >
           <img
             src="/images/home/right-photo.png"
