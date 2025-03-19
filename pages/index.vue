@@ -165,6 +165,43 @@
 
     <div class="mx-auto px-8 max-w-screen-2xl md:mt-[15rem] mb-10 py-16">
       <BriefServices />
+      <div class="block md:hidden">
+        <div
+          v-for="(service, key) in services"
+          :key="key"
+          class="flex flex-col relative justify-between items-center gap-y-8 mb-14"
+        >
+          <div class="text-left lg:w-[45%]">
+            <div class="block lg:hidden">
+              <div
+                class="radial-progress bg-white text-[#C1C1C1] mb-5"
+                style="--value: 100; --size: 3rem; --thickness: 2px"
+                role="progressbar"
+              >
+                {{ service.number }}
+              </div>
+            </div>
+            <div
+              class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
+            >
+              {{ $t(service.title) }}
+            </div>
+            <p
+              class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+            >
+              {{ $t(service.description) }}
+            </p>
+          </div>
+
+          <div class="flex justify-end">
+            <img
+              :src="service.image"
+              class="lg:w-[430px] xl:w-[500px]"
+              alt="web-development"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <div
@@ -438,6 +475,37 @@ const heroWords = [
   // "비즈니스를 스마트하게",
   "기술의 미래를 선도",
 ];
+
+const services = ref([
+  {
+    number: 1,
+    title: "web-dev",
+    description: "create-website",
+    image: "/images/home/web-development.png",
+    progress: 25,
+  },
+  {
+    number: 2,
+    title: "web-app",
+    description: "build-innovative",
+    image: "/images/home/web-application.png",
+    progress: 50,
+  },
+  {
+    number: 3,
+    title: "ui-design",
+    description: "design-intuitive",
+    image: "/images/home/ui-design.png",
+    progress: 75,
+  },
+  {
+    number: 4,
+    title: "ai-utilization",
+    description: "cut-customer",
+    image: "/images/home/ai-utilization.png",
+    progress: 100,
+  },
+]);
 
 const currentIndex = ref(0);
 

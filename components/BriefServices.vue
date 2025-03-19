@@ -1,55 +1,41 @@
 <template>
-  <div class="scroll-container">
-    <div class="hidden lg:block">
-      <div class="service-sections overflow-y-scroll h-screen">
-        <div
-          v-for="(service, key) in services"
-          :key="key"
-          class="service-section h-screen flex flex-col relative justify-between items-center gap-y-8 lg:flex-row mb-14"
-        >
-          <div class="text-left lg:w-[37.3%]">
-            <div class="block lg:hidden">
-              <div
-                class="radial-progress bg-white text-[#C1C1C1] mb-5"
-                style="--value: 100; --size: 3rem; --thickness: 2px"
-                role="progressbar"
-              >
-                {{ service.number }}
-              </div>
-            </div>
-            <div
-              class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
-            >
-              {{ $t(service.title) }}
-            </div>
-            <p
-              class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
-            >
-              {{ $t(service.description) }}
-            </p>
-          </div>
-
+  <div class="hidden md:block">
+    <div class="scroll-container">
+      <div class="hidden lg:block">
+        <div class="service-sections overflow-y-scroll h-screen">
           <div
-            class="divider bg-[#C5C5C5] h-[1.5px] hidden lg:block lg:!w-[1.5px] lg:divider-horizontal"
-          ></div>
-
-          <div class="flex justify-end">
-            <img
-              :src="service.image"
-              class="lg:w-[430px] xl:w-[500px]"
-              alt="web-development"
-            />
-          </div>
-
-          <div
-            class="absolute hidden lg:block lg:left-[50%] xl:left-[50%] bottom-[50%]"
+            v-for="(service, key) in services"
+            :key="key"
+            class="service-section h-screen grid grid-cols-2 items-center gap-y-8 lg:flex-row mb-14"
           >
-            <div
-              class="radial-progress bg-white border-[#159ADE] text-[#159ADE]"
-              :style="`--value: ${service.progress}; --size: 3rem; --thickness: 2px`"
-              role="progressbar"
-            >
-              {{ service.number }}
+            <div class="left-side text-left">
+              <div>
+                <div
+                  class="radial-progress bg-white text-[#C1C1C1] mb-5"
+                  style="--value: 100; --size: 3rem; --thickness: 2px"
+                  role="progressbar"
+                >
+                  {{ service.number }}
+                </div>
+              </div>
+              <div
+                class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
+              >
+                {{ $t(service.title) }}
+              </div>
+              <p
+                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+              >
+                {{ $t(service.description) }}
+              </p>
+            </div>
+
+            <div class="right-side flex justify-end">
+              <img
+                :src="service.image"
+                class="lg:w-[430px] xl:w-[500px]"
+                alt="web-development"
+              />
             </div>
           </div>
         </div>
@@ -96,11 +82,11 @@ const services = ref([
 ]);
 
 onMounted(() => {
-  if (!$gsap || !$ScrollTrigger) return; // Ensure GSAP is available
+  if (!$gsap || !$ScrollTrigger) return;
 
   $gsap.utils.toArray(".service-section").forEach((section) => {
-    const textLeft = section.querySelector(".text-left");
-    const imageRight = section.querySelector(".flex.justify-end");
+    const textLeft = section.querySelector(".left-side");
+    const imageRight = section.querySelector(".right-side");
 
     $gsap.set(textLeft, { y: "-50%" });
     $gsap.set(imageRight, { y: "50%" });
@@ -111,24 +97,30 @@ onMounted(() => {
       end: "bottom 30%",
       scroller: ".service-sections",
       onEnter: () => {
-        $gsap.to(textLeft, { y: "0%", duration: 1, ease: "power3.out" });
-        $gsap.to(imageRight, { y: "0%", duration: 1, ease: "power3.out" });
+        $gsap.to(textLeft, { y: "0%", duration: 2, ease: "power3.out" });
+        $gsap.to(imageRight, { y: "0%", duration: 2, ease: "power3.out" });
       },
       onLeave: () => {
-        $gsap.to(textLeft, { y: "-50%", duration: 1, ease: "power3.in" });
-        $gsap.to(imageRight, { y: "50%", duration: 1, ease: "power3.in" });
+        $gsap.to(textLeft, { y: "-50%", duration: 2, ease: "power3.in" });
+        $gsap.to(imageRight, { y: "50%", duration: 2, ease: "power3.in" });
       },
       onEnterBack: () => {
-        $gsap.to(textLeft, { y: "0%", duration: 1, ease: "power3.out" });
-        $gsap.to(imageRight, { y: "0%", duration: 1, ease: "power3.out" });
+        $gsap.to(textLeft, { y: "0%", duration: 2, ease: "power3.out" });
+        $gsap.to(imageRight, { y: "0%", duration: 2, ease: "power3.out" });
       },
       onLeaveBack: () => {
-        $gsap.to(textLeft, { y: "-50%", duration: 1, ease: "power3.in" });
-        $gsap.to(imageRight, { y: "50%", duration: 1, ease: "power3.in" });
+        $gsap.to(textLeft, { y: "-50%", duration: 2, ease: "power3.in" });
+        $gsap.to(imageRight, { y: "50%", duration: 2, ease: "power3.in" });
       },
       markers: false,
       toggleActions: "play none none reverse",
     });
+  });
+
+  // Enable scroll snapping
+  $gsap.to(".service-sections", {
+    scrollSnapType: "y mandatory",
+    duration: 0, // No animation on scroll-snap
   });
 
   $ScrollTrigger.refresh();
@@ -144,14 +136,20 @@ onBeforeUnmount(() => {
 
 
 
+
 <style scoped>
 .service-sections {
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-snap-type: y mandatory; /* Make sure snap is enabled */
 }
 
 .service-sections::-webkit-scrollbar {
   display: none;
+}
+
+.service-section {
+  scroll-snap-align: start;
 }
 </style>
