@@ -1,0 +1,17 @@
+options:
+  max-parallel: 1  # This limits the pipeline to one instance at a time
+
+image: atlassian/default-image:latest
+pipelines:
+  branches:
+    main: # your branch that will trigger this
+      - step:
+          name: Build and Deploy to Server
+          script:
+            - pipe: atlassian/ssh-run:0.2.6
+              variables:
+                SSH_USER: $SSH_USER # from the repository variables
+                SERVER: $SERVER # from the repository variables
+                
+                # Navigate to project directory && make sure the executable file has permission to execute && run the deployment script
+                COMMAND: 'cd /opt/bitnami/projects/$PROJECT_NAME && chmod +x ../deployment.sh && ../deployment.sh'

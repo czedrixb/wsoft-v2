@@ -3,9 +3,10 @@
     <div class="navbar text-black py-5">
       <div class="flex-1">
         <NuxtLink to="/" @click="handleNavigation('/')">
-          <img
+          <NuxtImg
             src="/images/logo.svg"
-            class="w-[200px] lg:w-[250px]"
+            height="100%"
+            class="w-[200px] md:w-[300px]"
             alt="wsoft-logo"
           />
         </NuxtLink>
@@ -37,14 +38,14 @@
             :key="link.title"
             :to="link.to"
             @click="handleNavigation(link.to)"
-            class="mx-3 text-[16px] lg:text-[18px] font-[400] font-inter transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+            class="mx-4 text-[16px] md:text-[14px] lg:text-[18px] font-[400] font-inter text-[#475766] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
           >
             <li>{{ $t(link.title) }}</li>
           </NuxtLink>
         </ul>
         <NuxtLink to="/contact-us" @click="handleNavigation('/contact-us')">
           <button
-            class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+            class="relative font-[400] text-[18px] md:text-[14px] lg:text-[18px] px-10 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
             <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
             <span

@@ -16,7 +16,7 @@
               </div>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-24"
               >
                 {{ $t("build-high") }}
               </p>

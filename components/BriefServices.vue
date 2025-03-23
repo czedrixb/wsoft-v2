@@ -1,12 +1,12 @@
 <template>
-  <div class="hidden md:block">
+  <div class="hidden lg:block">
     <div class="scroll-container">
       <div class="hidden lg:block">
         <div class="service-sections overflow-y-scroll h-screen">
           <div
             v-for="(service, key) in services"
             :key="key"
-            class="service-section h-screen grid grid-cols-2 items-center gap-y-8 lg:flex-row mb-14"
+            class="service-section h-screen grid grid-cols-2 items-center gap-y-8 lg:flex-row mb-14 w-full"
           >
             <div class="left-side text-left">
               <div>
@@ -24,16 +24,17 @@
                 {{ $t(service.title) }}
               </div>
               <p
-                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
               >
                 {{ $t(service.description) }}
               </p>
             </div>
 
             <div class="right-side flex justify-end">
-              <img
+              <NuxtImg
                 :src="service.image"
-                class="lg:w-[430px] xl:w-[500px]"
+                width="650px"
+                height="100%"
                 alt="web-development"
               />
             </div>

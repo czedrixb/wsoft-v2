@@ -6,7 +6,7 @@
       class="overflow-hidden flex justify-center max-w-full py-16 lg:mb-[8rem]"
     >
       <NuxtImg
-        width="1900"
+        class="w-[100%]"
         height="100%"
         preload
         alt="academic"
@@ -14,7 +14,9 @@
       />
     </div>
 
-    <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto mb-10">
+    <div
+      class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto mb-10"
+    >
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[30px] md:px-0 text-[#475766] mb-2"
       >
@@ -43,7 +45,7 @@
             />
           </div>
           <NuxtImg
-            width="500px"
+            width="800px"
             height="100%"
             class="z-20"
             preload
@@ -94,7 +96,7 @@
             </p>
           </div>
           <NuxtImg
-            width="100%"
+            width="800px"
             height="100%"
             preload
             alt="academic"
@@ -122,7 +124,7 @@
             class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
           >
             <NuxtImg
-              width="500px"
+              width="800px"
               height="100%"
               class="z-20"
               preload

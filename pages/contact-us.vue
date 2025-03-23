@@ -73,11 +73,11 @@
                   />
                 </div>
                 <div
-                  class="absolute md:left-[18%] lg:top-[16%] xl:left-[22%] xl:top-[-1%] w-full"
+                  class="absolute md:left-[18%] lg:left-[17%] lg:top-[25%] xl:left-[18%] xl:top-[4%] w-full"
                 >
                   <NuxtImg
                     src="/images/contact-us/contact-phone.png"
-                    width="600px"
+                    width="650px"
                     height="100%"
                     alt="contact-phone"
                     class="z-20"
@@ -116,12 +116,14 @@
                         ]"
                         :placeholder="$t('first-name')"
                       />
-                      <p
-                        v-if="errors.first_name"
-                        class="text-red-500 text-sm mt-2"
-                      >
-                        {{ $t("first-name-required") }}
-                      </p>
+                      <div class="h-[1rem]">
+                        <p
+                          v-if="errors.first_name"
+                          class="text-red-500 text-sm mb-0"
+                        >
+                          {{ $t("first-name-required") }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <fieldset class="fieldset w-100 pt-7">
@@ -136,12 +138,15 @@
                         ]"
                         :placeholder="$t('last-name')"
                       />
-                      <p
-                        v-if="errors.last_name"
-                        class="text-red-500 text-sm mt-2"
-                      >
-                        {{ $t("last-name-required") }}
-                      </p>
+
+                      <div class="h-[1rem]">
+                        <p
+                          v-if="errors.last_name"
+                          class="text-red-500 text-sm mb-0"
+                        >
+                          {{ $t("last-name-required") }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
@@ -159,13 +164,19 @@
                         ]"
                         :placeholder="$t('enter-email')"
                       />
-                      <p v-if="errors.email" class="text-red-500 text-sm mt-2">
-                        {{
-                          errors.email.includes("required")
-                            ? $t("email-required")
-                            : $t("invalid-email")
-                        }}
-                      </p>
+
+                      <div class="h-[1rem]">
+                        <p
+                          v-if="errors.email"
+                          class="text-red-500 text-sm mb-0"
+                        >
+                          {{
+                            errors.email.includes("required")
+                              ? $t("email-required")
+                              : $t("invalid-email")
+                          }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
@@ -183,13 +194,19 @@
                         ]"
                         :placeholder="$t('enter-phone')"
                       />
-                      <p v-if="errors.phone" class="text-red-500 text-sm mt-2">
-                        {{
-                          errors.phone.includes("required")
-                            ? $t("phone-required")
-                            : $t("invalid-phone")
-                        }}
-                      </p>
+
+                      <div class="h-[1rem]">
+                        <p
+                          v-if="errors.phone"
+                          class="text-red-500 text-sm mb-0"
+                        >
+                          {{
+                            errors.phone.includes("required")
+                              ? $t("phone-required")
+                              : $t("invalid-phone")
+                          }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
@@ -202,7 +219,11 @@
                         class="input w-full border border-[#475766] bg-white rounded-2xl focus:border-[#2375E9] focus:ring-2"
                         :placeholder="$t('enter-company')"
                       />
-                      <p class="text-red-500 text-sm">{{ errors.company }}</p>
+                      <div class="h-[1rem]">
+                        <p class="text-red-500 text-sm mb-0">
+                          {{ errors.company }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
@@ -219,12 +240,15 @@
                             : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
                         ]"
                       ></textarea>
-                      <p
-                        v-if="errors.message"
-                        class="text-red-500 text-sm mt-0"
-                      >
-                        {{ $t("message-required") }}
-                      </p>
+
+                      <div class="h-[1rem]">
+                        <p
+                          v-if="errors.message"
+                          class="text-red-500 text-sm mb-0"
+                        >
+                          {{ $t("message-required") }}
+                        </p>
+                      </div>
                     </fieldset>
 
                     <div>

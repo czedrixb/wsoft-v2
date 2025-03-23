@@ -1,23 +1,23 @@
 <template>
   <div>
     <div
-      class="md:py-[5rem] mx-auto px-3 md:px-8 xl:max-w-screen-xl mt-[8rem] md:mt-0 mb-10"
+      class="md:py-[5rem] mx-auto px-3 md:px-8 xl:max-w-screen-4xl 2xl:max-w-screen-4xl mt-[8rem] md:mt-0 mb-10"
     >
       <div
-        class="bg-[url('/images/home/bg-email.jpg')] bg-cover bg-center bg-no-repeat rounded-2xl py-10 h-full md:h-[25rem] flex items-center relative"
+        class="bg-[url('/images/home/bg-email.jpg')] bg-cover bg-center bg-no-repeat rounded-2xl py-10 h-full md:h-[28rem] flex items-center relative"
       >
         <!-- LARGE SCREEN -->
         <div class="hidden md:block">
-          <div class="grid grid-cols-2 px-2 md:px-16">
+          <div class="grid grid-cols-2 px-2 md:px-16 2xl:px-[10rem]">
             <div>
               <div
-                class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[40px] px-5 md:px-0 text-white mb-3"
+                class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[50px] px-5 md:px-0 text-white mb-3"
               >
                 {{ $t("partner-growth") }}
               </div>
 
               <p
-                class="font-inter font-[300] text-[18px] text-white mb-8 lg:w-[80%]"
+                class="font-inter font-[300] text-[18px] xl:text-[20px] text-white mb-8 lg:w-[80%]"
               >
                 {{ $t("help-transform") }}
               </p>
@@ -60,7 +60,7 @@
         <div class="block md:hidden">
           <div class="grid grid-cols-2 px-2">
             <div
-              class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[40px] px-2 md:px-0 text-white mb-3"
+              class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[40px] px-2 md:px-0 text-white mb-3 col-span-2 w-[60%]"
             >
               {{ $t("partner-growth") }}
             </div>
@@ -79,7 +79,7 @@
                 <input
                   type="email"
                   v-model="email"
-                  class="grow text-black"
+                  class="grow text-black w-full"
                   :placeholder="$t('enter-email')"
                 />
                 <button
@@ -107,21 +107,21 @@
         </div>
 
         <div
-          class="absolute left-[45%] bottom-[59%] md:bottom-[10%] md:left-[48%] lg:bottom-[-10%] lg:left-[50%] xl:left-[50%] xl:bottom-[0%] w-[100%] animate-moveRightLeft"
+          class="absolute left-[45%] bottom-[59%] md:bottom-[10%] md:left-[48%] lg:bottom-[-10%] lg:left-[50%] xl:left-[60%] xl:bottom-[0%] w-[100%] animate-moveRightLeft"
         >
           <img
             src="/images/home/left-photo.png"
-            class="w-[180px] md:w-[300px] lg:w-[330px]"
+            class="w-[180px] md:w-[300px] lg:w-[330px] xl:w-[350px] 2xl:w-[400px]"
             alt="img-email"
           />
         </div>
 
         <div
-          class="absolute left-[60%] bottom-[59%] md:bottom-[-10%] md:left-[65%] lg:bottom-[-25%] lg:left-[68%] xl:left-[63%] xl:bottom-[-25%] w-[100%] animate-moveLeftRight"
+          class="absolute left-[60%] bottom-[59%] md:bottom-[-10%] md:left-[65%] lg:bottom-[-25%] lg:left-[68%] xl:left-[73%] xl:bottom-[-25%] 2xl:left-[68%] w-[100%] animate-moveLeftRight"
         >
           <img
             src="/images/home/right-photo.png"
-            class="w-[180px] md:w-[300px] lg:w-[330px]"
+            class="w-[180px] md:w-[300px] lg:w-[330px] xl:w-[350px] 2xl:w-[400px]"
             alt="img-email"
           />
         </div>

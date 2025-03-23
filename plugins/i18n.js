@@ -3,12 +3,12 @@ import enMessages from "~/locales/en.json";
 import koMessages from "~/locales/ko.json";
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const savedLanguage = process.client
-    ? localStorage.getItem("lang") || "ko"
-    : "ko";
+  const cookieLang = useCookie("lang", { default: () => "ko" });
+  const savedLanguage = cookieLang.value;
 
   const i18n = createI18n({
     legacy: false,
+    globalInjection: true,
     locale: savedLanguage,
     fallbackLocale: "ko",
     messages: {
@@ -18,4 +18,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   });
 
   nuxtApp.vueApp.use(i18n);
+
+  if (process.client) {
+    cookieLang.value = savedLanguage;
+  }
 });

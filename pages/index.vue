@@ -87,14 +87,14 @@
     </div>
 
     <div
-      class="mx-auto px-8 md:px-0 md:max-w-screen-sm mt-[5rem] lg:max-w-screen-lg lg:mt-[15rem]"
+      class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto lg:mt-[15rem]"
     >
       <div
-        class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-1 mb-10 md:mb-0"
+        class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-10 mb-10 md:mb-0"
       >
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
+            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("project-success") }}
           </div>
@@ -102,7 +102,7 @@
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
+            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("customer-retention") }}
           </div>
@@ -111,7 +111,7 @@
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[14px] bg-white drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem]"
+            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("project-completed") }}
           </div>
@@ -122,18 +122,20 @@
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          <!-- <DotLottieVue
+          <DotLottieVue
             background="transparent"
-            style="width: 1500px; height: 1500px"
+            style="width: 800px; height: 800px"
             autoplay
             loop
             src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
-          /> -->
+          />
         </div>
-        <div class="absolute top-[30%] md:inset-0 z-20 opacity-100 w-full">
+        <div
+          class="absolute top-1/2 left-1/2 2xl:left-[68%] -translate-x-1/2 -translate-y-1/2 z-20 opacity-100 w-full"
+        >
           <img
             src="/images/blue-gradient.png"
-            class="w-[5000px]"
+            class="w-[5000px] xl:w-[1500px]"
             alt="shadow-overlay"
           />
         </div>
@@ -147,15 +149,16 @@
           </div>
 
           <div class="flex justify-center mb-5">
-            <img
+            <NuxtImg
               src="/images/home/partner.png"
-              class="lg:w-[800px]"
+              width="950px"
+              height="100%"
               alt="partner"
             />
           </div>
 
           <p
-            class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%]"
+            class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[50%]"
           >
             {{ $t("delivers-cutting") }}
           </p>
@@ -163,9 +166,11 @@
       </div>
     </div>
 
-    <div class="mx-auto px-8 max-w-screen-2xl md:mt-[15rem] mb-10 py-16">
+    <div
+      class="mx-auto px-8 md:px-0 md:max-w-[90%] lg:max-w-[90%] xl:max-w-[85%] md:mt-[15rem] mb-10 py-16"
+    >
       <BriefServices />
-      <div class="block md:hidden">
+      <div class="block lg:hidden">
         <div
           v-for="(service, key) in services"
           :key="key"
@@ -204,9 +209,7 @@
       </div>
     </div>
 
-    <div
-      class="mx-auto px-8 lg:max-w-screen-lg xl:max-w-screen-xl pb-0 md:py-16 mb-0 md:mb-10"
-    >
+    <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
       >
@@ -222,12 +225,12 @@
       <!-- LARGE SCREEN -->
       <div class="hidden md:block mb-[3rem]">
         <div
-          class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 grid-rows-2 gap-10"
+          class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 grid-rows-2 md:gap-3 lg:gap-5"
         >
           <div class="md:col-span-2 h-1px md:flex">
             <NuxtLink
               to="/our-works/academic-administration-management-system"
-              class="relative overflow-hidden group hidden md:block"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
               <img
                 src="/images/home/project-1.png"
@@ -236,7 +239,7 @@
               />
 
               <div
-                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+                class="absolute left-[0%] md:left-[-2%] lg:left-[0%] md:bottom-[0.5%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
                 <img
                   src="/images/home/shadow-project.png"
@@ -259,15 +262,15 @@
           <div class="md:flex">
             <NuxtLink
               to="/our-works/content-management-system"
-              class="relative overflow-hidden group hidden md:block"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <img
+              <NuxtImg
                 src="/images/home/project-2.png"
-                class="max-w-100"
+                class="max-w-full md:h-[255.23px] lg:h-[350.77px] xl:h-[503.39px] 2xl:h-[545.56px]"
                 alt="content-management"
               />
               <div
-                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+                class="absolute left-[0%] bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
                 <img
                   src="/images/home/shadow-project.png"
@@ -289,15 +292,15 @@
           <div class="md:flex">
             <NuxtLink
               to="/our-works/foreign-language-learning-system"
-              class="relative overflow-hidden group hidden md:block"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <img
+              <NuxtImg
                 src="/images/home/project-3.png"
-                class="max-w-100"
+                class="max-w-full md:h-[255.17px] lg:h-[350.67px] xl:h-[503.25px] xl:w-[100%] 2xl:h-[545.41px]"
                 alt=" mob-app-2"
               />
               <div
-                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+                class="absolute left-[0%] md:left-[-2%] lg:left-[0%] bottom-[0%] md:bottom-[0%] lg:bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
                 <img
                   src="/images/home/shadow-project.png"
@@ -319,15 +322,15 @@
           <div class="md:col-span-2 md:flex">
             <NuxtLink
               to="/our-works/blockchain"
-              class="relative overflow-hidden group hidden md:block"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
               <img
                 src="/images/home/project-4.png"
-                class="max-w-100"
+                class="w-[100%] h-[auto]"
                 alt="digigooz"
               />
               <div
-                class="absolute left-[0%] bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+                class="absolute left-[0%] md:left-[-1%] lg:left-[0%] xl:left-[0%] md:bottom-[0%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
                 <img
                   src="/images/home/shadow-project.png"
