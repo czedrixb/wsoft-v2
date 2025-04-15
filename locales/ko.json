@@ -319,6 +319,9 @@
   "mon": "레이몬드 델라 크루즈",
   "orland": "올랜드 살라스",
   "see-more": "더 보기",
-  "top-tool": "우리회사는",
-  "bottom-tool": "을 사용합니다."
+  "top-tool": "저희의 기술력은 다음과 같은 소프트웨어 및 프레임워크를 기반으로 합니다.",
+  "bottom-tool": "을 사용합니다.",
+  "project-manager": "프로젝트 매니저",
+  "system-architect": "시스템 아키텍트",
+  "administrative-officer": "행정 담당자"
 }

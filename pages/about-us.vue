@@ -494,6 +494,110 @@
               </div>
             </div>
           </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/ricky.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Ricky
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  HyunSuk Lee
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("project-manager") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/hoon.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Hoon
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Hun-Jae Moon
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("system-architect") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/sebin.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Sebin
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Sebin Han
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("designer") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/lin.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Lin
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Hyelin Kang
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("administrative-officer") }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

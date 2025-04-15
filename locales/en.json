@@ -319,6 +319,9 @@
   "mon": "Raymond De La Cruz",
   "orland": "Orland Salas",
   "see-more": "See More",
-  "top-tool": "Our company",
-  "bottom-tool": "uses this."
+  "top-tool": "Our technology is based on the following software and frameworks.",
+  "bottom-tool": "uses this.",
+  "project-manager": "Project Manager",
+  "system-architect": "System Architect",
+  "administrative-officer": "Administrative Officer"
 }
