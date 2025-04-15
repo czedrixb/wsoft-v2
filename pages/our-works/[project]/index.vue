@@ -304,9 +304,9 @@ const projects = {
     text2: "videos-english",
     tools: ["vue", "laravel"],
   },
-  "tcp-h": {
-    title: "tcp",
-    big_image: "/images/our-works/tcp-h.png",
+  "database-speed-test": {
+    title: "database-speed-test",
+    big_image: "/images/our-works/database-speed.png",
     description: "test-compare",
     image1: "tcp/accuracy.png",
     title1: "accuracy",

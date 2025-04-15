@@ -29,7 +29,7 @@
                     type="email"
                     v-model="email"
                     class="grow text-black"
-                    :placeholder="$t('enter-email')"
+                    :placeholder="placeholder"
                   />
                   <button
                     type="submit"
@@ -80,7 +80,7 @@
                   type="email"
                   v-model="email"
                   class="grow text-black w-full"
-                  :placeholder="$t('enter-email')"
+                  :placeholder="placeholder"
                 />
                 <button
                   type="submit"
@@ -132,6 +132,36 @@
 
 <script setup>
 import { useEmailSubscription } from "@/composables/useEmailSubscription";
+import { useI18n } from "vue-i18n";
+import { ref, onMounted } from "vue";
+import { useNuxtApp } from "#app";
 
 const { email, submitForm, errors } = useEmailSubscription();
+const { locale } = useI18n();
+
+const enEmail = ref("Enter your email");
+const koEmail = ref("이메일을 입력하세요");
+const placeholder = ref(enEmail.value);
+
+const updatePlaceholder = () => {
+  if (locale.value === "en") {
+    placeholder.value = enEmail.value;
+  } else {
+    placeholder.value = koEmail.value;
+  }
+};
+
+onMounted(() => {
+  if (process.client) {
+    const storedLang = localStorage.getItem("lang") || "ko";
+    locale.value = storedLang;
+
+    updatePlaceholder();
+  }
+});
+
+watch(locale, () => {
+  localStorage.setItem("lang", locale.value);
+  updatePlaceholder();
+});
 </script>

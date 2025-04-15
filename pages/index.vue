@@ -87,14 +87,14 @@
     </div>
 
     <div
-      class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto lg:mt-[15rem]"
+      class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto md:mt-[15rem]"
     >
       <div
-        class="flex flex-col md:flex-row justify-center items-center gap-y-5 lg:gap-x-10 mb-10 md:mb-0"
+        class="flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:gap-x-0 xl:gap-x-10 mb-10 lg:mb-0"
       >
         <div class="floating-item">
           <div
-            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
+            class="rounded-full lg:text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[18rem] lg:w-[20rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("project-success") }}
           </div>
@@ -102,16 +102,16 @@
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
+            class="rounded-full lg:text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[18rem] lg:w-[20rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("customer-retention") }}
           </div>
-          <div class="py-20 hidden md:block"></div>
+          <div class="py-20 hidden lg:block"></div>
         </div>
 
         <div class="floating-item">
           <div
-            class="rounded-full text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[15rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
+            class="rounded-full lg:text-[18px] bg-transparent drop-shadow-[5.3px] font-poppins font-[400] text-center text-[#1E2734] py-3 w-[18rem] lg:w-[20rem] backdrop-blur-[5.3px] shadow-[0px_0px_76px_0px_#00000026]"
           >
             {{ $t("project-completed") }}
           </div>
@@ -142,7 +142,7 @@
         <div class="z-20 relative">
           <div class="flex justify-center mx-auto mb-5">
             <div
-              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] xl:w-[40%] lg:text-[40px] md:px-0 text-[#475766] mb-5"
             >
               {{ $t("trusted-partner") }}
             </div>
@@ -151,8 +151,8 @@
           <div class="flex justify-center mb-5">
             <NuxtImg
               src="/images/home/partner.png"
-              width="950px"
-              height="100%"
+              width="841px"
+              height="448.35px"
               alt="partner"
             />
           </div>
@@ -327,7 +327,7 @@
               <img
                 src="/images/home/project-4.png"
                 class="w-[100%] h-[auto]"
-                alt="digigooz"
+                alt="diginest"
               />
               <div
                 class="absolute left-[0%] md:left-[-1%] lg:left-[0%] xl:left-[0%] md:bottom-[0%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
@@ -376,7 +376,7 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/content-management-system" class="relative">
-          <img src="/images/home/project-2-mobile.png" alt="mob-app-1-mobile" />
+          <img src="/images/home/project-2.png" alt="mob-app-1-mobile" />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
               src="/images/home/shadow-project.png"
@@ -417,7 +417,7 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/blockchain" class="relative">
-          <img src="/images/home/project-4-mobile.png" alt="digigooz-mobile" />
+          <img src="/images/home/project-4-mobile.png" alt="diginest-mobile" />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
               src="/images/home/shadow-project.png"
@@ -539,7 +539,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>

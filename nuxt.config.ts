@@ -1,20 +1,20 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-    css: ['@/assets/styles/style.css', '@/assets/styles/marquee.scss', '@mdi/font/css/materialdesignicons.css'],
+  css: ['@/assets/styles/style.css', '@/assets/styles/marquee.scss', '@mdi/font/css/materialdesignicons.css'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
   plugins: [
     '~/plugins/i18n.js',
-  { src: '~/plugins/gsap.client.js', mode: 'client' }
+    { src: '~/plugins/gsap.client.js', mode: 'client' }
   ],
-      app: {
+  app: {
     head: {
-      titleTemplate: 'WSoft Labs',
+      titleTemplate: 'W Soft Labs',
       meta: [
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'WSoft Labs' },
+        { property: 'og:site_name', content: 'W Soft Labs' },
       ],
     },
   },
-})
+});

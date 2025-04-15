@@ -156,7 +156,7 @@
       </p>
 
       <div class="mx-auto lg:max-w-screen-lg">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div class="flex justify-center">
             <div>
               <img
@@ -442,6 +442,58 @@
               </div>
             </div>
           </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/neil.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Neil
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Neil Christopher Gipaya
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("developer") }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div>
+              <img
+                src="/images/about-us/jason.png"
+                class="max-w-full mb-5"
+                alt="orland"
+              />
+
+              <div class="flex flex-col gap-y-1 text-center">
+                <div
+                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                >
+                  Jason
+                </div>
+                <div
+                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
+                >
+                  Jason Lipreso
+                </div>
+                <div class="text-[16px] font-[300] text-[#475766]">
+                  {{ $t("developer") }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -471,7 +523,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>

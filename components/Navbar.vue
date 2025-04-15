@@ -7,7 +7,7 @@
             src="/images/logo.svg"
             height="100%"
             class="w-[200px] md:w-[300px]"
-            alt="wsoft-logo"
+            alt="W Soft Logo"
           />
         </NuxtLink>
       </div>
@@ -38,7 +38,7 @@
             :key="link.title"
             :to="link.to"
             @click="handleNavigation(link.to)"
-            class="mx-4 text-[16px] md:text-[14px] lg:text-[18px] font-[400] font-inter text-[#475766] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+            class="mx-5 text-[16px] md:text-[14px] lg:text-[18px] font-[400] font-inter text-[#475766] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
           >
             <li>{{ $t(link.title) }}</li>
           </NuxtLink>
@@ -83,7 +83,7 @@
             <img
               src="/images/logo.svg"
               class="w-[250px] mb-3"
-              alt="wsoft-logo"
+              alt="W Soft Logo"
             />
           </NuxtLink>
         </div>

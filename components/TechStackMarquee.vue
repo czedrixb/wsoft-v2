@@ -1,5 +1,11 @@
 <template>
   <div class="relative overflow-hidden mb-14">
+    <div
+      class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-8"
+    >
+      {{ $t("top-tool") }}
+    </div>
+
     <div class="relative w-screen">
       <div class="text-stacks-marquee">
         <div
@@ -940,5 +946,14 @@
         <!-- END Mirror -->
       </div>
     </div>
+
+    <div
+      class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mt-8"
+    >
+      {{ $t("bottom-tool") }}
+    </div>
   </div>
 </template>
+
+<script setup>
+</script>

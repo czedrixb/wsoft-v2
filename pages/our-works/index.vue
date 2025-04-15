@@ -3,7 +3,7 @@
     <PageHeader :title="$t('Our Works')" :description="$t('our-works-text')" />
 
     <div
-      class="px-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-10 overflow-hidden"
+      class="px-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-[12rem] overflow-hidden"
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10">
         <div v-for="(project, key) in projects" :key="key">
@@ -71,10 +71,14 @@ const projects = {
     title: "data-crawling",
     image: "data-crawling.png",
   },
-  "ai-tarot-master": {
-    title: "ai-tarot",
-    image: "ai-tarot.png",
+  "database-speed-test": {
+    title: "database-speed-test",
+    image: "database-speed-test.png",
   },
+  // "ai-tarot-master": {
+  //   title: "ai-tarot",
+  //   image: "ai-tarot.png",
+  // },
   "ai-review-analyzer": {
     title: "ai-review",
     image: "ai-review.png",
@@ -82,10 +86,6 @@ const projects = {
   "ai-powered-language-learning-app": {
     title: "ai-powered",
     image: "ai-powered.png",
-  },
-  "tcp-h": {
-    title: "tcp",
-    image: "tcp.png",
   },
 };
 
@@ -102,7 +102,7 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>

@@ -7,7 +7,9 @@
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div class="flex">
-          <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
+          <div
+            class="card bg-white shadow-md text-primary-content p-5 pb-0 flex flex-col justify-between"
+          >
             <div>
               <div
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
@@ -16,7 +18,7 @@
               </div>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-24"
+                class="text-left font-inter font-[300] text-[18px] text-[#475766]"
               >
                 {{ $t("build-high") }}
               </p>
@@ -62,7 +64,7 @@
               </div>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-14"
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[7rem]"
               >
                 {{ $t("keep-website") }}
               </p>
@@ -97,7 +99,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                {{ $t("custom-design") }}
+                {{ $t("deep-learning") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -105,7 +107,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("custom-website") }}
+                  {{ $t("yolo") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -113,7 +115,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("responsive-user") }}
+                  {{ $t("optical-flow") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -121,7 +123,15 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("engaging-ui") }}
+                  {{ $t("roi") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img src="/images/services/bullet.png" alt="bullet" />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("precision-optimization") }}
                 </p>
               </div>
             </div>
@@ -136,7 +146,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                {{ $t("content-management") }}
+                {{ $t("real-time") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -144,7 +154,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("easy-use") }}
+                  {{ $t("rtsp") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -152,7 +162,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("image-file") }}
+                  {{ $t("web-socket") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -160,7 +170,15 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("auto-tagging") }}
+                  {{ $t("open-cv") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img src="/images/services/bullet.png" alt="bullet" />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("multi-stream") }}
                 </p>
               </div>
             </div>
@@ -175,7 +193,7 @@
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
               >
-                {{ $t("admin-business") }}
+                {{ $t("ai-text") }}
               </div>
 
               <div class="flex gap-5 items-center">
@@ -183,7 +201,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("inquiry-content") }}
+                  {{ $t("multimodal") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -191,7 +209,7 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("inventory-order") }}
+                  {{ $t("outlier") }}
                 </p>
               </div>
               <div class="flex gap-5 items-center">
@@ -199,7 +217,15 @@
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
-                  {{ $t("secure-payment") }}
+                  {{ $t("dynamic-roi") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img src="/images/services/bullet.png" alt="bullet" />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("incremental-learning") }}
                 </p>
               </div>
             </div>
@@ -349,7 +375,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    // { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>

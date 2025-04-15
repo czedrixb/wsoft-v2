@@ -305,6 +305,7 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
+    { property: "og:image", content: "/images/thumbnail.jpg" },
   ],
 });
 </script>
