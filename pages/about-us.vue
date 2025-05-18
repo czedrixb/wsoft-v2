@@ -13,6 +13,7 @@
             src="/images/about-us/innovation.png"
             class="rounded-2xl object-cover w-full h-full"
             alt=""
+            loading="lazy"
           />
         </div>
         <div class="flex flex-col justify-center">
@@ -53,6 +54,7 @@
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
         >
           <img
+            loading="lazy"
             src="/images/blue-gradient.png"
             class="w-[10000px]"
             alt="shadow-overlay"
@@ -79,7 +81,11 @@
                 class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
                 <div class="flex justify-center my-5">
-                  <img src="/images/about-us/puzzle.png" alt="cutting-edge" />
+                  <img
+                    src="/images/about-us/puzzle.png"
+                    loading="lazy"
+                    alt="cutting-edge"
+                  />
                 </div>
 
                 <div
@@ -100,7 +106,11 @@
                 class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
                 <div class="flex justify-center my-5">
-                  <img src="/images/about-us/shield.png" alt="expertise" />
+                  <img
+                    loading="lazy"
+                    src="/images/about-us/shield.png"
+                    alt="expertise"
+                  />
                 </div>
 
                 <div
@@ -121,7 +131,11 @@
                 class="card bg-white shadow-md text-primary-content p-2 text-center w-96"
               >
                 <div class="flex justify-center my-5">
-                  <img src="/images/about-us/sticky.png" alt="technology" />
+                  <img
+                    loading="lazy"
+                    src="/images/about-us/sticky.png"
+                    alt="technology"
+                  />
                 </div>
 
                 <div
@@ -143,457 +157,49 @@
     </div>
 
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto py-16 mb-10">
+      <!-- <div class="flex justify-center items-center mb-5">
+        <span class="text-[25px] lg:text-[40px] pb-3 me-3">👥</span>
+      </div> -->
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
       >
-        {{ $t("our-team") }}
+        {{ $t("meet-team") }}
       </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-12 lg:mb-16"
       >
-        {{ $t("provide-more") }}
+        {{ $t("team-experts") }}
       </p>
 
       <div class="mx-auto lg:max-w-screen-lg">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          <div class="flex justify-center">
+          <div
+            v-for="(member, key) in members"
+            :key="key"
+            class="flex justify-center"
+          >
             <div>
               <img
-                src="/images/about-us/matt.png"
+                :src="member.image"
                 class="max-w-full mb-5"
-                alt="matt"
+                :alt="member.nickname"
+                loading="lazy"
               />
 
               <div class="flex flex-col gap-y-1 text-center">
                 <div
                   class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
                 >
-                  Matt
+                  {{ $t(member.nickname) }}
                 </div>
                 <div
                   class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
                 >
-                  {{ $t("matt") }}
+                  {{ $t(member.name) }}
                 </div>
                 <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("ceo") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/gale.png"
-                class="max-w-full mb-5"
-                alt="gale"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Gale
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("gale") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("operation-manager") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/joseph.png"
-                class="max-w-full mb-5"
-                alt="joseph"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Joseph
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("joseph") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("senior-dev") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/jaime.png"
-                class="max-w-full mb-5"
-                alt="jaime"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Jaimie
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("jaimie") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("project-officer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/salve.png"
-                class="max-w-full mb-5"
-                alt="salve"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Salve
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("salve") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("corporate-secretary") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/lora.png"
-                class="max-w-full mb-5"
-                alt="lora"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Lora
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("lora") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("marketing-specialist") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/ben.png"
-                class="max-w-full mb-5"
-                alt="ben"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Ben
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("ben") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/czedrix.png"
-                class="max-w-full mb-5"
-                alt="czedrix"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Czedrix
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("czedrix") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/rj.png"
-                class="max-w-full mb-5"
-                alt="rj"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  RJ
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("rj") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/mon.png"
-                class="max-w-full mb-5"
-                alt="mon"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Mon
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("mon") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("designer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/orland.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Orland
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  {{ $t("orland") }}
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("designer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/neil.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Neil
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Neil Christopher Gipaya
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/jason.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Jason
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Jason Lipreso
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("developer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/ricky.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Ricky
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  HyunSuk Lee
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("project-manager") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/hoon.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Hoon
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Hun-Jae Moon
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("system-architect") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/sebin.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Sebin
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Sebin Han
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("designer") }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex justify-center">
-            <div>
-              <img
-                src="/images/about-us/lin.png"
-                class="max-w-full mb-5"
-                alt="orland"
-              />
-
-              <div class="flex flex-col gap-y-1 text-center">
-                <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
-                >
-                  Lin
-                </div>
-                <div
-                  class="text-[16px] md:text-[18px] font-[400] text-[#475766]"
-                >
-                  Hyelin Kang
-                </div>
-                <div class="text-[16px] font-[300] text-[#475766]">
-                  {{ $t("administrative-officer") }}
+                  {{ $t(member.position) }}
                 </div>
               </div>
             </div>
@@ -610,6 +216,123 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+
+const members = ref([
+  {
+    image: "/images/about-us/matt.png",
+    nickname: "matt",
+    name: "matt-name",
+    position: "ceo",
+  },
+  {
+    image: "/images/about-us/ricky.png",
+    nickname: "ricky",
+    name: "ricky-name",
+    position: "project-manager",
+  },
+  {
+    image: "/images/about-us/joseph.png",
+    nickname: "joseph",
+    name: "joseph-name",
+    position: "project-manager",
+  },
+  {
+    image: "/images/about-us/hoon.png",
+    nickname: "hoon",
+    name: "hoon-name",
+    position: "system-architect",
+  },
+  {
+    image: "/images/about-us/lin.png",
+    nickname: "lin",
+    name: "lin-name",
+    position: "administrative-officer",
+  },
+  {
+    image: "/images/about-us/sebin.png",
+    nickname: "sebin",
+    name: "sebin-name",
+    position: "designer",
+  },
+  {
+    image: "/images/about-us/gale.png",
+    nickname: "gale",
+    name: "gale-name",
+    position: "operation-manager",
+  },
+  {
+    image: "/images/about-us/jaime.png",
+    nickname: "jaime",
+    name: "jaime-name",
+    position: "junior-project",
+  },
+  {
+    image: "/images/about-us/salve.png",
+    nickname: "salve",
+    name: "salve-name",
+    position: "corporate-secretary",
+  },
+  {
+    image: "/images/about-us/lora.png",
+    nickname: "lora",
+    name: "lora-name",
+    position: "operations-assistant",
+  },
+  {
+    image: "/images/about-us/ben.png",
+    nickname: "ben",
+    name: "ben-name",
+    position: "technical-project",
+  },
+  {
+    image: "/images/about-us/czedrix.png",
+    nickname: "czedrix",
+    name: "czedrix-name",
+    position: "front-end",
+  },
+  {
+    image: "/images/about-us/rj.png",
+    nickname: "rj",
+    name: "rj-name",
+    position: "full-stack",
+  },
+  {
+    image: "/images/about-us/mon.png",
+    nickname: "mon",
+    name: "mon-name",
+    position: "designer",
+  },
+  {
+    image: "/images/about-us/orland.png",
+    nickname: "orland",
+    name: "orland-name",
+    position: "designer",
+  },
+  {
+    image: "/images/about-us/neil.png",
+    nickname: "neil",
+    name: "neil-name",
+    position: "ai-engineer",
+  },
+  {
+    image: "/images/about-us/jason.png",
+    nickname: "jason",
+    name: "jason-name",
+    position: "full-stack",
+  },
+  // {
+  //   image: "/images/about-us/jason.png",
+  //   nickname: "jason",
+  //   name: "jason-name",
+  //   position: "full-stack",
+  // },
+  // {
+  //   image: "/images/about-us/jason.png",
+  //   nickname: "jason",
+  //   name: "jason-name",
+  //   position: "full-stack",
+  // },
+]);
 
 const { t } = useI18n();
 

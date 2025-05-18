@@ -19,12 +19,26 @@
                 </div>
               </div>
               <div
-                class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
+                class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
               >
                 {{ $t(service.title) }}
               </div>
+
+              <div v-if="service.slogan" class="mt-5">
+                <span
+                  class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
+                >
+                  {{ $t("slogan") }}:
+                </span>
+                <p
+                  class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] xl:w-[70%]"
+                >
+                  {{ $t(service.slogan) }}
+                </p>
+              </div>
+
               <p
-                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
+                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] xl:w-[70%] mt-5"
               >
                 {{ $t(service.description) }}
               </p>
@@ -54,27 +68,43 @@ const { $gsap, $ScrollTrigger } = useNuxtApp();
 const services = ref([
   {
     number: 1,
-    title: "web-dev",
-    description: "create-website",
-    image: "/images/home/web-development.png",
-    progress: 25,
+    title: "action-detection",
+    slogan: "reading-behavior",
+    description: "offers-advanced",
+    image: "/images/home/action-detection.png",
+    progress: 0,
   },
   {
     number: 2,
-    title: "web-app",
-    description: "build-innovative",
-    image: "/images/home/web-application.png",
-    progress: 50,
+    title: "rag",
+    slogan: "retrieving-knowledge",
+    description: "rag-technology",
+    image: "/images/home/rag.png",
+    progress: 20,
   },
   {
     number: 3,
-    title: "ui-design",
-    description: "design-intuitive",
-    image: "/images/home/ui-design.png",
-    progress: 75,
+    title: "web-dev",
+    description: "create-website",
+    image: "/images/home/web-development.png",
+    progress: 40,
   },
   {
     number: 4,
+    title: "web-app",
+    description: "build-innovative",
+    image: "/images/home/web-application.png",
+    progress: 60,
+  },
+  {
+    number: 5,
+    title: "ui-design",
+    description: "design-intuitive",
+    image: "/images/home/ui-design.png",
+    progress: 80,
+  },
+  {
+    number: 6,
     title: "ai-utilization",
     description: "cut-customer",
     image: "/images/home/ai-utilization.png",

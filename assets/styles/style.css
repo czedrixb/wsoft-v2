@@ -36,6 +36,10 @@ div {
   animation: float 3s ease-in-out infinite;
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
 @keyframes float {
   0% {
     transform: translateY(0);

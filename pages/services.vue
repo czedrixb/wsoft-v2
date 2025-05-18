@@ -2,85 +2,7 @@
   <div>
     <PageHeader :title="$t('Services')" :description="$t('services-text')" />
 
-    <div
-      class="px-5 py-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-10 overflow-hidden"
-    >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div class="flex">
-          <div
-            class="card bg-white shadow-md text-primary-content p-5 pb-0 flex flex-col justify-between"
-          >
-            <div>
-              <div
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
-              >
-                {{ $t("ui-ai") }}
-              </div>
-
-              <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766]"
-              >
-                {{ $t("build-high") }}
-              </p>
-            </div>
-
-            <div class="flex justify-center">
-              <img
-                src="/images/about-us/services-image1.png"
-                class="max-w-[35%] h-auto md:max-w-[91%] lg:max-w-[66%]"
-                alt="mobile-phone"
-              />
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div
-              class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-3"
-            >
-              <div
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
-              >
-                {{ $t("website-web") }}
-              </div>
-
-              <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-14"
-              >
-                {{ $t("intuitive-ai") }}
-              </p>
-
-              <img
-                src="/images/about-us/services-image2.png"
-                class="max-w-full h-auto"
-                alt="dashboard-screens"
-              />
-            </div>
-            <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
-              <div
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
-              >
-                {{ $t("maintenance-support") }}
-              </div>
-
-              <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[7rem]"
-              >
-                {{ $t("keep-website") }}
-              </p>
-
-              <img
-                src="/images/about-us/services-image3.png"
-                class="max-w-full h-auto"
-                alt="logos"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto py-16 mb-10">
+    <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pb-10 mb-10">
       <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-10"
       >
@@ -92,9 +14,10 @@
           <div class="flex">
             <div class="card bg-white text-primary-content p-5 py-8 w-full">
               <img
-                src="/images/services/development-1.png"
+                src="/images/services/development-7.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-1"
+                loading="lazy"
               />
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
@@ -103,7 +26,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -111,7 +38,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -119,7 +50,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -127,7 +62,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -139,7 +78,8 @@
           <div class="flex">
             <div class="card bg-white text-primary-content p-5 py-8 w-full">
               <img
-                src="/images/services/development-2.png"
+                loading="lazy"
+                src="/images/services/development-8.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-2"
               />
@@ -150,7 +90,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -158,7 +102,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -166,7 +114,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -174,7 +126,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -186,9 +142,10 @@
           <div class="flex">
             <div class="card bg-white text-primary-content p-5 py-8 w-full">
               <img
-                src="/images/services/development-3.png"
+                src="/images/services/development-9.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-3"
+                loading="lazy"
               />
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
@@ -197,7 +154,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -205,7 +166,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -213,7 +178,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -221,7 +190,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -233,9 +206,166 @@
           <div class="flex">
             <div class="card bg-white text-primary-content p-5 py-8 w-full">
               <img
+                src="/images/services/development-1.png"
+                class="max-w-[15%] md:max-w-[20%] mb-5"
+                alt="development-1"
+                loading="lazy"
+              />
+              <div
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+              >
+                {{ $t("custom-design") }}
+              </div>
+
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("custom-website") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("responsive-user") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("engaging-ui") }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="card bg-white text-primary-content p-5 py-8 w-full">
+              <img
+                src="/images/services/development-2.png"
+                class="max-w-[15%] md:max-w-[20%] mb-5"
+                alt="development-2"
+                loading="lazy"
+              />
+              <div
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+              >
+                {{ $t("content-management") }}
+              </div>
+
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("easy-use") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("image-file") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("auto-tagging") }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="card bg-white text-primary-content p-5 py-8 w-full">
+              <img
+                src="/images/services/development-3.png"
+                class="max-w-[15%] md:max-w-[20%] mb-5"
+                alt="development-3"
+                loading="lazy"
+              />
+              <div
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+              >
+                {{ $t("admin-business") }}
+              </div>
+
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("inquiry-content") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("inventory-order") }}
+                </p>
+              </div>
+              <div class="flex gap-5 items-center">
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                >
+                  {{ $t("secure-payment") }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="card bg-white text-primary-content p-5 py-8 w-full">
+              <img
                 src="/images/services/development-4.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-4"
+                loading="lazy"
               />
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
@@ -244,7 +374,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -252,7 +386,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -260,7 +398,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -275,6 +417,7 @@
                 src="/images/services/development-5.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-5"
+                loading="lazy"
               />
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
@@ -283,7 +426,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -291,7 +438,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -299,7 +450,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -314,6 +469,7 @@
                 src="/images/services/development-6.png"
                 class="max-w-[15%] md:max-w-[20%] mb-5"
                 alt="development-6"
+                loading="lazy"
               />
               <div
                 class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
@@ -322,7 +478,11 @@
               </div>
 
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -330,7 +490,11 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
@@ -338,13 +502,126 @@
                 </p>
               </div>
               <div class="flex gap-5 items-center">
-                <img src="/images/services/bullet.png" alt="bullet" />
+                <img
+                  src="/images/services/bullet.png"
+                  loading="lazy"
+                  alt="bullet"
+                />
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
                 >
                   {{ $t("smooth-checkout") }}
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="px-5 py-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-[7rem] overflow-hidden"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="flex flex-col h-full">
+          <div class="flex-1 flex flex-col">
+            <div
+              class="card bg-white shadow-md text-primary-content p-5 pb-0 flex flex-col justify-between mb-5"
+            >
+              <div class="mb-8">
+                <div
+                  class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+                >
+                  {{ $t("ui-ai") }}
+                </div>
+
+                <p
+                  class="text-left font-inter font-[300] text-[18px] text-[#475766]"
+                >
+                  {{ $t("build-high") }}
+                </p>
+              </div>
+
+              <div class="flex justify-center">
+                <img
+                  src="/images/about-us/services-image1.png"
+                  class="max-w-[35%] h-auto md:max-w-[91%] lg:max-w-[30%]"
+                  alt="mobile-phone"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 flex flex-col">
+            <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
+              <div
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+              >
+                {{ $t("maintenance-support") }}
+              </div>
+
+              <p
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[2rem]"
+              >
+                {{ $t("keep-website") }}
+              </p>
+
+              <img
+                src="/images/about-us/services-image3.png"
+                class="max-w-full h-auto"
+                alt="logos"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col h-full">
+          <div class="flex-1 flex flex-col">
+            <div
+              class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-5"
+            >
+              <div
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+              >
+                {{ $t("website-web") }}
+              </div>
+
+              <p
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[6rem]"
+              >
+                {{ $t("intuitive-ai") }}
+              </p>
+
+              <img
+                src="/images/about-us/services-image2.png"
+                class="max-w-full h-auto"
+                alt="dashboard-screens"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="flex-1 flex flex-col">
+            <div
+              class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-3"
+            >
+              <div
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+              >
+                {{ $t("smart-video") }}
+              </div>
+
+              <p
+                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[5rem]"
+              >
+                {{ $t("build-ai") }}
+              </p>
+
+              <img
+                src="/images/services/sss.png"
+                class="max-w-full h-auto"
+                alt="dashboard-screens"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

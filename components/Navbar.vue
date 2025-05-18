@@ -84,6 +84,7 @@
               src="/images/logo.svg"
               class="w-[250px] mb-3"
               alt="W Soft Logo"
+              loading="lazy"
             />
           </NuxtLink>
         </div>

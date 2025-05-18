@@ -3,7 +3,15 @@
     <div
       class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+      <!-- <video
+        class="w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+        controls="false"
+        preload="auto"
+      >
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video> -->
@@ -13,40 +21,196 @@
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
       >
-        <div class="flex justify-center lg:mb-[1rem]">
+        <div class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]">
           <img
             src="/images/home/w-softlabs.svg"
-            class="w-[340px] mb-3 lg:w-[583px]"
+            class="w-[340px] lg:w-[583px]"
             alt="w-softlabs"
           />
         </div>
 
-        <div
-          class="relative h-[5rem] overflow-hidden flex justify-center lg:mb-[2rem]"
-        >
-          <transition
-            enter-active-class="animate-fade-up"
-            leave-active-class="opacity-0"
+        <div v-if="currentLanguage === 'ko'">
+          <div
+            class="relative mt-3 md:mt-5 h-[3rem] md:h-[4rem] lg:h-[5rem] overflow-hidden flex justify-center lg:mb-[0.5rem] mb-2"
           >
-            <div
-              :key="currentWord"
-              class="absolute text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full"
+            <transition
+              enter-active-class="animate-fade-up"
+              leave-active-class="opacity-0"
             >
-              {{ currentWord }}
+              <div
+                :key="currentWord"
+                class="absolute text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
+              >
+                {{ $t(currentWord) }}
+              </div>
+            </transition>
+          </div>
+
+          <div class="md:mb-1">
+            <div class="flex justify-center">
+              <svg
+                class="h-[5rem] lg:opacity-0 lg:h-[0]"
+                width="100%"
+                viewBox="0 0 500 120"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#2475EA" />
+                    <stop offset="100%" stop-color="#01C9D0" />
+                  </linearGradient>
+                </defs>
+                <text
+                  class="text-[80px] md:text-[95px]"
+                  x="50%"
+                  y="60"
+                  font-family="Poppins"
+                  font-weight="800"
+                  fill="transparent"
+                  stroke="url(#gradient)"
+                  stroke-width="1"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
+                >
+                  {{ $t("jumbotron") }}
+                </text>
+              </svg>
             </div>
-          </transition>
+
+            <div class="flex justify-center">
+              <svg
+                class="h-[0rem] opacity-0 lg:opacity-100 lg:h-[6rem]"
+                width="100%"
+                viewBox="0 0 500 120"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#2475EA" />
+                    <stop offset="100%" stop-color="#01C9D0" />
+                  </linearGradient>
+                </defs>
+                <text
+                  class="text-[120px]"
+                  x="50%"
+                  y="70"
+                  font-family="Poppins"
+                  font-weight="800"
+                  fill="transparent"
+                  stroke="url(#gradient)"
+                  stroke-width="2"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
+                >
+                  {{ $t("jumbotron") }}
+                </text>
+              </svg>
+            </div>
+          </div>
         </div>
 
-        <div class="flex justify-center mb-6">
-          <img
-            src="/images/home/jumbotron.webp"
-            class="w-[125px] lg:w-[168px]"
-            alt="w-softlabs"
-          />
+        <div v-else>
+          <div class="md:mb-1">
+            <div class="flex justify-center">
+              <svg
+                class="h-[5rem] lg:opacity-0 lg:h-[0]"
+                width="100%"
+                viewBox="0 0 500 120"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#2475EA" />
+                    <stop offset="100%" stop-color="#01C9D0" />
+                  </linearGradient>
+                </defs>
+                <text
+                  class="text-[80px] md:text-[95px]"
+                  x="50%"
+                  y="60"
+                  font-family="Poppins"
+                  font-weight="800"
+                  fill="transparent"
+                  stroke="url(#gradient)"
+                  stroke-width="1"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
+                >
+                  {{ $t("jumbotron") }}
+                </text>
+              </svg>
+            </div>
+
+            <div class="flex justify-center">
+              <svg
+                class="h-[0rem] opacity-0 lg:opacity-100 lg:h-[6rem]"
+                width="100%"
+                viewBox="0 0 500 120"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#2475EA" />
+                    <stop offset="100%" stop-color="#01C9D0" />
+                  </linearGradient>
+                </defs>
+                <text
+                  class="text-[120px]"
+                  x="50%"
+                  y="70"
+                  font-family="Poppins"
+                  font-weight="800"
+                  fill="transparent"
+                  stroke="url(#gradient)"
+                  stroke-width="2"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
+                >
+                  {{ $t("jumbotron") }}
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="relative h-[6rem] md:h-[4rem] lg:h-[5rem] overflow-hidden flex justify-center lg:mb-[0.5rem] mb-6"
+          >
+            <transition
+              enter-active-class="animate-fade-up"
+              leave-active-class="opacity-0"
+            >
+              <div
+                :key="currentWord"
+                class="absolute pb-3 text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
+              >
+                {{ $t(currentWord) }}
+              </div>
+            </transition>
+          </div>
         </div>
 
         <p
-          class="text-center text-[#475766] opacity-100 font-[300] font-[inter] text-[18px] px-5 md:px-0 mb-[3rem]"
+          class="text-center text-[#475766] opacity-100 font-[300] font-[inter] text-[18px] px-5 md:px-0 mb-[3rem] lg:pt-[2rem]"
         >
           {{ $t("elevate-business") }}
         </p>
@@ -67,21 +231,23 @@
       </div>
 
       <div
-        class="absolute right-[-104%] bottom-[10%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%]"
+        class="pointer-events-none absolute right-[-104%] bottom-[10%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%]"
       >
         <img
           src="/images/home/shadow-overlay.png"
           class="w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
+          loading="lazy"
         />
       </div>
       <div
-        class="absolute left-[-104%] bottom-[10%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%]"
+        class="pointer-events-none absolute left-[-104%] bottom-[10%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%]"
       >
         <img
           src="/images/home/shadow-overlay.png"
           class="w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
+          loading="lazy"
         />
       </div>
     </div>
@@ -137,6 +303,7 @@
             src="/images/blue-gradient.png"
             class="w-[5000px] xl:w-[1500px]"
             alt="shadow-overlay"
+            loading="lazy"
           />
         </div>
         <div class="z-20 relative">
@@ -187,12 +354,26 @@
               </div>
             </div>
             <div
-              class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%] mb-5"
+              class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
             >
               {{ $t(service.title) }}
             </div>
+
+            <div v-if="service.slogan" class="mt-5">
+              <span
+                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+              >
+                {{ $t("slogan") }}:
+              </span>
+              <p
+                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+              >
+                {{ $t(service.slogan) }}
+              </p>
+            </div>
+
             <p
-              class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+              class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] mt-5"
             >
               {{ $t(service.description) }}
             </p>
@@ -203,6 +384,7 @@
               :src="service.image"
               class="lg:w-[430px] xl:w-[500px]"
               alt="web-development"
+              loading="lazy"
             />
           </div>
         </div>
@@ -236,6 +418,7 @@
                 src="/images/home/project-1.png"
                 class="max-w-full h-[25rem] md:h-auto"
                 alt="dashboard"
+                loading="lazy"
               />
 
               <div
@@ -245,6 +428,7 @@
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt="shadow"
+                  loading="lazy"
                 />
               </div>
 
@@ -276,6 +460,7 @@
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
+                  loading="lazy"
                 />
               </div>
               <div
@@ -306,6 +491,7 @@
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
+                  loading="lazy"
                 />
               </div>
               <div
@@ -328,6 +514,7 @@
                 src="/images/home/project-4.png"
                 class="w-[100%] h-[auto]"
                 alt="diginest"
+                loading="lazy"
               />
               <div
                 class="absolute left-[0%] md:left-[-1%] lg:left-[0%] xl:left-[0%] md:bottom-[0%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
@@ -336,6 +523,7 @@
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
+                  loading="lazy"
                 />
               </div>
               <div
@@ -364,6 +552,7 @@
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
+              loading="lazy"
             />
           </div>
 
@@ -376,12 +565,17 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/content-management-system" class="relative">
-          <img src="/images/home/project-2.png" alt="mob-app-1-mobile" />
+          <img
+            src="/images/home/project-2.png"
+            alt="mob-app-1-mobile"
+            loading="lazy"
+          />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
+              loading="lazy"
             />
           </div>
 
@@ -400,12 +594,14 @@
           <img
             src="/images/home/project-3-mobile.png"
             alt=" mob-app-2-mobile"
+            loading="lazy"
           />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
+              loading="lazy"
             />
           </div>
           <div class="absolute left-[2%] bottom-[3%] opacity-100">
@@ -417,12 +613,17 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/blockchain" class="relative">
-          <img src="/images/home/project-4-mobile.png" alt="diginest-mobile" />
+          <img
+            src="/images/home/project-4-mobile.png"
+            alt="diginest-mobile"
+            loading="lazy"
+          />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
             <img
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
+              loading="lazy"
             />
           </div>
 
@@ -464,45 +665,61 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 
 const heroWords = [
-  "업무 효율을 극대화",
+  "hero-1",
   // "데이터로 세상을 이해",
-  "가능성을 연결",
-  "성장 엔진을 설계",
-  "인공지능으로 혁신",
-  "신뢰를 설계",
+  "hero-2",
+  "hero-3",
+  "hero-4",
+  "hero-5",
   // "무한한 가능성을 창조",
-  "데이터로 혁신",
+  "hero-6",
   // "비즈니스를 스마트하게",
-  "기술의 미래를 선도",
+  "hero-7",
 ];
 
 const services = ref([
   {
     number: 1,
-    title: "web-dev",
-    description: "create-website",
-    image: "/images/home/web-development.png",
-    progress: 25,
+    title: "action-detection",
+    slogan: "reading-behavior",
+    description: "offers-advanced",
+    image: "/images/home/action-detection.png",
+    progress: 0,
   },
   {
     number: 2,
-    title: "web-app",
-    description: "build-innovative",
-    image: "/images/home/web-application.png",
-    progress: 50,
+    title: "rag",
+    slogan: "retrieving-knowledge",
+    description: "rag-technology",
+    image: "/images/home/rag.png",
+    progress: 20,
   },
   {
     number: 3,
-    title: "ui-design",
-    description: "design-intuitive",
-    image: "/images/home/ui-design.png",
-    progress: 75,
+    title: "web-dev",
+    description: "create-website",
+    image: "/images/home/web-development.png",
+    progress: 40,
   },
   {
     number: 4,
+    title: "web-app",
+    description: "build-innovative",
+    image: "/images/home/web-application.png",
+    progress: 60,
+  },
+  {
+    number: 5,
+    title: "ui-design",
+    description: "design-intuitive",
+    image: "/images/home/ui-design.png",
+    progress: 80,
+  },
+  {
+    number: 6,
     title: "ai-utilization",
     description: "cut-customer",
     image: "/images/home/ai-utilization.png",
@@ -522,7 +739,24 @@ onMounted(() => {
   onUnmounted(() => clearInterval(interval));
 });
 
-const { t } = useI18n();
+const { locale, t } = useI18n();
+
+const currentLanguage = ref(locale.value);
+
+watch(locale, (newVal) => {
+  currentLanguage.value = newVal;
+});
+
+const imageError = ref(false);
+
+const handleImageError = (e) => {
+  imageError.value = true;
+  console.error("Image failed to load:", e);
+};
+
+const jumbotronWidth = computed(() => {
+  return locale.value === "ko" ? "168px" : "265px";
+});
 
 const staticMetaTitle = t("home-title");
 const staticMetaDescription = t("home-description");
