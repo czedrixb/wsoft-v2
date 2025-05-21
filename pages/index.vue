@@ -3,15 +3,7 @@
     <div
       class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video
-        class="w-full h-full object-cover"
-        autoplay
-        loop
-        muted
-        playsinline
-        controls="false"
-        preload="auto"
-      >
+      <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video> -->
@@ -21,15 +13,17 @@
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
       >
-        <div class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]">
-          <img
-            src="/images/home/w-softlabs.svg"
-            class="w-[340px] lg:w-[583px]"
-            alt="w-softlabs"
-          />
-        </div>
-
         <div v-if="currentLanguage === 'ko'">
+          <div
+            class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
+          >
+            <img
+              src="/images/home/w-softlabs.svg"
+              class="w-[340px] lg:w-[583px]"
+              alt="w-softlabs"
+            />
+          </div>
+
           <div
             class="relative mt-3 md:mt-5 h-[3rem] md:h-[4rem] lg:h-[5rem] overflow-hidden flex justify-center lg:mb-[0.5rem] mb-2"
           >
@@ -46,8 +40,16 @@
             </transition>
           </div>
 
-          <div class="md:mb-1">
+          <div class="mb-8">
             <div class="flex justify-center">
+              <NuxtImg
+                class="w-[100px] md:w-[120px] lg:w-[180px]"
+                height="100%"
+                src="/images/home/jumbotron.webp"
+                alt="we-do"
+              />
+            </div>
+            <!-- <div class="flex justify-center">
               <svg
                 class="h-[5rem] lg:opacity-0 lg:h-[0]"
                 width="100%"
@@ -80,9 +82,9 @@
                   {{ $t("jumbotron") }}
                 </text>
               </svg>
-            </div>
+            </div> -->
 
-            <div class="flex justify-center">
+            <!-- <div class="flex justify-center">
               <svg
                 class="h-[0rem] opacity-0 lg:opacity-100 lg:h-[6rem]"
                 width="100%"
@@ -115,13 +117,31 @@
                   {{ $t("jumbotron") }}
                 </text>
               </svg>
-            </div>
+            </div> -->
           </div>
         </div>
 
         <div v-else>
-          <div class="md:mb-1">
+          <div
+            class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
+          >
+            <img
+              src="/images/home/w-softlabs-en.webp"
+              class="w-[400px] md:w-[440px] lg:w-[610px]"
+              alt="w-softlabs"
+            />
+          </div>
+
+          <div class="mb-4">
             <div class="flex justify-center">
+              <NuxtImg
+                class="w-[180px] md:w-[190px] lg:w-[290px]"
+                height="100%"
+                src="/images/home/jumbotron-en.webp"
+                alt="we-do"
+              />
+            </div>
+            <!-- <div class="flex justify-center">
               <svg
                 class="h-[5rem] lg:opacity-0 lg:h-[0]"
                 width="100%"
@@ -189,7 +209,7 @@
                   {{ $t("jumbotron") }}
                 </text>
               </svg>
-            </div>
+            </div> -->
           </div>
 
           <div

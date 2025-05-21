@@ -1,6 +1,9 @@
 <template>
   <div class="bg-[#ebf0f7]">
-    <div class="navbar text-black py-5">
+    <!-- <div class="border-b border-[#C5C5C5] py-3 flex justify-end">
+      <Language />
+    </div> -->
+    <div class="navbar text-black pb-5 pt-3">
       <div class="flex-1">
         <NuxtLink to="/" @click="handleNavigation('/')">
           <NuxtImg
