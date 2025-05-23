@@ -1,5 +1,3 @@
-import { defineStore } from 'pinia'
-
 export const useLanguageStore = defineStore('language', {
   state: () => ({
     activeLanguage: 'ko' // Default to Korean
@@ -7,38 +5,39 @@ export const useLanguageStore = defineStore('language', {
   actions: {
     setLanguage(lang: string) {
       if (process.client) {
-        this.activeLanguage = lang
-        localStorage.setItem('lang', lang)
+        this.activeLanguage = lang;
+        localStorage.setItem('lang', lang);
+        return lang; // Return the language for chaining
       }
+      return this.activeLanguage;
     },
-    initialize() {
+    async initialize() {
       if (process.client) {
-        // 1. Check localStorage first
-        const storedLang = localStorage.getItem('lang')
-        if (storedLang) {
-          this.activeLanguage = storedLang
-          return
-        }
-
-        // 2. Detect user's country using Intl API
-        let userCountry: string | undefined
-
+        console.log("[Language Init] Start - Current activeLanguage:", this.activeLanguage);
+        
+        // First try to detect from browser
+        let userCountry: string | undefined;
         try {
-          // Modern browsers support Intl.Locale
-          userCountry = new Intl.Locale(navigator.language).region
+          userCountry = new Intl.Locale(navigator.language).region;
+          console.log("Detected country (Intl.Locale):", userCountry);
         } catch (e) {
-          // Fallback for older browsers
-          userCountry = new Intl.DateTimeFormat().resolvedOptions().locale.split('-')[1]?.toUpperCase()
+          userCountry = new Intl.DateTimeFormat().resolvedOptions().locale.split('-')[1]?.toUpperCase();
+          console.log("Detected country (Fallback):", userCountry);
         }
 
-        // 3. Set language based on country
+        // Determine language
+        let lang = 'ko'; // default
         if (userCountry) {
-          if (userCountry === 'KR') {
-            this.activeLanguage = 'ko'
-          } else {
-            this.activeLanguage = 'en' // Default to English for other countries
-          }
+          lang = userCountry === 'KR' ? 'ko' : 'en';
         }
+
+        // Only update if different from current
+        if (this.activeLanguage !== lang) {
+          console.log("Updating language to:", lang);
+          return this.setLanguage(lang); // Use the action to ensure reactivity
+        }
+        
+        return this.activeLanguage;
       }
     }
   }

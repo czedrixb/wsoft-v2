@@ -49,75 +49,6 @@
                 alt="we-do"
               />
             </div>
-            <!-- <div class="flex justify-center">
-              <svg
-                class="h-[5rem] lg:opacity-0 lg:h-[0]"
-                width="100%"
-                viewBox="0 0 500 120"
-              >
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stop-color="#2475EA" />
-                    <stop offset="100%" stop-color="#01C9D0" />
-                  </linearGradient>
-                </defs>
-                <text
-                  class="text-[80px] md:text-[95px]"
-                  x="50%"
-                  y="60"
-                  font-family="Poppins"
-                  font-weight="800"
-                  fill="transparent"
-                  stroke="url(#gradient)"
-                  stroke-width="1"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                >
-                  {{ $t("jumbotron") }}
-                </text>
-              </svg>
-            </div> -->
-
-            <!-- <div class="flex justify-center">
-              <svg
-                class="h-[0rem] opacity-0 lg:opacity-100 lg:h-[6rem]"
-                width="100%"
-                viewBox="0 0 500 120"
-              >
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stop-color="#2475EA" />
-                    <stop offset="100%" stop-color="#01C9D0" />
-                  </linearGradient>
-                </defs>
-                <text
-                  class="text-[120px]"
-                  x="50%"
-                  y="70"
-                  font-family="Poppins"
-                  font-weight="800"
-                  fill="transparent"
-                  stroke="url(#gradient)"
-                  stroke-width="2"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                >
-                  {{ $t("jumbotron") }}
-                </text>
-              </svg>
-            </div> -->
           </div>
         </div>
 
@@ -141,75 +72,6 @@
                 alt="we-do"
               />
             </div>
-            <!-- <div class="flex justify-center">
-              <svg
-                class="h-[5rem] lg:opacity-0 lg:h-[0]"
-                width="100%"
-                viewBox="0 0 500 120"
-              >
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stop-color="#2475EA" />
-                    <stop offset="100%" stop-color="#01C9D0" />
-                  </linearGradient>
-                </defs>
-                <text
-                  class="text-[80px] md:text-[95px]"
-                  x="50%"
-                  y="60"
-                  font-family="Poppins"
-                  font-weight="800"
-                  fill="transparent"
-                  stroke="url(#gradient)"
-                  stroke-width="1"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                >
-                  {{ $t("jumbotron") }}
-                </text>
-              </svg>
-            </div>
-
-            <div class="flex justify-center">
-              <svg
-                class="h-[0rem] opacity-0 lg:opacity-100 lg:h-[6rem]"
-                width="100%"
-                viewBox="0 0 500 120"
-              >
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stop-color="#2475EA" />
-                    <stop offset="100%" stop-color="#01C9D0" />
-                  </linearGradient>
-                </defs>
-                <text
-                  class="text-[120px]"
-                  x="50%"
-                  y="70"
-                  font-family="Poppins"
-                  font-weight="800"
-                  fill="transparent"
-                  stroke="url(#gradient)"
-                  stroke-width="2"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                >
-                  {{ $t("jumbotron") }}
-                </text>
-              </svg>
-            </div> -->
           </div>
 
           <div
@@ -686,6 +548,8 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
+import { useLanguageStore } from "~/stores/language";
+import { storeToRefs } from "pinia";
 
 const heroWords = [
   "hero-1",
@@ -761,22 +625,10 @@ onMounted(() => {
 
 const { locale, t } = useI18n();
 
-const currentLanguage = ref(locale.value);
+const languageStore = useLanguageStore();
+const { activeLanguage } = storeToRefs(languageStore);
 
-watch(locale, (newVal) => {
-  currentLanguage.value = newVal;
-});
-
-const imageError = ref(false);
-
-const handleImageError = (e) => {
-  imageError.value = true;
-  console.error("Image failed to load:", e);
-};
-
-const jumbotronWidth = computed(() => {
-  return locale.value === "ko" ? "168px" : "265px";
-});
+const currentLanguage = computed(() => activeLanguage.value);
 
 const staticMetaTitle = t("home-title");
 const staticMetaDescription = t("home-description");
