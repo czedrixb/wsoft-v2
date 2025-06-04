@@ -1,8 +1,8 @@
 <template>
   <div class="bg-[#ebf0f7]">
-    <!-- <div class="border-b border-[#C5C5C5] py-3 flex justify-end">
+    <div class="border-b border-[#C5C5C5] py-3 flex justify-end">
       <Language />
-    </div> -->
+    </div>
     <div class="navbar text-black pb-5 pt-3">
       <div class="flex-1">
         <NuxtLink to="/" @click="handleNavigation('/')">

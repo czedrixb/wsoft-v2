@@ -25,13 +25,13 @@
               </div>
 
               <div v-if="service.slogan" class="mt-5">
-                <span
+                <!-- <span
                   class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
                 >
                   {{ $t("slogan") }}:
-                </span>
+                </span> -->
                 <p
-                  class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] xl:w-[70%]"
+                  class="font-inter text-[18px] text-[#475766] font-[600] lg:w-[80%] xl:w-[70%]"
                 >
                   {{ $t(service.slogan) }}
                 </p>

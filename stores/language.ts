@@ -1,13 +1,13 @@
 export const useLanguageStore = defineStore('language', {
   state: () => ({
-    activeLanguage: 'ko' // Default to Korean
+    activeLanguage: 'ko'
   }),
   actions: {
     setLanguage(lang: string) {
       if (process.client) {
         this.activeLanguage = lang;
         localStorage.setItem('lang', lang);
-        return lang; // Return the language for chaining
+        return lang; 
       }
       return this.activeLanguage;
     },
@@ -15,7 +15,6 @@ export const useLanguageStore = defineStore('language', {
       if (process.client) {
         console.log("[Language Init] Start - Current activeLanguage:", this.activeLanguage);
         
-        // First try to detect from browser
         let userCountry: string | undefined;
         try {
           userCountry = new Intl.Locale(navigator.language).region;
@@ -25,16 +24,14 @@ export const useLanguageStore = defineStore('language', {
           console.log("Detected country (Fallback):", userCountry);
         }
 
-        // Determine language
-        let lang = 'ko'; // default
+        let lang = 'ko'; 
         if (userCountry) {
           lang = userCountry === 'KR' ? 'ko' : 'en';
         }
 
-        // Only update if different from current
         if (this.activeLanguage !== lang) {
           console.log("Updating language to:", lang);
-          return this.setLanguage(lang); // Use the action to ensure reactivity
+          return this.setLanguage(lang); 
         }
         
         return this.activeLanguage;

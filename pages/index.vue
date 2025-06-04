@@ -3,17 +3,17 @@
     <div
       class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+      <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> -->
 
       <div class="absolute inset-0 bg-[#ebf0f7] opacity-[.80]"></div>
 
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
       >
-        <div v-if="currentLanguage === 'ko'">
+        <div :class="{ hidden: currentLanguage !== 'ko' }">
           <div
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <div v-else>
+        <div :class="{ hidden: currentLanguage === 'ko' }">
           <div
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
@@ -65,11 +65,10 @@
 
           <div class="mb-4">
             <div class="flex justify-center">
-              <img
-                preload
+              <NuxtImg
                 class="w-[180px] md:w-[190px] lg:w-[290px]"
                 height="100%"
-                src="/images/home/jumbotron-en.webp"
+                src="/images/home/jumbotronen.webp"
                 alt="we-do-en"
               />
             </div>
@@ -138,7 +137,7 @@
     <div
       class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto md:mt-[15rem]"
     >
-      <div
+      <!-- <div
         class="flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:gap-x-0 xl:gap-x-10 mb-10 lg:mb-0"
       >
         <div class="floating-item">
@@ -165,7 +164,7 @@
             {{ $t("project-completed") }}
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="relative">
         <div
@@ -243,13 +242,13 @@
             </div>
 
             <div v-if="service.slogan" class="mt-5">
-              <span
+              <!-- <span
                 class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
               >
                 {{ $t("slogan") }}:
-              </span>
+              </span> -->
               <p
-                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+                class="font-inter text-[18px] text-[#475766] font-[600] lg:w-[80%]"
               >
                 {{ $t(service.slogan) }}
               </p>

@@ -1,17 +1,58 @@
 options:
-  max-parallel: 1  # This limits the pipeline to one instance at a time
+ max-parallel: 1
 
-image: atlassian/default-image:latest
+image: node:20
+
 pipelines:
-  branches:
-    main: # your branch that will trigger this
-      - step:
-          name: Build and Deploy to Server
-          script:
-            - pipe: atlassian/ssh-run:0.2.6
-              variables:
-                SSH_USER: $SSH_USER # from the repository variables
-                SERVER: $SERVER # from the repository variables
-                
-                # Navigate to project directory && make sure the executable file has permission to execute && run the deployment script
-                COMMAND: 'cd /opt/bitnami/projects/$PROJECT_NAME && chmod +x ../deployment.sh && ../deployment.sh'
+ branches:
+  main:
+   - step:
+      name: Build & Deploy Nuxt Static Site
+      caches:
+       - node
+      script:
+       # Enable Yarn and install dependencies
+       - corepack enable
+       - yarn install
+
+       # Inject .env if needed
+       - echo "$ENV_CONTENTS" > .env
+
+       # Build the Nuxt static site
+       - yarn generate
+
+       # Setup SSH access
+       - mkdir -p ~/.ssh
+       - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+       - chmod 600 ~/.ssh/id_rsa
+       - ssh-keyscan -H $SERVER >> ~/.ssh/known_hosts
+
+       # Set deployment paths
+       - export TS=$(date +%Y%m%d%H%M%S)
+       - export TMP_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/tmp-deploy-$TS"
+       - export DIST_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/dist"
+       - export BACKUP_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-$TS"
+
+       # Upload to temp folder
+       - ssh $SSH_USER@$SERVER "mkdir -p $TMP_PATH"
+       - scp -r .output/public/* $SSH_USER@$SERVER:$TMP_PATH/
+
+       # Atomic swap: backup old dist, replace with new
+       - ssh $SSH_USER@$SERVER "
+            set -e;
+            if [ -d '/opt/bitnami/projects/wsoftlabs-website-v2/dist' ]; then
+              mv '/opt/bitnami/projects/wsoftlabs-website-v2/dist' '/opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-$TS';
+            fi;
+            mv '/opt/bitnami/projects/wsoftlabs-website-v2/tmp-deploy-$TS' '/opt/bitnami/projects/wsoftlabs-website-v2/dist';
+          "
+
+       # Restart Apache
+       - ssh $SSH_USER@$SERVER 'sudo /opt/bitnami/ctlscript.sh restart apache'
+
+       # Cleanup: Keep only the 2 most recent backups
+       - ssh $SSH_USER@$SERVER '
+         ls -dt /opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-* 2>/dev/null | tail -n +3 | xargs -r rm -rf
+         '
+
+      services:
+       - docker

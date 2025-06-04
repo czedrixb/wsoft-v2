@@ -1,7 +1,7 @@
 <template>
   <div class="relative overflow-hidden mb-14">
     <div
-      class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-8"
+      class="text-center font-poppins font-[600] text-[25px] px-5 md:px-0 text-[#475766] mx-auto max-w-screen-lg mb-8"
     >
       {{ $t("top-tool") }}
     </div>
@@ -16,6 +16,7 @@
             format="webp"
             width="24px"
             height="24px"
+            k
             sizes="24px"
             alt="tech-stack-icon"
             src="/images/home/devtools/devicon_html5.webp"
@@ -948,7 +949,7 @@
     </div>
 
     <div
-      class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mt-8"
+      class="text-center font-poppins font-[600] text-[25px] px-5 md:px-0 text-[#475766] mt-8 mx-auto max-w-screen-lg"
     >
       {{ $t("bottom-tool") }}
     </div>

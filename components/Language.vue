@@ -2,7 +2,7 @@
   <div class="flex gap-x-2">
     <button
       @click="setActiveLanguage('en')"
-      class="btn font-[400] btn-ghost border-none transition-all duration-300 px-8 btn-sm h-[40px]"
+      class="btn font-[400] btn-ghost border-none transition-all duration-300 px-8 btn-sm h-[30px]"
       :class="{
         'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white':
           currentLanguage === 'en',
@@ -14,7 +14,7 @@
 
     <button
       @click="setActiveLanguage('ko')"
-      class="btn font-[400] btn-ghost border-none transition-all duration-300 px-8 btn-sm h-[40px]"
+      class="btn font-[400] btn-ghost border-none transition-all duration-300 px-8 btn-sm h-[30px]"
       :class="{
         'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white':
           currentLanguage === 'ko',
@@ -35,7 +35,6 @@ const { locale } = useI18n();
 const languageStore = useLanguageStore();
 const { activeLanguage: currentLanguage } = storeToRefs(languageStore); // Reactive reference
 
-// Initialize language and sync with i18n
 onMounted(async () => {
   console.log("Initializing language store...");
   const lang = await languageStore.initialize();
@@ -43,7 +42,6 @@ onMounted(async () => {
   console.log("Final active language:", lang);
 });
 
-// Watch for language changes
 watch(currentLanguage, (newLang) => {
   locale.value = newLang;
 });
@@ -51,7 +49,6 @@ watch(currentLanguage, (newLang) => {
 const setActiveLanguage = async (language) => {
   if (process.client && currentLanguage.value !== language) {
     await languageStore.setLanguage(language);
-    // The watcher will update locale.value automatically
   }
 };
 </script>
