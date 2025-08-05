@@ -101,7 +101,7 @@
           <button
             class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
-            <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
+            <span class="relative z-10">{{ $t("start-project") }}</span>
             <span
               class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
             ></span>
@@ -524,7 +524,7 @@
           <button
             class="relative font-[400] text-[18px] px-12 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
-            <span class="relative z-10">{{ $t("see-more") }}</span>
+            <span class="relative z-10">{{ $t("explore-more-projects") }}</span>
             <span
               class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
             ></span>
@@ -543,7 +543,7 @@
     <ContactEmail />
   </div>
 </template>
- <script setup>
+<script setup>
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";

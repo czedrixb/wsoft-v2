@@ -6,8 +6,8 @@
     <div class="navbar text-black pb-5 pt-3">
       <div class="flex-1">
         <NuxtLink to="/" @click="handleNavigation('/')">
-          <NuxtImg
-            src="/images/logo.svg"
+          <img
+            src="/images/logo.png"
             height="100%"
             class="w-[200px] md:w-[300px]"
             alt="W Soft Logo"
@@ -84,7 +84,7 @@
         <div class="text-center">
           <NuxtLink to="/" @click="isMenuOpen = false">
             <img
-              src="/images/logo.svg"
+              src="/images/logo.png"
               class="w-[250px] mb-3"
               alt="W Soft Logo"
               loading="lazy"

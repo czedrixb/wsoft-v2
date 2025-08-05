@@ -189,7 +189,7 @@
 
               <div class="flex flex-col gap-y-1 text-center">
                 <div
-                  class="text-[18px] md:text-[20px] font-[600] text-[#475766]"
+                  class="text-[16px] md:text-[20px] font-[600] text-[#475766]"
                 >
                   {{ $t(member.nickname) }}
                 </div>

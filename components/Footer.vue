@@ -3,7 +3,7 @@
     <div class="pt-10 pb-7 px-5">
       <div class="flex justify-center mb-10">
         <NuxtLink to="/">
-          <NuxtImg src="/images/logo.svg" width="270px" alt="W Soft Logo" />
+          <NuxtImg src="/images/logo.png" width="270px" alt="W Soft Logo" />
         </NuxtLink>
       </div>
 
