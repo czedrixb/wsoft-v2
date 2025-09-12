@@ -617,12 +617,20 @@ const currentIndex = ref(0);
 
 const currentWord = computed(() => heroWords[currentIndex.value]);
 
-onMounted(() => {
+const setupHeroAnimation = () => {
   const interval = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % heroWords.length;
   }, 3000);
 
-  onUnmounted(() => clearInterval(interval));
+  return interval;
+};
+
+onMounted(() => {
+  const interval = setupHeroAnimation();
+
+  onUnmounted(() => {
+    clearInterval(interval);
+  });
 });
 
 const { locale, t } = useI18n();
