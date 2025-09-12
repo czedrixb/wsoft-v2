@@ -551,6 +551,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { useLanguageStore } from "~/stores/language";
 import { storeToRefs } from "pinia";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useInterval } from "@/composables/useInterval";
 
 const heroWords = [
   "hero-1",
@@ -617,20 +618,12 @@ const currentIndex = ref(0);
 
 const currentWord = computed(() => heroWords[currentIndex.value]);
 
-const setupHeroAnimation = () => {
-  const interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % heroWords.length;
-  }, 3000);
-
-  return interval;
-};
+const { start } = useInterval(() => {
+  currentIndex.value = (currentIndex.value + 1) % heroWords.length;
+}, 3000);
 
 onMounted(() => {
-  const interval = setupHeroAnimation();
-
-  onUnmounted(() => {
-    clearInterval(interval);
-  });
+  start();
 });
 
 const { locale, t } = useI18n();
