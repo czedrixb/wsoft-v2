@@ -1,14 +1,14 @@
 <template>
   <div class="relative overflow-hidden mb-14">
     <div
-      class="text-center font-poppins font-[600] text-[25px] px-5 md:px-0 text-[#475766] mx-auto max-w-screen-lg mb-8"
+      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mx-auto max-w-screen-lg mb-8"
     >
       {{ $t("top-tool") }}
     </div>
 
     <div class="relative w-screen">
       <div class="text-stacks-marquee">
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -23,8 +23,8 @@
             class="mr-1 flex"
           />
           <span>HTML 5</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -38,7 +38,7 @@
             class="mr-1 flex"
           />
           <span>CSS3</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -95,7 +95,7 @@
           />
           <span>Apache</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -108,7 +108,7 @@
             class="mr-1 flex"
           />
           <span>GitHub</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -137,7 +137,7 @@
           />
           <span>Laravel</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -150,8 +150,8 @@
             class="mr-1 flex"
           />
           <span>Shopify</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -164,7 +164,7 @@
             class="mr-1 flex"
           />
           <span>Wordpress</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -236,7 +236,7 @@
           <span>MongoDB</span>
         </div>
         <!-- Mirror -->
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <figure class="mr-1 flex">
@@ -251,8 +251,8 @@
             />
           </figure>
           <span>HTML 5</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <figure class="mr-1 flex">
@@ -267,7 +267,7 @@
             />
           </figure>
           <span>CSS3</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -324,7 +324,7 @@
           />
           <span>Apache</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -337,7 +337,7 @@
             class="mr-1 flex"
           />
           <span>GitHub</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -366,7 +366,7 @@
           />
           <span>Laravel</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -379,8 +379,8 @@
             class="mr-1 flex"
           />
           <span>Shopify</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -393,7 +393,7 @@
             class="mr-1 flex"
           />
           <span>Wordpress</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -467,7 +467,7 @@
         <!-- END Mirror -->
       </div>
       <div class="text-stacks-marquee-reverse">
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -480,8 +480,8 @@
             class="mr-1 flex"
           />
           <span>PHPUnit</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -494,8 +494,8 @@
             class="mr-1 flex"
           />
           <span>DigitalOcean</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -508,7 +508,7 @@
             class="mr-1 flex"
           />
           <span>Photoshop</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -523,7 +523,7 @@
           />
           <span>Figma</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -536,8 +536,8 @@
             class="mr-1 flex"
           />
           <span>Illustrator</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -550,8 +550,8 @@
             class="mr-1 flex"
           />
           <span>Google Drive</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -564,7 +564,7 @@
             class="mr-1 flex"
           />
           <span>Google Analytics</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -648,6 +648,142 @@
             class="mr-1 flex"
           />
           <span>Python</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+            class="mr-1 flex"
+          />
+          <span>PyTorch</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_meta.png"
+            class="mr-1 flex"
+          />
+          <span>LLaMA</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="28px"
+            height="28px"
+            sizes="28px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_groq.svg"
+            class="mr-1 pt-1 flex"
+          />
+          <span>Groq</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg"
+            class="mr-1 flex"
+          />
+          <span>OpenCV</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_pyqt.jpg"
+            class="mr-1 flex"
+          />
+          <span>PyQt</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+            class="mr-1 flex"
+          />
+          <span>FastAPI</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            sizes="40px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_langchain.png"
+            class="mr-1 flex"
+          />
+          <span>LangChain</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg"
+            class="mr-1 flex"
+          />
+          <span>NuxtJS</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+            class="mr-1 flex"
+          />
+          <span>Java EE</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            sizes="30px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_javafx.png"
+            class="mr-1 flex"
+          />
+          <span>JavaFX</span>
         </div>
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
@@ -706,7 +842,7 @@
           <span>Flask</span>
         </div>
         <!-- Mirror -->
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -719,8 +855,8 @@
             class="mr-1 flex"
           />
           <span>PHPUnit</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -733,8 +869,8 @@
             class="mr-1 flex"
           />
           <span>DigitalOcean</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -747,7 +883,7 @@
             class="mr-1 flex"
           />
           <span>Photoshop</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -762,7 +898,7 @@
           />
           <span>Figma</span>
         </div>
-        <div
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -775,8 +911,8 @@
             class="mr-1 flex"
           />
           <span>Illustrator</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -789,8 +925,8 @@
             class="mr-1 flex"
           />
           <span>Google Drive</span>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
           <NuxtImg
@@ -803,7 +939,7 @@
             class="mr-1 flex"
           />
           <span>Google Analytics</span>
-        </div>
+        </div> -->
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
         >
@@ -887,6 +1023,142 @@
             class="mr-1 flex"
           />
           <span>Python</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+            class="mr-1 flex"
+          />
+          <span>PyTorch</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_meta.png"
+            class="mr-1 flex"
+          />
+          <span>LLaMA</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="28px"
+            height="28px"
+            sizes="28px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_groq.svg"
+            class="mr-1 pt-1 flex"
+          />
+          <span>Groq</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg"
+            class="mr-1 flex"
+          />
+          <span>OpenCV</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_pyqt.jpg"
+            class="mr-1 flex"
+          />
+          <span>PyQt</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+            class="mr-1 flex"
+          />
+          <span>FastAPI</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            sizes="40px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_langchain.png"
+            class="mr-1 flex"
+          />
+          <span>LangChain</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg"
+            class="mr-1 flex"
+          />
+          <span>NuxtJS</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            width="24px"
+            height="24px"
+            sizes="24px"
+            alt="tech-stack-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+            class="mr-1 flex"
+          />
+          <span>Java EE</span>
+        </div>
+        <div
+          class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
+        >
+          <NuxtImg
+            preload
+            sizes="30px"
+            alt="tech-stack-icon"
+            src="/images/home/devtools/devicon_javafx.png"
+            class="mr-1 flex"
+          />
+          <span>JavaFX</span>
         </div>
         <div
           class="mx-4 my-2 px-8 py-5 badge badge-lg badge-outline text-black bg-transparent font-light"
@@ -949,7 +1221,7 @@
     </div>
 
     <div
-      class="text-center font-poppins font-[600] text-[25px] px-5 md:px-0 text-[#475766] mt-8 mx-auto max-w-screen-lg"
+      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mt-8 mx-auto max-w-screen-lg"
     >
       {{ $t("bottom-tool") }}
     </div>

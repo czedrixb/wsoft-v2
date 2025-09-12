@@ -1,6 +1,6 @@
 export const useLanguageStore = defineStore('language', {
   state: () => ({
-    activeLanguage: 'ko'
+    activeLanguage: 'ko',
   }),
   actions: {
     setLanguage(lang: string) {

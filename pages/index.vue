@@ -550,6 +550,7 @@ import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { useLanguageStore } from "~/stores/language";
 import { storeToRefs } from "pinia";
+import { useStructuredData } from "@/composables/useStructuredData";
 
 const heroWords = [
   "hero-1",
@@ -578,13 +579,14 @@ const services = ref([
     title: "rag",
     slogan: "retrieving-knowledge",
     description: "rag-technology",
-    image: "/images/home/rag.png",
+    image: "/images/home/rag-new.png",
     progress: 20,
   },
   {
     number: 3,
-    title: "web-dev",
-    description: "create-website",
+    title: "data-driven",
+    slogan: "reimagining-business",
+    description: "data-driven-text",
     image: "/images/home/web-development.png",
     progress: 40,
   },
@@ -606,7 +608,7 @@ const services = ref([
     number: 6,
     title: "ai-utilization",
     description: "cut-customer",
-    image: "/images/home/ai-utilization.png",
+    image: "/images/home/ai-utilization-new.png",
     progress: 100,
   },
 ]);
@@ -637,8 +639,16 @@ const staticMetaKeywords = [
   ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
 ].join(", ");
 
+const structuredData = useStructuredData("home");
+
 useHead({
   title: staticMetaTitle,
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(structuredData),
+    },
+  ],
   meta: [
     { name: "description", content: staticMetaDescription },
     { name: "keywords", content: staticMetaKeywords },

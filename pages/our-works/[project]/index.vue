@@ -55,12 +55,39 @@
           />
           <div class="lg:w-[80%] mx-auto z-20">
             <div
-              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
             >
               {{ $t(project?.title1) }}
             </div>
 
+            <div
+              v-if="project.title1_sub"
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
+            >
+              {{ $t(project?.title1_sub) }}
+            </div>
+
+            <div class="mt-2" v-if="project.content1">
+              <div
+                v-for="content in project.content1"
+                :key="content.tool_name"
+                class="d-flex align-center mb-1"
+              >
+                <span
+                  class="text-left font-inter font-medium text-[18px] mx-auto text-[#475766] mb-0"
+                >
+                  {{ $t(content.tool_name) }}:
+                </span>
+                <span
+                  class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766] mb-0"
+                >
+                  {{ $t(content.tool_text) }}
+                </span>
+              </div>
+            </div>
+
             <p
+              v-else
               class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
             >
               {{ $t(project?.text1) }}
@@ -91,12 +118,33 @@
               {{ $t(project?.title2) }}
             </div>
 
+            <div v-if="project.content2">
+              <div
+                v-for="(content, index) in project.content2"
+                :key="index"
+                class="d-flex align-center mb-1"
+              >
+                <span
+                  class="text-left font-inter fw-bold font-medium text-[18px] mx-auto text-[#475766] mb-0"
+                >
+                  {{ $t(content.title) }}:
+                </span>
+                <span
+                  class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766] mb-0"
+                >
+                  {{ $t(content.text) }}
+                </span>
+              </div>
+            </div>
+
             <p
+              v-else
               class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
             >
               {{ $t(project?.text2) }}
             </p>
           </div>
+
           <NuxtImg
             width="800px"
             height="100%"
@@ -123,6 +171,7 @@
               loading="lazy"
             />
           </div>
+
           <div
             class="grid grid-cols-1 md:grid-cols-2 items-center gap-5 mb-12 md:mb-[5rem]"
           >
@@ -141,8 +190,21 @@
                 {{ $t(project?.title3) }}
               </div>
 
+              <div v-if="project.content3">
+                <ul class="list-disc pl-5">
+                  <li
+                    v-for="(content, index) in project.content3"
+                    :key="index"
+                    class="text-left font-inter font-[300] text-[18px] text-[#475766]"
+                  >
+                    {{ $t(content.text) }}
+                  </li>
+                </ul>
+              </div>
+
               <p
-                class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+                v-else
+                class="text-left font-inter font-[300] text-[18px] text-[#475766]"
               >
                 {{ $t(project?.text3) }}
               </p>
@@ -195,16 +257,53 @@ const projects = {
   blockchain: {
     title: "blockchain",
     big_image: "/images/our-works/blockchain.png",
-    description: "design-project",
+    description: "niftle-description",
     image1: "blockchain/color.png",
-    title1: "color",
-    text1: "designing-website",
+    title1: "niftle-title1",
+    title1_sub: "niftle-title1-sub",
+    content1: [
+      {
+        tool_name: "Laravel",
+        tool_text: "laravel-text",
+      },
+      {
+        tool_name: "Vue.js",
+        tool_text: "vue-text",
+      },
+      {
+        tool_name: "Bootstrap",
+        tool_text: "bootstrap-text",
+      },
+    ],
     image2: "blockchain/design.png",
-    title2: "design",
-    text2: "implementing-design",
+    title2: "niftle-title2",
+    content2: [
+      {
+        title: "neon-color",
+        text: "neon-color-text",
+      },
+      {
+        title: "3d-graphics",
+        text: "3d-graphics-text",
+      },
+      {
+        title: "futuristic-typo",
+        text: "futuristic-typo-text",
+      },
+    ],
     image3: "blockchain/font.png",
-    title3: "font",
-    text3: "incorporating-sleek",
+    title3: "niftle-title3",
+    content3: [
+      {
+        text: "niftle-text3-1",
+      },
+      {
+        text: "niftle-text3-2",
+      },
+      {
+        text: "niftle-text3-3",
+      },
+    ],
     tools: ["laravel", "vue", "bootstrap"],
   },
   "youtube-content-learning-system": {

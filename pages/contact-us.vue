@@ -21,7 +21,7 @@
           <p
             class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
           >
-            uedu.dev@gmail.com
+            contact@wsoft.space
           </p>
         </div>
         <div class="card bg-white shadow-md text-primary-content p-8 w-[100%]">
@@ -39,7 +39,7 @@
           <p
             class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
           >
-            010 5067 8800
+            +82 10 5067 8800
           </p>
         </div>
         <div class="card bg-white shadow-md text-primary-content p-8 w-[100%]">
