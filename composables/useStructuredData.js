@@ -37,7 +37,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
   };
 
   const homeSchema = {
-    "@type": "ItemList",
+    "@type": "HomePage",
     itemListElement: [
       {
         "@type": "ListItem",
@@ -142,7 +142,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
   };
 
   const servicesSchema = {
-    "@type": "ItemList",
+    "@type": "ServicesPage",
     name: t("Services"),
     description: t("services-text"),
     url: `${baseUrl}${route.path}`,
@@ -278,7 +278,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
   };
 
   const ourWorksSchema = {
-    "@type": "CollectionPage",
+    "@type": "`OurWorksPage`",
     name: t("Our Works"),
     description: t("our-works-text"),
     url: `${baseUrl}${route.path}`,
