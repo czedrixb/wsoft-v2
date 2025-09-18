@@ -183,7 +183,6 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
-import { useStructuredData } from "@/composables/useStructuredData";
 
 const { t } = useI18n();
 
@@ -193,16 +192,8 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`about-us-meta-keyword-${i + 1}`)
 ).join(", ");
 
-const structuredData = useStructuredData("about");
-
 useHead({
   title: staticMetaTitle,
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData),
-    },
-  ],
   meta: [
     { name: "description", content: staticMetaDescription },
     { name: "keywords", content: staticMetaKeywords },

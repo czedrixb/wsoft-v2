@@ -280,7 +280,6 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useContact } from "@/composables/useContact";
-import { useStructuredData } from "@/composables/useStructuredData";
 
 const {
   first_name,
@@ -300,16 +299,8 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`contact-us-meta-keyword-${i + 1}`)
 ).join(", ");
 
-const structuredData = useStructuredData("contact");
-
 useHead({
   title: staticMetaTitle,
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData),
-    },
-  ],
   meta: [
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },

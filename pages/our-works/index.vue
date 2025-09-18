@@ -41,7 +41,6 @@
 <script setup>
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
-import { useStructuredData } from "@/composables/useStructuredData";
 
 const projects = {
   "academic-administration-management-system": {
@@ -76,6 +75,10 @@ const projects = {
     title: "database-speed-test",
     image: "database-speed-test.png",
   },
+  // "ai-tarot-master": {
+  //   title: "ai-tarot",
+  //   image: "ai-tarot.png",
+  // },
   "ai-review-analyzer": {
     title: "ai-review",
     image: "ai-review.png",
@@ -93,16 +96,8 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`our-work-meta-keyword-${i + 1}`)
 ).join(", ");
 
-const structuredData = useStructuredData("our-works", { projects });
-
 useHead({
   title: staticMetaTitle,
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData),
-    },
-  ],
   meta: [
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
