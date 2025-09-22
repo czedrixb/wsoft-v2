@@ -33,13 +33,23 @@
           <div v-for="blog in blogs" :key="blog.id" class="group">
             <NuxtLink :to="`/blogs/${blog.slug}`">
               <img
-                :src="
-                  blog.banner_url || '/images/blogs/img-blog-placeholder.png'
-                "
+                v-if="blog.banner_url"
+                :src="blog.banner_url"
                 class="max-w-full md:h-[232px] lg:h-[280px] xl:h-[351px] mb-5 rounded-[16px]"
                 :alt="blog?.title"
                 loading="lazy"
               />
+
+              <div
+                v-else
+                class="max-w-full md:h-[232px] lg:h-[280px] xl:h-[351px] mb-5 rounded-[16px] bg-[#f4f4f4] flex justify-center items-center"
+              >
+                <img
+                  src="/images/blogs/blog-placeholder.png"
+                  :alt="blog?.title"
+                  loading="lazy"
+                />
+              </div>
             </NuxtLink>
 
             <div class="flex mb-3">

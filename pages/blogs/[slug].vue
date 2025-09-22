@@ -35,12 +35,20 @@
         {{ blog?.title }}
       </h1>
 
-      <div class="flex justify-center">
+      <div :class="blog?.banner_url ? 'flex justify-center' : ''">
         <img
+          v-if="blog?.banner_url"
           :src="blog?.banner_url || '/images/blogs/img-single-blog.png'"
           :alt="blog?.title"
           class="rounded-xl mb-5 relative z-10 xl:h-[608px]"
         />
+
+        <div
+          v-else
+          class="rounded-xl max-w-full mb-5 relative z-10 xl:h-[608px] bg-[#f4f4f4] flex justify-center items-center"
+        >
+          <img src="/images/blogs/blog-placeholder.png" :alt="blog?.title" />
+        </div>
       </div>
 
       <div class="my-[5rem] mx-auto max-w-screen-lg prose">
@@ -68,11 +76,23 @@
       >
         <div v-for="post in popularPosts" :key="post.id">
           <img
+            v-if="post.banner_url"
             :src="post.banner_url || '/images/blogs/img-blog-placeholder.png'"
-            class="max-w-full mb-5 rounded-[16px] h-[360px]"
+            class="max-w-full mb-5 rounded-[16px] h-[270px]"
             :alt="post.title"
             loading="lazy"
           />
+
+          <div
+            v-else
+            class="max-w-full mb-5 rounded-[16px] h-[270px] flex justify-center items-center bg-[#f4f4f4]"
+          >
+            <img
+              src="/images/blogs/blog-placeholder.png"
+              :alt="post.title"
+              loading="lazy"
+            />
+          </div>
 
           <div class="flex mb-3">
             <span
