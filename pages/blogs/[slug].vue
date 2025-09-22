@@ -1,6 +1,5 @@
 <template>
   <div class="relative">
-    <!-- Shadow background -->
     <div
       class="pointer-events-none absolute w-[100%] z-0 bottom-[93%] md:bottom-[90%] lg:bottom-[82%] left-1/2 -translate-x-1/2"
     >
@@ -12,7 +11,6 @@
       />
     </div>
 
-    <!-- Blog content -->
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-md xl:max-w-screen-xl py-10 mb-[8rem]"
     >
@@ -50,7 +48,6 @@
       </div>
     </div>
 
-    <!-- Popular posts -->
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl"
     >
@@ -150,10 +147,8 @@ async function loadBlog(slug) {
   }
 }
 
-// initial load
 await loadBlog(route.params.slug);
 
-// watch for slug changes
 watch(
   () => route.params.slug,
   async (newSlug) => {
