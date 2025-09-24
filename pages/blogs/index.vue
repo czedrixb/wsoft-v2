@@ -21,7 +21,7 @@
           </div>
         </template>
 
-        <template v-else-if="blogs?.length === 0">
+        <template v-else-if="sortedBlogs?.length === 0">
           <div
             class="col-span-3 text-center text-gray-500 font-poppins text-3xl"
           >
@@ -30,25 +30,28 @@
         </template>
 
         <template v-else>
-          <div v-for="blog in blogs" :key="blog.id" class="group">
-            <NuxtLink :to="`/blogs/${blog.slug}`">
-              <img
-                v-if="blog.banner_url"
-                :src="blog.banner_url"
-                class="max-w-full md:h-[232px] lg:h-[280px] xl:h-[351px] mb-5 rounded-[16px]"
-                :alt="blog?.title"
-                loading="lazy"
-              />
-
-              <div
-                v-else
-                class="max-w-full md:h-[232px] lg:h-[280px] xl:h-[351px] mb-5 rounded-[16px] bg-[#f4f4f4] flex justify-center items-center"
-              >
+          <div v-for="blog in sortedBlogs" :key="blog.id" class="group">
+            <NuxtLink :to="`/blogs/${blog.slug}`" class="block">
+              <div class="relative overflow-hidden rounded-[16px] mb-5">
                 <img
-                  src="/images/blogs/blog-placeholder.png"
+                  v-if="blog.banner_url"
+                  :src="blog.banner_url"
+                  class="w-full h-full object-cover max-w-full md:h-[232px] lg:h-[280px] xl:h-[351px]"
                   :alt="blog?.title"
                   loading="lazy"
                 />
+
+                <div
+                  v-else
+                  class="w-full md:h-[232px] lg:h-[280px] xl:h-[351px] bg-[#f4f4f4] flex justify-center items-center"
+                >
+                  <img
+                    src="/images/blogs/blog-placeholder.png"
+                    :alt="blog?.title"
+                    class="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </NuxtLink>
 
@@ -81,13 +84,10 @@
             <div
               class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
               style="min-height: 72px; max-height: 72px"
-            >
-              {{
-                blog.excerpt ||
-                blog.content.replace(/<[^>]+>/g, "").slice(0, 150) + "..."
-              }}
-            </div>
-
+              v-html="
+                blog.excerpt || stripHtml(blog.content).slice(0, 150) + '...'
+              "
+            />
             <NuxtLink
               :to="`/blogs/${blog.slug}`"
               class="font-poppins font-[700] text-[18px] text-[#2279E8] cursor-pointer group-hover:underline group-hover:underline-offset-3 transition-all duration-300 ease-in-out"
@@ -105,6 +105,7 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 import { useAsyncData } from "#app";
 
 const { t } = useI18n();
@@ -113,6 +114,15 @@ const { data: blogs, pending } = await useAsyncData("blogs", () =>
   $fetch("https://blog.wsoftdev.space/api/getPosts")
 );
 
-// const blogs = ref([]);
-// const pending = ref(true);
+const stripHtml = (html) => {
+  return html.replace(/<[^>]+>/g, "");
+};
+
+const sortedBlogs = computed(() => {
+  if (!blogs.value) return [];
+
+  return [...blogs.value].sort((a, b) => {
+    return new Date(b.published_at) - new Date(a.published_at);
+  });
+});
 </script>

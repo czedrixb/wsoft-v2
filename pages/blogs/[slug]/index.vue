@@ -40,7 +40,7 @@
           v-if="blog?.banner_url"
           :src="blog?.banner_url || '/images/blogs/img-single-blog.png'"
           :alt="blog?.title"
-          class="rounded-xl mb-5 relative z-10 xl:h-[608px]"
+          class="rounded-xl mb-5 relative z-10"
         />
 
         <div
@@ -57,7 +57,7 @@
     </div>
 
     <div
-      class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl"
+      class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-[10rem]"
     >
       <div class="flex md:justify-between mb-10">
         <h3 class="font-poppins text-[40px] font-[600] text-[#475766]">
@@ -142,11 +142,7 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from "vue-router";
-import { useAsyncData } from "#app";
-import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
-import { ref, watch } from "vue";
 
 const { t } = useI18n();
 const route = useRoute();
@@ -155,8 +151,8 @@ const { data: posts } = await useAsyncData("posts", () =>
   $fetch("https://blog.wsoftdev.space/api/getPosts")
 );
 
-// reactive blog
 const blog = ref(null);
+const popularPosts = ref([]);
 
 async function loadBlog(slug) {
   const current = posts.value.find((p) => p.slug === slug);
@@ -167,7 +163,18 @@ async function loadBlog(slug) {
   }
 }
 
+function loadPopularPosts() {
+  popularPosts.value = posts.value
+    .filter((p) => p.category?.slug === "popular")
+    .sort(
+      (a, b) =>
+        new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    )
+    .slice(0, 3);
+}
+
 await loadBlog(route.params.slug);
+loadPopularPosts();
 
 watch(
   () => route.params.slug,
@@ -176,34 +183,16 @@ watch(
   }
 );
 
-const popularPosts = posts.value
-  .filter((p) => p.category?.slug === "popular")
-  .sort(
-    (a, b) =>
-      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
-  )
-  .slice(0, 3);
-
-useHead(() => {
-  if (!blog.value) return {};
-
-  return {
-    title: blog.value.title,
-    meta: [
-      { name: "description", content: blog.value.excerpt },
-      {
-        name: "keywords",
-        content: `${blog.value.title}, ${blog.value.category?.name}, blog`,
-      },
-      { property: "og:title", content: blog.value.title },
-      { property: "og:description", content: blog.value.excerpt },
-      { property: "og:type", content: "article" },
-      { property: "og:image", content: blog.value.banner_url },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: blog.value.title },
-      { name: "twitter:description", content: blog.value.excerpt },
-      { name: "twitter:image", content: blog.value.banner_url },
-    ],
-  };
+useSeoMeta({
+  title: () => blog.value?.title || "Blog Post",
+  description: () => blog.value?.excerpt || "",
+  ogTitle: () => blog.value?.title || "Blog Post",
+  ogDescription: () => blog.value?.excerpt || "",
+  ogImage: () => blog.value?.banner_url || "",
+  ogType: "article",
+  twitterCard: "summary_large_image",
+  twitterTitle: () => blog.value?.title || "Blog Post",
+  twitterDescription: () => blog.value?.excerpt || "",
+  twitterImage: () => blog.value?.banner_url || "",
 });
 </script>
