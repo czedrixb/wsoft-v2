@@ -1,10 +1,10 @@
 <template>
   <div class="relative overflow-hidden mb-14">
-    <div
+    <h3
       class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mx-auto max-w-screen-lg mb-8"
     >
       {{ $t("top-tool") }}
-    </div>
+    </h3>
 
     <div class="relative w-screen">
       <div class="text-stacks-marquee">
@@ -1220,13 +1220,12 @@
       </div>
     </div>
 
-    <div
+    <h3
       class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mt-8 mx-auto max-w-screen-lg"
     >
       {{ $t("bottom-tool") }}
-    </div>
+    </h3>
   </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>

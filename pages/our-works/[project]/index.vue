@@ -17,11 +17,11 @@
     <div
       class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto mb-10"
     >
-      <div
+      <h2
         class="text-center font-poppins font-[600] text-[25px] lg:text-[30px] md:px-0 text-[#475766] mb-2"
       >
         {{ $t("project-overview") }}
-      </div>
+      </h2>
 
       <p
         class="font-inter font-[300] text-[18px] text-justify mx-auto text-[#475766] lg:w-[80%] mb-[4rem] lg:mb-[5rem]"
@@ -54,18 +54,18 @@
             :src="`/images/our-works/${project?.image1}`"
           />
           <div class="lg:w-[80%] mx-auto z-20">
-            <div
+            <h2
               class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
             >
               {{ $t(project?.title1) }}
-            </div>
+            </h2>
 
-            <div
+            <h3
               v-if="project.title1_sub"
               class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
             >
               {{ $t(project?.title1_sub) }}
-            </div>
+            </h3>
 
             <div class="mt-2" v-if="project.content1">
               <div
@@ -112,11 +112,11 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-5">
           <div class="lg:w-[80%] mx-auto order-2 md:order-1 z-20">
-            <div
+            <h2
               class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
             >
               {{ $t(project?.title2) }}
-            </div>
+            </h2>
 
             <div v-if="project.content2">
               <div
@@ -184,11 +184,11 @@
               :src="`/images/our-works/${project?.image3}`"
             />
             <div class="lg:w-[80%] mx-auto z-20">
-              <div
+              <h2
                 class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
               >
                 {{ $t(project?.title3) }}
-              </div>
+              </h2>
 
               <div v-if="project.content3">
                 <ul class="list-disc pl-5">

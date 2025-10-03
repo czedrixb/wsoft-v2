@@ -17,11 +17,11 @@
           />
         </div>
         <div class="flex flex-col justify-center">
-          <div
+          <h2
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] mb-5 xl:mb-7"
           >
             {{ $t("innovating-business") }}
-          </div>
+          </h2>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] mb-5 xl:mb-7"
@@ -60,11 +60,11 @@
             alt="shadow-overlay"
           />
         </div>
-        <div
+        <h2
           class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
           {{ $t("why-choose") }}
-        </div>
+        </h2>
 
         <p
           class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
@@ -88,11 +88,11 @@
                   />
                 </div>
 
-                <div
+                <h2
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
                 >
                   {{ $t("cutting-edge") }}
-                </div>
+                </h2>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -113,11 +113,11 @@
                   />
                 </div>
 
-                <div
+                <h2
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
                 >
                   {{ $t("expertise-innovation") }}
-                </div>
+                </h2>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -138,11 +138,11 @@
                   />
                 </div>
 
-                <div
+                <h2
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
                 >
                   {{ $t("reliable-tech") }}
-                </div>
+                </h2>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -160,11 +160,11 @@
       <!-- <div class="flex justify-center items-center mb-5">
         <span class="text-[25px] lg:text-[40px] pb-3 me-3">👥</span>
       </div> -->
-      <div
+      <h2
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
       >
         {{ $t("meet-team") }}
-      </div>
+      </h2>
 
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-12 lg:mb-16"

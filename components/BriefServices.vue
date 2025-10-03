@@ -18,11 +18,11 @@
                   {{ service.number }}
                 </div>
               </div>
-              <div
+              <h2
                 class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
               >
                 {{ $t(service.title) }}
-              </div>
+              </h2>
 
               <div v-if="service.slogan" class="mt-5">
                 <!-- <span
@@ -164,10 +164,6 @@ onBeforeUnmount(() => {
   }
 });
 </script>
-
-
-
-
 
 <style scoped>
 .service-sections {

@@ -308,7 +308,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
 
   const contactSchema = {
     "@type": "ContactPage",
-    name: t("Contact Us"),
+    name: t("contact-us"),
     description: t("reach-out"),
     url: `${baseUrl}${route.path}`,
     mainEntity: {

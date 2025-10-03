@@ -19,18 +19,11 @@
     </div>
     <div class="absolute inset-0 flex justify-center items-center">
       <div>
-        <div
-          v-if="route.path == '/blogs'"
-          class="text-center font-poppins uppercase font-[700] text-[16pxv] lg:text-[20px] md:px-0 text-[#475766] mb-5"
-        >
-          {{ $t("our-blogs") }}
-        </div>
-
-        <div
+        <h1
           class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
           {{ title }}
-        </div>
+        </h1>
 
         <p
           class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] w-[80%] 2xl:w-[60%]"
@@ -43,10 +36,6 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-
 defineProps({
   title: {
     type: String,

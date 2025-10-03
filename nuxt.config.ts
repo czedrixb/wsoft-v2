@@ -10,6 +10,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: 'W Soft Labs',
+      htmlAttrs: {
+        lang: 'ko'
+      },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ],
       meta: [
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'W Soft Labs' },

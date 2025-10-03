@@ -9,11 +9,11 @@
         <div v-for="(project, key) in projects" :key="key">
           <NuxtLink :to="`/our-works/${key}`">
             <div class="block md:hidden mb-1">
-              <div
+              <h2
                 class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
               >
                 {{ $t(project.title) }}
-              </div>
+              </h2>
             </div>
             <NuxtImg
               width="600px"
@@ -76,10 +76,6 @@ const projects = {
     title: "database-speed-test",
     image: "database-speed-test.png",
   },
-  // "ai-tarot-master": {
-  //   title: "ai-tarot",
-  //   image: "ai-tarot.png",
-  // },
   "ai-review-analyzer": {
     title: "ai-review",
     image: "ai-review.png",

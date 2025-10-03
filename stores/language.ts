@@ -7,6 +7,11 @@ export const useLanguageStore = defineStore('language', {
       if (process.client) {
         this.activeLanguage = lang;
         localStorage.setItem('lang', lang);
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        console.log("[Language Set] HTML lang attribute updated to:", lang);
+        
         return lang; 
       }
       return this.activeLanguage;
@@ -14,6 +19,16 @@ export const useLanguageStore = defineStore('language', {
     async initialize() {
       if (process.client) {
         console.log("[Language Init] Start - Current activeLanguage:", this.activeLanguage);
+        
+        // Check if language is already set in localStorage
+        const storedLang = localStorage.getItem('lang');
+        if (storedLang && (storedLang === 'ko' || storedLang === 'en')) {
+          console.log("Using stored language:", storedLang);
+          if (this.activeLanguage !== storedLang) {
+            return this.setLanguage(storedLang);
+          }
+          return this.activeLanguage;
+        }
         
         let userCountry: string | undefined;
         try {
@@ -28,6 +43,10 @@ export const useLanguageStore = defineStore('language', {
         if (userCountry) {
           lang = userCountry === 'KR' ? 'ko' : 'en';
         }
+
+        // Set initial HTML lang attribute
+        document.documentElement.lang = lang;
+        console.log("Initial HTML lang attribute set to:", lang);
 
         if (this.activeLanguage !== lang) {
           console.log("Updating language to:", lang);

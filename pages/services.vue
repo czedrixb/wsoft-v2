@@ -3,11 +3,11 @@
     <PageHeader :title="$t('Services')" :description="$t('services-text')" />
 
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pb-10 mb-10">
-      <div
+      <h2
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-10"
       >
         {{ $t("introduction-development") }}
-      </div>
+      </h2>
 
       <div class="mx-auto lg:max-w-screen-lg xl:max-w-screen-xl">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -529,11 +529,11 @@
               class="card bg-white shadow-md text-primary-content p-5 pb-0 flex flex-col justify-between mb-5"
             >
               <div class="mb-8">
-                <div
+                <h3
                   class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
                 >
                   {{ $t("ui-ai") }}
-                </div>
+                </h3>
 
                 <p
                   class="text-left font-inter font-[300] text-[18px] text-[#475766]"
@@ -554,11 +554,11 @@
           </div>
           <div class="flex-1 flex flex-col">
             <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
-              <div
+              <h3
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
                 {{ $t("maintenance-support") }}
-              </div>
+              </h3>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[2rem]"
@@ -580,11 +580,11 @@
             <div
               class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-5"
             >
-              <div
+              <h3
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
                 {{ $t("website-web") }}
-              </div>
+              </h3>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[6rem]"
@@ -604,11 +604,11 @@
             <div
               class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-3"
             >
-              <div
+              <h3
                 class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
               >
                 {{ $t("smart-video") }}
-              </div>
+              </h3>
 
               <p
                 class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[5rem]"

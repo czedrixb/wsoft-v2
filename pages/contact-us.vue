@@ -15,9 +15,9 @@
               alt="mail"
             />
           </div>
-          <div class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
             {{ $t("email-address") }}
-          </div>
+          </h3>
           <p
             class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
           >
@@ -33,9 +33,9 @@
               alt="phone"
             />
           </div>
-          <div class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
             {{ $t("phone-number") }}
-          </div>
+          </h3>
           <p
             class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
           >
@@ -51,9 +51,9 @@
               alt="phone"
             />
           </div>
-          <div class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
             {{ $t("our-office") }}
-          </div>
+          </h3>
           <p class="text-left font-inter font-[300] text-[18px] text-[#475766]">
             {{ $t("address") }}
           </p>
@@ -86,11 +86,11 @@
               </div>
               <div class="p-8 md:col-span-2 lg:col-span-1">
                 <div>
-                  <div
+                  <h2
                     class="font-poppins font-[600] text-[22px] lg:text-[30px] md:px-0 text-[#475766] mb-0"
                   >
                     {{ $t("contact-us") }}
-                  </div>
+                  </h2>
 
                   <p
                     class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"

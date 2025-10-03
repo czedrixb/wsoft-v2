@@ -17,11 +17,11 @@
     </div>
     <div class="absolute inset-0 flex justify-center items-center">
       <div>
-        <div
+        <h1
           class="text-center lg:w-[80%] mx-auto font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
           {{ title }}
-        </div>
+        </h1>
         <div
           class="flex flex-wrap items-center justify-center gap-3 lg:w-[70%] mx-auto"
         >

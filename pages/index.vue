@@ -31,12 +31,12 @@
               enter-active-class="animate-fade-up"
               leave-active-class="opacity-0"
             >
-              <div
+              <h2
                 :key="currentWord"
                 class="absolute text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
               >
                 {{ $t(currentWord) }}
-              </div>
+              </h2>
             </transition>
           </div>
 
@@ -81,12 +81,12 @@
               enter-active-class="animate-fade-up"
               leave-active-class="opacity-0"
             >
-              <div
+              <h2
                 :key="currentWord"
                 class="absolute pb-3 text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
               >
                 {{ $t(currentWord) }}
-              </div>
+              </h2>
             </transition>
           </div>
         </div>
@@ -190,11 +190,11 @@
         </div>
         <div class="z-20 relative">
           <div class="flex justify-center mx-auto mb-5">
-            <div
+            <h1
               class="text-center font-poppins font-[600] text-[25px] md:w-[55%] xl:w-[40%] lg:text-[40px] md:px-0 text-[#475766] mb-5"
             >
               {{ $t("trusted-partner") }}
-            </div>
+            </h1>
           </div>
 
           <div class="flex justify-center mb-5">
@@ -235,11 +235,11 @@
                 {{ service.number }}
               </div>
             </div>
-            <div
+            <h2
               class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
             >
               {{ $t(service.title) }}
-            </div>
+            </h2>
 
             <div v-if="service.slogan" class="mt-5">
               <!-- <span
@@ -274,11 +274,11 @@
     </div>
 
     <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
-      <div
+      <h1
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
       >
         {{ $t("successful-projects") }}
-      </div>
+      </h1>
 
       <p
         class="font-inter font-[300] text-[18px] text-[#475766] text-center lg:max-w-screen-sm mx-auto mb-12"
@@ -623,11 +623,7 @@ const { start } = useInterval(() => {
 }, 3000);
 
 onMounted(() => {
-  const interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % heroWords.length;
-  }, 3000);
-
-  onUnmounted(() => clearInterval(interval));
+  start();
 });
 
 const { locale, t } = useI18n();

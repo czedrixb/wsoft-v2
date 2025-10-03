@@ -9,3 +9,13 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useLanguageStore } from "~/stores/language";
+
+const languageStore = useLanguageStore();
+
+onMounted(async () => {
+  await languageStore.initialize();
+});
+</script>
