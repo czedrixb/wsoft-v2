@@ -9,11 +9,11 @@
         <div v-for="(project, key) in projects" :key="key">
           <NuxtLink :to="`/our-works/${key}`">
             <div class="block md:hidden mb-1">
-              <h2
+              <div
                 class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
               >
                 {{ $t(project.title) }}
-              </h2>
+              </div>
             </div>
             <NuxtImg
               width="600px"
@@ -42,6 +42,7 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useCanonical } from "@/composables/useCanonical";
 
 const projects = {
   "academic-administration-management-system": {
@@ -86,7 +87,9 @@ const projects = {
   },
 };
 
+const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 const staticMetaTitle = t("works-title");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
@@ -97,6 +100,12 @@ const structuredData = useStructuredData("our-works", { projects });
 
 useHead({
   title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
@@ -108,6 +117,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:url", content: canonicalUrl.value },
   ],
 });
 </script>

@@ -274,11 +274,11 @@
     </div>
 
     <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
-      <h1
+      <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
       >
         {{ $t("successful-projects") }}
-      </h1>
+      </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-[#475766] text-center lg:max-w-screen-sm mx-auto mb-12"
@@ -552,6 +552,9 @@ import { useLanguageStore } from "~/stores/language";
 import { storeToRefs } from "pinia";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useInterval } from "@/composables/useInterval";
+import { useCanonical } from "@/composables/useCanonical";
+
+const { canonicalUrl } = useCanonical();
 
 const heroWords = [
   "hero-1",
@@ -627,6 +630,7 @@ onMounted(() => {
 });
 
 const { locale, t } = useI18n();
+const config = useRuntimeConfig();
 
 const languageStore = useLanguageStore();
 const { activeLanguage } = storeToRefs(languageStore);
@@ -644,6 +648,12 @@ const structuredData = useStructuredData("home");
 
 useHead({
   title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
@@ -657,6 +667,7 @@ useHead({
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:url", content: canonicalUrl.value },
   ],
 });
 </script>

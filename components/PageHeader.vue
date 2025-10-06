@@ -25,11 +25,11 @@
           {{ title }}
         </h1>
 
-        <p
+        <h2
           class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] w-[80%] 2xl:w-[60%]"
         >
           {{ description }}
-        </p>
+        </h2>
       </div>
     </div>
   </div>

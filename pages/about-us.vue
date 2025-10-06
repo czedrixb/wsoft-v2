@@ -17,11 +17,11 @@
           />
         </div>
         <div class="flex flex-col justify-center">
-          <h2
+          <div
             class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] mb-5 xl:mb-7"
           >
             {{ $t("innovating-business") }}
-          </h2>
+          </div>
 
           <p
             class="font-inter text-[18px] text-[#475766] font-[300] mb-5 xl:mb-7"
@@ -60,11 +60,11 @@
             alt="shadow-overlay"
           />
         </div>
-        <h2
+        <div
           class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
         >
           {{ $t("why-choose") }}
-        </h2>
+        </div>
 
         <p
           class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
@@ -88,11 +88,11 @@
                   />
                 </div>
 
-                <h2
+                <div
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
                 >
                   {{ $t("cutting-edge") }}
-                </h2>
+                </div>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -113,11 +113,11 @@
                   />
                 </div>
 
-                <h2
+                <div
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
                 >
                   {{ $t("expertise-innovation") }}
-                </h2>
+                </div>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -138,11 +138,11 @@
                   />
                 </div>
 
-                <h2
+                <div
                   class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
                 >
                   {{ $t("reliable-tech") }}
-                </h2>
+                </div>
 
                 <p
                   class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
@@ -160,11 +160,11 @@
       <!-- <div class="flex justify-center items-center mb-5">
         <span class="text-[25px] lg:text-[40px] pb-3 me-3">👥</span>
       </div> -->
-      <h2
+      <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
       >
         {{ $t("meet-team") }}
-      </h2>
+      </div>
 
       <p
         class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-12 lg:mb-16"
@@ -184,8 +184,11 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useCanonical } from "@/composables/useCanonical";
 
+const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 const staticMetaTitle = t("about-title");
 const staticMetaDescription = t("about-us-description");
@@ -197,6 +200,12 @@ const structuredData = useStructuredData("about");
 
 useHead({
   title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
@@ -210,6 +219,7 @@ useHead({
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:url", content: canonicalUrl.value },
   ],
 });
 </script>

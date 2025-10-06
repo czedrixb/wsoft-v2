@@ -86,11 +86,11 @@
               </div>
               <div class="p-8 md:col-span-2 lg:col-span-1">
                 <div>
-                  <h2
+                  <div
                     class="font-poppins font-[600] text-[22px] lg:text-[30px] md:px-0 text-[#475766] mb-0"
                   >
                     {{ $t("contact-us") }}
-                  </h2>
+                  </div>
 
                   <p
                     class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
@@ -281,6 +281,7 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useContact } from "@/composables/useContact";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useCanonical } from "@/composables/useCanonical";
 
 const {
   first_name,
@@ -293,7 +294,9 @@ const {
   errors,
 } = useContact();
 
+const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 const staticMetaTitle = t("contact-title");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
@@ -304,10 +307,22 @@ const structuredData = useStructuredData("contact");
 
 useHead({
   title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
       innerHTML: JSON.stringify(structuredData),
+    },
+  ],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
     },
   ],
   meta: [
@@ -315,6 +330,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:url", content: canonicalUrl.value },
   ],
 });
 </script>

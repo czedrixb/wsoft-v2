@@ -3,11 +3,11 @@
     <PageHeader :title="$t('Services')" :description="$t('services-text')" />
 
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pb-10 mb-10">
-      <h2
+      <div
         class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-10"
       >
         {{ $t("introduction-development") }}
-      </h2>
+      </div>
 
       <div class="mx-auto lg:max-w-screen-lg xl:max-w-screen-xl">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -636,8 +636,11 @@
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useCanonical } from "@/composables/useCanonical";
 
+const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
+const config = useRuntimeConfig();
 
 const staticMetaTitle = t("services-title");
 const staticMetaDescription = t("services-description");
@@ -649,6 +652,12 @@ const structuredData = useStructuredData("services");
 
 useHead({
   title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
@@ -662,6 +671,7 @@ useHead({
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:url", content: canonicalUrl.value },
   ],
 });
 </script>

@@ -18,11 +18,11 @@
                   {{ service.number }}
                 </div>
               </div>
-              <h2
+              <div
                 class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
               >
                 {{ $t(service.title) }}
-              </h2>
+              </div>
 
               <div v-if="service.slogan" class="mt-5">
                 <!-- <span

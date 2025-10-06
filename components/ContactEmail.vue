@@ -10,11 +10,11 @@
         <div class="hidden md:block">
           <div class="grid grid-cols-2 px-2 md:px-16 2xl:px-[10rem]">
             <div>
-              <h2
+              <div
                 class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[50px] px-5 md:px-0 text-white mb-3"
               >
                 {{ $t("partner-growth") }}
-              </h2>
+              </div>
 
               <p
                 class="font-inter font-[300] text-[18px] xl:text-[20px] text-white mb-8 lg:w-[80%]"
@@ -59,11 +59,11 @@
         <!-- SMALL SCREEN -->
         <div class="block md:hidden">
           <div class="grid grid-cols-2 px-2">
-            <h2
+            <div
               class="text-left font-poppins font-[600] text-[25px] lg:text-[30px] xl:text-[40px] px-2 md:px-0 text-white mb-3 col-span-2 w-[60%]"
             >
               {{ $t("partner-growth") }}
-            </h2>
+            </div>
           </div>
           <div class="px-5">
             <p
