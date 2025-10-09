@@ -1,5 +1,10 @@
 import { useI18n } from "vue-i18n";
 
+export const stripHtml = (html) => {
+  if (!html) return "";
+  return html.replace(/<[^>]+>/g, "");
+};
+
 export const useStructuredData = (pageType = "home", pageData = {}) => {
   const { t } = useI18n();
   const route = useRoute();
@@ -339,6 +344,72 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     },
   };
 
+  const blogIndexSchema = {
+    "@type": "CollectionPage",
+    name: t("Blogs"),
+    description: t("blogs-text"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: pageData.blogs ? pageData.blogs.length : 0,
+      itemListElement: pageData.blogs
+        ? pageData.blogs.map((blog, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "BlogPosting",
+              name: blog.title,
+              description:
+                blog.excerpt || stripHtml(blog.content).slice(0, 150) + "...",
+              url: `${baseUrl}/blogs/${blog.slug}`,
+              image:
+                blog.banner_url ||
+                `${baseUrl}/images/blogs/blog-placeholder.png`,
+              datePublished: blog.published_at,
+              author: {
+                "@type": "Person",
+                name: blog.author?.name || "W SoftLabs",
+              },
+              publisher: {
+                "@id": `${baseUrl}`,
+              },
+            },
+          }))
+        : [],
+    },
+  };
+
+  const blogPostSchema = (blogData) => ({
+    "@type": "BlogPosting",
+    name: blogData.title,
+    description:
+      blogData.excerpt || stripHtml(blogData.content).slice(0, 150) + "...",
+    url: `${baseUrl}${route.path}`,
+    image:
+      blogData.banner_url || `${baseUrl}/images/blogs/blog-placeholder.png`,
+    datePublished: blogData.published_at,
+    dateModified: blogData.updated_at || blogData.published_at,
+    author: {
+      "@type": "Person",
+      name: blogData.author?.name || "W SoftLabs",
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "W SoftLabs",
+      url: baseUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/images/home/w-softlabs.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}${route.path}`,
+    },
+    articleBody: stripHtml(blogData.content),
+  });
+
   const breadcrumbSchema = {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -382,6 +453,10 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     schema["@graph"].push(ourWorksSchema);
   } else if (pageType === "contact") {
     schema["@graph"].push(contactSchema);
+  } else if (pageType === "blog-index") {
+    schema["@graph"].push(blogIndexSchema);
+  } else if (pageType === "blog-post") {
+    schema["@graph"].push(blogPostSchema(pageData));
   }
 
   return schema;

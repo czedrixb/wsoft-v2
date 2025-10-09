@@ -77,6 +77,10 @@ const projects = {
     title: "database-speed-test",
     image: "database-speed-test.png",
   },
+  // "ai-tarot-master": {
+  //   title: "ai-tarot",
+  //   image: "ai-tarot.png",
+  // },
   "ai-review-analyzer": {
     title: "ai-review",
     image: "ai-review.png",
