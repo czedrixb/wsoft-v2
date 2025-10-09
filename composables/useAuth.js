@@ -2,13 +2,21 @@ export const useAuth = () => {
   const token = ref(null);
   const isAuthenticated = computed(() => !!token.value);
 
+  // Initialize token properly
+  if (process.client) {
+    token.value = localStorage.getItem("auth_token");
+  }
+
   const login = async (email, password) => {
     try {
       const response = await $fetch("https://blog.wsoftdev.space/api/login", {
         method: "POST",
-        body: {
+        body: JSON.stringify({
           email,
           password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
         },
       });
 
@@ -29,43 +37,26 @@ export const useAuth = () => {
   const getBlogs = async (customToken) => {
     const authToken = customToken || token.value;
 
-    if (!authToken) {
-      throw new Error("No authentication token available");
-    }
-
     try {
-      const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
+      const config = {
+        method: "GET",
         headers: {
-          Authorization: `Bearer ${authToken}`,
           "Content-Type": "application/json",
         },
-      });
+      };
 
+      // Only add Authorization header if token exists
+      if (authToken) {
+        config.headers.Authorization = `Bearer ${authToken}`;
+      }
+
+      const blogs = await $fetch(
+        "https://blog.wsoftdev.space/api/getPosts",
+        config
+      );
       return blogs;
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
-      throw error;
-    }
-  };
-
-  const getBlogBySlug = async (slug, customToken) => {
-    const authToken = customToken || token.value;
-
-    if (!authToken) {
-      throw new Error("No authentication token available");
-    }
-
-    try {
-      const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      return blogs.find((blog) => blog.slug === slug);
-    } catch (error) {
-      console.error("Failed to fetch blog:", error);
       throw error;
     }
   };
@@ -77,20 +68,11 @@ export const useAuth = () => {
     }
   };
 
-  // Initialize token from localStorage
-  if (process.client) {
-    const storedToken = localStorage.getItem("auth_token");
-    if (storedToken) {
-      token.value = storedToken;
-    }
-  }
-
   return {
     token: readonly(token),
     isAuthenticated,
     login,
     getBlogs,
-    getBlogBySlug,
     logout,
   };
 };

@@ -306,6 +306,7 @@
   "address": "대한민국 경기도 수원시 권선구 세권로 219, 3층",
   "message-sent-success": "메시지가 성공적으로 전송되었습니다!",
   "message-send-fail": "메시지 전송에 실패했습니다!",
+  "failed-to-load-blogs": "멋진 콘텐츠를 준비 중입니다! 곧 업데이트될 예정입니다.",
   "first-name-required": "이름을 입력해주세요",
   "last-name-required": "성을 입력해주세요",
   "email-required": "이메일을 입력해주세요",

@@ -124,7 +124,6 @@ const blogs = ref([]);
 const pending = ref(true);
 const error = ref(null);
 
-// SEO Meta
 const staticMetaTitle = t("blogs-title") || "Blogs - W SoftLabs";
 const staticMetaDescription = t("blogs-description") || t("blogs-text");
 const staticMetaKeywords =
@@ -146,33 +145,36 @@ const stripHtml = (html) => {
   return html?.replace(/<[^>]+>/g, "") || "";
 };
 
-// Fetch blogs using useAuth
 const fetchBlogs = async () => {
   try {
     pending.value = true;
     error.value = null;
 
-    if (isAuthenticated.value) {
-      blogs.value = await getBlogs();
-    } else {
-      blogs.value = await $fetch("https://blog.wsoftdev.space/api/getPosts");
+    try {
+      blogs.value = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
+        method: "GET",
+      });
+    } catch (publicError) {
+      console.log("Public API failed, trying authenticated...");
+
+      if (isAuthenticated.value) {
+        blogs.value = await getBlogs();
+      } else {
+        throw publicError;
+      }
     }
   } catch (err) {
-    console.error("Failed to fetch blogs:", err);
+    console.error("All fetch attempts failed:", err);
     error.value = err;
-
-    try {
-      blogs.value = await $fetch("https://blog.wsoftdev.space/api/getPosts");
-      error.value = null;
-    } catch (fallbackErr) {
-      console.error("Public API also failed:", fallbackErr);
-    }
+    blogs.value = [];
   } finally {
     pending.value = false;
   }
 };
 
-await fetchBlogs();
+onMounted(async () => {
+  await fetchBlogs();
+});
 
 const sortedBlogs = computed(() => {
   if (!blogs.value || blogs.value.length === 0) return [];
@@ -181,14 +183,12 @@ const sortedBlogs = computed(() => {
   });
 });
 
-// Update structured data when blogs are loaded using a computed property
 const updatedStructuredData = computed(() => {
   return useStructuredData("blog-index", {
-    blogs: sortedBlogs.value,
+    blogs: sortedBlogs.value || [],
   });
 });
 
-// Set head with SEO meta
 useHead({
   title: staticMetaTitle,
   link: [

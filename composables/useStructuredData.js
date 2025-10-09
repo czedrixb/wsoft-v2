@@ -289,10 +289,10 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     url: `${baseUrl}${route.path}`,
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: pageData.projects
+      numberOfItems: pageData?.projects
         ? Object.keys(pageData.projects).length
         : 0,
-      itemListElement: pageData.projects
+      itemListElement: pageData?.projects
         ? Object.entries(pageData.projects).map(([key, project], index) => ({
             "@type": "ListItem",
             position: index + 1,

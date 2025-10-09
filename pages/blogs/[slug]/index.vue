@@ -34,7 +34,6 @@
 
       <template v-else>
         <article class="max-w-4xl mx-auto">
-          <!-- Blog Banner -->
           <div class="relative overflow-hidden rounded-[16px] mb-8">
             <img
               v-if="blog.banner_url"
@@ -56,7 +55,6 @@
             </div>
           </div>
 
-          <!-- Blog Meta -->
           <div class="flex flex-wrap items-center mb-6">
             <span
               class="font-poppins text-[#999999] text-[14px] font-[500] me-4"
@@ -76,14 +74,12 @@
             </span>
           </div>
 
-          <!-- Blog Title -->
           <h1
             class="font-poppins font-[600] text-[32px] lg:text-[40px] text-black mb-6"
           >
             {{ blog.title }}
           </h1>
 
-          <!-- Blog Content -->
           <div
             class="prose prose-lg max-w-none font-poppins text-[16px] text-[#333333] leading-relaxed"
             v-html="blog.content"
@@ -110,10 +106,8 @@ const blog = ref(null);
 const pending = ref(true);
 const error = ref(null);
 
-// Canonical URL
 const { canonicalUrl } = useCanonical();
 
-// Fetch single blog using useAuth
 const fetchBlog = async () => {
   try {
     pending.value = true;
@@ -121,10 +115,18 @@ const fetchBlog = async () => {
 
     let allBlogs;
 
-    if (isAuthenticated.value) {
-      allBlogs = await getBlogs();
-    } else {
-      allBlogs = await $fetch("https://blog.wsoftdev.space/api/getPosts");
+    try {
+      allBlogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
+        method: "GET",
+      });
+    } catch (publicError) {
+      console.log("Public API failed, trying authenticated...");
+
+      if (isAuthenticated.value) {
+        allBlogs = await getBlogs();
+      } else {
+        throw publicError;
+      }
     }
 
     blog.value = allBlogs.find((b) => b.slug === route.params.slug);
@@ -135,24 +137,15 @@ const fetchBlog = async () => {
   } catch (err) {
     console.error("Failed to fetch blog:", err);
     error.value = err;
-
-    try {
-      const publicBlogs = await $fetch(
-        "https://blog.wsoftdev.space/api/getPosts"
-      );
-      blog.value = publicBlogs.find((b) => b.slug === route.params.slug);
-      if (blog.value) error.value = null;
-    } catch (fallbackErr) {
-      console.error("Public API also failed:", fallbackErr);
-    }
   } finally {
     pending.value = false;
   }
 };
 
-await fetchBlog();
+onMounted(async () => {
+  await fetchBlog();
+});
 
-// SEO Meta - computed based on blog data
 const metaTitle = computed(
   () => blog.value?.title || t("blog-details") || "Blog Post - W SoftLabs"
 );
@@ -163,7 +156,6 @@ const metaDescription = computed(
     "Read this insightful blog post from W SoftLabs"
 );
 const metaKeywords = computed(() => {
-  // You can generate keywords from blog content or use default
   return (
     Array.from({ length: 10 }, (_, i) => t(`blog-meta-keyword-${i + 1}`)).join(
       ", "
@@ -171,12 +163,10 @@ const metaKeywords = computed(() => {
   );
 });
 
-// Structured Data - computed based on blog data
 const structuredData = computed(() =>
-  useStructuredData("blog-post", blog.value)
+  useStructuredData("blog-post", blog.value || {})
 );
 
-// Set head with SEO meta
 useHead({
   title: metaTitle,
   link: [
