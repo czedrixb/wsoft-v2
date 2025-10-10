@@ -5,13 +5,13 @@
     <div
       :class="[
         'px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-[10rem] min-h-[60vh]',
-        !pending ? 'flex items-center justify-center' : '',
+        pending ? 'flex items-center justify-center' : '',
       ]"
     >
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 px-5"
       >
-        <!-- Your existing template content remains the same -->
+        <!-- Loading state -->
         <template v-if="pending">
           <div v-for="n in 6" :key="n" class="animate-pulse">
             <div class="bg-gray-200 rounded-[16px] h-[200px] mb-5"></div>
@@ -22,12 +22,20 @@
           </div>
         </template>
 
+        <!-- Error state -->
         <template v-else-if="error">
           <div class="col-span-3 text-center text-red-500 font-poppins text-xl">
             {{ $t("failed-to-load-blogs") }}
+            <button
+              @click="fetchBlogs"
+              class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              {{ $t("retry") }}
+            </button>
           </div>
         </template>
 
+        <!-- Empty state -->
         <template v-else-if="sortedBlogs?.length === 0">
           <div
             class="col-span-3 text-center text-gray-500 font-poppins text-3xl"
@@ -36,6 +44,7 @@
           </div>
         </template>
 
+        <!-- Success state -->
         <template v-else>
           <div v-for="blog in sortedBlogs" :key="blog.id" class="group">
             <NuxtLink :to="`/blogs/${blog.slug}`" class="block">
@@ -150,15 +159,32 @@ const fetchBlogs = async () => {
     pending.value = true;
     error.value = null;
 
+    // Try public API first
     try {
-      blogs.value = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
-        method: "GET",
-      });
+      console.log("Trying public API...");
+      const response = await $fetch(
+        "https://blog.wsoftdev.space/api/getPosts",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+      blogs.value = response;
+      console.log("Public API success:", response?.length, "blogs loaded");
     } catch (publicError) {
-      console.log("Public API failed, trying authenticated...");
+      console.log("Public API failed, trying authenticated...", publicError);
 
+      // If public API fails and user is authenticated, try with auth
       if (isAuthenticated.value) {
-        blogs.value = await getBlogs();
+        try {
+          blogs.value = await getBlogs();
+          console.log("Authenticated API success");
+        } catch (authError) {
+          console.error("Authenticated API also failed:", authError);
+          throw publicError; // Throw the original error for consistency
+        }
       } else {
         throw publicError;
       }

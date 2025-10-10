@@ -11,13 +11,15 @@ export const useAuth = () => {
     try {
       const response = await $fetch("https://blog.wsoftdev.space/api/login", {
         method: "POST",
-        body: JSON.stringify({
+        body: {
           email,
           password,
-        }),
+        },
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        k,
       });
 
       token.value =
@@ -38,22 +40,20 @@ export const useAuth = () => {
     const authToken = customToken || token.value;
 
     try {
-      const config = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const headers = {
+        "Content-Type": "application/json",
+        Accept: "application/json",
       };
 
       // Only add Authorization header if token exists
       if (authToken) {
-        config.headers.Authorization = `Bearer ${authToken}`;
+        headers.Authorization = `Bearer ${authToken}`;
       }
 
-      const blogs = await $fetch(
-        "https://blog.wsoftdev.space/api/getPosts",
-        config
-      );
+      const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
+        method: "GET",
+        headers,
+      });
       return blogs;
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
