@@ -13,10 +13,14 @@ export const useAuth = () => {
   };
 
   // Use onMounted in composable to ensure client-side only
-  if (process.client) {
-    onMounted(() => {
-      initializeToken();
-    });
+  // if (process.client) {
+  //   onMounted(() => {
+  //     initializeToken();
+  //   });
+  // }
+
+  if (process.client && !_isInitialized.value) {
+    initializeToken();
   }
 
   const login = async (email, password) => {
