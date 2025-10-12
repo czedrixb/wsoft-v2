@@ -167,13 +167,13 @@ const fetchBlogs = async () => {
 };
 
 onMounted(async () => {
-  const { token } = useAuth();
-  if (process.client && !token.value) {
+  if (process.client) {
+    const { token } = useAuth();
     const savedToken = localStorage.getItem("auth_token");
     if (savedToken) token.value = savedToken;
-  }
 
-  await fetchBlogs();
+    await fetchBlogs();
+  }
 });
 
 const sortedBlogs = computed(() => {
