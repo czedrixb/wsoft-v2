@@ -2,22 +2,21 @@
 export const useAuth = () => {
   const token = ref(null);
   const isAuthenticated = computed(() => !!token.value);
+  const _isInitialized = ref(false);
 
   // Initialize token only on client side
   const initializeToken = () => {
     if (process.client) {
       token.value = localStorage.getItem("auth_token");
+      _isInitialized.value = true;
     }
   };
 
-  // Use onMounted to ensure client-side only initialization
+  // Use onMounted in composable to ensure client-side only
   if (process.client) {
     onMounted(() => {
       initializeToken();
     });
-  } else {
-    // For SSR, initialize on client hydration
-    initializeToken();
   }
 
   const login = async (email, password) => {
@@ -55,7 +54,11 @@ export const useAuth = () => {
         Accept: "application/json",
       };
 
-      // Get current token value (works in both SSR and client)
+      // Ensure token is initialized
+      if (process.client && !_isInitialized.value) {
+        initializeToken();
+      }
+
       const currentToken = token.value;
       if (currentToken) {
         headers.Authorization = `Bearer ${currentToken}`;
@@ -74,6 +77,7 @@ export const useAuth = () => {
 
   const logout = () => {
     token.value = null;
+    _isInitialized.value = false;
     if (process.client) {
       localStorage.removeItem("auth_token");
     }
