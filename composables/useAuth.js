@@ -1,10 +1,23 @@
+// composables/useAuth.js
 export const useAuth = () => {
   const token = ref(null);
   const isAuthenticated = computed(() => !!token.value);
 
-  // Initialize token properly
+  // Initialize token only on client side
+  const initializeToken = () => {
+    if (process.client) {
+      token.value = localStorage.getItem("auth_token");
+    }
+  };
+
+  // Use onMounted to ensure client-side only initialization
   if (process.client) {
-    token.value = localStorage.getItem("auth_token");
+    onMounted(() => {
+      initializeToken();
+    });
+  } else {
+    // For SSR, initialize on client hydration
+    initializeToken();
   }
 
   const login = async (email, password) => {
@@ -19,7 +32,6 @@ export const useAuth = () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        k,
       });
 
       token.value =
@@ -36,18 +48,17 @@ export const useAuth = () => {
     }
   };
 
-  const getBlogs = async (customToken) => {
-    const authToken = customToken || token.value;
-
+  const getBlogs = async () => {
     try {
       const headers = {
         "Content-Type": "application/json",
         Accept: "application/json",
       };
 
-      // Only add Authorization header if token exists
-      if (authToken) {
-        headers.Authorization = `Bearer ${authToken}`;
+      // Get current token value (works in both SSR and client)
+      const currentToken = token.value;
+      if (currentToken) {
+        headers.Authorization = `Bearer ${currentToken}`;
       }
 
       const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {

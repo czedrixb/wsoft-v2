@@ -140,10 +140,8 @@ const staticMetaKeywords =
     ", "
   ) || "blog, articles, insights, technology, AI, web development";
 
-// Canonical URL
 const { canonicalUrl } = useCanonical();
 
-// Use ref for structuredData so it can be updated
 const structuredData = ref(
   useStructuredData("blog-index", {
     blogs: [],
@@ -159,7 +157,7 @@ const fetchBlogs = async () => {
     pending.value = true;
     error.value = null;
 
-    // Try public API first
+    // Try public API first (without auth)
     try {
       console.log("Trying public API...");
       const response = await $fetch(
@@ -176,14 +174,14 @@ const fetchBlogs = async () => {
     } catch (publicError) {
       console.log("Public API failed, trying authenticated...", publicError);
 
-      // If public API fails and user is authenticated, try with auth
+      // If public API fails, try with auth (only if authenticated)
       if (isAuthenticated.value) {
         try {
           blogs.value = await getBlogs();
           console.log("Authenticated API success");
         } catch (authError) {
           console.error("Authenticated API also failed:", authError);
-          throw publicError; // Throw the original error for consistency
+          throw publicError; // Throw the original error
         }
       } else {
         throw publicError;
