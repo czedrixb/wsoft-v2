@@ -167,6 +167,12 @@ const fetchBlogs = async () => {
 };
 
 onMounted(async () => {
+  const { token } = useAuth();
+  if (process.client && !token.value) {
+    const savedToken = localStorage.getItem("auth_token");
+    if (savedToken) token.value = savedToken;
+  }
+
   await fetchBlogs();
 });
 
