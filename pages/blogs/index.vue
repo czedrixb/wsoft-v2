@@ -157,40 +157,10 @@ const fetchBlogs = async () => {
     pending.value = true;
     error.value = null;
 
-    // Try public API first (without auth)
-    try {
-      console.log("Trying public API...");
-      const response = await $fetch(
-        "https://blog.wsoftdev.space/api/getPosts",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      );
-      blogs.value = response;
-      console.log("Public API success:", response?.length, "blogs loaded");
-    } catch (publicError) {
-      console.log("Public API failed, trying authenticated...", publicError);
-
-      // If public API fails, try with auth (only if authenticated)
-      if (isAuthenticated.value) {
-        try {
-          blogs.value = await getBlogs();
-          console.log("Authenticated API success");
-        } catch (authError) {
-          console.error("Authenticated API also failed:", authError);
-          throw publicError; // Throw the original error
-        }
-      } else {
-        throw publicError;
-      }
-    }
+    blogs.value = await getBlogs();
   } catch (err) {
-    console.error("All fetch attempts failed:", err);
+    console.error("Failed to fetch blogs:", err);
     error.value = err;
-    blogs.value = [];
   } finally {
     pending.value = false;
   }
