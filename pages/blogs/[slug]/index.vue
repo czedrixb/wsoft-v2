@@ -2,7 +2,7 @@
   <div>
     <PageHeader
       :title="blog?.title || $t('blog-details')"
-      :description="blog?.excerpt || $t('blog-text')"
+      :description="blog?.excerpt ? blog.excerpt : undefined"
     />
 
     <div
@@ -99,7 +99,7 @@ import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 
 const { t } = useI18n();
-const { getBlogs, isAuthenticated } = useAuth();
+const { getBlogs, isAuthenticated, login, token } = useAuth();
 const route = useRoute();
 
 const blog = ref(null);
@@ -108,25 +108,36 @@ const error = ref(null);
 
 const { canonicalUrl } = useCanonical();
 
-const fetchBlog = async () => {
+const initializeAuthAndFetchBlog = async () => {
   try {
     pending.value = true;
     error.value = null;
 
     let allBlogs;
 
-    try {
-      allBlogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
-        method: "GET",
-      });
-    } catch (publicError) {
-      console.log("Public API failed, trying authenticated...");
+    const savedToken = process.client
+      ? localStorage.getItem("auth_token")
+      : null;
 
-      if (isAuthenticated.value) {
-        allBlogs = await getBlogs();
-      } else {
-        throw publicError;
+    if (!savedToken && !token.value) {
+      try {
+        console.log("Attempting auto-login for blog slug...");
+        await login(
+          import.meta.env.VITE_BLOG_EMAIL,
+          import.meta.env.VITE_BLOG_PASSWORD
+        );
+        console.log("Auto-login successful for blog slug");
+      } catch (loginError) {
+        console.log("Auto-login failed, will try public access:", loginError);
+        // Continue to try public access
       }
+    }
+
+    try {
+      allBlogs = await getBlogs();
+    } catch (blogsError) {
+      console.error("Failed to fetch blogs:", blogsError);
+      throw blogsError;
     }
 
     blog.value = allBlogs.find((b) => b.slug === route.params.slug);
@@ -143,7 +154,7 @@ const fetchBlog = async () => {
 };
 
 onMounted(async () => {
-  await fetchBlog();
+  await initializeAuthAndFetchBlog();
 });
 
 const metaTitle = computed(

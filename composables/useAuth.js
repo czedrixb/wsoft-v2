@@ -6,20 +6,15 @@ export const useAuth = () => {
 
   // Initialize token only on client side
   const initializeToken = () => {
-    if (process.client) {
+    if (process.client && !_isInitialized.value) {
       token.value = localStorage.getItem("auth_token");
       _isInitialized.value = true;
+      console.log("Token initialized:", !!token.value);
     }
   };
 
-  // Use onMounted in composable to ensure client-side only
-  // if (process.client) {
-  //   onMounted(() => {
-  //     initializeToken();
-  //   });
-  // }
-
-  if (process.client && !_isInitialized.value) {
+  // Initialize immediately on client side
+  if (process.client) {
     initializeToken();
   }
 
@@ -42,6 +37,7 @@ export const useAuth = () => {
 
       if (process.client && token.value) {
         localStorage.setItem("auth_token", token.value);
+        _isInitialized.value = true;
       }
 
       return response;
@@ -68,6 +64,7 @@ export const useAuth = () => {
         headers.Authorization = `Bearer ${currentToken}`;
       }
 
+      console.log("Fetching blogs with token:", !!currentToken);
       const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
         method: "GET",
         headers,
@@ -88,7 +85,7 @@ export const useAuth = () => {
   };
 
   return {
-    token: readonly(token),
+    token,
     isAuthenticated,
     login,
     getBlogs,

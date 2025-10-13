@@ -33,6 +33,7 @@
         </h1>
 
         <h2
+          v-if="shouldShowDescription"
           class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] w-[80%] 2xl:w-[60%]"
         >
           {{ description }}
@@ -44,15 +45,28 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 const route = useRoute();
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
   },
   description: {
     type: String,
   },
+});
+
+const shouldShowDescription = computed(() => {
+  if (!props.description) return false;
+
+  const isBlogPage = route.path.includes("/blog");
+
+  if (isBlogPage) {
+    return props.description && props.description.trim() !== "";
+  }
+
+  return !!props.description;
 });
 </script>

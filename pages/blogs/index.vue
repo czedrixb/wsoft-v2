@@ -5,7 +5,6 @@
     <div
       :class="[
         'px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-[10rem] min-h-[60vh]',
-        pending ? 'flex items-center justify-center' : '',
       ]"
     >
       <div
@@ -131,7 +130,7 @@ import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 
 const { t } = useI18n();
-const { getBlogs, isAuthenticated } = useAuth();
+const { getBlogs, isAuthenticated, login, token } = useAuth();
 
 const blogs = ref([]);
 const pending = ref(true);
@@ -170,26 +169,44 @@ const fetchBlogs = async () => {
   }
 };
 
-onMounted(async () => {
-  if (process.client) {
-    const { token, login } = useAuth();
-    const savedToken = localStorage.getItem("auth_token");
+const initializeAuthAndFetchBlogs = async () => {
+  try {
+    pending.value = true;
+
+    // Check if we have a token
+    const savedToken = process.client
+      ? localStorage.getItem("auth_token")
+      : null;
 
     if (!savedToken) {
+      // No token, try to auto-login
       try {
-        const res = await login(
+        await login(
           import.meta.env.VITE_BLOG_EMAIL,
           import.meta.env.VITE_BLOG_PASSWORD
         );
-        console.log("Auto-login success:", res);
-      } catch (err) {
-        console.error("Auto-login failed:", err);
+        console.log("Auto-login successful");
+      } catch (loginError) {
+        console.error("Auto-login failed:", loginError);
+        // Even if login fails, try to fetch blogs (they might be public)
       }
     } else {
+      // We have a token, set it
       token.value = savedToken;
     }
 
+    // Fetch blogs regardless of login status
     await fetchBlogs();
+  } catch (err) {
+    console.error("Initialization failed:", err);
+    error.value = err;
+    pending.value = false;
+  }
+};
+
+onMounted(async () => {
+  if (process.client) {
+    await initializeAuthAndFetchBlogs();
   }
 });
 
