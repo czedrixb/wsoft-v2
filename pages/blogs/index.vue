@@ -172,9 +172,22 @@ const fetchBlogs = async () => {
 
 onMounted(async () => {
   if (process.client) {
-    const { token } = useAuth();
+    const { token, login } = useAuth();
     const savedToken = localStorage.getItem("auth_token");
-    if (savedToken) token.value = savedToken;
+
+    if (!savedToken) {
+      try {
+        const res = await login(
+          import.meta.env.VITE_BLOG_EMAIL,
+          import.meta.env.VITE_BLOG_PASSWORD
+        );
+        console.log("Auto-login success:", res);
+      } catch (err) {
+        console.error("Auto-login failed:", err);
+      }
+    } else {
+      token.value = savedToken;
+    }
 
     await fetchBlogs();
   }
