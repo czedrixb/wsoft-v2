@@ -120,6 +120,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  ssr: false,
+});
+
 import { useI18n } from "vue-i18n";
 import { computed, ref } from "vue";
 import { useHead } from "@vueuse/head";
