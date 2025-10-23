@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader
+    <BlogHeader
       :title="blog?.title || $t('blog-details')"
       :blog-meta="blogMeta"
     />
@@ -55,28 +55,6 @@
             </div>
           </div>
 
-          <!-- Remove this duplicate section since it's now in PageHeader -->
-          <!--
-          <div class="flex flex-wrap items-center mb-6">
-            <span
-              class="font-poppins text-[#999999] text-[14px] font-[500] me-4"
-            >
-              {{
-                t(
-                  new Date(blog.published_at)
-                    .toLocaleString("en-US", { month: "long" })
-                    .toLowerCase()
-                )
-              }}
-              {{ new Date(blog.published_at).getDate() }},
-              {{ new Date(blog.published_at).getFullYear() }}
-            </span>
-            <span class="font-poppins text-[#333333] text-[14px] font-[700]">
-              {{ blog.author?.name }}
-            </span>
-          </div>
-          -->
-
           <div
             class="prose prose-lg max-w-none font-poppins text-[18px] text-[#333333] leading-relaxed"
             v-html="blog.content"
@@ -85,14 +63,19 @@
       </template>
 
       <!-- Popular posts section -->
-      <div v-if="!pending && !error && popularPosts.length > 0" class="mt-20">
-        <div class="flex md:justify-between mb-10">
+      <div
+        v-if="!pending && !error && popularPosts.length > 0"
+        class="px-5 mx-auto md:px-0 lg:px-[3rem] xl:max-w-screen-xl mt-20"
+      >
+        <div
+          class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-10 gap-3 sm:gap-0"
+        >
           <h3 class="font-poppins text-[40px] font-[600] text-[#475766]">
             {{ $t("popular-post") }}
           </h3>
           <NuxtLink
             to="/blogs"
-            class="font-[400] btn-ghost border-none transition-all duration-300 px-8 btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white"
+            class="font-[400] btn-ghost border-none transition-all duration-300 px-8 btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white self-start sm:self-auto"
           >
             {{ $t("view-all") }}
           </NuxtLink>
@@ -102,27 +85,53 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
         >
           <div v-for="post in popularPosts" :key="post.id">
-            <img
-              :src="post.banner_url || '/images/blogs/img-blog-placeholder.png'"
-              class="max-w-full mb-5 rounded-[16px] h-[360px] object-cover w-full"
-              :alt="post.title"
-              loading="lazy"
-            />
+            <div class="relative">
+              <NuxtImg
+                :src="
+                  post.banner_url || '/images/blogs/img-blog-placeholder.png'
+                "
+                class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full"
+                :alt="post.title"
+                loading="lazy"
+              />
 
+              <NuxtImg
+                class="absolute top-[8%] left-[54%] md:left-[45%] xl:left-[54%]"
+                src="/images/blogs/wsoft-blog.png"
+                width="145px"
+                height="20px"
+                loading="lazy"
+              />
+
+              <div
+                class="absolute rounded-md bg-[#2375E9] text-white px-3 top-[35%] left-[8%]"
+              >
+                <span class="font-poppins font-[600] text-[15px]">
+                  {{ post.category.name }}
+                </span>
+              </div>
+
+              <div class="absolute text-black top-[44%] left-[8%]">
+                <span
+                  class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block"
+                >
+                  {{ post.title }}
+                </span>
+              </div>
+            </div>
             <div class="flex mb-3">
               <span
                 class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
               >
                 {{
-                  t(
-                    new Date(post.published_at)
-                      .toLocaleString("en-US", { month: "long" })
-                      .toLowerCase()
-                  )
+                  new Date(post.published_at).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })
                 }}
-                {{ new Date(post.published_at).getDate() }},
-                {{ new Date(post.published_at).getFullYear() }}
               </span>
+
               <span class="font-poppins text-[#333333] text-[12px] font-[700]">
                 {{ post.author?.name }}
               </span>

@@ -1,22 +1,18 @@
 <template>
   <div
-    class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[24rem] overflow-hidden relative mb-10"
+    class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[15rem] overflow-hidden relative mb-0"
   >
-    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
-      <source src="/images/about-us/bg-hero.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
     <div
       class="absolute inset-0 bg-[#ebf0f7] opacity-[.60] hidden lg:block"
     ></div>
-    <div class="absolute inset-0 flex justify-center">
+    <!-- <div class="absolute inset-0 flex justify-center">
       <NuxtImg
         src="/images/about-us/hero-overlay.png"
-        width="1500px"
-        height="800px"
+        width="100%"
+        height="auto"
         alt="hero-overlay"
       />
-    </div>
+    </div> -->
     <div class="absolute inset-0 flex justify-center items-center">
       <div :class="contentContainerClass">
         <div
@@ -24,7 +20,7 @@
           class="flex flex-wrap items-center mb-1"
         >
           <span class="font-poppins text-[#999999] text-[14px] font-[500] me-4">
-            {{ blogMeta.date }}
+            {{ formattedDate }}
           </span>
           <span class="font-poppins text-[#333333] text-[14px] font-[700]">
             {{ blogMeta.author }}
@@ -57,12 +53,8 @@ import { computed } from "vue";
 const route = useRoute();
 
 const props = defineProps({
-  title: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
+  title: String,
+  description: String,
   blogMeta: {
     type: Object,
     default: null,
@@ -71,6 +63,16 @@ const props = defineProps({
 
 const showBlogMeta = computed(() => {
   return props.blogMeta && route.path.includes("/blogs/");
+});
+
+const formattedDate = computed(() => {
+  if (!props.blogMeta?.date) return "";
+  const date = new Date(props.blogMeta.date);
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 });
 
 const shouldShowDescription = computed(() => {

@@ -3,10 +3,10 @@
     <div
       class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
-      <!-- <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+      <video class="w-full h-full object-cover" autoplay loop muted playsinline>
         <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video> -->
+      </video>
 
       <div class="absolute inset-0 bg-[#ebf0f7] opacity-[.80]"></div>
 

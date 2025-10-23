@@ -74,15 +74,7 @@
               <span
                 class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
               >
-                {{
-                  t(
-                    new Date(blog.published_at)
-                      .toLocaleString("en-US", { month: "long" })
-                      .toLowerCase()
-                  )
-                }}
-                {{ new Date(blog.published_at).getDate() }},
-                {{ new Date(blog.published_at).getFullYear() }}
+                {{ formatDate(blog.published_at) }}
               </span>
               <span class="font-poppins text-[#333333] text-[12px] font-[700]">
                 {{ blog.author?.name }}
@@ -153,6 +145,16 @@ const structuredData = ref(
 
 const stripHtml = (html) => {
   return html?.replace(/<[^>]+>/g, "") || "";
+};
+
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 };
 
 const fetchBlogs = async () => {
