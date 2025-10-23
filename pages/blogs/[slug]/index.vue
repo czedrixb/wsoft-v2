@@ -2,7 +2,7 @@
   <div>
     <PageHeader
       :title="blog?.title || $t('blog-details')"
-      :description="blog?.excerpt ? blog.excerpt : undefined"
+      :blog-meta="blogMeta"
     />
 
     <div
@@ -34,7 +34,7 @@
 
       <template v-else>
         <article class="max-w-4xl mx-auto">
-          <div class="relative overflow-hidden rounded-[16px] mb-8">
+          <div class="relative overflow-hidden rounded-[16px] mb-[5rem]">
             <img
               v-if="blog.banner_url"
               :src="blog.banner_url"
@@ -55,6 +55,8 @@
             </div>
           </div>
 
+          <!-- Remove this duplicate section since it's now in PageHeader -->
+          <!--
           <div class="flex flex-wrap items-center mb-6">
             <span
               class="font-poppins text-[#999999] text-[14px] font-[500] me-4"
@@ -73,19 +75,82 @@
               {{ blog.author?.name }}
             </span>
           </div>
-
-          <h1
-            class="font-poppins font-[600] text-[32px] lg:text-[40px] text-black mb-6"
-          >
-            {{ blog.title }}
-          </h1>
+          -->
 
           <div
-            class="prose prose-lg max-w-none font-poppins text-[16px] text-[#333333] leading-relaxed"
+            class="prose prose-lg max-w-none font-poppins text-[18px] text-[#333333] leading-relaxed"
             v-html="blog.content"
           />
         </article>
       </template>
+
+      <!-- Popular posts section -->
+      <div v-if="!pending && !error && popularPosts.length > 0" class="mt-20">
+        <div class="flex md:justify-between mb-10">
+          <h3 class="font-poppins text-[40px] font-[600] text-[#475766]">
+            {{ $t("popular-post") }}
+          </h3>
+          <NuxtLink
+            to="/blogs"
+            class="font-[400] btn-ghost border-none transition-all duration-300 px-8 btn bg-gradient-to-r from-[#2375E9] to-[#02C7D0] shadow-cyan-500/50 text-white"
+          >
+            {{ $t("view-all") }}
+          </NuxtLink>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
+        >
+          <div v-for="post in popularPosts" :key="post.id">
+            <img
+              :src="post.banner_url || '/images/blogs/img-blog-placeholder.png'"
+              class="max-w-full mb-5 rounded-[16px] h-[360px] object-cover w-full"
+              :alt="post.title"
+              loading="lazy"
+            />
+
+            <div class="flex mb-3">
+              <span
+                class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
+              >
+                {{
+                  t(
+                    new Date(post.published_at)
+                      .toLocaleString("en-US", { month: "long" })
+                      .toLowerCase()
+                  )
+                }}
+                {{ new Date(post.published_at).getDate() }},
+                {{ new Date(post.published_at).getFullYear() }}
+              </span>
+              <span class="font-poppins text-[#333333] text-[12px] font-[700]">
+                {{ post.author?.name }}
+              </span>
+            </div>
+
+            <div class="font-poppins font-[600] text-[24px] text-black mb-3">
+              {{ post.title }}
+            </div>
+
+            <div
+              class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
+              style="min-height: 72px; max-height: 72px"
+            >
+              {{
+                post.excerpt ||
+                post.content?.replace(/<[^>]+>/g, "").slice(0, 150) + "..."
+              }}
+            </div>
+
+            <NuxtLink
+              :to="`/blogs/${post.slug}`"
+              class="font-poppins font-[700] text-[18px] text-[#2279E8] underline underline-offset-3 cursor-pointer"
+            >
+              {{ $t("read-more") }}...
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
     </div>
 
     <ContactEmail />
@@ -103,8 +168,25 @@ const { getBlogs, isAuthenticated, login, token } = useAuth();
 const route = useRoute();
 
 const blog = ref(null);
+const popularPosts = ref([]);
 const pending = ref(true);
 const error = ref(null);
+
+// Add computed property for blog meta
+const blogMeta = computed(() => {
+  if (!blog.value) return null;
+
+  return {
+    date: `${t(
+      new Date(blog.value.published_at)
+        .toLocaleString("en-US", { month: "long" })
+        .toLowerCase()
+    )} ${new Date(blog.value.published_at).getDate()}, ${new Date(
+      blog.value.published_at
+    ).getFullYear()}`,
+    author: blog.value.author?.name,
+  };
+});
 
 const { canonicalUrl } = useCanonical();
 
@@ -145,6 +227,17 @@ const initializeAuthAndFetchBlog = async () => {
     if (!blog.value) {
       error.value = new Error("Blog not found");
     }
+
+    // Get popular posts (filter by category or sort by some criteria)
+    popularPosts.value = allBlogs
+      .filter((post) => post.id !== blog.value?.id) // Exclude current blog post
+      .filter((post) => post.category?.slug === "popular") // Filter by popular category
+      .sort(
+        (a, b) =>
+          new Date(b.published_at).getTime() -
+          new Date(a.published_at).getTime()
+      )
+      .slice(0, 3);
   } catch (err) {
     console.error("Failed to fetch blog:", err);
     error.value = err;
