@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[15rem] overflow-hidden relative mb-0"
+    class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[10rem] overflow-hidden relative mb-0"
   >
     <div
       class="absolute inset-0 bg-[#ebf0f7] opacity-[.60] hidden lg:block"

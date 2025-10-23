@@ -34,28 +34,29 @@
       </template>
 
       <template v-else>
-        <article class="max-w-4xl mx-auto">
-          <div class="relative overflow-hidden rounded-[16px] mb-[5rem]">
+        <div
+          class="relative overflow-hidden rounded-[16px] mb-[5rem] h-[400px] md:h-[450px] lg:h-[500px]"
+        >
+          <img
+            v-if="blog.banner_url"
+            :src="blog.banner_url"
+            class="absolute inset-0 w-full h-full object-cover"
+            :alt="blog.title"
+            loading="lazy"
+          />
+          <div
+            v-else
+            class="absolute inset-0 bg-[#f4f4f4] flex justify-center items-center"
+          >
             <img
-              v-if="blog.banner_url"
-              :src="blog.banner_url"
-              class="w-full h-full object-cover max-w-full md:h-[400px] lg:h-[450px]"
+              src="/images/blogs/blog-placeholder.png"
               :alt="blog.title"
+              class="max-h-full max-w-full object-contain"
               loading="lazy"
             />
-            <div
-              v-else
-              class="w-full md:h-[400px] lg:h-[450px] bg-[#f4f4f4] flex justify-center items-center"
-            >
-              <img
-                src="/images/blogs/blog-placeholder.png"
-                :alt="blog.title"
-                class="max-h-full max-w-full object-contain"
-                loading="lazy"
-              />
-            </div>
           </div>
-
+        </div>
+        <article class="max-w-4xl mx-auto">
           <div
             class="prose prose-lg max-w-none font-poppins text-[18px] text-[#333333] leading-relaxed"
             v-html="blog.content"
