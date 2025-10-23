@@ -15,32 +15,46 @@
     </div> -->
     <div class="absolute inset-0 flex justify-center items-center">
       <div :class="contentContainerClass">
-        <div
-          v-if="showBlogMeta && blogMeta"
-          class="flex flex-wrap items-center mb-1"
-        >
-          <span class="font-poppins text-[#999999] text-[14px] font-[500] me-4">
-            {{ formattedDate }}
-          </span>
-          <span class="font-poppins text-[#333333] text-[14px] font-[700]">
-            {{ blogMeta.author }}
-          </span>
+        <!-- Loading State -->
+        <div v-if="pending" class="animate-pulse w-full">
+          <div class="h-6 bg-gray-200 rounded w-1/3 mb-3 mx-auto lg:mx-0"></div>
+          <div
+            class="h-10 bg-gray-200 rounded w-3/4 mb-4 mx-auto lg:mx-0"
+          ></div>
+          <div class="h-5 bg-gray-200 rounded w-2/4 mx-auto lg:mx-0"></div>
         </div>
 
-        <div
-          v-if="route.path == '/blogs'"
-          class="text-center font-poppins uppercase font-[700] text-[16pxv] lg:text-[20px] md:px-0 text-[#475766] mb-5"
-        >
-          {{ $t("our-blogs") }}
-        </div>
+        <!-- Loaded State -->
+        <template v-else>
+          <div
+            v-if="showBlogMeta && blogMeta"
+            class="flex flex-wrap items-center mb-1"
+          >
+            <span
+              class="font-poppins text-[#999999] text-[14px] font-[500] me-4"
+            >
+              {{ formattedDate }}
+            </span>
+            <span class="font-poppins text-[#333333] text-[14px] font-[700]">
+              {{ blogMeta.author }}
+            </span>
+          </div>
 
-        <h1 :class="titleClass">
-          {{ title }}
-        </h1>
+          <div
+            v-if="route.path == '/blogs'"
+            class="text-center font-poppins uppercase font-[700] text-[16px] lg:text-[20px] md:px-0 text-[#475766] mb-5"
+          >
+            {{ $t("our-blogs") }}
+          </div>
 
-        <h2 v-if="shouldShowDescription" :class="descriptionClass">
-          {{ description }}
-        </h2>
+          <h1 :class="titleClass">
+            {{ title }}
+          </h1>
+
+          <h2 v-if="shouldShowDescription" :class="descriptionClass">
+            {{ description }}
+          </h2>
+        </template>
       </div>
     </div>
   </div>
@@ -58,6 +72,10 @@ const props = defineProps({
   blogMeta: {
     type: Object,
     default: null,
+  },
+  pending: {
+    type: Boolean,
+    default: false,
   },
 });
 

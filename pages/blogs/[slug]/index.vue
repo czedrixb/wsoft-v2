@@ -3,6 +3,7 @@
     <BlogHeader
       :title="blog?.title || $t('blog-details')"
       :blog-meta="blogMeta"
+      :pending="pending"
     />
 
     <div
