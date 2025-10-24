@@ -242,13 +242,12 @@ const initializeAuthAndFetchBlog = async () => {
     // Get popular posts (filter by category or sort by some criteria)
     popularPosts.value = allBlogs
       .filter((post) => post.id !== blog.value?.id) // Exclude current blog post
-      .filter((post) => post.category?.slug === "popular") // Filter by popular category
       .sort(
         (a, b) =>
           new Date(b.published_at).getTime() -
           new Date(a.published_at).getTime()
       )
-      .slice(0, 3);
+      .slice(0, 3); // Get only the 3 latest posts
   } catch (err) {
     console.error("Failed to fetch blog:", err);
     error.value = err;
