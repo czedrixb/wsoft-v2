@@ -66,7 +66,7 @@
 
       <!-- Popular posts section -->
       <div
-        v-if="!pending && !error && popularPosts.length > 0"
+        v-if="!pending && !error"
         class="px-5 mx-auto md:px-0 lg:px-[3rem] xl:max-w-screen-xl mt-20"
       >
         <div
@@ -83,84 +83,97 @@
           </NuxtLink>
         </div>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
-        >
-          <div v-for="post in popularPosts" :key="post.id">
-            <div class="relative">
-              <NuxtImg
-                :src="
-                  post.banner_url || '/images/blogs/img-blog-placeholder.png'
-                "
-                class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full"
-                :alt="post.title"
-                loading="lazy"
-              />
+        <template v-if="popularPosts.length > 0">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
+          >
+            <div v-for="post in popularPosts" :key="post.id">
+              <div class="relative">
+                <NuxtImg
+                  :src="
+                    post.banner_url || '/images/blogs/img-blog-placeholder.png'
+                  "
+                  class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full"
+                  :alt="post.title"
+                  loading="lazy"
+                />
 
-              <NuxtImg
-                class="absolute top-[8%] left-[54%] md:left-[45%] xl:left-[54%]"
-                src="/images/blogs/wsoft-blog.png"
-                width="145px"
-                height="20px"
-                loading="lazy"
-              />
+                <NuxtImg
+                  class="absolute top-[8%] left-[54%] md:left-[45%] xl:left-[54%]"
+                  src="/images/blogs/wsoft-blog.png"
+                  width="145px"
+                  height="20px"
+                  loading="lazy"
+                />
+
+                <!-- Updated category badge - Always show "Popular" -->
+                <div
+                  class="absolute rounded-md bg-[#2375E9] text-white px-3 top-[35%] left-[8%]"
+                >
+                  <span class="font-poppins font-[600] text-[15px]">
+                    Popular
+                  </span>
+                </div>
+
+                <div class="absolute text-black top-[44%] left-[8%]">
+                  <span
+                    class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block"
+                  >
+                    {{ post.title }}
+                  </span>
+                </div>
+              </div>
+              <div class="flex mb-3">
+                <span
+                  class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
+                >
+                  {{
+                    new Date(post.published_at).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })
+                  }}
+                </span>
+
+                <span
+                  class="font-poppins text-[#333333] text-[12px] font-[700]"
+                >
+                  {{ post.author?.name }}
+                </span>
+              </div>
+
+              <div class="font-poppins font-[600] text-[24px] text-black mb-3">
+                {{ post.title }}
+              </div>
 
               <div
-                class="absolute rounded-md bg-[#2375E9] text-white px-3 top-[35%] left-[8%]"
-              >
-                <span class="font-poppins font-[600] text-[15px]">
-                  {{ post.category.name }}
-                </span>
-              </div>
-
-              <div class="absolute text-black top-[44%] left-[8%]">
-                <span
-                  class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block"
-                >
-                  {{ post.title }}
-                </span>
-              </div>
-            </div>
-            <div class="flex mb-3">
-              <span
-                class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
+                class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
+                style="min-height: 72px; max-height: 72px"
               >
                 {{
-                  new Date(post.published_at).toLocaleDateString("en-GB", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })
+                  post.excerpt ||
+                  post.content?.replace(/<[^>]+>/g, "").slice(0, 150) + "..."
                 }}
-              </span>
+              </div>
 
-              <span class="font-poppins text-[#333333] text-[12px] font-[700]">
-                {{ post.author?.name }}
-              </span>
+              <NuxtLink
+                :to="`/blogs/${post.slug}`"
+                class="font-poppins font-[700] text-[18px] text-[#2279E8] underline underline-offset-3 cursor-pointer"
+              >
+                {{ $t("read-more") }}...
+              </NuxtLink>
             </div>
-
-            <div class="font-poppins font-[600] text-[24px] text-black mb-3">
-              {{ post.title }}
-            </div>
-
-            <div
-              class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
-              style="min-height: 72px; max-height: 72px"
-            >
-              {{
-                post.excerpt ||
-                post.content?.replace(/<[^>]+>/g, "").slice(0, 150) + "..."
-              }}
-            </div>
-
-            <NuxtLink
-              :to="`/blogs/${post.slug}`"
-              class="font-poppins font-[700] text-[18px] text-[#2279E8] underline underline-offset-3 cursor-pointer"
-            >
-              {{ $t("read-more") }}...
-            </NuxtLink>
           </div>
-        </div>
+        </template>
+
+        <template v-else>
+          <div
+            class="col-span-3 text-center text-gray-500 font-poppins text-xl py-10"
+          >
+            {{ $t("no-popular") }}
+          </div>
+        </template>
       </div>
     </div>
 
@@ -169,12 +182,10 @@
 </template>
 
 <script setup>
-import { useI18n } from "vue-i18n";
 import { useHead } from "@vueuse/head";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 
-const { t } = useI18n();
 const { getBlogs, isAuthenticated, login, token } = useAuth();
 const route = useRoute();
 
@@ -188,16 +199,36 @@ const blogMeta = computed(() => {
   if (!blog.value) return null;
 
   return {
-    date: `${t(
-      new Date(blog.value.published_at)
-        .toLocaleString("en-US", { month: "long" })
-        .toLowerCase()
-    )} ${new Date(blog.value.published_at).getDate()}, ${new Date(
+    date: `${getMonthName(blog.value.published_at)} ${new Date(
       blog.value.published_at
-    ).getFullYear()}`,
+    ).getDate()}, ${new Date(blog.value.published_at).getFullYear()}`,
     author: blog.value.author?.name,
   };
 });
+
+// Helper function to get month name
+const getMonthName = (dateString) => {
+  const months = {
+    january: "January",
+    february: "February",
+    march: "March",
+    april: "April",
+    may: "May",
+    june: "June",
+    july: "July",
+    august: "August",
+    september: "September",
+    october: "October",
+    november: "November",
+    december: "December",
+  };
+
+  const monthKey = new Date(dateString)
+    .toLocaleString("en-US", { month: "long" })
+    .toLowerCase();
+
+  return months[monthKey] || monthKey;
+};
 
 const { canonicalUrl } = useCanonical();
 
@@ -248,6 +279,7 @@ const initializeAuthAndFetchBlog = async () => {
           new Date(a.published_at).getTime()
       )
       .slice(0, 3); // Get only the 3 latest posts
+    console.log("Popular posts:", popularPosts.value);
   } catch (err) {
     console.error("Failed to fetch blog:", err);
     error.value = err;
@@ -260,22 +292,13 @@ onMounted(async () => {
   await initializeAuthAndFetchBlog();
 });
 
+// Use direct strings for meta tags since we can't use $t in script without useI18n
 const metaTitle = computed(
-  () => blog.value?.title || t("blog-details") || "Blog Post - W SoftLabs"
+  () => blog.value?.title || "Blog Details - W SoftLabs"
 );
 const metaDescription = computed(
-  () =>
-    blog.value?.excerpt ||
-    t("blog-text") ||
-    "Read this insightful blog post from W SoftLabs"
+  () => blog.value?.excerpt || "Read this insightful blog post from W SoftLabs"
 );
-const metaKeywords = computed(() => {
-  return (
-    Array.from({ length: 10 }, (_, i) => t(`blog-meta-keyword-${i + 1}`)).join(
-      ", "
-    ) || "blog, article, insights, technology"
-  );
-});
 
 const structuredData = computed(() =>
   useStructuredData("blog-post", blog.value || {})
@@ -297,7 +320,7 @@ useHead({
   ],
   meta: [
     { name: "description", content: metaDescription },
-    { name: "keywords", content: metaKeywords },
+    { name: "keywords", content: "blog, article, insights, technology" },
     { property: "og:title", content: metaTitle },
     { property: "og:description", content: metaDescription },
     { property: "og:type", content: "article" },
