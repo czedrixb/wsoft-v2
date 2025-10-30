@@ -146,6 +146,12 @@ const navLinks = [
     to: "/blogs",
   },
 ];
+
+const handleNavigation = (path) => {
+  // console.log(`Navigating to: ${path}`);
+
+  isMenuOpen.value = false;
+};
 </script>
 
 <style scoped>
