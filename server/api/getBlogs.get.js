@@ -1,84 +1,75 @@
 // server/api/getBlogs.get.js
 export default defineEventHandler(async (event) => {
-  // Add memory leak protection
-  if (globalThis.blogFetchInProgress) {
-    throw createError({
-      statusCode: 429,
-      message: "Request already in progress",
-    });
-  }
-
   try {
-    globalThis.blogFetchInProgress = true;
-
     const config = useRuntimeConfig();
 
-    // Add timeout to prevent hanging requests
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    console.log("Attempting to login to blog API...");
+
+    // Make sure credentials are available
+    if (!config.blogEmail || !config.blogPassword) {
+      console.error("Missing blog credentials");
+      throw createError({
+        statusCode: 500,
+        message: "Blog API credentials not configured",
+      });
+    }
 
     const loginResponse = await $fetch(
       "https://blog.wsoftdev.space/api/login",
       {
         method: "POST",
-        body: {
-          email: config.blogEmail,
-          password: config.blogPassword,
-        },
+        body: JSON.stringify({
+          email: config.blogEmail.trim(),
+          password: config.blogPassword.trim(),
+        }),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        signal: controller.signal,
       }
     );
 
-    clearTimeout(timeout);
+    console.log("Login response received");
 
-    const token = loginResponse.access_token;
+    const token = loginResponse.access_token || loginResponse.token;
 
     if (!token) {
+      console.error("No token in login response:", loginResponse);
       throw createError({
         statusCode: 500,
         message: "Failed to get auth token from login",
       });
     }
 
-    // Fetch blogs with timeout
-    const blogController = new AbortController();
-    const blogTimeout = setTimeout(() => blogController.abort(), 15000); // 15 second timeout
+    console.log("Fetching posts with token...");
 
     const response = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      signal: blogController.signal,
     });
 
-    clearTimeout(blogTimeout);
+    console.log(`Successfully fetched ${response?.length || 0} posts`);
 
-    // Limit response size if needed
-    const limitedResponse = Array.isArray(response)
-      ? response.slice(0, 50) // Limit to 50 blogs max
-      : response;
-
-    return limitedResponse;
+    return response;
   } catch (error) {
     console.error("Error in getBlogs API:", error);
 
-    if (error.name === "AbortError") {
-      throw createError({
-        statusCode: 408,
-        message: "Request timeout",
-      });
+    // Log detailed error information
+    if (error.data) {
+      console.error("Error details:", error.data);
+    }
+    if (error.response) {
+      console.error("Response status:", error.response.status);
+      console.error("Response body:", error.response._data);
     }
 
     throw createError({
       statusCode: error.statusCode || 500,
-      message: error.message || "Failed to fetch blogs from external API",
+      statusMessage: error.message || "Failed to fetch blogs from external API",
+      data: error.data || null,
     });
-  } finally {
-    globalThis.blogFetchInProgress = false;
   }
 });

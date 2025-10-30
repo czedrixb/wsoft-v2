@@ -117,27 +117,57 @@ definePageMeta({
 });
 
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-import { useHead } from "@vueuse/head";
+import { computed, ref, onMounted } from "vue";
 
 const { t } = useI18n();
 
-// Use your server API endpoint
-const {
-  data: blogs,
-  pending,
-  error,
-  refresh,
-} = await useFetch("/api/getBlogs");
+const blogs = ref([]);
+const pending = ref(true);
+const error = ref(null);
 
-const staticMetaTitle = t("blogs-title") || "Blogs - W SoftLabs";
-const staticMetaDescription = t("blogs-description") || t("blogs-text");
-const staticMetaKeywords =
-  Array.from({ length: 10 }, (_, i) => t(`blogs-meta-keyword-${i + 1}`)).join(
-    ", "
-  ) || "blog, articles, insights, technology, AI, web development";
+const fetchBlogs = async () => {
+  try {
+    pending.value = true;
+    error.value = null;
 
-const { canonicalUrl } = useCanonical();
+    const response = await $fetch("/api/getBlogs", {
+      method: "GET",
+      server: false,
+      timeout: 30000,
+    }).catch((err) => {
+      // Handle specific error cases
+      if (err.status === 422) {
+        throw new Error(
+          "Invalid request to blog API. Please check configuration."
+        );
+      } else if (err.status === 401) {
+        throw new Error("Authentication failed for blog API.");
+      } else if (err.status === 500) {
+        throw new Error("Server error while fetching blogs.");
+      } else {
+        throw new Error(`Failed to load blogs: ${err.message}`);
+      }
+    });
+
+    blogs.value = response || [];
+  } catch (err) {
+    console.error("Failed to fetch blogs:", err);
+    error.value = {
+      message: err.message,
+      status: err.statusCode || err.status,
+    };
+  } finally {
+    pending.value = false;
+  }
+};
+
+const refresh = () => {
+  fetchBlogs();
+};
+
+onMounted(() => {
+  fetchBlogs();
+});
 
 const stripHtml = (html) => {
   return html?.replace(/<[^>]+>/g, "") || "";
@@ -160,57 +190,13 @@ const sortedBlogs = computed(() => {
   });
 });
 
-// FIX: Create structured data only once when blogs are loaded
-const structuredData = computed(() => {
-  if (!sortedBlogs.value || sortedBlogs.value.length === 0) return null;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: staticMetaTitle,
-    description: staticMetaDescription,
-    url: canonicalUrl.value,
-    blogPost: sortedBlogs.value.map((blog) => ({
-      "@type": "BlogPosting",
-      headline: blog.title,
-      description: blog.excerpt || stripHtml(blog.content).slice(0, 150),
-      datePublished: blog.published_at,
-      author: {
-        "@type": "Person",
-        name: blog.author?.name || "Unknown",
-      },
-      image: blog.banner_url || "/images/blogs/blog-placeholder.png",
-    })),
-  };
-});
-
-useHead(() => ({
-  title: staticMetaTitle,
-  link: [
+useHead({
+  title: t("blogs-title") || "Blogs - W SoftLabs",
+  meta: [
     {
-      rel: "canonical",
-      href: canonicalUrl.value,
+      name: "description",
+      content: t("blogs-description") || t("blogs-text"),
     },
   ],
-  script: structuredData.value
-    ? [
-        {
-          type: "application/ld+json",
-          innerHTML: JSON.stringify(structuredData.value),
-        },
-      ]
-    : [],
-  meta: [
-    { name: "description", content: staticMetaDescription },
-    { name: "keywords", content: staticMetaKeywords },
-    { property: "og:title", content: staticMetaTitle },
-    { property: "og:description", content: staticMetaDescription },
-    { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.jpg" },
-    { property: "og:url", content: canonicalUrl.value },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: staticMetaTitle },
-    { name: "twitter:description", content: staticMetaDescription },
-  ],
-}));
+});
 </script>
