@@ -28,11 +28,13 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // Private keys (only available on server)
-    blogEmail: process.env.BLOG_EMAIL,
-    blogPassword: process.env.BLOG_PASSWORD,
+    blogEmail: process.env.VITE_BLOG_EMAIL,
+    blogPassword: process.env.VITE_BLOG_PASSWORD,
     
     // Public keys (exposed to client)
     public: {
+      blogEmail: process.env.PUBLIC_BLOG_EMAIL || '',
+      blogPassword: process.env.PUBLIC_BLOG_PASSWORD || '',
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://wsoft.space/',
     }
   },
