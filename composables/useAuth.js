@@ -1,30 +1,39 @@
 // composables/useAuth.js
 export const useAuth = () => {
   const token = ref(null);
-  const isAuthenticated = computed(() => !!token.value);
-  const _isInitialized = ref(false);
 
-  // Initialize token only on client side
-  const initializeToken = () => {
-    if (process.client && !_isInitialized.value) {
-      token.value = localStorage.getItem("auth_token");
-      _isInitialized.value = true;
-      console.log("Token initialized:", !!token.value);
-    }
+  const setToken = (newToken) => {
+    token.value = newToken;
+    const authCookie = useCookie("auth_token", {
+      maxAge: 60 * 60 * 24 * 7, // 1 week
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+    authCookie.value = newToken;
   };
 
-  // Initialize immediately on client side
-  if (process.client) {
-    initializeToken();
-  }
+  const getToken = () => {
+    if (!token.value) {
+      const authCookie = useCookie("auth_token");
+      token.value = authCookie.value;
+    }
+    return token.value;
+  };
+
+  // Remove localStorage usage to prevent memory leaks
+  const clearToken = () => {
+    token.value = null;
+    const authCookie = useCookie("auth_token");
+    authCookie.value = null;
+  };
 
   const login = async (email, password) => {
     try {
       const response = await $fetch("https://blog.wsoftdev.space/api/login", {
         method: "POST",
         body: {
-          email,
-          password,
+          email: email?.trim(),
+          password: password?.trim(),
         },
         headers: {
           "Content-Type": "application/json",
@@ -32,63 +41,22 @@ export const useAuth = () => {
         },
       });
 
-      token.value =
-        response.token || response.access_token || response.data?.token;
-
-      if (process.client && token.value) {
-        localStorage.setItem("auth_token", token.value);
-        _isInitialized.value = true;
+      if (response.access_token) {
+        setToken(response.access_token);
+        return response;
       }
-
-      return response;
+      throw new Error("No access_token received");
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Login error:", error);
       throw error;
-    }
-  };
-
-  const getBlogs = async () => {
-    try {
-      const headers = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      };
-
-      // Ensure token is initialized
-      if (process.client && !_isInitialized.value) {
-        initializeToken();
-      }
-
-      const currentToken = token.value;
-      if (currentToken) {
-        headers.Authorization = `Bearer ${currentToken}`;
-      }
-
-      console.log("Fetching blogs with token:", !!currentToken);
-      const blogs = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
-        method: "GET",
-        headers,
-      });
-      return blogs;
-    } catch (error) {
-      console.error("Failed to fetch blogs:", error);
-      throw error;
-    }
-  };
-
-  const logout = () => {
-    token.value = null;
-    _isInitialized.value = false;
-    if (process.client) {
-      localStorage.removeItem("auth_token");
     }
   };
 
   return {
-    token,
-    isAuthenticated,
+    token: readonly(token),
     login,
-    getBlogs,
-    logout,
+    getToken,
+    clearToken,
+    isAuthenticated: computed(() => !!getToken()),
   };
 };

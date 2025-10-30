@@ -62,6 +62,7 @@ logs
 .DS_Store
 .fleet
 .idea
+bash.exe.stackdump
 
 # Local env files
 .env

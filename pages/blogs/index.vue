@@ -26,10 +26,11 @@
           <div class="col-span-3 text-center text-red-500 font-poppins text-xl">
             {{ $t("failed-to-load-blogs") }}
             <button
-              @click="fetchBlogs"
-              class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              @click="refresh"
+              :disabled="pending"
+              class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed"
             >
-              {{ $t("retry") }}
+              {{ pending ? $t("retrying") : $t("retry") }}
             </button>
           </div>
         </template>
@@ -116,17 +117,18 @@ definePageMeta({
 });
 
 import { useI18n } from "vue-i18n";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useHead } from "@vueuse/head";
-import { useStructuredData } from "@/composables/useStructuredData";
-import { useCanonical } from "@/composables/useCanonical";
 
 const { t } = useI18n();
-const { getBlogs, isAuthenticated, login, token } = useAuth();
 
-const blogs = ref([]);
-const pending = ref(true);
-const error = ref(null);
+// Use your server API endpoint
+const {
+  data: blogs,
+  pending,
+  error,
+  refresh,
+} = await useFetch("/api/getBlogs");
 
 const staticMetaTitle = t("blogs-title") || "Blogs - W SoftLabs";
 const staticMetaDescription = t("blogs-description") || t("blogs-text");
@@ -136,12 +138,6 @@ const staticMetaKeywords =
   ) || "blog, articles, insights, technology, AI, web development";
 
 const { canonicalUrl } = useCanonical();
-
-const structuredData = ref(
-  useStructuredData("blog-index", {
-    blogs: [],
-  })
-);
 
 const stripHtml = (html) => {
   return html?.replace(/<[^>]+>/g, "") || "";
@@ -157,61 +153,6 @@ const formatDate = (dateString) => {
   });
 };
 
-const fetchBlogs = async () => {
-  try {
-    pending.value = true;
-    error.value = null;
-
-    blogs.value = await getBlogs();
-  } catch (err) {
-    console.error("Failed to fetch blogs:", err);
-    error.value = err;
-  } finally {
-    pending.value = false;
-  }
-};
-
-const initializeAuthAndFetchBlogs = async () => {
-  try {
-    pending.value = true;
-
-    // Check if we have a token
-    const savedToken = process.client
-      ? localStorage.getItem("auth_token")
-      : null;
-
-    if (!savedToken) {
-      // No token, try to auto-login
-      try {
-        await login(
-          import.meta.env.VITE_BLOG_EMAIL,
-          import.meta.env.VITE_BLOG_PASSWORD
-        );
-        console.log("Auto-login successful");
-      } catch (loginError) {
-        console.error("Auto-login failed:", loginError);
-        // Even if login fails, try to fetch blogs (they might be public)
-      }
-    } else {
-      // We have a token, set it
-      token.value = savedToken;
-    }
-
-    // Fetch blogs regardless of login status
-    await fetchBlogs();
-  } catch (err) {
-    console.error("Initialization failed:", err);
-    error.value = err;
-    pending.value = false;
-  }
-};
-
-onMounted(async () => {
-  if (process.client) {
-    await initializeAuthAndFetchBlogs();
-  }
-});
-
 const sortedBlogs = computed(() => {
   if (!blogs.value || blogs.value.length === 0) return [];
   return [...blogs.value].sort((a, b) => {
@@ -219,13 +160,31 @@ const sortedBlogs = computed(() => {
   });
 });
 
-const updatedStructuredData = computed(() => {
-  return useStructuredData("blog-index", {
-    blogs: sortedBlogs.value || [],
-  });
+// FIX: Create structured data only once when blogs are loaded
+const structuredData = computed(() => {
+  if (!sortedBlogs.value || sortedBlogs.value.length === 0) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: staticMetaTitle,
+    description: staticMetaDescription,
+    url: canonicalUrl.value,
+    blogPost: sortedBlogs.value.map((blog) => ({
+      "@type": "BlogPosting",
+      headline: blog.title,
+      description: blog.excerpt || stripHtml(blog.content).slice(0, 150),
+      datePublished: blog.published_at,
+      author: {
+        "@type": "Person",
+        name: blog.author?.name || "Unknown",
+      },
+      image: blog.banner_url || "/images/blogs/blog-placeholder.png",
+    })),
+  };
 });
 
-useHead({
+useHead(() => ({
   title: staticMetaTitle,
   link: [
     {
@@ -233,12 +192,14 @@ useHead({
       href: canonicalUrl.value,
     },
   ],
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(updatedStructuredData.value),
-    },
-  ],
+  script: structuredData.value
+    ? [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify(structuredData.value),
+        },
+      ]
+    : [],
   meta: [
     { name: "description", content: staticMetaDescription },
     { name: "keywords", content: staticMetaKeywords },
@@ -251,5 +212,5 @@ useHead({
     { name: "twitter:title", content: staticMetaTitle },
     { name: "twitter:description", content: staticMetaDescription },
   ],
-});
+}));
 </script>

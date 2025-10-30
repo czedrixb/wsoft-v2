@@ -1,3 +1,4 @@
+// nuxt.config.ts
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -26,8 +27,13 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    // Private keys (only available on server)
+    blogEmail: process.env.BLOG_EMAIL,
+    blogPassword: process.env.BLOG_PASSWORD,
+    
+    // Public keys (exposed to client)
     public: {
-      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://wsoft-v2.vercel.app'
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'https://wsoft.space/',
     }
   },
   routeRules: {
