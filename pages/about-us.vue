@@ -156,7 +156,9 @@
       </div>
     </div>
 
-    <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto py-16 mb-10">
+    <div
+      class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pt-16 pb-0 md:pb-16 py-16"
+    >
       <!-- <div class="flex justify-center items-center mb-5">
         <span class="text-[25px] lg:text-[40px] pb-3 me-3">👥</span>
       </div> -->
@@ -173,6 +175,21 @@
       </p>
 
       <OurTeam />
+
+      <div class="pt-[6rem]">
+        <div
+          class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5 md:mb-[4rem]"
+        >
+          {{ $t("Our Works") }}
+        </div>
+
+        <ProjectsGrid
+          :projects-to-show="[
+            'project-management-system',
+            'foreign-language-learning-system',
+          ]"
+        />
+      </div>
     </div>
 
     <ContactEmail />

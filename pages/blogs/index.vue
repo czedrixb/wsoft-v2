@@ -46,7 +46,6 @@
           {{ $t("no-blogs") }}
         </div>
 
-        <!-- Blogs List -->
         <div v-for="blog in sortedBlogs" :key="blog.id" class="group">
           <NuxtLink :to="`/blogs/${blog.slug}`" class="block">
             <div class="relative overflow-hidden rounded-[16px] mb-5">
@@ -127,13 +126,35 @@ const {
   pending,
   error,
   refresh,
-} = await useAsyncData("blogs", () => $fetch("/api/getBlogs"), {
-  server: true,
-  client: true,
-  transform: (data) => {
-    return Array.isArray(data) ? data : [];
+} = await useAsyncData(
+  "blogs",
+  async () => {
+    try {
+      console.log("[CLIENT] Fetching blogs from /api/getBlogs...");
+      const res = await $fetch("/api/getBlogs");
+      console.log("[CLIENT] /api/getBlogs response:", res);
+
+      if (!Array.isArray(res)) {
+        console.warn("[CLIENT] Response is not an array:", res);
+        return [];
+      }
+
+      console.log(`[CLIENT] Received ${res.length} blogs`);
+      return res;
+    } catch (err) {
+      console.error("[CLIENT] Error fetching blogs:", err);
+      return [];
+    }
   },
-});
+  {
+    server: true,
+    client: true,
+    transform: (data) => {
+      console.log("[CLIENT] Transforming blogs:", data);
+      return Array.isArray(data) ? data : [];
+    },
+  }
+);
 
 const showError = computed(() => {
   return error.value && (!blogs.value || blogs.value.length === 0);

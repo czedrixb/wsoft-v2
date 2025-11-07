@@ -299,7 +299,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
             item: {
               "@type": "CreativeWork",
               name: t(project.title),
-              description: t(`${project.title}-description`),
+              description: t(`${project.title}`),
               url: `${baseUrl}/our-works/${key}`,
               image: `${baseUrl}/images/our-works/thumbnail/${project.image}`,
               creator: {

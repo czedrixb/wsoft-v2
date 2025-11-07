@@ -153,17 +153,11 @@ const members = ref([
     name: "zyra-name",
     position: "marketing-specialist",
   },
-  // {
-  //   image: "/images/about-us/our-team/jason.png",
-  //   nickname: "jason",
-  //   name: "jason-name",
-  //   position: "full-stack",
-  // },
-  // {
-  //   image: "/images/about-us/our-team/jason.png",
-  //   nickname: "jason",
-  //   name: "jason-name",
-  //   position: "full-stack",
-  // },
+  {
+    image: "/images/about-us/our-team/virnel.png",
+    nickname: "virnel",
+    name: "virnel-name",
+    position: "designer",
+  },
 ]);
 </script>

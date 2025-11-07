@@ -16,7 +16,9 @@ pipelines:
        - yarn install
 
        # Inject .env if needed
-       - echo "$ENV_CONTENTS" > .env
+       # - echo "$ENV_CONTENTS" > .env
+       - echo "$ENV_CONTENTS" | tr ' ' '\n' > .env
+       - cat .env
 
        # Build the Nuxt static site
        - yarn generate

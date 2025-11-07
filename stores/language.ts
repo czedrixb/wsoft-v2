@@ -18,12 +18,12 @@ export const useLanguageStore = defineStore('language', {
     },
     async initialize() {
       if (process.client) {
-        console.log("[Language Init] Start - Current activeLanguage:", this.activeLanguage);
+        // console.log("[Language Init] Start - Current activeLanguage:", this.activeLanguage);
         
         // Check if language is already set in localStorage
         const storedLang = localStorage.getItem('lang');
         if (storedLang && (storedLang === 'ko' || storedLang === 'en')) {
-          console.log("Using stored language:", storedLang);
+          // console.log("Using stored language:", storedLang);
           if (this.activeLanguage !== storedLang) {
             return this.setLanguage(storedLang);
           }

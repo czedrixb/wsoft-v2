@@ -27,28 +27,12 @@
 </template>
 
 <script setup>
-import { useLanguageStore } from "~/stores/language";
 import { useI18n } from "vue-i18n";
-import { storeToRefs } from "pinia";
 
-const { locale } = useI18n();
-const languageStore = useLanguageStore();
-const { activeLanguage: currentLanguage } = storeToRefs(languageStore); // Reactive reference
+const { locale, t } = useI18n();
+const currentLanguage = locale;
 
-onMounted(async () => {
-  console.log("Initializing language store...");
-  const lang = await languageStore.initialize();
-  locale.value = lang;
-  console.log("Final active language:", lang);
-});
-
-watch(currentLanguage, (newLang) => {
-  locale.value = newLang;
-});
-
-const setActiveLanguage = async (language) => {
-  if (process.client && currentLanguage.value !== language) {
-    await languageStore.setLanguage(language);
-  }
+const setActiveLanguage = (language) => {
+  locale.value = language;
 };
 </script>

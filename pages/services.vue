@@ -628,6 +628,18 @@
       </div>
     </div>
 
+    <div>
+      <div
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5 md:mb-[4rem]"
+      >
+        {{ $t("Our Works") }}
+      </div>
+
+      <ProjectsGrid
+        :projects-to-show="['data-crawling', 'database-speed-test']"
+      />
+    </div>
+
     <ContactEmail />
   </div>
 </template>

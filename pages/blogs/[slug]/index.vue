@@ -9,31 +9,46 @@
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-[10rem] min-h-[60vh]"
     >
-      <template v-if="pending">
-        <div class="animate-pulse">
-          <div class="bg-gray-200 rounded-[16px] h-[400px] mb-5"></div>
-          <div class="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-          <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-          <div class="h-4 bg-gray-200 rounded w-1/3 mb-6"></div>
-          <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
-          <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
-          <div class="h-4 bg-gray-200 rounded w-3/4"></div>
-        </div>
-      </template>
+      <!-- Loading State -->
+      <div v-if="pending && !blog" class="animate-pulse">
+        <div class="bg-gray-200 rounded-[16px] h-[400px] mb-5"></div>
+        <div class="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+        <div class="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+        <div class="h-4 bg-gray-200 rounded w-1/3 mb-6"></div>
+        <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-4 bg-gray-200 rounded w-full mb-2"></div>
+        <div class="h-4 bg-gray-200 rounded w-3/4"></div>
+      </div>
 
-      <template v-else-if="error">
-        <div class="text-center text-red-500 font-poppins text-xl py-20">
+      <!-- Error State -->
+      <div v-else-if="showError" class="text-center py-10">
+        <div class="text-red-500 font-poppins text-xl mb-4">
           {{ $t("failed-to-load-blog") }}
         </div>
-      </template>
+        <button
+          @click="refresh"
+          :disabled="pending"
+          class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed transition-colors"
+        >
+          {{ pending ? $t("retrying") : $t("retry") }}
+        </button>
+      </div>
 
-      <template v-else-if="!blog">
-        <div class="text-center text-gray-500 font-poppins text-3xl py-20">
+      <!-- Blog Not Found -->
+      <div v-else-if="!blog && !pending" class="text-center py-20">
+        <div class="text-gray-500 font-poppins text-3xl mb-4">
           {{ $t("blog-not-found") }}
         </div>
-      </template>
+        <NuxtLink
+          to="/blogs"
+          class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          {{ $t("back-to-blogs") }}
+        </NuxtLink>
+      </div>
 
-      <template v-else>
+      <!-- Blog Content -->
+      <template v-else-if="blog">
         <div
           class="relative overflow-hidden rounded-[16px] mb-[5rem] h-[400px] md:h-[450px] lg:h-[500px]"
         >
@@ -66,7 +81,7 @@
 
       <!-- Popular posts section -->
       <div
-        v-if="!pending && !error"
+        v-if="!pending && !showError && blog"
         class="px-5 mx-auto md:px-0 lg:px-[3rem] xl:max-w-screen-xl mt-20"
       >
         <div
@@ -87,16 +102,19 @@
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
           >
-            <div v-for="post in popularPosts" :key="post.id">
+            <div v-for="post in popularPosts" :key="post.id" class="group">
               <div class="relative">
-                <NuxtImg
-                  :src="
-                    post.banner_url || '/images/blogs/img-blog-placeholder.png'
-                  "
-                  class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full"
-                  :alt="post.title"
-                  loading="lazy"
-                />
+                <NuxtLink :to="`/blogs/${post.slug}`" class="block">
+                  <NuxtImg
+                    :src="
+                      post.banner_url ||
+                      '/images/blogs/img-blog-placeholder.png'
+                    "
+                    class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full transition-transform duration-300 group-hover:scale-105"
+                    :alt="post.title"
+                    loading="lazy"
+                  />
+                </NuxtLink>
 
                 <NuxtImg
                   class="absolute top-[8%] left-[54%] md:left-[45%] xl:left-[54%]"
@@ -116,50 +134,48 @@
                 </div>
 
                 <div class="absolute text-black top-[44%] left-[8%]">
-                  <span
-                    class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block"
-                  >
-                    {{ post.title }}
-                  </span>
+                  <NuxtLink :to="`/blogs/${post.slug}`">
+                    <span
+                      class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block hover:text-blue-600 transition-colors"
+                    >
+                      {{ post.title }}
+                    </span>
+                  </NuxtLink>
                 </div>
               </div>
               <div class="flex mb-3">
                 <span
                   class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
                 >
-                  {{
-                    new Date(post.published_at).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })
-                  }}
+                  {{ formatDate(post.published_at) }}
                 </span>
 
                 <span
                   class="font-poppins text-[#333333] text-[12px] font-[700]"
                 >
-                  {{ post.author?.name }}
+                  {{ post.author?.name || "Unknown Author" }}
                 </span>
-              </div>
-
-              <div class="font-poppins font-[600] text-[24px] text-black mb-3">
-                {{ post.title }}
-              </div>
-
-              <div
-                class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
-                style="min-height: 72px; max-height: 72px"
-              >
-                {{
-                  post.excerpt ||
-                  post.content?.replace(/<[^>]+>/g, "").slice(0, 150) + "..."
-                }}
               </div>
 
               <NuxtLink
                 :to="`/blogs/${post.slug}`"
-                class="font-poppins font-[700] text-[18px] text-[#2279E8] underline underline-offset-3 cursor-pointer"
+                class="font-poppins font-[600] text-[24px] text-black mb-3 line-clamp-2 hover:text-blue-600 transition-colors"
+              >
+                {{ post.title }}
+              </NuxtLink>
+
+              <div
+                class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
+                style="min-height: 72px; max-height: 72px"
+                v-html="
+                  post.excerpt ||
+                  stripHtml(post.content || '').slice(0, 150) + '...'
+                "
+              />
+
+              <NuxtLink
+                :to="`/blogs/${post.slug}`"
+                class="font-poppins font-[700] text-[18px] text-[#2279E8] cursor-pointer group-hover:underline group-hover:underline-offset-3 transition-all duration-300 ease-in-out"
               >
                 {{ $t("read-more") }}...
               </NuxtLink>
@@ -182,123 +198,123 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 import { useHead } from "@vueuse/head";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 
-const { getBlogs, isAuthenticated, login, token } = useAuth();
+const { t } = useI18n();
 const route = useRoute();
 
-const blog = ref(null);
-const popularPosts = ref([]);
-const pending = ref(true);
-const error = ref(null);
+// Fetch all blogs data
+const {
+  data: blogs,
+  pending,
+  error,
+  refresh,
+} = await useAsyncData(
+  "blogs",
+  async () => {
+    try {
+      console.log("[CLIENT] Fetching blogs from /api/getBlogs...");
+      const res = await $fetch("/api/getBlogs");
+      console.log("[CLIENT] /api/getBlogs response:", res);
 
-// Add computed property for blog meta
+      if (!Array.isArray(res)) {
+        console.warn("[CLIENT] Response is not an array:", res);
+        return [];
+      }
+
+      console.log(`[CLIENT] Received ${res.length} blogs`);
+      return res;
+    } catch (err) {
+      console.error("[CLIENT] Error fetching blogs:", err);
+      return [];
+    }
+  },
+  {
+    server: true,
+    client: true,
+    transform: (data) => {
+      console.log("[CLIENT] Transforming blogs:", data);
+      return Array.isArray(data) ? data : [];
+    },
+  }
+);
+
+// Find current blog and popular posts
+const blog = computed(() => {
+  if (!blogs.value || !Array.isArray(blogs.value)) return null;
+  return blogs.value.find((b) => b.slug === route.params.slug);
+});
+
+const popularPosts = computed(() => {
+  if (!blogs.value || !Array.isArray(blogs.value)) return [];
+
+  return blogs.value
+    .filter((post) => post.id !== blog.value?.id) // Exclude current blog post
+    .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+    .slice(0, 3); // Get only the 3 latest posts
+});
+
+const showError = computed(() => {
+  return error.value && (!blogs.value || blogs.value.length === 0);
+});
+
+// Helper functions
+const stripHtml = (html) => {
+  return html?.replace(/<[^>]+>/g, "") || "";
+};
+
+const formatDate = (dateString) => {
+  if (!dateString) return "";
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  } catch {
+    return "";
+  }
+};
+
+// Blog meta for header
 const blogMeta = computed(() => {
   if (!blog.value) return null;
 
   return {
-    date: `${getMonthName(blog.value.published_at)} ${new Date(
-      blog.value.published_at
-    ).getDate()}, ${new Date(blog.value.published_at).getFullYear()}`,
-    author: blog.value.author?.name,
+    date: formatDate(blog.value.published_at),
+    author: blog.value.author?.name || "Unknown Author",
   };
 });
 
-// Helper function to get month name
-const getMonthName = (dateString) => {
-  const months = {
-    january: "January",
-    february: "February",
-    march: "March",
-    april: "April",
-    may: "May",
-    june: "June",
-    july: "July",
-    august: "August",
-    september: "September",
-    october: "October",
-    november: "November",
-    december: "December",
-  };
-
-  const monthKey = new Date(dateString)
-    .toLocaleString("en-US", { month: "long" })
-    .toLowerCase();
-
-  return months[monthKey] || monthKey;
-};
-
+// SEO and Meta Tags
 const { canonicalUrl } = useCanonical();
 
-const initializeAuthAndFetchBlog = async () => {
-  try {
-    pending.value = true;
-    error.value = null;
-
-    let allBlogs;
-
-    const savedToken = process.client
-      ? localStorage.getItem("auth_token")
-      : null;
-
-    if (!savedToken && !token.value) {
-      try {
-        console.log("Attempting auto-login for blog slug...");
-        await login(
-          import.meta.env.VITE_BLOG_EMAIL,
-          import.meta.env.VITE_BLOG_PASSWORD
-        );
-        console.log("Auto-login successful for blog slug");
-      } catch (loginError) {
-        console.log("Auto-login failed, will try public access:", loginError);
-        // Continue to try public access
-      }
-    }
-
-    try {
-      allBlogs = await getBlogs();
-    } catch (blogsError) {
-      console.error("Failed to fetch blogs:", blogsError);
-      throw blogsError;
-    }
-
-    blog.value = allBlogs.find((b) => b.slug === route.params.slug);
-
-    if (!blog.value) {
-      error.value = new Error("Blog not found");
-    }
-
-    // Get popular posts (filter by category or sort by some criteria)
-    popularPosts.value = allBlogs
-      .filter((post) => post.id !== blog.value?.id) // Exclude current blog post
-      .sort(
-        (a, b) =>
-          new Date(b.published_at).getTime() -
-          new Date(a.published_at).getTime()
-      )
-      .slice(0, 3); // Get only the 3 latest posts
-    console.log("Popular posts:", popularPosts.value);
-  } catch (err) {
-    console.error("Failed to fetch blog:", err);
-    error.value = err;
-  } finally {
-    pending.value = false;
-  }
-};
-
-onMounted(async () => {
-  await initializeAuthAndFetchBlog();
-});
-
-// Use direct strings for meta tags since we can't use $t in script without useI18n
 const metaTitle = computed(
-  () => blog.value?.title || "Blog Details - W SoftLabs"
+  () => blog.value?.title || t("blog-details") || "Blog Details - W SoftLabs"
 );
+
 const metaDescription = computed(
-  () => blog.value?.excerpt || "Read this insightful blog post from W SoftLabs"
+  () =>
+    blog.value?.excerpt ||
+    t("blog-description") ||
+    "Read this insightful blog post from W SoftLabs"
 );
+
+const metaKeywords = computed(() => {
+  if (!blog.value) return "blog, article, insights, technology";
+
+  const baseKeywords = ["blog", "article", "insights", "technology"];
+  const titleKeywords = blog.value.title?.toLowerCase().split(/\s+/) || [];
+
+  return [...new Set([...baseKeywords, ...titleKeywords])]
+    .slice(0, 10)
+    .join(", ");
+});
 
 const structuredData = computed(() =>
   useStructuredData("blog-post", blog.value || {})
@@ -320,7 +336,7 @@ useHead({
   ],
   meta: [
     { name: "description", content: metaDescription },
-    { name: "keywords", content: "blog, article, insights, technology" },
+    { name: "keywords", content: metaKeywords },
     { property: "og:title", content: metaTitle },
     { property: "og:description", content: metaDescription },
     { property: "og:type", content: "article" },

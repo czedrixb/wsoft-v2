@@ -1,8 +1,12 @@
 <template>
-  <div
-    class="w-full h-[24rem] sm:h-[19rem] md:h-[16rem] lg:h-[24rem] overflow-hidden relative mb-10"
-  >
-    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+  <div class="w-full h-[100%] lg:h-[24rem] overflow-hidden relative mb-10">
+    <video
+      class="w-full min-h-[30rem] xl:h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
       <source src="/images/about-us/bg-hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>

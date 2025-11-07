@@ -8,7 +8,7 @@ export const useAuth = () => {
     const authCookie = useCookie("auth_token", {
       maxAge: 60 * 60 * 24 * 7,
       sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      secure: false,
     });
     authCookie.value = newToken;
 
@@ -51,8 +51,8 @@ export const useAuth = () => {
         },
       });
 
-      if (response.token) {
-        setToken(response.token);
+      if (response.access_token) {
+        setToken(response.access_token);
         return response;
       }
       throw new Error("No token received");
@@ -67,6 +67,7 @@ export const useAuth = () => {
 
   const getBlogs = async () => {
     const currentToken = getToken();
+    console.log("Using token for blogs:", currentToken);
 
     try {
       const response = await $fetch(

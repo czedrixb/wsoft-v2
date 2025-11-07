@@ -1,6 +1,5 @@
 // server/api/getBlogs.get.js
 
-// Simple in-memory cache (for production consider Redis)
 let cachedToken = null;
 let tokenExpiry = null;
 
@@ -8,14 +7,23 @@ export default defineEventHandler(async (event) => {
   try {
     const config = useRuntimeConfig();
 
+    console.log("🔑 Blog credentials check:", {
+      hasEmail: !!config.blogEmail,
+      hasPassword: !!config.blogPassword,
+      email: config.blogEmail ? "present" : "missing",
+      env: process.env.NODE_ENV,
+    });
+
     // Check if we need a new token
     if (!cachedToken || !tokenExpiry || Date.now() > tokenExpiry) {
       console.log("🔑 Getting new auth token for blogs...");
 
-      // Add validation for credentials
       if (!config.blogEmail || !config.blogPassword) {
-        console.error("❌ Missing blog credentials in runtime config");
-        return [];
+        console.error("❌ Missing blog credentials");
+        throw createError({
+          statusCode: 500,
+          statusMessage: "Blog credentials not configured",
+        });
       }
 
       const loginResponse = await $fetch(
@@ -30,43 +38,61 @@ export default defineEventHandler(async (event) => {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          // Add timeout to prevent hanging
           timeout: 5000,
         }
       );
 
-      cachedToken = loginResponse.access_token;
+      console.log("✅ Login response received:", {
+        hasToken: !!loginResponse?.access_token,
+        tokenType: typeof loginResponse?.access_token,
+      });
 
-      // Set token expiry to 1 hour (adjust based on your API)
-      tokenExpiry = Date.now() + 60 * 60 * 1000;
-
-      if (!cachedToken) {
-        console.error("❌ No token received from login");
-        return [];
+      if (!loginResponse?.access_token) {
+        console.error("❌ No access token found in login response");
+        throw createError({
+          statusCode: 401,
+          statusMessage: "Authentication failed",
+        });
       }
+
+      cachedToken = loginResponse.access_token;
+      tokenExpiry = Date.now() + 55 * 60 * 1000; // 55 minutes for safety
     }
 
-    // Fetch blogs with cached token
+    console.log("🟢 Fetching posts with token");
+
     const response = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
       headers: {
         Authorization: `Bearer ${cachedToken}`,
         Accept: "application/json",
       },
-      timeout: 10000, // 10 second timeout
+      timeout: 10000,
     });
 
-    // Ensure we return an array
-    return Array.isArray(response) ? response : [];
-  } catch (error) {
-    console.error("❌ Error in getBlogs API:", error);
+    console.log("✅ getPosts API success:", {
+      count: Array.isArray(response) ? response.length : "not array",
+      type: typeof response,
+    });
 
-    // Clear cached token on auth errors
+    // Ensure we always return an array
+    const blogs = Array.isArray(response) ? response : [];
+    console.log(`📝 Returning ${blogs.length} blogs`);
+
+    return blogs;
+  } catch (error) {
+    console.error("❌ Error in getBlogs API:", {
+      message: error.message,
+      status: error.status,
+      data: error.data,
+    });
+
+    // Clear token on auth errors
     if (error.status === 401) {
       cachedToken = null;
       tokenExpiry = null;
     }
 
-    // Return empty array instead of throwing error to prevent page crashes
+    // Return empty array but log the error
     return [];
   }
 });

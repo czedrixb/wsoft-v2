@@ -53,6 +53,24 @@
           {{ $t("all-rights") }} © 2025
         </div>
       </div>
+      <div
+        class="flex flex-col md:flex-row md:justify-end items-center md:items-end text-[#535353] font-inter gap-2 md:gap-1 mt-2"
+      >
+        <p class="font-inter">
+          {{ $t("footer-company") }}:
+          <span class="font-semibold"> {{ $t("footer-wlabs") }}</span>
+        </p>
+        <span class="hidden md:inline">|</span>
+        <p class="font-inter">
+          {{ $t("footer-ceo") }}:
+          <span class="font-semibold"> {{ $t("footer-matt") }}</span>
+        </p>
+        <span class="hidden md:inline">|</span>
+        <p class="font-inter">
+          {{ $t("footer-business-id") }}:
+          <span class="font-semibold">387-87-03701</span>
+        </p>
+      </div>
     </div>
   </div>
 </template>
