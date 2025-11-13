@@ -540,13 +540,6 @@
       <TechStackMarquee />
     </div>
 
-    <ProjectsGrid
-      :projects-to-show="[
-        'academic-administration-management-system',
-        'content-management-system',
-      ]"
-    />
-
     <ContactEmail />
   </div>
 </template>

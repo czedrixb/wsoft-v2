@@ -50,7 +50,7 @@
       >
         <Language />
         <div class="text-[#535353] font-[400]">
-          {{ $t("all-rights") }} © 2025
+          {{ $t("all-rights") }} © {{ new Date().getFullYear() }}
         </div>
       </div>
       <div
@@ -58,7 +58,9 @@
       >
         <p class="font-inter">
           {{ $t("footer-company") }}:
-          <span class="font-semibold"> {{ $t("footer-wlabs") }}</span>
+          <span class="font-semibold">
+            {{ isUedu ? $t("footer-uedu") : $t("footer-wlabs") }}</span
+          >
         </p>
         <span class="hidden md:inline">|</span>
         <p class="font-inter">
@@ -68,7 +70,9 @@
         <span class="hidden md:inline">|</span>
         <p class="font-inter">
           {{ $t("footer-business-id") }}:
-          <span class="font-semibold">387-87-03701</span>
+          <span class="font-semibold">{{
+            isUedu ? "124-87-33297" : "387-87-03701"
+          }}</span>
         </p>
       </div>
     </div>
@@ -90,4 +94,10 @@ const navLinks = [
     to: "/our-works",
   },
 ];
+
+const isUedu = ref(false);
+
+onMounted(() => {
+  isUedu.value = window.location.hostname === "uedu.wsoft.space";
+});
 </script>

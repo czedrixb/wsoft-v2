@@ -73,9 +73,9 @@
         </div>
         <article class="max-w-4xl mx-auto">
           <div
-            class="prose prose-lg max-w-none font-poppins text-[18px] text-[#333333] leading-relaxed"
             v-html="blog.content"
-          />
+            class="prose prose-lg max-w-none font-poppins text-[#333333] leading-relaxed prose-p:my-4 prose-ul:my-6 prose-ol:my-6 prose-li:my-2 prose-strong:text-[#222] prose-strong:font-semibold prose-headings:font-semibold prose-a:text-blue-600 prose-a:underline prose-img:rounded-xl"
+          ></div>
         </article>
       </template>
 
