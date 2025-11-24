@@ -1,7 +1,22 @@
 <template>
   <div class="bg-[#ebf0f7]">
-    <div class="border-b border-[#C5C5C5] py-3 flex justify-end">
-      <Language />
+    <div class="border-b border-[#C5C5C5] p-3">
+      <div class="flex justify-end">
+        <Language />
+      </div>
+      <div class="flex md:hidden justify-end">
+        <ul class="menu menu-horizontal px-2">
+          <NuxtLink
+            v-for="link in navLinks"
+            :key="link.title"
+            :to="link.to"
+            @click="handleNavigation(link.to)"
+            class="ms-5 text-[16px] font-[400] font-inter text-[#475766] transition-all duration-300 hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+          >
+            <li>{{ $t(link.title) }}</li>
+          </NuxtLink>
+        </ul>
+      </div>
     </div>
     <div class="navbar text-black pb-5 pt-3">
       <div class="flex-1">

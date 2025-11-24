@@ -9,7 +9,7 @@
         'bg-transparent text-gray-500': currentLanguage !== 'en',
       }"
     >
-      English
+      EN
     </button>
 
     <button
@@ -21,7 +21,7 @@
         'bg-transparent text-gray-500': currentLanguage !== 'ko',
       }"
     >
-      Korean
+      KO
     </button>
   </div>
 </template>

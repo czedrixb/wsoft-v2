@@ -1,60 +1,52 @@
 options:
- max-parallel: 1
+  max-parallel: 1
 
 image: node:20
 
 pipelines:
- branches:
-  main:
-   - step:
-      name: Build & Deploy Nuxt Static Site
-      caches:
-       - node
-      script:
-       # Enable Yarn and install dependencies
-       - corepack enable
-       - yarn install
+  branches:
+    main:
+      - step:
+          name: Build & Deploy Nuxt Server
+          caches:
+            - node
+          script:
+            # Enable Yarn and install dependencies
+            - corepack enable
+            - yarn install
 
-       # Inject .env if needed
-       # - echo "$ENV_CONTENTS" > .env
-       - echo "$ENV_CONTENTS" | tr ' ' '\n' > .env
-       - cat .env
+            # Inject .env
+            - echo "$ENV_CONTENTS" | tr ' ' '\n' > .env
+            - cat .env
 
-       # Build the Nuxt static site
-       - yarn generate
+            # Build for SERVER mode
+            - yarn build
 
-       # Setup SSH access
-       - mkdir -p ~/.ssh
-       - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-       - chmod 600 ~/.ssh/id_rsa
-       - ssh-keyscan -H $SERVER >> ~/.ssh/known_hosts
+            # Setup SSH access
+            - mkdir -p ~/.ssh
+            - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+            - chmod 600 ~/.ssh/id_rsa
+            - ssh-keyscan -H $SERVER >> ~/.ssh/known_hosts
 
-       # Set deployment paths
-       - export TS=$(date +%Y%m%d%H%M%S)
-       - export TMP_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/tmp-deploy-$TS"
-       - export DIST_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/dist"
-       - export BACKUP_PATH="/opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-$TS"
+            # Deploy with minimal downtime
+            - export APP_PATH="/opt/bitnami/projects/wsoftlabs-website-v2"
+            
+            # Compress the output directory (handles symlinks properly)
+            - tar -czf output.tar.gz .output
 
-       # Upload to temp folder
-       - ssh $SSH_USER@$SERVER "mkdir -p $TMP_PATH"
-       - scp -r .output/public/* $SSH_USER@$SERVER:$TMP_PATH/
+            # Upload compressed file and deploy script
+            - scp output.tar.gz deploy.sh $SSH_USER@$SERVER:$APP_PATH/
 
-       # Atomic swap: backup old dist, replace with new
-       - ssh $SSH_USER@$SERVER "
-            set -e;
-            if [ -d '/opt/bitnami/projects/wsoftlabs-website-v2/dist' ]; then
-              mv '/opt/bitnami/projects/wsoftlabs-website-v2/dist' '/opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-$TS';
-            fi;
-            mv '/opt/bitnami/projects/wsoftlabs-website-v2/tmp-deploy-$TS' '/opt/bitnami/projects/wsoftlabs-website-v2/dist';
-          "
+            # Extract on server and deploy
+            - ssh $SSH_USER@$SERVER "
+                cd $APP_PATH &&
+                tar -xzf output.tar.gz &&
+                mv .output output-new &&
+                rm output.tar.gz &&
+                chmod +x deploy.sh &&
+                ./deploy.sh
+              "
 
-       # Restart Apache
-       - ssh $SSH_USER@$SERVER 'sudo /opt/bitnami/ctlscript.sh restart apache'
 
-       # Cleanup: Keep only the 2 most recent backups
-       - ssh $SSH_USER@$SERVER '
-         ls -dt /opt/bitnami/projects/wsoftlabs-website-v2/dist-backup-* 2>/dev/null | tail -n +3 | xargs -r rm -rf
-         '
-
-      services:
-       - docker
+          services:
+            - docker

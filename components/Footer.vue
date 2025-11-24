@@ -93,6 +93,10 @@ const navLinks = [
     title: "Our Works",
     to: "/our-works",
   },
+  {
+    title: "Blogs",
+    to: "/blogs",
+  },
 ];
 
 const isUedu = ref(false);
