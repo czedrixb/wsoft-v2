@@ -117,7 +117,7 @@
       >
         <img
           src="/images/home/shadow-overlay.png"
-          class="w-[800px] md:w-[1500px] lg:w-[1500px]"
+          class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
           loading="lazy"
         />
@@ -127,7 +127,7 @@
       >
         <img
           src="/images/home/shadow-overlay.png"
-          class="w-[800px] md:w-[1500px] lg:w-[1500px]"
+          class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
           loading="lazy"
         />
@@ -173,6 +173,7 @@
           <DotLottieVue
             background="transparent"
             style="width: 800px; height: 800px"
+            class="hidden md:block"
             autoplay
             loop
             src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
@@ -183,7 +184,7 @@
         >
           <img
             src="/images/blue-gradient.png"
-            class="w-[5000px] xl:w-[1500px]"
+            class="hidden md:block w-[5000px] xl:w-[1500px]"
             alt="shadow-overlay"
             loading="lazy"
           />

@@ -18,6 +18,7 @@
         src="/images/about-us/hero-overlay.png"
         width="1500px"
         height="800px"
+        class="hidden md:block"
         alt="hero-overlay"
       />
     </div>

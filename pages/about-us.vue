@@ -44,7 +44,7 @@
       <div class="relative">
         <DotLottieVue
           background="transparent"
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           style="width: 1500px; height: 1500px"
           autoplay
           loop
@@ -56,7 +56,7 @@
           <img
             loading="lazy"
             src="/images/blue-gradient.png"
-            class="w-[10000px]"
+            class="hidden md:block w-[10000px]"
             alt="shadow-overlay"
           />
         </div>
