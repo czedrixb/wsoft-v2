@@ -59,7 +59,7 @@
           <div
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
-            <img
+            <NuxtImg
               src="/images/home/w-softlabs-en.webp"
               class="w-[400px] md:w-[440px] lg:w-[610px]"
               alt="w-softlabs"
@@ -118,7 +118,7 @@
       <div
         class="pointer-events-none absolute right-[-104%] bottom-[10%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%]"
       >
-        <img
+        <NuxtImg
           src="/images/home/shadow-overlay.png"
           class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
@@ -128,7 +128,7 @@
       <div
         class="pointer-events-none absolute left-[-104%] bottom-[10%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%]"
       >
-        <img
+        <NuxtImg
           src="/images/home/shadow-overlay.png"
           class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
           alt="shadow-overlay"
@@ -185,7 +185,7 @@
         <div
           class="absolute top-1/2 left-1/2 2xl:left-[68%] -translate-x-1/2 -translate-y-1/2 z-20 opacity-100 w-full"
         >
-          <img
+          <NuxtImg
             src="/images/blue-gradient.png"
             class="hidden md:block w-[5000px] xl:w-[1500px]"
             alt="shadow-overlay"
@@ -266,7 +266,7 @@
           </div>
 
           <div class="flex justify-end">
-            <img
+            <NuxtImg
               :src="service.image"
               class="lg:w-[430px] xl:w-[500px]"
               alt="web-development"
@@ -300,19 +300,16 @@
               to="/our-works/academic-administration-management-system"
               class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <NuxtImg
-                src="/images/home/project-1.webp"
+              <img
+                src="/images/home/project-1.png"
                 alt="dashboard"
                 loading="lazy"
-                format="webp"
-                quality="75"
-                sizes="sm:100vw md:50vw lg:400px"
               />
 
               <div
                 class="absolute left-[0%] md:left-[-2%] lg:left-[0%] md:bottom-[0.5%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
-                <img
+                <NuxtImg
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt="shadow"
@@ -344,7 +341,7 @@
               <div
                 class="absolute left-[0%] bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
-                <img
+                <NuxtImg
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
@@ -375,7 +372,7 @@
               <div
                 class="absolute left-[0%] md:left-[-2%] lg:left-[0%] bottom-[0%] md:bottom-[0%] lg:bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
-                <img
+                <NuxtImg
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
@@ -398,7 +395,7 @@
               to="/our-works/blockchain"
               class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <img
+              <NuxtImg
                 src="/images/home/project-4.png"
                 class="w-[100%] h-[auto]"
                 alt="diginest"
@@ -407,7 +404,7 @@
               <div
                 class="absolute left-[0%] md:left-[-1%] lg:left-[0%] xl:left-[0%] md:bottom-[0%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
               >
-                <img
+                <NuxtImg
                   src="/images/home/shadow-project.png"
                   class="rounded-2xl"
                   alt=" shadow"
@@ -434,9 +431,12 @@
           to="/our-works/academic-administration-management-system"
           class="relative"
         >
-          <img src="/images/home/project-1-mobile.png" alt="dashboard-mobs" />
+          <NuxtImg
+            src="/images/home/project-1-mobile.png"
+            alt="dashboard-mobs"
+          />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
-            <img
+            <NuxtImg
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
@@ -453,13 +453,13 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/content-management-system" class="relative">
-          <img
+          <NuxtImg
             src="/images/home/project-2.png"
             alt="mob-app-1-mobile"
             loading="lazy"
           />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
-            <img
+            <NuxtImg
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
@@ -479,13 +479,13 @@
           to="/our-works/foreign-language-learning-system"
           class="relative"
         >
-          <img
+          <NuxtImg
             src="/images/home/project-3-mobile.png"
             alt=" mob-app-2-mobile"
             loading="lazy"
           />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
-            <img
+            <NuxtImg
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
@@ -501,13 +501,13 @@
           </div>
         </NuxtLink>
         <NuxtLink to="/our-works/blockchain" class="relative">
-          <img
+          <NuxtImg
             src="/images/home/project-4-mobile.png"
             alt="diginest-mobile"
             loading="lazy"
           />
           <div class="absolute left-[0%] bottom-[0%] opacity-100">
-            <img
+            <NuxtImg
               src="/images/home/shadow-project.png"
               class="rounded-2xl"
               alt="shadow"
