@@ -4,7 +4,7 @@
       class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
     >
       <video class="w-full h-full object-cover" autoplay loop muted playsinline>
-        <source src="/images/home/home-hero-bg.mp4" type="video/mp4" />
+        <source src="/images/home/home-hero-bg.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
@@ -17,10 +17,13 @@
           <div
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
-            <img
-              src="/images/home/w-softlabs.svg"
+            <NuxtImg
+              src="/images/home/w-softlabs.webp"
               class="w-[340px] lg:w-[583px]"
               alt="w-softlabs"
+              loading="eager"
+              format="webp"
+              quality="80"
             />
           </div>
 
@@ -297,11 +300,13 @@
               to="/our-works/academic-administration-management-system"
               class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <img
-                src="/images/home/project-1.png"
-                class="max-w-full h-[25rem] md:h-auto"
+              <NuxtImg
+                src="/images/home/project-1.webp"
                 alt="dashboard"
                 loading="lazy"
+                format="webp"
+                quality="75"
+                sizes="sm:100vw md:50vw lg:400px"
               />
 
               <div
