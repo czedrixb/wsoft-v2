@@ -4,15 +4,6 @@
       <Head>
         <Link rel="canonical" :href="canonicalUrl" />
         <Meta name="robots" content="index, follow" />
-        <Link 
-          rel="preload" 
-          href="/_nuxt/entry.[hash].css" 
-          as="style" 
-          :onload="`this.onload=null;this.rel='stylesheet'`"
-        />
-        <noscript>
-          <Link rel="stylesheet" href="/_nuxt/entry.[hash].css" />
-        </noscript>
       </Head>
     </Html>
 

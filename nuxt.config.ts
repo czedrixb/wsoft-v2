@@ -6,8 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@pinia/nuxt'],
   plugins: [
     '~/plugins/i18n.js',
-    { src: '~/plugins/gsap.client.js', mode: 'client' },
-    { src: '~/plugins/css-optimization.client.js', mode: 'client' }
+    { src: '~/plugins/gsap.client.js', mode: 'client' }
   ],
   app: {
     head: {
@@ -17,17 +16,6 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'preconnect', href: 'https://lottie.host' },
-        { 
-          rel: 'stylesheet', 
-          href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap',
-          media: 'print',
-          onload: "this.media='all'"
-        },
-        { rel: 'preload', as: 'image', href: '/images/logo.png' },
-        { rel: 'preload', as: 'image', href: '/images/home/w-softlabs.svg' },
       ],
       meta: [
         { charset: 'utf-8' },
