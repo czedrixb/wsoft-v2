@@ -1,7 +1,7 @@
 <template>
   <div class="relative overflow-hidden mb-14">
     <h3
-      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mx-auto max-w-screen-lg mb-8"
+      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-black mx-auto max-w-screen-lg mb-8"
     >
       {{ $t("top-tool") }}
     </h3>
@@ -1221,7 +1221,7 @@
     </div>
 
     <h3
-      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-[#475766] mt-8 mx-auto max-w-screen-lg"
+      class="text-center font-poppins font-[600] text-[18px] md:text-[25px] px-5 md:px-0 text-black mt-8 mx-auto max-w-screen-lg"
     >
       {{ $t("bottom-tool") }}
     </h3>

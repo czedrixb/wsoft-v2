@@ -18,11 +18,10 @@
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
             <NuxtImg
-              src="/images/home/w-softlabs.webp"
+              src="/images/home/w-softlabs.svg"
               class="w-[340px] lg:w-[583px]"
-              alt="w-softlabs"
+              alt="w-softlabs-ko"
               loading="eager"
-              format="webp"
               quality="80"
             />
           </div>
@@ -59,8 +58,8 @@
           <div
             class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
           >
-            <img
-              src="/images/home/w-softlabs-en.webp"
+            <NuxtImg
+              src="/images/home/at-w-softlabs-en.png"
               class="w-[400px] md:w-[440px] lg:w-[610px]"
               alt="w-softlabs"
             />
@@ -95,7 +94,7 @@
         </div>
 
         <p
-          class="text-center text-[#475766] opacity-100 font-[300] font-[inter] text-[18px] px-5 md:px-0 mb-[3rem] lg:pt-[2rem]"
+          class="text-center text-black opacity-100 font-[300] font-[inter] text-[18px] lg:text-[20px] px-5 md:px-0 mb-[3rem] lg:pt-[2rem]"
         >
           {{ $t("elevate-business") }}
         </p>
@@ -195,7 +194,7 @@
         <div class="z-20 relative">
           <div class="flex justify-center mx-auto mb-5">
             <h1
-              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] xl:w-[40%] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] xl:w-[40%] lg:text-[40px] md:px-0 text-black mb-5"
             >
               {{ $t("trusted-partner") }}
             </h1>
@@ -211,7 +210,7 @@
           </div>
 
           <p
-            class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[50%]"
+            class="font-inter font-[300] text-[18px] lg:text-[20px] text-center mx-auto text-black lg:w-[50%]"
           >
             {{ $t("delivers-cutting") }}
           </p>
@@ -220,10 +219,10 @@
     </div>
 
     <div
-      class="mx-auto px-8 md:px-0 md:max-w-[90%] lg:max-w-[90%] xl:max-w-[85%] md:mt-[15rem] mb-10 py-16"
+      class="mx-auto px-8 md:px-0 md:max-w-[90%] lg:max-w-[90%] xl:max-w-[85%]"
     >
       <BriefServices />
-      <div class="block lg:hidden">
+      <div class="block lg:hidden mt-[5rem] md:mt-[8rem]">
         <div
           v-for="(service, key) in services"
           :key="key"
@@ -240,26 +239,26 @@
               </div>
             </div>
             <h2
-              class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
+              class="text-black font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
             >
               {{ $t(service.title) }}
             </h2>
 
             <div v-if="service.slogan" class="mt-5">
               <!-- <span
-                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%]"
+                class="font-inter text-[18px] text-black font-[300] lg:w-[80%]"
               >
                 {{ $t("slogan") }}:
               </span> -->
               <p
-                class="font-inter text-[18px] text-[#475766] font-[600] lg:w-[80%]"
+                class="font-inter text-[18px] lg:text-[20px] text-black font-[600] lg:w-[80%]"
               >
                 {{ $t(service.slogan) }}
               </p>
             </div>
 
             <p
-              class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] mt-5"
+              class="font-inter text-[18px] lg:text-[20px] text-black font-[300] lg:w-[80%] mt-5"
             >
               {{ $t(service.description) }}
             </p>
@@ -279,13 +278,13 @@
 
     <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
       <div
-        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-[#475766] mb-3"
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-black mb-3"
       >
         {{ $t("successful-projects") }}
       </div>
 
       <p
-        class="font-inter font-[300] text-[18px] text-[#475766] text-center lg:max-w-screen-sm mx-auto mb-12"
+        class="font-inter font-[300] text-[18px] lg:text-[20px] text-black text-center lg:max-w-screen-sm mx-auto mb-12"
       >
         {{ $t("dedicated-helping") }}
       </p>
@@ -300,8 +299,8 @@
               to="/our-works/academic-administration-management-system"
               class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
             >
-              <NuxtImg
-                src="/images/home/project-1.webp"
+              <img
+                src="/images/home/project-1.png"
                 alt="dashboard"
                 loading="lazy"
                 format="webp"
@@ -528,7 +527,7 @@
       <div class="flex justify-center mb-[5rem]">
         <NuxtLink class="flex justify-center z-50" to="/our-works">
           <button
-            class="relative font-[400] text-[18px] px-12 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+            class="relative font-[400] text-[18px] lg:text-[20px] px-12 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
           >
             <span class="relative z-10">{{ $t("explore-more-projects") }}</span>
             <span
@@ -554,8 +553,6 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
-import { useLanguageStore } from "~/stores/language";
-import { storeToRefs } from "pinia";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
@@ -638,10 +635,7 @@ onMounted(() => {
 const { locale, t } = useI18n();
 const config = useRuntimeConfig();
 
-const languageStore = useLanguageStore();
-const { activeLanguage } = storeToRefs(languageStore);
-
-const currentLanguage = computed(() => activeLanguage.value);
+const currentLanguage = computed(() => locale.value);
 
 const staticMetaTitle = t("home-title");
 const staticMetaDescription = t("home-description");

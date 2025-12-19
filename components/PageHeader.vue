@@ -38,7 +38,7 @@
 
         <div
           v-if="route.path == '/blogs'"
-          class="text-center font-poppins uppercase font-[700] text-[16pxv] lg:text-[20px] md:px-0 text-[#475766] mb-5"
+          class="text-center font-poppins uppercase font-[700] text-[16pxv] lg:text-[20px] md:px-0 text-black mb-5"
         >
           {{ $t("our-blogs") }}
         </div>
@@ -97,12 +97,12 @@ const contentContainerClass = computed(() => {
 
 const titleClass = computed(() => {
   const baseClasses =
-    "font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5";
+    "font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-black mb-5";
   return showBlogMeta.value ? baseClasses : `${baseClasses} text-center`;
 });
 
 const descriptionClass = computed(() => {
-  const baseClasses = "font-inter font-[300] text-[18px] text-[#475766]";
+  const baseClasses = "font-inter font-[300] text-[18px] text-black";
   return showBlogMeta.value
     ? baseClasses
     : `${baseClasses} text-center mx-auto w-[80%] 2xl:w-[60%]`;

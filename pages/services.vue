@@ -4,7 +4,7 @@
 
     <div class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pb-10 mb-10">
       <div
-        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-10"
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-black mb-10"
       >
         {{ $t("introduction-development") }}
       </div>
@@ -20,7 +20,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("deep-learning") }}
               </div>
@@ -32,7 +32,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("yolo") }}
                 </p>
@@ -44,7 +44,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("optical-flow") }}
                 </p>
@@ -56,7 +56,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("roi") }}
                 </p>
@@ -68,7 +68,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("precision-optimization") }}
                 </p>
@@ -84,7 +84,7 @@
                 alt="development-2"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("real-time") }}
               </div>
@@ -96,7 +96,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("rtsp") }}
                 </p>
@@ -108,7 +108,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("web-socket") }}
                 </p>
@@ -120,7 +120,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("open-cv") }}
                 </p>
@@ -132,7 +132,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("multi-stream") }}
                 </p>
@@ -148,7 +148,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("ai-text") }}
               </div>
@@ -160,7 +160,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("multimodal") }}
                 </p>
@@ -172,7 +172,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("outlier") }}
                 </p>
@@ -184,7 +184,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("dynamic-roi") }}
                 </p>
@@ -196,7 +196,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("incremental-learning") }}
                 </p>
@@ -212,7 +212,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("custom-design") }}
               </div>
@@ -224,7 +224,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("custom-website") }}
                 </p>
@@ -236,7 +236,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("responsive-user") }}
                 </p>
@@ -248,7 +248,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("engaging-ui") }}
                 </p>
@@ -264,7 +264,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("content-management") }}
               </div>
@@ -276,7 +276,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("easy-use") }}
                 </p>
@@ -288,7 +288,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("image-file") }}
                 </p>
@@ -300,7 +300,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("auto-tagging") }}
                 </p>
@@ -316,7 +316,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("admin-business") }}
               </div>
@@ -328,7 +328,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("inquiry-content") }}
                 </p>
@@ -340,7 +340,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("inventory-order") }}
                 </p>
@@ -352,7 +352,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("secure-payment") }}
                 </p>
@@ -368,7 +368,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("user-interaction") }}
               </div>
@@ -380,7 +380,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("job-interaction") }}
                 </p>
@@ -392,7 +392,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("seller-company") }}
                 </p>
@@ -404,7 +404,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("messaging-questionnaires") }}
                 </p>
@@ -420,7 +420,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("advanced-features") }}
               </div>
@@ -432,7 +432,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("interactive-calendar") }}
                 </p>
@@ -444,7 +444,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("location-based") }}
                 </p>
@@ -456,7 +456,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("recaptcha") }}
                 </p>
@@ -472,7 +472,7 @@
                 loading="lazy"
               />
               <div
-                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-[#475766] mb-5"
+                class="font-poppins font-[600] text-[23px] lg:text-[23px] md:px-0 text-black mb-5"
               >
                 {{ $t("product-listing") }}
               </div>
@@ -484,7 +484,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("items-catalog") }}
                 </p>
@@ -496,7 +496,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("wishlist-star") }}
                 </p>
@@ -508,7 +508,7 @@
                   alt="bullet"
                 />
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] text-black mb-0"
                 >
                   {{ $t("smooth-checkout") }}
                 </p>
@@ -530,13 +530,13 @@
             >
               <div class="mb-8">
                 <h3
-                  class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+                  class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-black mb-3"
                 >
                   {{ $t("ui-ai") }}
                 </h3>
 
                 <p
-                  class="text-left font-inter font-[300] text-[18px] text-[#475766]"
+                  class="text-left font-inter font-[300] text-[18px] text-black"
                 >
                   {{ $t("build-high") }}
                 </p>
@@ -555,13 +555,13 @@
           <div class="flex-1 flex flex-col">
             <div class="card bg-white shadow-md text-primary-content p-5 pb-0">
               <h3
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-black mb-3"
               >
                 {{ $t("maintenance-support") }}
               </h3>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[2rem]"
+                class="text-left font-inter font-[300] text-[18px] text-black mb-[2rem]"
               >
                 {{ $t("keep-website") }}
               </p>
@@ -581,13 +581,13 @@
               class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-5"
             >
               <h3
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-black mb-3"
               >
                 {{ $t("website-web") }}
               </h3>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[6rem]"
+                class="text-left font-inter font-[300] text-[18px] text-black mb-[6rem]"
               >
                 {{ $t("intuitive-ai") }}
               </p>
@@ -605,13 +605,13 @@
               class="card bg-white shadow-md text-primary-content p-5 pb-0 mb-3"
             >
               <h3
-                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-[#475766] mb-3"
+                class="font-poppins font-[600] text-[22px] lg:text-[25px] md:px-0 text-black mb-3"
               >
                 {{ $t("smart-video") }}
               </h3>
 
               <p
-                class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-[5rem]"
+                class="text-left font-inter font-[300] text-[18px] text-black mb-[5rem]"
               >
                 {{ $t("build-ai") }}
               </p>

@@ -87,7 +87,7 @@
         <div
           class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-10 gap-3 sm:gap-0"
         >
-          <h3 class="font-poppins text-[40px] font-[600] text-[#475766]">
+          <h3 class="font-poppins text-[40px] font-[600] text-black">
             {{ $t("popular-post") }}
           </h3>
           <NuxtLink
@@ -322,40 +322,90 @@ const structuredData = computed(() =>
 
 useHead({
   title: metaTitle,
+  htmlAttrs: {
+    lang: "ko", // Set to appropriate language
+  },
   link: [
     {
       rel: "canonical",
       href: canonicalUrl.value,
     },
-  ],
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData.value),
-    },
+    // Add prev/next for pagination if needed
+    // {
+    //   rel: 'prev',
+    //   href: `${baseUrl}/blogs?page=${prevPage}`
+    // },
+    // {
+    //   rel: 'next',
+    //   href: `${baseUrl}/blogs?page=${nextPage}`
+    // }
   ],
   meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
     { name: "description", content: metaDescription },
     { name: "keywords", content: metaKeywords },
+    { name: "robots", content: "index, follow, max-image-preview:large" },
+
+    // Open Graph
     { property: "og:title", content: metaTitle },
     { property: "og:description", content: metaDescription },
     { property: "og:type", content: "article" },
+    { property: "og:url", content: canonicalUrl.value },
     {
       property: "og:image",
       content: blog.value?.banner_url || "/images/thumbnail.jpg",
     },
-    { property: "og:url", content: canonicalUrl.value },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:site_name", content: "W SoftLabs" },
+    { property: "og:locale", content: "ko_KR" },
+
+    // Article specific
     { property: "article:published_time", content: blog.value?.published_at },
+    {
+      property: "article:modified_time",
+      content: blog.value?.updated_at || blog.value?.published_at,
+    },
     {
       property: "article:author",
       content: blog.value?.author?.name || "W SoftLabs",
     },
+    { property: "article:section", content: "Technology" }, // Add appropriate category
+
+    // Twitter
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: metaTitle },
     { name: "twitter:description", content: metaDescription },
     {
       name: "twitter:image",
       content: blog.value?.banner_url || "/images/thumbnail.jpg",
+    },
+    { name: "twitter:site", content: "@wsoftlabs" }, // Add your Twitter handle
+    {
+      name: "twitter:creator",
+      content: blog.value?.author?.twitter || "@wsoftlabs",
+    },
+
+    // Additional meta tags
+    { name: "author", content: blog.value?.author?.name || "W SoftLabs" },
+    {
+      name: "article:publisher",
+      content: "https://www.facebook.com/wsoftlabs",
+    }, // Add your FB page
+
+    // Mobile/App specific
+    { name: "mobile-web-app-capable", content: "yes" },
+    { name: "apple-mobile-web-app-title", content: "W SoftLabs" },
+
+    // Verification tags (add these in your main layout)
+    // { name: 'google-site-verification', content: 'YOUR_VERIFICATION_CODE' },
+    // { name: 'naver-site-verification', content: 'YOUR_NAVER_VERIFICATION_CODE' },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(structuredData.value),
     },
   ],
 });

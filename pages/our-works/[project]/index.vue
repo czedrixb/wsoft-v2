@@ -18,13 +18,13 @@
       class="px-5 lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto mb-10"
     >
       <h2
-        class="text-center font-poppins font-[600] text-[25px] lg:text-[30px] md:px-0 text-[#475766] mb-2"
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[30px] md:px-0 text-black mb-2"
       >
         {{ $t("project-overview") }}
       </h2>
 
       <p
-        class="font-inter font-[300] text-[18px] text-justify mx-auto text-[#475766] lg:w-[80%] mb-[4rem] lg:mb-[5rem]"
+        class="font-inter font-[300] text-[18px] text-justify mx-auto text-black lg:w-[80%] mb-[4rem] lg:mb-[5rem]"
       >
         {{ $t(project?.description) }}
       </p>
@@ -55,14 +55,14 @@
           />
           <div class="lg:w-[80%] mx-auto z-20">
             <h2
-              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-black"
             >
               {{ $t(project?.title1) }}
             </h2>
 
             <h3
               v-if="project.title1_sub"
-              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766]"
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-black"
             >
               {{ $t(project?.title1_sub) }}
             </h3>
@@ -74,12 +74,12 @@
                 class="d-flex align-center mb-1"
               >
                 <span
-                  class="text-left font-inter font-medium text-[18px] mx-auto text-[#475766] mb-0"
+                  class="text-left font-inter font-medium text-[18px] mx-auto text-black mb-0"
                 >
                   {{ $t(content.tool_name) }}:
                 </span>
                 <span
-                  class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] mx-auto text-black mb-0"
                 >
                   {{ $t(content.tool_text) }}
                 </span>
@@ -88,7 +88,7 @@
 
             <p
               v-else
-              class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+              class="text-left font-inter font-[300] text-[18px] mx-auto text-black"
             >
               {{ $t(project?.text1) }}
             </p>
@@ -113,7 +113,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-5">
           <div class="lg:w-[80%] mx-auto order-2 md:order-1 z-20">
             <h2
-              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+              class="text-left font-poppins font-[600] text-[25px] md:px-0 text-black mb-2"
             >
               {{ $t(project?.title2) }}
             </h2>
@@ -125,12 +125,12 @@
                 class="d-flex align-center mb-1"
               >
                 <span
-                  class="text-left font-inter fw-bold font-medium text-[18px] mx-auto text-[#475766] mb-0"
+                  class="text-left font-inter fw-bold font-medium text-[18px] mx-auto text-black mb-0"
                 >
                   {{ $t(content.title) }}:
                 </span>
                 <span
-                  class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766] mb-0"
+                  class="text-left font-inter font-[300] text-[18px] mx-auto text-black mb-0"
                 >
                   {{ $t(content.text) }}
                 </span>
@@ -139,7 +139,7 @@
 
             <p
               v-else
-              class="text-left font-inter font-[300] text-[18px] mx-auto text-[#475766]"
+              class="text-left font-inter font-[300] text-[18px] mx-auto text-black"
             >
               {{ $t(project?.text2) }}
             </p>
@@ -185,7 +185,7 @@
             />
             <div class="lg:w-[80%] mx-auto z-20">
               <h2
-                class="text-left font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-2"
+                class="text-left font-poppins font-[600] text-[25px] md:px-0 text-black mb-2"
               >
                 {{ $t(project?.title3) }}
               </h2>
@@ -195,7 +195,7 @@
                   <li
                     v-for="(content, index) in project.content3"
                     :key="index"
-                    class="text-left font-inter font-[300] text-[18px] text-[#475766]"
+                    class="text-left font-inter font-[300] text-[18px] text-black"
                   >
                     {{ $t(content.text) }}
                   </li>
@@ -204,7 +204,7 @@
 
               <p
                 v-else
-                class="text-left font-inter font-[300] text-[18px] text-[#475766]"
+                class="text-left font-inter font-[300] text-[18px] text-black"
               >
                 {{ $t(project?.text3) }}
               </p>

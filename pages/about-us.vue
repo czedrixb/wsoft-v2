@@ -18,18 +18,16 @@
         </div>
         <div class="flex flex-col justify-center">
           <div
-            class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] mb-5 xl:mb-7"
+            class="text-black font-poppins font-[600] text-[25px] lg:text-[40px] mb-5 xl:mb-7"
           >
             {{ $t("innovating-business") }}
           </div>
 
-          <p
-            class="font-inter text-[18px] text-[#475766] font-[300] mb-5 xl:mb-7"
-          >
+          <p class="font-inter text-[18px] text-black font-[300] mb-5 xl:mb-7">
             {{ $t("dedicated-providing") }}
           </p>
 
-          <p class="font-inter text-[18px] text-[#475766] font-[300] xl:mb-7">
+          <p class="font-inter text-[18px] text-black font-[300] xl:mb-7">
             {{ $t("staying-ahead") }}
           </p>
         </div>
@@ -61,13 +59,13 @@
           />
         </div>
         <div
-          class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+          class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-black mb-5"
         >
           {{ $t("why-choose") }}
         </div>
 
         <p
-          class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-8 lg:mb-16"
+          class="font-inter font-[300] text-[18px] text-center mx-auto text-black lg:w-[80%] mb-8 lg:mb-16"
         >
           {{ $t("provide-more") }}
         </p>
@@ -89,13 +87,13 @@
                 </div>
 
                 <div
-                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-black mb-5"
                 >
                   {{ $t("cutting-edge") }}
                 </div>
 
                 <p
-                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                  class="font-inter font-[300] text-[18px] mx-auto text-black sm:w-[80%] mb-8"
                 >
                   {{ $t("specialize-developing") }}
                 </p>
@@ -114,13 +112,13 @@
                 </div>
 
                 <div
-                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] mb-5"
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-black mb-5"
                 >
                   {{ $t("expertise-innovation") }}
                 </div>
 
                 <p
-                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                  class="font-inter font-[300] text-[18px] mx-auto text-black sm:w-[80%] mb-8"
                 >
                   {{ $t("deep-understanding") }}
                 </p>
@@ -139,13 +137,13 @@
                 </div>
 
                 <div
-                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-[#475766] w-[80%] mx-auto mb-5"
+                  class="text-center font-poppins font-[600] text-[25px] md:px-0 text-black w-[80%] mx-auto mb-5"
                 >
                   {{ $t("reliable-tech") }}
                 </div>
 
                 <p
-                  class="font-inter font-[300] text-[18px] mx-auto text-[#475766] sm:w-[80%] mb-8"
+                  class="font-inter font-[300] text-[18px] mx-auto text-black sm:w-[80%] mb-8"
                 >
                   {{ $t("trust-paramount") }}
                 </p>
@@ -161,13 +159,13 @@
         <span class="text-[25px] lg:text-[40px] pb-3 me-3">👥</span>
       </div> -->
       <div
-        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-black mb-5"
       >
         {{ $t("meet-team") }}
       </div>
 
       <p
-        class="font-inter font-[300] text-[18px] text-center mx-auto text-[#475766] lg:w-[80%] mb-12 lg:mb-16"
+        class="font-inter font-[300] text-[18px] text-center mx-auto text-black lg:w-[80%] mb-12 lg:mb-16"
       >
         {{ $t("team-experts") }}
       </p>

@@ -15,11 +15,11 @@
               alt="mail"
             />
           </div>
-          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-black mb-2">
             {{ $t("email-address") }}
           </h3>
           <p
-            class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+            class="text-left font-inter font-[300] text-[18px] text-black mb-0"
           >
             contact@wsoft.space
           </p>
@@ -33,11 +33,11 @@
               alt="phone"
             />
           </div>
-          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-black mb-2">
             {{ $t("phone-number") }}
           </h3>
           <p
-            class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-0"
+            class="text-left font-inter font-[300] text-[18px] text-black mb-0"
           >
             +82 10 5067 8800
           </p>
@@ -51,10 +51,10 @@
               alt="phone"
             />
           </div>
-          <h3 class="font-poppins font-[600] text-[20px] text-[#475766] mb-2">
+          <h3 class="font-poppins font-[600] text-[20px] text-black mb-2">
             {{ $t("our-office") }}
           </h3>
-          <p class="text-left font-inter font-[300] text-[18px] text-[#475766]">
+          <p class="text-left font-inter font-[300] text-[18px] text-black">
             {{ $t("address") }}
           </p>
         </div>
@@ -87,13 +87,13 @@
               <div class="p-8 md:col-span-2 lg:col-span-1">
                 <div>
                   <div
-                    class="font-poppins font-[600] text-[22px] lg:text-[30px] md:px-0 text-[#475766] mb-0"
+                    class="font-poppins font-[600] text-[22px] lg:text-[30px] md:px-0 text-black mb-0"
                   >
                     {{ $t("contact-us") }}
                   </div>
 
                   <p
-                    class="text-left font-inter font-[300] text-[18px] text-[#475766] mb-10"
+                    class="text-left font-inter font-[300] text-[18px] text-black mb-10"
                   >
                     {{ $t("get-back") }}
                   </p>
@@ -102,7 +102,7 @@
                 <form @submit.prevent="submitForm">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <fieldset class="fieldset w-100">
-                      <legend class="fieldset-legend mb-1 text-[#475766]">
+                      <legend class="fieldset-legend mb-1 text-black">
                         {{ $t("full-name") }}
                       </legend>
                       <input
@@ -150,7 +150,7 @@
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
-                      <legend class="fieldset-legend mb-1 text-[#475766]">
+                      <legend class="fieldset-legend mb-1 text-black">
                         {{ $t("email-address") }}
                       </legend>
                       <input
@@ -180,7 +180,7 @@
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
-                      <legend class="fieldset-legend mb-1 text-[#475766]">
+                      <legend class="fieldset-legend mb-1 text-black">
                         {{ $t("phone-number") }}
                       </legend>
                       <input
@@ -210,7 +210,7 @@
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
-                      <legend class="fieldset-legend mb-1 text-[#475766]">
+                      <legend class="fieldset-legend mb-1 text-black">
                         {{ $t("company") }}
                       </legend>
                       <input
@@ -227,7 +227,7 @@
                     </fieldset>
 
                     <fieldset class="fieldset md:col-span-2">
-                      <legend class="fieldset-legend mb-1 text-[#475766]">
+                      <legend class="fieldset-legend mb-1 text-black">
                         {{ $t("message") }}
                       </legend>
                       <textarea

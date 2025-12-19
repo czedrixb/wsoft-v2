@@ -16,7 +16,7 @@
           >
             <NuxtLink
               to="/"
-              class="mx-4 text-[16px] text-[#475766] transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+              class="mx-4 text-[16px] text-black transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
             >
               <li>{{ $t("Home") }}</li>
             </NuxtLink>
@@ -24,7 +24,7 @@
               v-for="link in navLinks"
               :key="link.title"
               :to="link.to"
-              class="mx-4 text-[16px] text-[#475766] transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
+              class="mx-4 text-[16px] text-black transition-all duration-300 hover:text-black hover:[text-shadow:1px_1px_2px_rgba(0,0,0,0.3)] hover:underline underline-offset-8"
             >
               <li>{{ $t(link.title) }}</li>
             </NuxtLink>

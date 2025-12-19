@@ -19,26 +19,26 @@
                 </div>
               </div>
               <div
-                class="text-[#475766] font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
+                class="text-black font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
               >
                 {{ $t(service.title) }}
               </div>
 
               <div v-if="service.slogan" class="mt-5">
                 <!-- <span
-                  class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
+                  class="font-inter text-[18px] text-black font-[300] lg:w-[70%] xl:w-[50%] 2xl:w-[40%]"
                 >
                   {{ $t("slogan") }}:
                 </span> -->
                 <p
-                  class="font-inter text-[18px] text-[#475766] font-[600] lg:w-[80%] xl:w-[70%]"
+                  class="font-inter text-[18px] text-black font-[600] lg:w-[80%] xl:w-[70%]"
                 >
                   {{ $t(service.slogan) }}
                 </p>
               </div>
 
               <p
-                class="font-inter text-[18px] text-[#475766] font-[300] lg:w-[80%] xl:w-[70%] mt-5"
+                class="font-inter text-[18px] text-black font-[300] lg:w-[80%] xl:w-[70%] mt-5"
               >
                 {{ $t(service.description) }}
               </p>

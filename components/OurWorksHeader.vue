@@ -18,7 +18,7 @@
     <div class="absolute inset-0 flex justify-center items-center">
       <div>
         <h1
-          class="text-center lg:w-[80%] mx-auto font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-[#475766] mb-5"
+          class="text-center lg:w-[80%] mx-auto font-poppins font-[600] text-[25px] lg:text-[40px] md:px-0 text-black mb-5"
         >
           {{ title }}
         </h1>
@@ -26,19 +26,19 @@
           class="flex flex-wrap items-center justify-center gap-3 lg:w-[70%] mx-auto"
         >
           <div
-            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-[#475766] bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center jusitfy-center py-3 px-5"
+            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-black bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center jusitfy-center py-3 px-5"
           >
             {{ $t("web-app") }}
           </div>
           <div
-            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-[#475766] bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center jusitfy-center py-3 px-5"
+            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-black bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center jusitfy-center py-3 px-5"
           >
             {{ $t("ui-design") }}
           </div>
           <div
             v-for="tool in tools"
             :key="tool"
-            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-[#475766] bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center justify-center py-3 px-5"
+            class="rounded-full shadow-sm font-poppins font-[400] text-[16px] md:text-[18px] text-black bg-[#FFFFFF4D] backdrop-blur-[5.3px] flex items-center justify-center py-3 px-5"
           >
             <NuxtImg
               preload

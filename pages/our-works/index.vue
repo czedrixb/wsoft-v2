@@ -10,7 +10,7 @@
           <NuxtLink :to="`/our-works/${key}`">
             <div class="block md:hidden mb-1">
               <div
-                class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
+                class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-black"
               >
                 {{ $t(project.title) }}
               </div>
@@ -24,7 +24,7 @@
             />
             <div class="hidden md:block">
               <div
-                class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-[#475766]"
+                class="font-poppins font-[600] text-[18px] lg:text-[22px] md:px-0 text-black"
               >
                 {{ $t(project.title) }}
               </div>
@@ -53,10 +53,10 @@ const projects = {
     title: "content-management",
     image: "content-management.png",
   },
-  blockchain: {
-    title: "blockchain",
-    image: "blockchain.png",
-  },
+  // blockchain: {
+  //   title: "blockchain",
+  //   image: "blockchain.png",
+  // },
   "youtube-content-learning-system": {
     title: "youtube-content",
     image: "youtube-content.png",

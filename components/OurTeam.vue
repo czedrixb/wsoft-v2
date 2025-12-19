@@ -15,13 +15,13 @@
           />
 
           <div class="flex flex-col gap-y-1 text-center">
-            <div class="text-[16px] md:text-[20px] font-[600] text-[#475766]">
+            <div class="text-[16px] md:text-[20px] font-[600] text-black">
               {{ $t(member.nickname) }}
             </div>
-            <div class="text-[16px] md:text-[18px] font-[400] text-[#475766]">
+            <div class="text-[16px] md:text-[18px] font-[400] text-black">
               {{ $t(member.name) }}
             </div>
-            <div class="text-[16px] font-[300] text-[#475766]">
+            <div class="text-[16px] font-[300] text-black">
               {{ $t(member.position) }}
             </div>
           </div>
@@ -64,9 +64,9 @@ const members = ref([
     position: "administrative-officer",
   },
   {
-    image: "/images/about-us/our-team/sebin.png",
-    nickname: "sebin",
-    name: "sebin-name",
+    image: "/images/about-us/our-team/songyi.png",
+    nickname: "songyi",
+    name: "songyi-name",
     position: "designer",
   },
   {
@@ -157,6 +157,12 @@ const members = ref([
     image: "/images/about-us/our-team/virnel.png",
     nickname: "virnel",
     name: "virnel-name",
+    position: "designer",
+  },
+  {
+    image: "/images/about-us/our-team/karlo.png",
+    nickname: "karlo",
+    name: "karlo-name",
     position: "designer",
   },
 ]);
