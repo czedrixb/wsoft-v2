@@ -2,10 +2,10 @@
   <div>
     <PageHeader :title="$t('Our Works')" :description="$t('our-works-text')" />
 
-    <div
-      class="px-5 mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mb-[12rem] overflow-hidden"
-    >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10">
+    <div class="px-[5rem] mx-auto mb-[12rem] overflow-hidden">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10"
+      >
         <div v-for="(project, key) in projects" :key="key">
           <NuxtLink :to="`/our-works/${key}`">
             <div class="block md:hidden mb-1">
@@ -18,7 +18,7 @@
             <NuxtImg
               width="600px"
               height="100%"
-              :src="`/images/our-works/thumbnail/${project.image}`"
+              :src="`/images/our-works/updated-thumbnails/${project.image}`"
               :alt="project.title"
               class="mb-5"
             />
@@ -63,7 +63,7 @@ const projects = {
   },
   "project-management-system": {
     title: "project-management",
-    image: "project-management.png",
+    image: "manage-project.png",
   },
   "foreign-language-learning-system": {
     title: "foreign-language",
@@ -89,6 +89,26 @@ const projects = {
     title: "ai-powered",
     image: "ai-powered.png",
   },
+  "food-calorie-analyzer": {
+    title: "food-calorie",
+    image: "food-calorie.png",
+  },
+  "encouragement-generation-platform": {
+    title: "encouragement-generation",
+    image: "encouragement-generation.png",
+  },
+  "focused-task-management": {
+    title: "focused-task",
+    image: "focused-task.png",
+  },
+  "audio-conversion-platform": {
+    title: "audio-conversion",
+    image: "audio-conversion.png",
+  },
+  "ai-powered-multilingual-translation": {
+    title: "ai-multilingual",
+    image: "ai-multilingual.png",
+  },
 };
 
 const { canonicalUrl } = useCanonical();
@@ -97,7 +117,7 @@ const config = useRuntimeConfig();
 
 const staticMetaTitle = t("works-title");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`our-work-meta-keyword-${i + 1}`)
+  t(`our-work-meta-keyword-${i + 1}`),
 ).join(", ");
 
 const structuredData = useStructuredData("our-works", { projects });
@@ -120,7 +140,7 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.png" },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

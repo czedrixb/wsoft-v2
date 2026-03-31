@@ -2,19 +2,23 @@ import { createI18n } from "vue-i18n";
 import enMessages from "~/locales/en.json";
 import koMessages from "~/locales/ko.json";
 
-export default defineNuxtPlugin(async (nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp) => {
+  // Default fallback
   let locale = "ko";
-
+  
+  // Server-side detection
   if (process.server) {
     const event = useRequestEvent?.();
     if (event) {
       const headers = event.node.req.headers;
-
+      
+      // Check cookie first - THIS IS THE CRITICAL PART
       const cookieLang = getCookie(event, "lang");
       if (cookieLang && (cookieLang === "ko" || cookieLang === "en")) {
         locale = cookieLang;
-        // console.log("[i18n Server] Using cookie language:", cookieLang);
-      } else {
+        console.log("[i18n Server] Using cookie language:", cookieLang);
+      } 
+      else {
         const acceptLanguage = headers["accept-language"];
         if (acceptLanguage) {
           const preferredLang = acceptLanguage.split(",")[0].split("-")[0];
@@ -23,61 +27,88 @@ export default defineNuxtPlugin(async (nuxtApp) => {
             console.log("[i18n Server] Using Accept-Language:", preferredLang);
           }
         }
-        console.log("[i18n Server] Using default language:", locale);
+        console.log("[i18n Server] Using language:", locale);
       }
     }
-  } else {
-    let storedLang = getClientCookie("lang");
-
-    if (!storedLang) {
-      storedLang = localStorage.getItem("lang");
-    }
-
-    if (storedLang && (storedLang === "ko" || storedLang === "en")) {
-      locale = storedLang;
-      console.log("[i18n Client] Using stored language:", storedLang);
-    } else {
-      let userCountry;
-      try {
-        userCountry = new Intl.Locale(navigator.language).region;
-      } catch (e) {
-        userCountry = new Intl.DateTimeFormat()
-          .resolvedOptions()
-          .locale.split("-")[1]
-          ?.toUpperCase();
+  } 
+  // Client-side detection - MUST MATCH SERVER PRIORITY
+  else {
+    // CRITICAL: Check cookie FIRST to match server behavior
+    const cookieLang = getClientCookie("lang");
+    if (cookieLang && (cookieLang === "ko" || cookieLang === "en")) {
+      locale = cookieLang;
+      console.log("[i18n Client] Using cookie language:", cookieLang);
+      
+      // Sync localStorage to match cookie (but don't prioritize it)
+      const storedLang = localStorage.getItem("lang");
+      if (storedLang !== cookieLang) {
+        localStorage.setItem("lang", cookieLang);
       }
-      locale = userCountry === "KR" ? "ko" : "en";
-      console.log("[i18n Client] Using detected language:", locale);
+    } 
+    // If no cookie, check localStorage
+    else {
+      const storedLang = localStorage.getItem("lang");
+      if (storedLang && (storedLang === "ko" || storedLang === "en")) {
+        locale = storedLang;
+        console.log("[i18n Client] Using localStorage language:", storedLang);
+        // Set cookie to match
+        setClientCookie("lang", locale, 365);
+      }
+      // Browser detection as last resort
+      else {
+        const browserLang = navigator.language.split("-")[0];
+        if (browserLang === "ko" || browserLang === "en") {
+          locale = browserLang;
+        }
+        console.log("[i18n Client] Using detected language:", locale);
+        
+        // Save detected language to both
+        localStorage.setItem("lang", locale);
+        setClientCookie("lang", locale, 365);
+      }
     }
-
+    
+    // Set HTML lang attribute
     document.documentElement.lang = locale;
-
-    setClientCookie("lang", locale, 365);
   }
 
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
     locale: locale,
+    fallbackLocale: "ko",
     messages: {
       en: enMessages,
       ko: koMessages,
     },
   });
 
-  nuxtApp.vueApp.use(i18n);
-  nuxtApp.provide("i18n", i18n);
+  // Check if i18n is already installed
+  if (!nuxtApp.vueApp.config.globalProperties.$i18n) {
+    nuxtApp.vueApp.use(i18n);
+  }
 
+  // Watch for language changes - CLIENT SIDE ONLY
   if (process.client) {
-    watch(i18n.global.locale, (newLang) => {
+    // Set up watcher for locale changes
+    const unwatch = watch(() => i18n.global.locale.value, (newLang) => {
+      console.log("[i18n] Language changed to:", newLang);
+      
       document.documentElement.lang = newLang;
-      localStorage.setItem("lang", newLang);
+      
+
       setClientCookie("lang", newLang, 365);
-      console.log("[i18n Client] Language changed to:", newLang);
+      localStorage.setItem("lang", newLang);
+    });
+
+    // Clean up watcher on unmount
+    nuxtApp.hook('app:beforeUnmount', () => {
+      if (unwatch) unwatch();
     });
   }
 });
 
+// Helper functions
 function getCookie(event, name) {
   const cookieHeader = event.node.req.headers.cookie;
   if (!cookieHeader) return null;

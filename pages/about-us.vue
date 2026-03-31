@@ -191,7 +191,7 @@ const config = useRuntimeConfig();
 const staticMetaTitle = t("about-title");
 const staticMetaDescription = t("about-us-description");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`about-us-meta-keyword-${i + 1}`)
+  t(`about-us-meta-keyword-${i + 1}`),
 ).join(", ");
 
 const structuredData = useStructuredData("about");
@@ -216,7 +216,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.png" },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

@@ -36,12 +36,12 @@
           </span>
         </div>
 
-        <div
+        <!-- <div
           v-if="route.path == '/blogs'"
           class="text-center font-poppins uppercase font-[700] text-[16pxv] lg:text-[20px] md:px-0 text-black mb-5"
         >
           {{ $t("our-blogs") }}
-        </div>
+        </div> -->
 
         <h1 :class="titleClass">
           {{ title }}

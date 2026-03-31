@@ -48,6 +48,8 @@
               :alt="`${tool}-icon`"
               :src="`/images/home/devtools/devicon_${tool}.webp`"
               class="mr-2"
+              @error="(e) => handleImageError(e, tool)"
+              @load="(e) => handleImageLoad(e, tool)"
             />
             {{ tool.charAt(0).toUpperCase() + tool.slice(1) }}
           </div>
@@ -58,7 +60,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { ref } from "vue";
+
+const props = defineProps({
   title: {
     type: String,
   },
@@ -67,4 +71,24 @@ defineProps({
     default: () => [],
   },
 });
+
+// Track which images have loaded successfully
+const imageLoaded = ref({});
+
+// Initialize all images as loading (not hidden by default)
+props.tools.forEach((tool) => {
+  imageLoaded.value[tool] = true; // Start as visible, hide only on error
+});
+
+const handleImageError = (event, tool) => {
+  // Hide the image on error
+  event.target.style.display = "none";
+  imageLoaded.value[tool] = false;
+};
+
+const handleImageLoad = (event, tool) => {
+  imageLoaded.value[tool] = true;
+  // Ensure image is visible on successful load
+  event.target.style.display = "block";
+};
 </script>

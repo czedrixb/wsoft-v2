@@ -1,12 +1,28 @@
 {
+  "ContactUs": "Contact Us",
+  "OurProjects": "Our Projects",
+  "Projects": "Projects",
+  "ProductsServices": "Products & Services",
+  "NewsRoom": "News Room",
+  "not-found": "Page Not Found",
+  "wizAssistant": "WIZ Assistant",
+  "registrations": "Registrations",
+  "duns-registered": "D-U-N-S® Registered",
+  "duns-number": "D&B D-U-N-S® Number",
+  "duns-verify": "Click to verify D-U-N-S® Registered company",
+  "duns-valid-until": "Valid until",
+  "not-found-text": "The page you're looking for doesn't exist or has been moved.",
+  "go-home": "Go to Homepage",
+  "go-back": "Go Back",
   "no-blogs": "We’re working on something amazing! Content will be up shortly.",
   "no-popular": "We’re just getting started! Our most popular stories are on the horizon. Check back soon.",
+  "Products": "Products",
   "home-title": "Home",
-  "home-description": "Elevate your business with W Soft Labs’ AI and custom development.",
+  "home-description": "Elevate your business with W Labs’ AI and custom development.",
   "home-meta-keyword": "W Soft",
   "home-meta-keyword-1": "W Soft Website",
-  "home-meta-keyword-2": "W Soft Labs",
-  "home-meta-keyword-3": "W Soft Labs Website",
+  "home-meta-keyword-2": "W Labs",
+  "home-meta-keyword-3": "W Labs Website",
   "home-meta-keyword-4": "Web Application Development Services",
   "home-meta-keyword-5": "Web App Development",
   "home-meta-keyword-6": "Web Application Experts",
@@ -58,11 +74,12 @@
   "home-meta-keyword-52": "IT Solutions Provider",
   "home-meta-keyword-53": "Business IT",
   "home-meta-keyword-54": "WSoft Website",
-  "home-meta-keyword-55": "WSoft Labs",
-  "home-meta-keyword-56": "WSoft Labs Website",
+  "home-meta-keyword-55": "W Labs",
+  "home-meta-keyword-56": "W Labs Website",
   "about-title": "About Us",
-  "about-us-description": "W Soft Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
-  "about-us-meta-keyword-1": "About W Soft Labs in South Korea",
+  "products-title": "Products",
+  "about-us-description": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+  "about-us-meta-keyword-1": "About W Labs in South Korea",
   "about-us-meta-keyword-2": "IT Services Company in South Korea",
   "about-us-meta-keyword-3": "Web and App Development Experts in South Korea",
   "about-us-meta-keyword-4": "Professional IT Company in South Korea",
@@ -127,7 +144,7 @@
   "Blogs": "Blogs",
   "our-blogs": "Our Blogs",
   "find-blogs": "Build. Design. Inspire.",
-  "blogs-text": "Welcome to our blog — where innovation meets creativity. Our developers, designers, and writers share their expertise, experiences, and ideas to shed light on the technology behind our work. Explore insights into our latest projects, product updates, and the cutting-edge solutions shaping WSoft’s future. Discover how we build smarter, design better, and inspire progress every day.",
+  "blogs-text": "Welcome to the W Labs blog, where innovation meets creativity. Our developers, designers, and research teams share their expertise, experience, and ideas—bringing you a closer look at our technology and the stories behind it. Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of W Labs.",
   "january": "January",
   "february": "February",
   "march": "March",
@@ -146,12 +163,12 @@
   "Talk with an Expert": "Talk with an Expert",
   "start-project": "Start Your Project Today",
   "explore-more-projects": "Explore More Projects",
-  "elevate-business": "Elevate your business with W Soft Labs’ AI and custom development.",
+  "elevate-business": "Elevate your business with W Labs’ AI and custom development.",
   "project-success": "100% Projects Success Rate",
   "customer-retention": "95% Customer Retention Rate",
   "project-completed": "21 Projects Completed",
   "trusted-partner": "Smarter Business, Powered by AI",
-  "delivers-cutting": "WSoft Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
+  "delivers-cutting": "W Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
   "web-dev": "Website Development",
   "create-website": "We create websites that work for you. Whether you’re a small business or a large enterprise, our team specializes in designing dynamic, user-friendly websites that reflect your brand and meet your needs. From beautiful designs to smooth functionality, we make sure your online presence grabs attention and connects with your audience.",
   "web-app": "Web Application Development",
@@ -161,25 +178,25 @@
   "ai-utilization": "AI Utilization Service",
   "cut-customer": "Cut customer service costs, speed up response times, and boost customer satisfaction with our AI solutions. We use advanced automation and smart technologies to streamline your operations. Whether it’s chatbots or predictive analytics, we help you work more efficiently and create a better experience for your customers.",
   "successful-projects": "Our Successful Projects",
-  "dedicated-helping": "At W Soft Labs, we’re dedicated to helping you grow your business with tailored solutions that boost productivity and efficiency.",
+  "dedicated-helping": "At W Labs, we’re dedicated to helping you grow your business with tailored solutions that boost productivity and efficiency.",
   "academic-administration": "Academic Administration Management System",
   "partner-growth": "Partner for Growth and Digital Transformation",
   "help-transform": "Let us help transform your online presence and support your business’s growth in the digital world.",
   "enter-email": "Enter your email",
   "send": "Send",
   "all-rights": "All Rights Reserved",
-  "about-text": "W Soft Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+  "about-text": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
   "innovating-business": "Innovating Business Operations with Technology",
-  "dedicated-providing": "W Soft Labs is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently.",
-  "staying-ahead": "By staying ahead of emerging technologies and industry trends, W Soft Labs ensures that our clients remain competitive in today's dynamic market landscape. With W Soft Labs as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest.",
+  "dedicated-providing": "W Labs is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently.",
+  "staying-ahead": "By staying ahead of emerging technologies and industry trends, W Labs ensures that our clients remain competitive in today's dynamic market landscape. With W Labs as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest.",
   "why-choose": "Why Choose Us?",
-  "provide-more": "At W Soft Labs, we provide more than just innovative solutions; we offer a collaborative partnership that drives your business forward. Here's why you should choose us:",
+  "provide-more": "At W Labs, we provide more than just innovative solutions; we offer a collaborative partnership that drives your business forward. Here's why you should choose us:",
   "cutting-edge": "Cutting-edge Solutions",
   "specialize-developing": "We specialize in developing cutting-edge solutions that are tailored to your specific needs. Our team stays at the forefront of information technology, ensuring you receive the latest advancements that optimize your business operations and drive success.",
   "expertise-innovation": "Expertise and Innovation",
   "deep-understanding": "With a deep understanding of emerging technologies and industry trends, we bring expertise and innovation to every project. By leveraging our knowledge, we keep your business competitive in today's dynamic market landscape, helping you stay ahead of the curve.",
   "reliable-tech": "Reliable Technology Partner",
-  "trust-paramount": "Trust is paramount in any partnership. With W Soft Labs as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
+  "trust-paramount": "Trust is paramount in any partnership. With W Labs as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
   "our-team": "Our Team",
   "ceo": "CEO",
   "senior-dev": "Senior Developer",
@@ -232,6 +249,11 @@
   "ai-tarot": "AI Tarot Master",
   "ai-review": "AI Review Analyzer",
   "ai-powered": "AI-powered Language Learning App",
+  "food-calorie": "Food Calorie Analyzer",
+  "encouragement-generation": "Encouragement Generation Platform",
+  "focused-task": "Focused Task Management",
+  "audio-conversion": "Audio Conversion Platform",
+  "ai-multilingual": "AI-Powered Multilingual Translation",
   "database-speed-test": "Database Speed Test",
   "project-overview": "Project Overview",
   "comprehensive-program": "This Academic Administration Management System is a comprehensive program designed to enhance academy management and teaching effectiveness. It consists of functional modules for progress management, achievement tracking, and support services such as payment management, attendance records, and statistical analysis. It aims to create a robust system supporting both the administrative and educational aspects of academy management, fostering an environment conducive to personalized and effective learning.",
@@ -381,7 +403,7 @@
   "karlo-name": "Karlo Miguel Perez",
   "qa-specialist": "QA Specialist",
   "see-more": "See More",
-  "top-tool": "W Soft Labs develops specialized solutions for various industries, leveraging AI-based technologies.",
+  "top-tool": "W Labs develops specialized solutions for various industries, leveraging AI-based technologies.",
   "bottom-tool": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students’ learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI.",
   "project-manager": "Project Manager",
   "system-architect": "System Architect",
@@ -404,8 +426,8 @@
   "dynamic-roi": "Dynamic ROI auto-resetting algorithm",
   "incremental-learning": "Incremental learning framework for continuous learning",
   "jumbotron": "We Do",
-  "meet-team": "Meet the WSoft Labs Team — The Driving Force Behind Innovation and Growth",
-  "team-experts": "WSoft Labs is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance. Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
+  "meet-team": "Meet the W Labs Team — The Driving Force Behind Innovation and Growth",
+  "team-experts": "W Labs is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance. Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
   "lead-developer": "Lead Developer",
   "junior-project": "Junior Project Manager",
   "operations-assistant": "Operations Assistant",
@@ -416,24 +438,24 @@
   "slogan": "Slogan",
   "action-detection": "Action detection based on real-time video analysis",
   "reading-behavior": "Reading Behavior in Real Time, Advancing Safety",
-  "offers-advanced": "WSoft Labs offers advanced AI solutions that automatically detect human behaviors and identify anomalies through real-time video analytics. Our technology enables rapid response and optimized operations across security, safety, and customer service scenarios.",
+  "offers-advanced": "W Labs offers advanced AI solutions that automatically detect human behaviors and identify anomalies through real-time video analytics. Our technology enables rapid response and optimized operations across security, safety, and customer service scenarios.",
   "rag": "RAG-based knowledge generation AI",
   "retrieving-knowledge": "Retrieving Knowledge, Generating Answers",
-  "rag-technology": "WSoft Labs leverages state-of-the-art RAG technology to deliver real-time, knowledge-augmented AI solutions. Designed for domains requiring high precision, our systems combine internal data with external sources to provide intelligent, reliable responses.",
-  "hero-1": "Maximize work efficiency",
-  "hero-2": "Connect possibilities",
-  "hero-3": "Design a growth engine",
-  "hero-4": "Innovate with AI",
-  "hero-5": "Design trust",
-  "hero-6": "Innovate with data",
-  "hero-7": "Lead the future of technology",
+  "rag-technology": "W Labs leverages state-of-the-art RAG technology to deliver real-time, knowledge-augmented AI solutions. Designed for domains requiring high precision, our systems combine internal data with external sources to provide intelligent, reliable responses.",
+  "hero-1": "We maximize work efficiency",
+  "hero-2": "We connect possibilities",
+  "hero-3": "We design a growth engine",
+  "hero-4": "We innovate with AI",
+  "hero-5": "We design trust",
+  "hero-6": "We innovate with data",
+  "hero-7": "We lead the future of technology",
   "full-pm": "Full Stack Developer / PM",
   "full-sa": "Full Stack Developer / SA",
   "full-tpm": "Full Stack Developer / TPM",
   "full-ai": "Full Stack Developer / AI Engineer",
   "data-driven": "Data-Driven Custom Platform Development",
   "reimagining-business": "Reimagining Your Business Through Technology",
-  "data-driven-text": "At W Soft Labs, we go beyond static websites to build data-centric platforms that empower smart decision-making. By integrating the latest front-end frameworks with cloud-native backend architectures, we deliver systems that are scalable, maintainable, and future-ready. Our approach focuses not just on today’s needs, but on designing technology that grows with your business.",
+  "data-driven-text": "At W Labs, we go beyond static websites to build data-centric platforms that empower smart decision-making. By integrating the latest front-end frameworks with cloud-native backend architectures, we deliver systems that are scalable, maintainable, and future-ready. Our approach focuses not just on today’s needs, but on designing technology that grows with your business.",
   "niftle-description": "Niftle Craft is a blockchain-based web application designed to enhance user immersion in the virtual world through a visually engaging and intuitive interface. Built on modern design principles, the platform offers a smooth and immersive user experience across various devices.",
   "niftle-title1": "Key Technical Achievements",
   "niftle-title1-sub": "Tech Stack & Architecture",
@@ -459,5 +481,661 @@
   "admin-business-services-description": "Supports streamlined inquiry handling, content editing, inventory and order tracking, as well as secure systems for delivery and payment management.",
   "user-interaction-services-description": "Facilitates collaboration through job requests, quotation calculators, dashboards for sellers and companies, and built-in messaging with questionnaires.",
   "advanced-features-services-description": "Adds interactivity with calendar tools and pop-ups, integrates location-aware maps, and reinforces safety with reCAPTCHA-based security measures.",
-  "product-listing-services-description": "Provides detailed product catalogs, wishlist and rating features, and ensures a smooth checkout with secure and convenient payment options."
+  "product-listing-services-description": "Provides detailed product catalogs, wishlist and rating features, and ensures a smooth checkout with secure and convenient payment options.",
+  "food-calorie-text": "Food Calorie Analyzer is a mobile app that identifies food through a photo and instantly estimates its calorie content. It helps users make healthier choices by providing quick, convenient nutrition insights.",
+  "encouragement-generation-text": "KindleUp is your AI-powered companion for sharing genuine encouragement with anyone. It helps you craft warm, personalized messages in seconds — no stress, no generic templates. Whether you’re lifting someone’s spirits after a tough day, celebrating a win, or simply spreading a little positivity, KindleUp makes it effortless to share words that truly resonate.",
+  "focused-task-text": "The MVP is a simple to-don't app designed to help users focus on their tasks without distractions. It keeps only the most important features so users can easily plan, track, and finish their work. The goal is to improve focus and task completion.",
+  "audio-conversion-text": "AudioMint MVP is a web-based tool that turns text into clear and natural-sounding MP3 audio using AI text-to-speech technology. It helps users quickly create audio files from text without needing technical skills. The MVP focuses on fast conversion, simple controls, and basic batch processing.",
+  "ai-multilingual-text": "Lingrid is a lightweight translation MVP designed to streamline multilingual content creation for both teams and developers. It enables efficient translation across multiple languages while supporting structured project management and developer-friendly integration. By leveraging advanced AI models, Lingrid helps ensure fast, scalable, and consistent translations for modern applications.",
+  "food-calorie-title1": "Image-Based Detection",
+  "food-calorie-text1": "Users can take a photo of their meal to automatically analyze calorie content.",
+  "food-calorie-title2": "Instant Results",
+  "food-calorie-text2": "The app quickly displays calorie estimates within seconds.",
+  "food-calorie-title3": "Meal History",
+  "food-calorie-text3": "Saves analyzed meals so users can track their eating habits over time.",
+  "encouragement-generation-title1": "AI-Generated Encouragement Messages",
+  "encouragement-generation-text1": "Generate uplifting, thoughtful, and personalized messages instantly — perfect for boosting morale or recognizing team milestones.",
+  "encouragement-generation-title2": "Tone-Adaptive Messaging",
+  "encouragement-generation-text2": "Choose your tone (inspiring, humorous, formal, or casual), and KindleUp adapts the message style to match your voice.",
+  "encouragement-generation-title3": "Fast & Effortless Workflow",
+  "encouragement-generation-text3": "Craft messages in seconds instead of minutes — especially handy during busy cycles, sprint reviews, or high-pressure deadlines.",
+  "focused-task-title1": "Kanban Task Tracking",
+  "focused-task-text1": "Tasks are organized using a simple Kanban board such as To Do, In Progress, and Done. This helps users clearly see their progress at a glance.",
+  "focused-task-title2": "Motivational Messages",
+  "focused-task-text2": "The app shows short motivational messages when users complete tasks. This encourages users to stay positive and keep going.",
+  "focused-task-title3": "Distraction-Free Design",
+  "focused-task-text3": "Only essential features are included to avoid clutter. This helps users stay focused on completing tasks instead of getting distracted.",
+  "audio-conversion-title1": "Text to MP3 Conversion",
+  "audio-conversion-text1": "Users can enter text and convert it into an MP3 audio file using AI voices. Voice speed, pitch, and language can be adjusted easily.",
+  "audio-conversion-title2": "Batch Conversion (JSON & CSV)",
+  "audio-conversion-text2": "Users can upload JSON or CSV files to convert many text entries into audio at once. All generated MP3 files are downloaded together as a ZIP file.",
+  "audio-conversion-title3": "Voice Preview andUsage Tracking",
+  "audio-conversion-text3": "Users can preview the voice before final conversion to check quality. The system also shows how many characters are used each day to avoid going over limits.",
+  "ai-multilingual-title1": "Translation Project Management",
+  "ai-multilingual-text1": "Organize and manage translation projects efficiently, allowing teams to track progress, updates, and language coverage in one place.",
+  "ai-multilingual-title2": "Developer-Ready npm",
+  "ai-multilingual-text2": "Provides an npm package that developers can easily integrate into their applications, enabling seamless translation workflows within existing tech stacks.",
+  "ai-multilingual-title3": "AI-Powered Multilingual Translation",
+  "ai-multilingual-text3": "Supports translation into multiple languages using Claude AI, delivering accurate and context-aware results across different use cases.",
+  "productsFooter": {
+    "contactInformation": "Contact Information",
+    "inquiryEmail": "Inquiry Email",
+    "inquiryType": "Inquiry Type",
+    "inquiryTypeValue": "Research Product and Service Inquiry",
+    "providerInformation": "Provider Information",
+    "serviceProvider": "Service Provider",
+    "organizationType": "Organization Type",
+    "organizationTypeValue": "Software & AI Research Service Provider",
+    "location": "Location",
+    "locationValue": "Republic of Korea",
+    "registrations": "Registrations",
+    "dunsRegistered": "D-U-N-S® Registered"
+  },
+  "products": {
+    "pageTitle": "Optical Microscope–Based Skin Measurement",
+    "productSubtitle": "Digital Optical Observation System with embedded Visual Interface",
+    "catalogueNumber": "Catalogue Number",
+    "productType": "Product Type",
+    "includedProgram": "Included Program",
+    "intendedUse": "Intended Use",
+    "researchUseDisclaimer": "Research Use Only Disclaimer",
+    "packageComponents": "Package Components",
+    "pricing": "Pricing",
+    "leadTime": "Lead Time",
+    "pricingUponRequest": "Priced Upon Request (USD)",
+    "leadTimeValue": "2-4 weeks",
+    "researchUseOnly": "For Research Use Only.",
+    "notForMedical": "Not for medical, cosmetic efficacy substantiation, or clinical decision-making.",
+    "notForCosmetic": "Not for diagnostic, therapeutic, cosmetic, or clinical use.",
+    "notForCosmeticClaims": "Not for diagnostic, therapeutic, cosmetic claims, or clinical use.",
+    "notForCosmeticEfficacy": "Not for diagnostic, therapeutic, cosmetic efficacy claims, or clinical use.",
+    "items": {
+      "poreDensity": {
+        "productName": "Optical Microscope–Based Pore Density Analysis System",
+        "subText": "Direct pore coverage measurement",
+        "catalogueNumber": "WSL-ODM-SKIN-S1",
+        "productType": "Research Product, Device + Analysis Software Package",
+        "descriptions": [
+          "This service combines a high-magnification digital optical microscope with a basic image analysis program for quantitative evaluation of skin pore density.",
+          "The service measures visible pore-like structures within optical microscopy images and provides numerical pore density metrics for research and comparative evaluation."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "Skin Pore Density Analysis",
+          "features": [
+            "Pore count per unit area (mm²)",
+            "ROI-based quantitative output",
+            "Comparative trend indicators"
+          ]
+        },
+        "intendedUse": "This service is intended for research and experimental evaluation of skin pore density using optical microscopy images.",
+        "packageComponents": [
+          "Digital Optical Microscope (up to 1000x)",
+          "PC-Compatible Image Acquisition Software",
+          "Skin Pore Density Analysis Program",
+          "Technical Documentation"
+        ]
+      },
+      "skinFlake": {
+        "productName": "Optical Microscope–Based Skin Flake Analysis System",
+        "subText": "Dryness and exfoliation assessment",
+        "catalogueNumber": "WSL-ODM-SKIN-S2",
+        "productType": "Research Product, Device + Multi-Metric Analysis Package",
+        "descriptions": [
+          "This service provides combined analysis of skin pore density and skin flake (desquamation) area ratio using optical microscopy images.",
+          "It enables comparative research on pore distribution and surface dryness-related characteristics."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "Skin Pore Density Analysis",
+          "skinFlakeAreaRatioAnalysis": "Skin Flake Area Ratio Analysis"
+        },
+        "intendedUse": "This service is intended for research and experimental evaluation of skin pore characteristics and surface flake distribution using optical microscopy images.",
+        "packageComponents": [
+          "Digital Optical Microscope (up to 1000x)",
+          "PC-Compatible Image Acquisition Software",
+          "Pore Density Analysis Program",
+          "Flake Area Ratio Analysis Program",
+          "Technical Documentation"
+        ]
+      },
+      "skinTexture": {
+        "productName": "Optical Microscope–Based Skin Texture Analysis System",
+        "subText": "Texture smoothness evaluation",
+        "catalogueNumber": "WSL-ODM-SKIN-S3",
+        "productType": "Research, Device + Comprehensive Analysis Package",
+        "descriptions": [
+          "This service offers comprehensive skin surface analysis by combining pore density, flake area ratio, and texture roughness score analyses based on optical microscopy images.",
+          "It provides multi-dimensional quantitative data for advanced skin surface research and comparative studies."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "Skin Pore Density Analysis",
+          "skinFlakeAreaRatioAnalysis": "Skin Flake Area Ratio Analysis",
+          "skinTextureRoughnessAnalysis": "Skin Texture Roughness Score Analysis"
+        },
+        "intendedUse": "This service is intended for research and experimental evaluation of comprehensive skin surface characteristics using optical microscopy images.",
+        "packageComponents": [
+          "Digital Optical Microscope (up to 1000x)",
+          "PC-Compatible Image Acquisition Software",
+          "Pore Density Analysis Program",
+          "Flake Area Ratio Analysis Program",
+          "Texture Roughness Score Analysis Program"
+        ]
+      },
+      "skinTone": {
+        "productName": "Optical Microscope–Based Skin Tone & Darkness Analysis System",
+        "subText": "Brightness and pigmentation tracking",
+        "catalogueNumber": "WSL-ODM-SKIN-S4",
+        "productType": "Research Product, Device + Colorimetric Analysis Software Package",
+        "descriptions": [
+          "This service provides quantitative evaluation of skin brightness and darkness levels using optical microscopy images and standardized colorimetric analysis.",
+          "By converting RGB image data into perceptual color spaces (e.g., CIE L*a*b*), the service calculates numerical skin tone indices within a fixed region of interest (ROI).",
+          "It enables objective comparison of skin tone variation over time or between experimental conditions, including brightness changes related to environmental exposure or treatment effects."
+        ],
+        "programs": {
+          "skinDarknessAnalysis": "Skin Darkness / Skin Tone Analysis",
+          "features": [
+            "Average skin lightness (L*) value within ROI",
+            "Skin darkness index (normalized 0–100 scale)",
+            "Optional Individual Typology Angle (ITA°) calculation",
+            "Comparative trend indicators"
+          ]
+        },
+        "intendedUse": "This service is intended for research and experimental evaluation of skin brightness and darkness characteristics using optical microscopy images under controlled imaging conditions.",
+        "packageComponents": [
+          "Digital Optical Microscope (up to 1000x)",
+          "PC-Compatible Image Acquisition Software",
+          "Skin Darkness / Skin Tone Analysis Program",
+          "Color Calibration and Measurement Guidelines",
+          "Technical Documentation"
+        ]
+      }
+    }
+  },
+  "home": {
+    "banner": {
+      "title": "A Global AI-First Development Partner Redesigning Productivity",
+      "subtitle": "We don't just build software—we design intelligent systems that transform how organizations work.",
+      "description": "W Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
+      "button": "Get to know us"
+    },
+    "carousel": {
+      "readMore": "Read more",
+      "slide1": {
+        "title": {
+          "line1": "At W Labs,",
+          "line2": "We innovate with data and AI"
+        },
+        "description": {
+          "line1": "We architect efficiency through cutting-edge technology: PWAs for universal access, serverless infrastructure for instant scalability, and AI automation for workflow optimization. ",
+          "line2": "Leading the tech future means deploying tomorrow's solutions today—making work faster, simpler, and more impactful."
+        }
+      },
+      "slide2": {
+        "title": {
+          "line1": "At W Labs,",
+          "line2": "We design a growth engine and trust"
+        },
+        "description": {
+          "line1": "We craft platforms that fuel your business growth while building lasting partnerships through reliable, scalable solutions.",
+          "line2": "Our systems turn ideas into measurable impact, earning trust by delivering technology that consistently performs—because your growth is our mission."
+        }
+      },
+      "slide3": {
+        "title": {
+          "line1": "At W Labs,",
+          "line2": "We maximize work efficiency and lead the future of technology"
+        },
+        "description": {
+          "line1": "Our innovation DNA combines advanced AI models with robust data pipelines. ",
+          "line2": "We deploy machine learning that evolves with usage, natural language processing that understands context, and predictive analytics that anticipate needs—turning data complexity into elegant simplicity."
+        }
+      }
+    },
+    "services": {
+      "aiAutomation": {
+        "title": "AI automation projects",
+        "subtitle": "Let AI handle the repetitive work while your team focuses on strategy.",
+        "description": "We deploy intelligent automation—computer vision, NLP, and machine learning—that streamlines operations and unlocks new capabilities."
+      },
+      "legacyModernization": {
+        "title": "Legacy system modernization",
+        "subtitle": "Don't let outdated technology hold you back.",
+        "description": "We transform legacy systems into modern, cloud-native platforms that enhance performance, reduce costs, and position your business for future growth."
+      },
+      "saasDevelopment": {
+        "title": "SaaS & Custom Platform development",
+        "subtitle": "Build software products that scale from startup to enterprise.",
+        "description": "We create cloud-based platforms with seamless UX, rock-solid infrastructure, and the flexibility to evolve with your business needs."
+      },
+      "publicSector": {
+        "title": "Education, administrative & public-sector systems",
+        "subtitle": "Technology that serves the public good.",
+        "description": "We build specialized systems for educational institutions, government agencies, and non-profits—making administration efficient and learning experiences exceptional."
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Let us help transform your online presence and support your business's growth in the digital world."
+    }
+  },
+  "footer": {
+    "title": "Partner for Growth and Digital Transformation",
+    "newsletter_text": "Subscribe to our newsletter and receive ingenious digital productivity solutions every now and then.",
+    "home": "Home",
+    "about_us": "About Us",
+    "services": "Services",
+    "products": "Products",
+    "projects": "Projects",
+    "newsroom": "Newsroom",
+    "contact_us": "Contact Us",
+    "terms_conditions": "Terms & Conditions",
+    "privacy_policy": "Privacy Policy",
+    "copyright_text": "W Labs © All Rights Reserved 2026. Ver #.00",
+    "company_name": "Company Name",
+    "business_id": "Business ID",
+    "subscribe": "Subscribe"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+    "hero_words": {
+      "hero-1": "Innovation",
+      "hero-2": "Excellence",
+      "hero-3": "Transformation",
+      "hero-4": "Technology",
+      "hero-5": "Partnership",
+      "hero-6": "Growth",
+      "hero-7": "Solutions"
+    },
+    "services": {
+      "action-detection": {
+        "title": "Action Detection",
+        "slogan": "Reading Behavior Analysis",
+        "description": "Offers advanced computer vision solutions for understanding user actions and interactions."
+      },
+      "rag": {
+        "title": "RAG Technology",
+        "slogan": "Retrieving Knowledge",
+        "description": "Retrieval-Augmented Generation technology for enhanced AI responses with contextual accuracy."
+      },
+      "data-driven": {
+        "title": "Data-Driven Solutions",
+        "slogan": "Reimagining Business",
+        "description": "Leverage data analytics to transform business operations and drive strategic decisions."
+      },
+      "web-app": {
+        "title": "Web Applications",
+        "description": "Build innovative, scalable web applications that deliver exceptional user experiences."
+      },
+      "ui-design": {
+        "title": "UI/UX Design",
+        "description": "Design intuitive interfaces that engage users and enhance digital experiences."
+      },
+      "ai-utilization": {
+        "title": "AI Utilization",
+        "description": "Cutting-edge customer solutions powered by artificial intelligence and machine learning."
+      }
+    },
+    "animated_about": {
+      "cutting_edge": {
+        "title": "Cutting-edge Solutions",
+        "description": "We specialize in developing cutting-edge solutions that are tailored to your specific needs. Our team stays at the forefront of information technology, ensuring you receive the latest advancements that optimize your business operations and drive success.",
+        "second_description": "W Labs is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently."
+      },
+      "expertise_innovation": {
+        "title": "Expertise and Innovation",
+        "description": "With a deep understanding of emerging technologies and industry trends, we bring expertise and innovation to every project. By leveraging our knowledge, we keep your business competitive in today's dynamic market landscape, helping you stay ahead of the curve.",
+        "second_description": "By staying ahead of emerging technologies and industry trends, W Labs ensures that our clients remain competitive in today's dynamic market landscape. With W Labs as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest."
+      },
+      "reliable_partner": {
+        "title": "Reliable Technology Partner",
+        "description": "Trust is paramount in any partnership. With W Labs as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
+        "second_description": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students' learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI."
+      }
+    },
+    "team": {
+      "title": "The Driving Force Behind Innovation and Growth",
+      "description_1": "W Labs is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance.",
+      "description_2": "Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
+      "meet_team": "Meet the W Labs Team",
+      "members": {
+        "matt": {
+          "name": "Matt G."
+        },
+        "ricky": {
+          "name": "Ricky F."
+        },
+        "joseph": {
+          "name": "Joseph B."
+        },
+        "hoon": {
+          "name": "Hoon L."
+        },
+        "lin": {
+          "name": "Lin T."
+        },
+        "songyi": {
+          "name": "Songyi L."
+        },
+        "gale": {
+          "name": "Gale B."
+        },
+        "jaimie": {
+          "name": "Jaimie F."
+        },
+        "salve": {
+          "name": "Salve R."
+        },
+        "lora": {
+          "name": "Lora C."
+        },
+        "ben": {
+          "name": "Ben R."
+        },
+        "czedrix": {
+          "name": "Czedrix M."
+        },
+        "neil": {
+          "name": "Neil P."
+        },
+        "jason": {
+          "name": "Jason D."
+        },
+        "winona": {
+          "name": "Winona E."
+        },
+        "pola": {
+          "name": "Pola F."
+        },
+        "zyra": {
+          "name": "Zyra G."
+        },
+        "virnel": {
+          "name": "Virnel C."
+        },
+        "karlo": {
+          "name": "Karlo M."
+        }
+      },
+      "positions": {
+        "ceo": "Chief Executive Officer",
+        "project-manager": "Project Manager",
+        "full-pm": "Full Stack Project Manager",
+        "full-sa": "Full Stack System Architect",
+        "administrative-officer": "Administrative Officer",
+        "designer": "Designer",
+        "operation-manager": "Operations Manager",
+        "junior-project": "Junior Project Coordinator",
+        "corporate-secretary": "Corporate Secretary",
+        "communications-manager": "Communications Manager",
+        "full-tpm": "Full Stack Technical Project Manager",
+        "full-stack": "Full Stack Developer",
+        "full-ai": "Full Stack AI Developer",
+        "marketing-specialist": "Marketing Specialist",
+        "qa-specialist": "QA Specialist"
+      }
+    }
+  },
+  "services": {
+    "title": "Services",
+    "description": "Our skilled developers and designers will create a stunning, user-friendly website tailored to your specific company requirements. We ensure an engaging user experience that captivates your audience, from adaptable designs to seamless functionality.",
+    "product1Alt": "Product development service illustration",
+    "product2Alt": "Design and development service illustration",
+    "metaTitle": "Professional Web Development & Design Services | Your Company Name",
+    "metaDescription": "Expert web development and design services tailored to your business needs. Get stunning, user-friendly websites with seamless functionality and engaging user experience.",
+    "metaKeywords": "web development, web design, professional services, website development, custom web design, user experience, UI/UX design, responsive design",
+    "sections": {
+      "deepLearning": {
+        "title": "Deep learning-based object detection and behavior analysis",
+        "items": [
+          "Object recognition based on YOLOv5 and ResNet",
+          "Motion tracking using Optical Flow and CAMShift",
+          "Behavior sequence analysis based on ROI",
+          "Precision optimization of abnormal behavior classification model"
+        ],
+        "imageAlt": "Deep learning object detection and behavior analysis illustration"
+      },
+      "realTimeStreaming": {
+        "title": "Real-time streaming data processing technology",
+        "items": [
+          "Video acquisition and preprocessing based on RTSP",
+          "Low-latency data transmission using WebSocket",
+          "Real-time frame analysis using OpenCV",
+          "Multi-stream parallel processing architecture design"
+        ],
+        "imageAlt": "Real-time streaming data processing technology illustration"
+      },
+      "aiDataIntegration": {
+        "title": "AI data integration and automated learning system",
+        "items": [
+          "Video + Sensor Data Multimodal Integration",
+          "Random Forest-based Outlier Removal",
+          "Dynamic ROI auto-resetting algorithm",
+          "Incremental learning framework for continuous learning"
+        ],
+        "imageAlt": "AI data integration and automated learning system illustration"
+      },
+      "customDesign": {
+        "title": "Custom Design & UI/UX",
+        "items": [
+          "Custom website & template-based designs",
+          "Responsive, user-friendly layouts",
+          "Engaging UI/UX for better usability"
+        ],
+        "imageAlt": "Custom design and UI/UX services illustration"
+      },
+      "contentMedia": {
+        "title": "Content & Media Management",
+        "items": [
+          "Easy-to-use content editor",
+          "Image, file, and video uploads (YouTube, audio, playback)",
+          "Auto-tagging and data visualization"
+        ],
+        "imageAlt": "Content and media management system illustration"
+      },
+      "adminBusiness": {
+        "title": "Admin & Business Management",
+        "items": [
+          "Inquiry & content editing system",
+          "Inventory, order, and delivery tracking",
+          "Secure payment processing"
+        ],
+        "imageAlt": "Admin and business management dashboard illustration"
+      },
+      "userInteraction": {
+        "title": "User Interaction & Communication",
+        "items": [
+          "Job requests & quotation calculator",
+          "Seller & company dashboards",
+          "Messaging, questionnaires, and team collaboration"
+        ],
+        "imageAlt": "User interaction and communication features illustration"
+      },
+      "advancedFeatures": {
+        "title": "Advanced Features & Security",
+        "items": [
+          "Interactive calendar UI & pop-ups",
+          "Location-based map integrations",
+          "reCAPTCHA security protection"
+        ],
+        "imageAlt": "Advanced features and security system illustration"
+      },
+      "ecommerce": {
+        "title": "E-Commerce & Product Listings",
+        "items": [
+          "Item catalogs with detailed pages",
+          "Wishlist & star rating system",
+          "Smooth checkout & payment experience"
+        ],
+        "imageAlt": "E-commerce and product listings platform illustration"
+      }
+    }
+  },
+  "product": {
+    "products-title": "Products",
+    "products-description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance.",
+    "animatedProjects": {
+      "lcOct": {
+        "title": "LC-OCT Skin Structure Analysis",
+        "description": "Comprehensive academy management program integrating progress tracking, achievement monitoring, payment processing, attendance records, and statistical analysis to support both administrative operations and personalized educational effectiveness."
+      },
+      "aiEncouragement": {
+        "title": "AI Encouragement Generation Platform",
+        "description": "Behind-the-scenes CMS engine enabling seamless online book digitization and video subtitle integration, allowing administrators to manage text, images, interactive elements, and multimedia accessibility from a centralized platform."
+      },
+      "aiDietTracker": {
+        "title": "AI-Aided Diet and Calorie Analysis Tracker",
+        "description": "English language learning platform offering curated video clips (movies, talk shows, lyrics) with integrated interactive activities, facilitating authentic language acquisition through multimedia content and seamless in-video learning exercises."
+      },
+      "aiTranslator": {
+        "title": "AI-Powered Multilingual Translator",
+        "description": "Advertising marketing project management platform with real-time data monitoring, featuring user-friendly dashboards, integrated client/cost management, and streamlined business process workflows."
+      },
+      "aiAudioGenerator": {
+        "title": "AI-Generating Audio File",
+        "description": "Digital transformation of Talking Plus and SLE textbooks from hard copy to interactive online format using Laravel API and Vue.js 2, featuring content digitization and seamless backend data management."
+      },
+      "aiSelfManagement": {
+        "title": "AI Self-Management and Motivation",
+        "description": "Automated data extraction and collection system for gathering, processing, and organizing web-based information for business intelligence and analysis."
+      },
+      "aiEvaluation": {
+        "title": "AI-Evaluating Assignment & Learning System",
+        "description": "Performance benchmarking system testing and comparing database systems through complex business queries, measuring speed, efficiency, and scalability to optimize decision-making and data analysis."
+      },
+      "aiLanguageLearning": {
+        "title": "AI-Enhanced Language Learning Platform",
+        "description": "E-commerce AI platform analyzing large volumes of customer reviews using sophisticated algorithms, providing comprehensive insights to help sellers refine products and identify new sales opportunities."
+      }
+    }
+  },
+  "our-projects": {
+    "title": "Projects",
+    "description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance."
+  },
+  "newsroom": {
+    "title": "Newsroom",
+    "welcome": "Welcome to the W Labs blog, where innovation meets creativity.",
+    "description1": "Our developers, designers, and research teams share their expertise, experience, and ideas—bringing you a closer look at our technology and the stories behind it.",
+    "description2": "Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of W Labs.",
+    "readMore": "Read More",
+    "featuredArticle": {
+      "title": "OpenAI Launches GPT-4 Turbo with Enhanced Vision Capabilities",
+      "description": "New AI model offers 128K context window and improved multimodal understanding at lower cost"
+    }
+  },
+  "contact-modal": {
+    "title": "Let's Get Started With Your Idea",
+    "description": "Reach out to us and our dedicated team will get back to you as soon as possible.",
+    "description2": "Your input is valuable to us, so don't hesitate to get in touch. We look forward to hearing from you!",
+    "schedule-text": "Schedule a consultation to discuss your challenges and explore how W Labs can help solve your problems.",
+    "full-name": "Full Name",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "first-name-required": "First name is required",
+    "last-name-required": "Last name is required",
+    "email-address": "Email Address",
+    "enter-email": "Enter your email",
+    "email-required": "Email is required",
+    "invalid-email": "Please enter a valid email address",
+    "phone-number": "Phone Number",
+    "enter-phone": "Enter your phone number",
+    "phone-required": "Phone number is required",
+    "invalid-phone": "Please enter a valid phone number",
+    "company": "Company",
+    "enter-company": "Enter your company name",
+    "message": "Message",
+    "enter-message": "Enter your message",
+    "message-required": "Message is required",
+    "privacy-agreement": "By checking this, you agree to the Privacy Policy, be contacted regarding the topic/subject you inquired on, and consent to receiving marketing communications",
+    "submit": "Submit Inquiry",
+    "email-label": "Email Address",
+    "phone-label": "Phone Number",
+    "office-label": "Our Office",
+    "privacy-agreement-required": "Please agree to the privacy agreement to continue"
+  },
+  "wiz": {
+    "title": "WIZ Assistant",
+    "subtitle": "A smart information desk employee - embedded inside a website",
+    "features": {
+      "guide_users": "Guide users on how to use a service",
+      "automatically_respond": "Automatically respond to FAQs",
+      "handle_document": "Handle document requests such as meeting minutes, summaries, and notices",
+      "provide_examples": "Provide examples of how different types of organizations can apply it to their workflows",
+      "automate_repetitive": "Automate repetitive inquiries",
+      "extendable_future": "Extendable in the future to include reservations, document search, internal resource navigation, and more"
+    },
+    "main_message": "With WIZ Assistant, customer support gets faster and operational burden gets lighter.",
+    "ask_button": "Ask for WIZ Assistant now",
+    "availability": "*available in all screens and browsers",
+    "pricing_tiers": "Pricing Tiers",
+    "tiers": {
+      "lite": {
+        "name": "Lite",
+        "price": "Starts at ₩ 29,000/mo",
+        "features": {
+          "basic_guidance": "Basic guidance",
+          "faq_responses": "FAQ responses"
+        }
+      },
+      "standard": {
+        "name": "Standard",
+        "price": "Starts at ₩ 79,000/mo",
+        "features": {
+          "basic_guidance": "Basic guidance",
+          "faq_responses": "FAQ responses",
+          "document_request": "Document request handling",
+          "operational_guidance": "Practical operational guidance"
+        }
+      },
+      "business": {
+        "name": "Business",
+        "price": "Starts at ₩ 149,000/mo",
+        "features": {
+          "basic_guidance": "Basic guidance",
+          "faq_responses": "FAQ responses",
+          "document_request": "Document request handling",
+          "operational_guidance": "Practical operational guidance",
+          "customized_responses": "Organization-customized responses",
+          "strengthened_support": "Strengthened operations support"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Ask for Custom Pricing",
+        "features": {
+          "basic_guidance": "Basic guidance",
+          "faq_responses": "FAQ responses",
+          "document_request": "Document request handling",
+          "operational_guidance": "Practical operational guidance",
+          "customized_responses": "Organization-customized responses",
+          "strengthened_support": "Strengthened operations support",
+          "large_organizations": "For large organizations",
+          "internal_integrations": "Internal systems integrations",
+          "custom_features": "Custom feature design"
+        }
+      }
+    },
+    "audience": {
+      "businesses": {
+        "title": "Businesses / SMEs",
+        "description": "Service guidance, customer inquiry handling, document drafting, internal operations support"
+      },
+      "hospitals": {
+        "title": "Hospitals / Medical Institutions",
+        "description": "Pre-examination preparation instructions, document issuance procedures, administrative inquiry handling"
+      },
+      "schools": {
+        "title": "Schools / Educational Institutions",
+        "description": "Course material guidance, academic administration Q&A, assignment submission instructions"
+      },
+      "associations": {
+        "title": "Associations / Public-Interest Organizations",
+        "description": "Civil inquiry guidance, application procedure explanations, document submission requirements"
+      },
+      "online_stores": {
+        "title": "Online Stores / E-Commerce",
+        "description": "Order, shipping, refund, and product information guidance"
+      }
+    }
+  }
 }

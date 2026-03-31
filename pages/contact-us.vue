@@ -72,13 +72,11 @@
                     alt="overlay-gradient"
                   />
                 </div>
-                <div
-                  class="absolute md:left-[18%] lg:left-[17%] lg:top-[25%] xl:left-[18%] xl:top-[4%] w-full"
-                >
+                <div class="absolute left-[10%] xl:left-[18%] bottom-0 w-full">
                   <NuxtImg
-                    src="/images/contact-us/contact-phone.png"
-                    width="650px"
+                    src="/images/contact-us/phone-mockup.png"
                     height="100%"
+                    width="400px"
                     alt="contact-phone"
                     class="z-20"
                   />
@@ -300,7 +298,7 @@ const config = useRuntimeConfig();
 
 const staticMetaTitle = t("contact-title");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`contact-us-meta-keyword-${i + 1}`)
+  t(`contact-us-meta-keyword-${i + 1}`),
 ).join(", ");
 
 const structuredData = useStructuredData("contact");
@@ -329,7 +327,7 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.png" },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

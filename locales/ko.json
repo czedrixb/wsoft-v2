@@ -1,6 +1,22 @@
 {
+  "ContactUs": "문의하기",
+  "OurProjects": "프로젝트",
+  "ProductsServices": "제품 및 서비스",
+  "Projects": "프로젝트",
+  "NewsRoom": "뉴스룸",
+  "not-found": "페이지를 찾을 수 없습니다",
+  "wizAssistant": "WIZ 어시스턴트",
+  "registrations": "등록",
+  "duns-registered": "D-U-N-S® 등록 기업",
+  "duns-number": "D&B D-U-N-S® 번호",
+  "duns-verify": "D-U-N-S® 등록 기업 인증 확인하기",
+  "duns-valid-until": "유효기간",
+  "not-found-text": "찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+  "go-home": "홈페이지로 이동",
+  "go-back": "뒤로 가기",
   "no-blogs": "우리는 멋진 것을 준비하고 있어요! 곧 콘텐츠가 올라올 예정입니다.",
   "no-popular": "이제 막 시작했어요! 가장 인기 있는 이야기들이 곧 올라올 예정이에요. 잠시만 기다려 주세요.",
+  "Products": "제품",
   "home-title": "홈",
   "home-description": "W Soft Labs의 AI와 맞춤형 개발로 비즈니스를 성장시키세요.",
   "home-meta-keyword": "W Soft",
@@ -61,6 +77,7 @@
   "home-meta-keyword-55": "WSoft Labs",
   "home-meta-keyword-56": "WSoft Labs Website",
   "about-title": "회사 소개",
+  "products-title": "제품",
   "about-us-description": "W Soft Labs는 비즈니스 운영을 최적화하기 위한 최첨단 솔루션을 제공합니다. 최신 IT 발전을 활용하여 조직의 효율성을 높입니다. 신뢰할 수 있는 기술 파트너로서 저희와 함께 경쟁력을 유지하세요.",
   "about-us-meta-keyword-1": "한국 W Soft 솔루션 소개",
   "about-us-meta-keyword-2": "한국 IT 서비스 회사",
@@ -127,7 +144,7 @@
   "Blogs": "블로그",
   "our-blogs": "우리의 블로그",
   "find-blogs": "빌드. 디자인. 인스파이어.",
-  "blogs-text": "혁신이 창의성과 만나는 공간, 우리의 블로그에 오신 것을 환영합니다. 우리의 개발자, 디자이너, 그리고 작가들은 전문 지식과 경험, 그리고 아이디어를 공유하며 WSoft의 기술과 그 뒤에 숨은 이야기를 전합니다. 최신 프로젝트, 제품 업데이트, 그리고 WSoft의 미래를 이끌어가는 최첨단 솔루션에 대한 인사이트를 만나보세요. 우리가 어떻게 더 스마트하게 만들고, 더 나은 디자인을 하고, 매일 진보에 영감을 주는지를 함께 발견해보세요.",
+  "blogs-text": "혁신이 창의성과 만나는 공간, 더블유랩스 블로그에 오신 것을 환영합니다. 우리의 개발자, 디자이너, 리서치팀은 전문 지식과 경험, 그리고 아이디어를 공유하며 우리의 기술과 그 뒤에 숨은 이야기를 전합니다. 최신 프로젝트, 제품 업데이트, 그리고 더블유랩스의 미래를 이끌어가는 최첨단 솔루션에 대한 인사이트를 만나보세요.",
   "january": "1월",
   "february": "2월",
   "march": "3월",
@@ -232,6 +249,11 @@
   "ai-tarot": "AI 타로 마스터",
   "ai-review": "AI 리뷰 분석기",
   "ai-powered": "AI 기반 언어 학습 앱",
+  "food-calorie": "음식 칼로리 분석기",
+  "encouragement-generation": "격려 메시지 생성 플랫폼",
+  "focused-task": "집중형 작업 관리",
+  "audio-conversion": "오디오 변환 플랫폼",
+  "ai-multilingual": "AI 기반 다국어 번역",
   "database-speed-test": "데이터베이스 속도 테스트",
   "project-overview": "프로젝트 개요",
   "comprehensive-program": "이 학사 행정 관리 시스템은 학원 관리 및 교수 효과성을 향상시키기 위해 설계된 종합 프로그램입니다. 진행 관리, 성과 추적 및 결제 관리, 출석 기록, 통계 분석과 같은 지원 서비스를 포함하는 기능 모듈로 구성됩니다. 이 시스템은 학원의 행정 및 교육적 측면을 모두 지원하는 강력한 시스템을 구축하여 개인 맞춤형 및 효과적인 학습 환경을 조성하는 것을 목표로 합니다.",
@@ -459,5 +481,661 @@
   "admin-business-services-description": "문의 처리, 콘텐츠 편집, 재고 및 주문 추적을 간소화하고, 안전한 배송 및 결제 관리 시스템을 지원합니다.",
   "user-interaction-services-description": "업무 요청, 견적 계산기, 판매자와 기업용 대시보드, 설문이 포함된 내장 메시징 기능을 통해 협업을 촉진합니다.",
   "advanced-features-services-description": "캘린더 도구와 팝업으로 상호작용을 강화하고, 위치 기반 지도를 통합하며, reCAPTCHA 보안 기능으로 안전성을 강화합니다.",
-  "product-listing-services-description": "상세한 제품 카탈로그, 위시리스트 및 평점 기능을 제공하며, 안전하고 편리한 결제 옵션으로 원활한 체크아웃을 보장합니다."
+  "product-listing-services-description": "상세한 제품 카탈로그, 위시리스트 및 평점 기능을 제공하며, 안전하고 편리한 결제 옵션으로 원활한 체크아웃을 보장합니다.",
+  "food-calorie-text": "Food Calorie Analyzer는 사진을 통해 음식을 인식하고 즉시 칼로리를 추정해 주는 모바일 앱입니다. 빠르고 편리한 영양 정보를 제공하여 사용자가 더 건강한 선택을 할 수 있도록 도와줍니다.",
+  "encouragement-generation-text": "KindleUp은 진심 어린 격려를 쉽게 전할 수 있도록 도와주는 AI 기반 동반자입니다. 부담 없이 몇 초 만에 따뜻하고 개인화된 메시지를 작성할 수 있습니다. 힘든 하루를 보낸 사람을 위로하거나, 성취를 축하하거나, 작은 긍정을 나누고 싶을 때 KindleUp은 진정으로 공감되는 말을 손쉽게 전달할 수 있게 해줍니다.",
+  "focused-task-text": "이 MVP는 사용자가 방해 요소 없이 작업에 집중할 수 있도록 설계된 간단한 할 일(to-do) 앱입니다. 꼭 필요한 기능만 유지하여 작업을 쉽게 계획하고, 추적하고, 완료할 수 있도록 돕습니다. 목표는 집중력과 작업 완료율을 높이는 것입니다.",
+  "audio-conversion-text": "AudioMint MVP는 AI 텍스트 음성 변환 기술을 사용해 텍스트를 선명하고 자연스러운 MP3 오디오로 변환하는 웹 기반 도구입니다. 기술적인 지식 없이도 빠르게 오디오 파일을 만들 수 있도록 도와줍니다. 이 MVP는 빠른 변환, 간단한 조작, 기본적인 일괄 처리 기능에 초점을 맞춥니다.",
+  "ai-multilingual-text": "Lingrid는 팀과 개발자를 위한 다국어 콘텐츠 제작을 간소화하도록 설계된 경량 번역 MVP입니다. 구조화된 프로젝트 관리와 개발자 친화적인 연동을 지원하며, 여러 언어 간 효율적인 번역을 가능하게 합니다. 고급 AI 모델을 활용해 현대적인 애플리케이션에 필요한 빠르고 확장 가능하며 일관된 번역을 제공합니다.",
+  "food-calorie-title1": "이미지 기반 인식",
+  "food-calorie-text1": "사용자는 식사 사진을 촬영하여 자동으로 칼로리 정보를 분석할 수 있습니다.",
+  "food-calorie-title2": "즉각적인 결과",
+  "food-calorie-text2": "앱은 몇 초 내로 칼로리 추정 결과를 빠르게 표시합니다.",
+  "food-calorie-title3": "식사 기록",
+  "food-calorie-text3": "분석된 식사를 저장하여 사용자가 시간에 따른 식습관을 추적할 수 있습니다.",
+  "encouragement-generation-title1": "AI가 생성한 응원 메시지",
+  "encouragement-generation-text1": "사기를 높이거나 팀의 성과를 인정하는 데 완벽한, 따뜻하고 세심하며 개인화된 메시지를 즉시 생성합니다.",
+  "encouragement-generation-title2": "톤에 맞춰 조정되는 메시지",
+  "encouragement-generation-text2": "영감을 주는 톤, 유머러스한 톤, 공식적인 톤, 캐주얼한 톤 중에서 선택하면 KindleUp이 사용자의 목소리에 맞게 메시지 스타일을 조정합니다.",
+  "encouragement-generation-title3": "빠르고 간편한 작업 흐름",
+  "encouragement-generation-text3": "몇 분이 아닌 몇 초 만에 메시지를 작성하세요 — 특히 바쁜 일정, 스프린트 리뷰, 또는 높은 압박의 마감 기한에 유용합니다.",
+  "focused-task-title1": "칸반 작업 관리",
+  "focused-task-text1": "작업은 할 일, 진행 중, 완료와 같은 간단한 칸반 보드를 사용해 정리됩니다. 이를 통해 사용자는 한눈에 진행 상황을 확인할 수 있습니다.",
+  "focused-task-title2": "동기 부여 메시지",
+  "focused-task-text2": "사용자가 작업을 완료하면 짧은 동기 부여 메시지가 표시됩니다. 이는 긍정적인 마음을 유지하고 계속 나아가도록 돕습니다.",
+  "focused-task-title3": "집중을 방해하지 않는 디자인",
+  "focused-task-text3": "불필요한 요소를 줄이기 위해 핵심 기능만 포함했습니다. 이를 통해 사용자는 방해 요소 없이 작업 완료에 집중할 수 있습니다.",
+  "audio-conversion-title1": "텍스트 → MP3 변환",
+  "audio-conversion-text1": "사용자는 텍스트를 입력해 AI 음성을 사용한 MP3 오디오 파일로 변환할 수 있습니다. 음성 속도, 음높이, 언어를 쉽게 조정할 수 있습니다.",
+  "audio-conversion-title2": "일괄 변환 (JSON & CSV)",
+  "audio-conversion-text2": "JSON 또는 CSV 파일을 업로드하여 여러 텍스트 항목을 한 번에 오디오로 변환할 수 있습니다. 생성된 모든 MP3 파일은 ZIP 파일로 함께 다운로드됩니다.",
+  "audio-conversion-title3": "음성 미리보기 및 사용량 추적",
+  "audio-conversion-text3": "최종 변환 전에 음성을 미리 들어 품질을 확인할 수 있습니다. 또한 하루에 사용된 문자 수를 표시하여 사용 한도를 초과하지 않도록 도와줍니다.",
+  "ai-multilingual-title1": "번역 프로젝트 관리",
+  "ai-multilingual-text1": "번역 프로젝트를 효율적으로 구성하고 관리하여, 팀이 진행 상황, 업데이트, 언어 범위를 한곳에서 추적할 수 있습니다.",
+  "ai-multilingual-title2": "개발자 친화적인 npm 패키지",
+  "ai-multilingual-text2": "개발자가 애플리케이션에 쉽게 통합할 수 있는 npm 패키지를 제공하여 기존 기술 스택 내에서 원활한 번역 워크플로를 구현할 수 있습니다.",
+  "ai-multilingual-title3": "AI 기반 다국어 번역",
+  "ai-multilingual-text3": "Claude AI를 활용해 여러 언어로의 번역을 지원하며, 다양한 사용 사례에서 정확하고 맥락을 고려한 결과를 제공합니다.",
+  "productsFooter": {
+    "contactInformation": "연락처 정보",
+    "inquiryEmail": "문의 이메일",
+    "inquiryType": "문의 유형",
+    "inquiryTypeValue": "연구 제품 및 서비스 문의",
+    "providerInformation": "제공자 정보",
+    "serviceProvider": "서비스 제공자",
+    "organizationType": "기관 유형",
+    "organizationTypeValue": "소프트웨어 및 AI 연구 서비스 제공업체",
+    "location": "위치",
+    "locationValue": "대한민국",
+    "registrations": "등록 정보",
+    "dunsRegistered": "D-U-N-S® 등록"
+  },
+  "products": {
+    "pageTitle": "광학현미경 기반 피부 측정",
+    "productSubtitle": "내장형 비주얼 인터페이스가 포함된 디지털 광학 관찰 시스템",
+    "catalogueNumber": "카탈로그 번호",
+    "productType": "제품 유형",
+    "includedProgram": "포함 프로그램",
+    "intendedUse": "사용 목적",
+    "researchUseDisclaimer": "연구용 면책 조항",
+    "packageComponents": "패키지 구성품",
+    "pricing": "가격 정보",
+    "leadTime": "리드 타임",
+    "pricingUponRequest": "문의 시 가격 책정 (USD)",
+    "leadTimeValue": "2-4주",
+    "researchUseOnly": "연구용으로만 사용 가능합니다.",
+    "notForMedical": "의료, 화장품 효능 입증 또는 임상 의사결정을 위한 용도가 아닙니다.",
+    "notForCosmetic": "진단, 치료, 화장품 또는 임상 용도로 사용할 수 없습니다.",
+    "notForCosmeticClaims": "진단, 치료, 화장품 주장 또는 임상 용도로 사용할 수 없습니다.",
+    "notForCosmeticEfficacy": "진단, 치료, 화장품 효능 주장 또는 임상 용도로 사용할 수 없습니다.",
+    "items": {
+      "poreDensity": {
+        "productName": "광학현미경 기반 모공 밀도 분석 시스템",
+        "subText": "직접 모공 커버리지 측정",
+        "catalogueNumber": "WSL-ODM-SKIN-S1",
+        "productType": "연구용 제품, 장치 + 분석 소프트웨어 패키지",
+        "descriptions": [
+          "이 서비스는 고배율 디지털 광학현미경과 기본 이미지 분석 프로그램을 결합하여 피부 모공 밀도를 정량적으로 평가합니다.",
+          "광학현미경 이미지 내에서 눈에 보이는 모공 유사 구조를 측정하고 연구 및 비교 평가를 위한 수치적 모공 밀도 지표를 제공합니다."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "피부 모공 밀도 분석",
+          "features": [
+            "단위 면적당 모공 수 (mm²)",
+            "ROI 기반 정량적 결과",
+            "비교 트렌드 지표"
+          ]
+        },
+        "intendedUse": "이 서비스는 광학현미경 이미지를 사용한 피부 모공 밀도의 연구 및 실험적 평가를 위해 사용됩니다.",
+        "packageComponents": [
+          "디지털 광학현미경 (최대 1000배)",
+          "PC 호환 이미지 획득 소프트웨어",
+          "피부 모공 밀도 분석 프로그램",
+          "기술 문서"
+        ]
+      },
+      "skinFlake": {
+        "productName": "광학현미경 기반 피부 각질 분석 시스템",
+        "subText": "건조함 및 각질 평가",
+        "catalogueNumber": "WSL-ODM-SKIN-S2",
+        "productType": "연구용 제품, 장치 + 다중 측정 분석 패키지",
+        "descriptions": [
+          "이 서비스는 광학현미경 이미지를 사용하여 피부 모공 밀도와 피부 각질(박리) 면적 비율을 결합하여 분석합니다.",
+          "모공 분포 및 표면 건조 관련 특성에 대한 비교 연구가 가능합니다."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "피부 모공 밀도 분석",
+          "skinFlakeAreaRatioAnalysis": "피부 각질 면적 비율 분석"
+        },
+        "intendedUse": "이 서비스는 광학현미경 이미지를 사용한 피부 모공 특성 및 표면 각질 분포의 연구 및 실험적 평가를 위해 사용됩니다.",
+        "packageComponents": [
+          "디지털 광학현미경 (최대 1000배)",
+          "PC 호환 이미지 획득 소프트웨어",
+          "모공 밀도 분석 프로그램",
+          "각질 면적 비율 분석 프로그램",
+          "기술 문서"
+        ]
+      },
+      "skinTexture": {
+        "productName": "광학현미경 기반 피부 텍스처 분석 시스템",
+        "subText": "텍스처 매끄러움 평가",
+        "catalogueNumber": "WSL-ODM-SKIN-S3",
+        "productType": "연구용, 장치 + 종합 분석 패키지",
+        "descriptions": [
+          "이 서비스는 광학현미경 이미지를 기반으로 모공 밀도, 각질 면적 비율, 텍스처 거칠기 점수 분석을 결합하여 포괄적인 피부 표면 분석을 제공합니다.",
+          "고급 피부 표면 연구 및 비교 연구를 위한 다차원 정량적 데이터를 제공합니다."
+        ],
+        "programs": {
+          "skinPoreDensityAnalysis": "피부 모공 밀도 분석",
+          "skinFlakeAreaRatioAnalysis": "피부 각질 면적 비율 분석",
+          "skinTextureRoughnessAnalysis": "피부 텍스처 거칠기 점수 분석"
+        },
+        "intendedUse": "이 서비스는 광학현미경 이미지를 사용한 포괄적인 피부 표면 특성의 연구 및 실험적 평가를 위해 사용됩니다.",
+        "packageComponents": [
+          "디지털 광학현미경 (최대 1000배)",
+          "PC 호환 이미지 획득 소프트웨어",
+          "모공 밀도 분석 프로그램",
+          "각질 면적 비율 분석 프로그램",
+          "텍스처 거칠기 점수 분석 프로그램"
+        ]
+      },
+      "skinTone": {
+        "productName": "광학현미경 기반 피부 톤 및 다크니스 분석 시스템",
+        "subText": "밝기 및 색소 침착 추적",
+        "catalogueNumber": "WSL-ODM-SKIN-S4",
+        "productType": "연구용 제품, 장치 + 비색 분석 소프트웨어 패키지",
+        "descriptions": [
+          "이 서비스는 광학현미경 이미지와 표준화된 비색 분석을 사용하여 피부 밝기 및 다크니스 수준을 정량적으로 평가합니다.",
+          "RGB 이미지 데이터를 지각적 색 공간(예: CIE L*a*b*)으로 변환하여 고정된 관심 영역(ROI) 내에서 수치적 피부 톤 지수를 계산합니다.",
+          "시간 경과에 따른 피부 톤 변화나 환경 노출 또는 처리 효과와 관련된 밝기 변화를 포함한 실험 조건 간의 객관적인 비교가 가능합니다."
+        ],
+        "programs": {
+          "skinDarknessAnalysis": "피부 다크니스 / 피부 톤 분석",
+          "features": [
+            "ROI 내 평균 피부 밝기(L*) 값",
+            "피부 다크니스 지수 (정규화된 0–100 척도)",
+            "선택적 개인 유형각(ITA°) 계산",
+            "비교 트렌드 지표"
+          ]
+        },
+        "intendedUse": "이 서비스는 통제된 이미징 조건 하에서 광학현미경 이미지를 사용한 피부 밝기 및 다크니스 특성의 연구 및 실험적 평가를 위해 사용됩니다.",
+        "packageComponents": [
+          "디지털 광학현미경 (최대 1000배)",
+          "PC 호환 이미지 획득 소프트웨어",
+          "피부 다크니스 / 피부 톤 분석 프로그램",
+          "색상 보정 및 측정 가이드라인",
+          "기술 문서"
+        ]
+      }
+    }
+  },
+  "home": {
+    "banner": {
+      "title": "생산성을 재정의하는 글로벌 AI 퍼스트 개발 파트너",
+      "subtitle": "우리는 단순히 소프트웨어를 구축하지 않습니다—조직의 작동 방식을 변화시키는 지능형 시스템을 설계합니다.",
+      "description": "W Labs는 혁신적인 기술과 유연한 조직 문화를 기반으로 AI 및 웹/앱 개발을 통해 고객의 디지털 성공을 설계하는 글로벌 성장 중심 IT 파트너입니다.",
+      "button": "회사 소개"
+    },
+    "carousel": {
+      "readMore": "더 보기",
+      "slide1": {
+        "title": {
+          "line1": "W Labs에서는",
+          "line2": "데이터와 AI로 혁신합니다"
+        },
+        "description": {
+          "line1": "최첨단 기술을 통해 효율성을 설계합니다: 범용 접근을 위한 PWA, 즉각적인 확장성을 위한 서버리스 인프라, 그리고 워크플로우 최적화를 위한 AI 자동화.",
+          "line2": "기술의 미래를 이끈다는 것은 내일의 솔루션을 오늘 배포하는 것을 의미합니다—업무를 더 빠르고, 더 간단하고, 더 효과적으로 만듭니다."
+        }
+      },
+      "slide2": {
+        "title": {
+          "line1": "W Labs에서는",
+          "line2": "성장 엔진과 신뢰를 설계합니다"
+        },
+        "description": {
+          "line1": "신뢰할 수 있고 확장 가능한 솔루션을 통해 비즈니스 성장을 촉진하고 지속적인 파트너십을 구축하는 플랫폼을 만듭니다.",
+          "line2": "우리의 시스템은 아이디어를 측정 가능한 영향으로 전환하며, 일관되게 성과를 내는 기술을 제공함으로써 신뢰를 얻습니다—고객의 성장이 우리의 사명이기 때문입니다."
+        }
+      },
+      "slide3": {
+        "title": {
+          "line1": "W Labs에서는",
+          "line2": "업무 효율성을 극대화하고 기술의 미래를 이끕니다"
+        },
+        "description": {
+          "line1": "우리의 혁신 DNA는 고급 AI 모델과 강력한 데이터 파이프라인을 결합합니다.",
+          "line2": "사용과 함께 진화하는 머신러닝, 문맥을 이해하는 자연어 처리, 필요를 예측하는 예측 분석을 배포합니다—데이터의 복잡성을 우아한 단순함으로 전환합니다."
+        }
+      }
+    },
+    "services": {
+      "aiAutomation": {
+        "title": "AI 자동화 프로젝트",
+        "subtitle": "AI가 반복적인 작업을 처리하는 동안 팀은 전략에 집중하세요.",
+        "description": "컴퓨터 비전, NLP, 머신러닝을 활용한 지능형 자동화를 구축하여 운영을 효율화하고 새로운 역량을 발휘할 수 있도록 합니다."
+      },
+      "legacyModernization": {
+        "title": "레거시 시스템 현대화",
+        "subtitle": "구식 기술에 발목이 잡히지 마세요.",
+        "description": "레거시 시스템을 현대적인 클라우드 네이티브 플랫폼으로 전환하여 성능을 향상시키고 비용을 절감하며 미래 성장을 위한 기반을 마련합니다."
+      },
+      "saasDevelopment": {
+        "title": "SaaS 및 맞춤형 플랫폼 개발",
+        "subtitle": "스타트업부터 기업까지 확장 가능한 소프트웨어 제품을 구축하세요.",
+        "description": "원활한 UX, 견고한 인프라, 비즈니스 요구에 맞게 진화할 수 있는 유연성을 갖춘 클라우드 기반 플랫폼을 만듭니다."
+      },
+      "publicSector": {
+        "title": "교육, 행정 및 공공 부문 시스템",
+        "subtitle": "공공의 이익을 위한 기술.",
+        "description": "교육 기관, 정부 기관, 비영리 단체를 위한 특화된 시스템을 구축하여 행정 효율성을 높이고 학습 경험을 특별하게 만듭니다."
+      }
+    },
+    "projects": {
+      "title": "프로젝트",
+      "description": "온라인 프레젠스 혁신과 비즈니스의 디지털 성장을 지원해 드리겠습니다."
+    }
+  },
+  "footer": {
+    "title": "성장과 디지털 트랜스포메이션을 위한 파트너",
+    "newsletter_text": "뉴스레터를 구독하고 혁신적인 디지털 생산성 솔루션을 정기적으로 받아보세요.",
+    "home": "홈",
+    "about_us": "회사 소개",
+    "services": "서비스",
+    "products": "제품",
+    "projects": "프로젝트",
+    "newsroom": "뉴스룸",
+    "contact_us": "문의하기",
+    "terms_conditions": "이용약관",
+    "privacy_policy": "개인정보 처리방침",
+    "copyright_text": "W Labs © 모든 권리 보유 2026. 버전 #.00",
+    "company_name": "회사명",
+    "business_id": "사업자등록번호",
+    "subscribe": "구독하기"
+  },
+  "about": {
+    "title": "회사 소개",
+    "description": "W Labs는 비즈니스 운영을 최적화하는 최첨단 솔루션을 제공합니다. 최신 IT 기술을 활용하여 조직의 효율적인 성장을 지원합니다. 신뢰할 수 있는 기술 파트너로서 경쟁력을 유지하세요.",
+    "hero_words": {
+      "hero-1": "혁신",
+      "hero-2": "탁월함",
+      "hero-3": "변혁",
+      "hero-4": "기술",
+      "hero-5": "파트너십",
+      "hero-6": "성장",
+      "hero-7": "솔루션"
+    },
+    "services": {
+      "action-detection": {
+        "title": "행동 감지",
+        "slogan": "읽기 행동 분석",
+        "description": "사용자 행동과 상호작용을 이해하기 위한 고급 컴퓨터 비전 솔루션을 제공합니다."
+      },
+      "rag": {
+        "title": "RAG 기술",
+        "slogan": "지식 검색",
+        "description": "맥락적 정확성을 갖춘 향상된 AI 응답을 위한 검색 증강 생성 기술입니다."
+      },
+      "data-driven": {
+        "title": "데이터 기반 솔루션",
+        "slogan": "비즈니스 재정의",
+        "description": "데이터 분석을 활용하여 비즈니스 운영을 혁신하고 전략적 의사 결정을 주도합니다."
+      },
+      "web-app": {
+        "title": "웹 애플리케이션",
+        "description": "탁월한 사용자 경험을 제공하는 혁신적이고 확장 가능한 웹 애플리케이션을 구축합니다."
+      },
+      "ui-design": {
+        "title": "UI/UX 디자인",
+        "description": "사용자를 참여시키고 디지털 경험을 향상시키는 직관적인 인터페이스를 디자인합니다."
+      },
+      "ai-utilization": {
+        "title": "AI 활용",
+        "description": "인공지능과 머신러닝을 활용한 최첨단 고객 솔루션입니다."
+      }
+    },
+    "animated_about": {
+      "cutting_edge": {
+        "title": "최첨단 솔루션",
+        "description": "우리는 고객의 특정 요구에 맞춤화된 최첨단 솔루션 개발을 전문으로 합니다. 우리 팀은 정보 기술의 최전선에 서서 비즈니스 운영을 최적화하고 성공을 이끄는 최신 기술을 제공합니다.",
+        "second_description": "W Labs는 비즈니스 운영을 최적화하고 성공을 이끄는 최첨단 솔루션을 제공하는 데 전념하고 있습니다. 최신 정보 기술의 발전을 활용하여 프로세스를 간소화하고 조직이 효율적으로 목표를 달성할 수 있도록 맞춤형 솔루션을 개발합니다."
+      },
+      "expertise_innovation": {
+        "title": "전문성과 혁신",
+        "description": "신흥 기술과 산업 트렌드에 대한 깊은 이해를 바탕으로 모든 프로젝트에 전문성과 혁신을 제공합니다. 우리의 지식을 활용하여 오늘날의 역동적인 시장 환경에서 비즈니스 경쟁력을 유지하고 트렌드를 앞서나갈 수 있도록 돕습니다.",
+        "second_description": "신흥 기술과 산업 트렌드를 선도하며 W Labs는 고객이 오늘날의 역동적인 시장 환경에서 경쟁력을 유지할 수 있도록 보장합니다. W Labs를 기술 파트너로 선택하시면 비즈니스 운영을 신뢰할 수 있는 전문가에게 맡기고 핵심 업무에 집중할 수 있습니다."
+      },
+      "reliable_partner": {
+        "title": "신뢰할 수 있는 기술 파트너",
+        "description": "어떤 파트너십에서든 신뢰는 가장 중요합니다. W Labs를 기술 파트너로 선택하시면 비즈니스 운영을 효율적으로 처리할 수 있는 전문가에게 맡길 수 있으며, 핵심 역량에 집중할 수 있습니다. 우리는 모든 과정에서 고객의 성공을 지원하기 위해 노력합니다.",
+        "second_description": "AI 기반 비디오 분석 플랫폼, 기업 역량 평가 도구, 학생의 학습 진행 상황과 패턴에 따라 AI 코칭을 제공하는 맞춤형 교육 시스템 등을 개발합니다. 이러한 시스템은 PyTorch, Hugging Face Transformers, LoRA, LangChain, FastAPI와 같은 최첨단 기술을 사용하여 구축됩니다."
+      }
+    },
+    "team": {
+      "title": "혁신과 성장을 이끄는 원동력",
+      "description_1": "W Labs는 AI 데이터 통합 및 자동화 학습 시스템, AI 기반 애플리케이션 솔루션, 웹 및 앱 IT 유지보수 등 다양한 IT 분야에서 기술 혁신을 선도하는 전문가 팀입니다.",
+      "description_2": "각 팀원은 단순히 역할을 수행하는 것을 넘어 전략적 파트너이자 창의적인 문제 해결사로서 고객과 함께 프로젝트 방향을 설정하고 성공을 설계합니다.",
+      "meet_team": "W Labs 팀 소개",
+      "members": {
+        "matt": {
+          "name": "맷 G."
+        },
+        "ricky": {
+          "name": "리키 F."
+        },
+        "joseph": {
+          "name": "조셉 B."
+        },
+        "hoon": {
+          "name": "훈 L."
+        },
+        "lin": {
+          "name": "린 T."
+        },
+        "songyi": {
+          "name": "송이 L."
+        },
+        "gale": {
+          "name": "게일 B."
+        },
+        "jaimie": {
+          "name": "제이미 F."
+        },
+        "salve": {
+          "name": "살브 R."
+        },
+        "lora": {
+          "name": "로라 C."
+        },
+        "ben": {
+          "name": "벤 R."
+        },
+        "czedrix": {
+          "name": "체드릭스 M."
+        },
+        "neil": {
+          "name": "닐 P."
+        },
+        "jason": {
+          "name": "제이슨 D."
+        },
+        "winona": {
+          "name": "위노나 E."
+        },
+        "pola": {
+          "name": "폴라 F."
+        },
+        "zyra": {
+          "name": "자이라 G."
+        },
+        "virnel": {
+          "name": "버넬 C."
+        },
+        "karlo": {
+          "name": "카를로 M."
+        }
+      },
+      "positions": {
+        "ceo": "최고경영자",
+        "project-manager": "프로젝트 매니저",
+        "full-pm": "풀스택 프로젝트 매니저",
+        "full-sa": "풀스택 시스템 아키텍트",
+        "administrative-officer": "행정 책임자",
+        "designer": "디자이너",
+        "operation-manager": "운영 매니저",
+        "junior-project": "주니어 프로젝트 코디네이터",
+        "corporate-secretary": "법인 비서",
+        "communications-manager": "커뮤니케이션 매니저",
+        "full-tpm": "풀스택 기술 프로젝트 매니저",
+        "full-stack": "풀스택 개발자",
+        "full-ai": "풀스택 AI 개발자",
+        "marketing-specialist": "마케팅 전문가",
+        "qa-specialist": "QA 전문가"
+      }
+    }
+  },
+  "services": {
+    "title": "서비스",
+    "description": "숙련된 개발자와 디자이너가 귀사의 특정 요구사항에 맞춰 아름답고 사용자 친화적인 웹사이트를 제작합니다. 적응형 디자인부터 원활한 기능까지, 고객의 마음을 사로잡는 매력적인 사용자 경험을 보장합니다.",
+    "product1Alt": "제품 개발 서비스 일러스트레이션",
+    "product2Alt": "디자인 및 개발 서비스 일러스트레이션",
+    "metaTitle": "전문 웹 개발 및 디자인 서비스 | 회사명",
+    "metaDescription": "비즈니스 요구사항에 맞춘 전문 웹 개발 및 디자인 서비스. 원활한 기능과 매력적인 사용자 경험을 갖춘 아름답고 사용자 친화적인 웹사이트를 제공합니다.",
+    "metaKeywords": "웹 개발, 웹 디자인, 전문 서비스, 웹사이트 개발, 맞춤형 웹 디자인, 사용자 경험, UI/UX 디자인, 반응형 디자인",
+    "sections": {
+      "deepLearning": {
+        "title": "딥러닝 기반 객체 감지 및 행동 분석",
+        "items": [
+          "YOLOv5 및 ResNet 기반 객체 인식",
+          "Optical Flow 및 CAMShift를 활용한 모션 트래킹",
+          "ROI 기반 행동 시퀀스 분석",
+          "이상 행동 분류 모델의 정밀도 최적화"
+        ],
+        "imageAlt": "딥러닝 객체 감지 및 행동 분석 일러스트레이션"
+      },
+      "realTimeStreaming": {
+        "title": "실시간 스트리밍 데이터 처리 기술",
+        "items": [
+          "RTSP 기반 영상 수집 및 전처리",
+          "WebSocket을 활용한 저지연 데이터 전송",
+          "OpenCV를 이용한 실시간 프레임 분석",
+          "멀티 스트림 병렬 처리 아키텍처 설계"
+        ],
+        "imageAlt": "실시간 스트리밍 데이터 처리 기술 일러스트레이션"
+      },
+      "aiDataIntegration": {
+        "title": "AI 데이터 통합 및 자동화 학습 시스템",
+        "items": [
+          "영상 + 센서 데이터 멀티모달 통합",
+          "Random Forest 기반 이상치 제거",
+          "동적 ROI 자동 리셋 알고리즘",
+          "지속적 학습을 위한 점진적 학습 프레임워크"
+        ],
+        "imageAlt": "AI 데이터 통합 및 자동화 학습 시스템 일러스트레이션"
+      },
+      "customDesign": {
+        "title": "커스텀 디자인 & UI/UX",
+        "items": [
+          "맞춤형 웹사이트 및 템플릿 기반 디자인",
+          "반응형, 사용자 친화적 레이아웃",
+          "향상된 사용성을 위한 매력적인 UI/UX"
+        ],
+        "imageAlt": "커스텀 디자인 및 UI/UX 서비스 일러스트레이션"
+      },
+      "contentMedia": {
+        "title": "콘텐츠 및 미디어 관리",
+        "items": [
+          "사용하기 쉬운 콘텐츠 편집기",
+          "이미지, 파일, 동영상 업로드 (YouTube, 오디오, 재생)",
+          "자동 태깅 및 데이터 시각화"
+        ],
+        "imageAlt": "콘텐츠 및 미디어 관리 시스템 일러스트레이션"
+      },
+      "adminBusiness": {
+        "title": "관리자 및 비즈니스 관리",
+        "items": [
+          "문의 및 콘텐츠 편집 시스템",
+          "재고, 주문 및 배송 추적",
+          "안전한 결제 처리"
+        ],
+        "imageAlt": "관리자 및 비즈니스 관리 대시보드 일러스트레이션"
+      },
+      "userInteraction": {
+        "title": "사용자 상호작용 및 커뮤니케이션",
+        "items": [
+          "작업 요청 및 견적 계산기",
+          "판매자 및 회사 대시보드",
+          "메시징, 설문조사 및 팀 협업"
+        ],
+        "imageAlt": "사용자 상호작용 및 커뮤니케이션 기능 일러스트레이션"
+      },
+      "advancedFeatures": {
+        "title": "고급 기능 및 보안",
+        "items": [
+          "인터랙티브 캘린더 UI 및 팝업",
+          "위치 기반 지도 통합",
+          "reCAPTCHA 보안 보호"
+        ],
+        "imageAlt": "고급 기능 및 보안 시스템 일러스트레이션"
+      },
+      "ecommerce": {
+        "title": "이커머스 및 상품 목록",
+        "items": [
+          "상세 페이지가 포함된 상품 카탈로그",
+          "위시리스트 및 별점 평가 시스템",
+          "원활한 결제 및 체크아웃 경험"
+        ],
+        "imageAlt": "이커머스 및 상품 목록 플랫폼 일러스트레이션"
+      }
+    }
+  },
+  "product": {
+    "products-title": "제품",
+    "products-description": "우리는 성공을 이끄는 고품질의 혁신적인 디지털 솔루션을 제공하는 데 자부심을 느끼고 있습니다. 맞춤형 웹사이트와 강력한 웹 애플리케이션부터 AI 기반 플랫폼까지, 우리의 포트폴리오는 탁월함, 사용성, 성능에 대한 약속을 보여줍니다.",
+    "animatedProjects": {
+      "lcOct": {
+        "title": "LC-OCT 피부 구조 분석",
+        "description": "진행 상황 추적, 성과 모니터링, 결제 처리, 출석 기록 및 통계 분석을 통합한 종합 아카데미 관리 프로그램으로, 행정 운영과 개인화된 교육 효과성을 동시에 지원합니다."
+      },
+      "aiEncouragement": {
+        "title": "AI 격려 생성 플랫폼",
+        "description": "온라인 도서 디지털화와 비디오 자막 통합을 가능하게 하는 백엔드 CMS 엔진으로, 관리자가 중앙 집중식 플랫폼에서 텍스트, 이미지, 인터랙티브 요소 및 멀티미디어 접근성을 관리할 수 있습니다."
+      },
+      "aiDietTracker": {
+        "title": "AI 기반 식단 및 칼로리 분석 트래커",
+        "description": "통합 인터랙티브 활동과 함께 큐레이션된 비디오 클립(영화, 토크쇼, 가사)을 제공하는 영어 학습 플랫폼으로, 멀티미디어 콘텐츠와 원활한 영상 내 학습 활동을 통해 진정한 언어 습득을 촉진합니다."
+      },
+      "aiTranslator": {
+        "title": "AI 기반 다국어 번역기",
+        "description": "실시간 데이터 모니터링이 가능한 광고 마케팅 프로젝트 관리 플랫폼으로, 사용자 친화적인 대시보드, 통합된 클라이언트/비용 관리 및 간소화된 비즈니스 프로세스 워크플로우를 갖추고 있습니다."
+      },
+      "aiAudioGenerator": {
+        "title": "AI 오디오 파일 생성",
+        "description": "Laravel API와 Vue.js 2를 사용하여 Talking Plus 및 SLE 교과서를 하드 카피에서 인터랙티브 온라인 형식으로 디지털 전환하여 콘텐츠 디지털화와 원활한 백엔드 데이터 관리를 제공합니다."
+      },
+      "aiSelfManagement": {
+        "title": "AI 자기 관리 및 동기 부여",
+        "description": "비즈니스 인텔리전스 및 분석을 위한 웹 기반 정보 수집, 처리 및 구성을 위한 자동화된 데이터 추출 및 수집 시스템입니다."
+      },
+      "aiEvaluation": {
+        "title": "AI 과제 평가 및 학습 시스템",
+        "description": "복잡한 비즈니스 쿼리를 통해 데이터베이스 시스템을 테스트하고 비교하는 성능 벤치마킹 시스템으로, 의사 결정 및 데이터 분석을 최적화하기 위해 속도, 효율성 및 확장성을 측정합니다."
+      },
+      "aiLanguageLearning": {
+        "title": "AI 기반 언어 학습 플랫폼",
+        "description": "정교한 알고리즘을 사용하여 대량의 고객 리뷰를 분석하는 전자상거래 AI 플랫폼으로, 판매자가 제품을 개선하고 새로운 판매 기회를 식별할 수 있도록 포괄적인 인사이트를 제공합니다."
+      }
+    }
+  },
+  "our-projects": {
+    "title": "프로젝트",
+    "description": "우리는 성공을 이끄는 고품질의 혁신적인 디지털 솔루션을 제공하는 데 자부심을 가지고 있습니다. 맞춤형 웹사이트와 강력한 웹 애플리케이션부터 AI 기반 플랫폼까지, 우리의 포트폴리오는 탁월함, 사용성, 성능에 대한 헌신을 보여줍니다."
+  },
+  "newsroom": {
+    "title": "뉴스룸",
+    "welcome": "혁신과 창의성이 만나는 W Labs 블로그에 오신 것을 환영합니다.",
+    "description1": "개발자, 디자이너, 연구팀이 전문성, 경험, 아이디어를 공유합니다. 우리의 기술과 그背后的 스토리를 더 가까이에서 만나보세요.",
+    "description2": "최신 프로젝트, 제품 업데이트, 그리고 W Labs의 미래를 만들어가는 첨단 솔루션에 대한 인사이트를 발견하세요.",
+    "readMore": "더 보기",
+    "featuredArticle": {
+      "title": "OpenAI, 향상된 비전 기능을 갖춘 GPT-4 Turbo 출시",
+      "description": "새로운 AI 모델은 128K 컨텍스트 창과 향상된 멀티모달 이해력을 낮은 비용으로 제공"
+    }
+  },
+  "contact-modal": {
+    "title": "아이디어를 실현하세요",
+    "description": "저희에게 연락해 주시면 전담 팀이 가능한 한 빨리 답변해 드리겠습니다.",
+    "description2": "여러분의 의견은 저희에게 소중합니다. 주저하지 마시고 연락해 주세요. 여러분의 연락을 기다리겠습니다!",
+    "schedule-text": "상담을 예약하여 당면 과제에 대해 논의하고 W Labs가 어떻게 문제 해결을 도울 수 있는지 알아보세요.",
+    "full-name": "성명",
+    "first-name": "이름",
+    "last-name": "성",
+    "first-name-required": "이름을 입력해 주세요",
+    "last-name-required": "성을 입력해 주세요",
+    "email-address": "이메일 주소",
+    "enter-email": "이메일을 입력하세요",
+    "email-required": "이메일을 입력해 주세요",
+    "invalid-email": "유효한 이메일 주소를 입력해 주세요",
+    "phone-number": "전화번호",
+    "enter-phone": "전화번호를 입력하세요",
+    "phone-required": "전화번호를 입력해 주세요",
+    "invalid-phone": "유효한 전화번호를 입력해 주세요",
+    "company": "회사명",
+    "enter-company": "회사명을 입력하세요",
+    "message": "메시지",
+    "enter-message": "메시지를 입력하세요",
+    "message-required": "메시지를 입력해 주세요",
+    "privacy-agreement": "이를 확인함으로써 귀하는 개인정보 처리방침에 동의하고, 문의하신 주제에 대해 연락을 받으며 마케팅 커뮤니케이션 수신에 동의하게 됩니다.",
+    "submit": "문의 제출",
+    "email-label": "이메일 주소",
+    "phone-label": "전화번호",
+    "office-label": "오피스",
+    "privacy-agreement-required": "계속하려면 개인정보 처리방침에 동의해주세요"
+  },
+  "wiz": {
+    "title": "WIZ 어시스턴트",
+    "subtitle": "웹사이트에 내장된 스마트 정보 데스크 직원",
+    "features": {
+      "guide_users": "서비스 이용 방법 안내",
+      "automatically_respond": "자주 묻는 질문에 자동 응답",
+      "handle_document": "회의록, 요약본, 공지사항 등 문서 요청 처리",
+      "provide_examples": "다양한 유형의 조직이 워크플로우에 적용할 수 있는 예시 제공",
+      "automate_repetitive": "반복적인 문의 자동화",
+      "extendable_future": "향후 예약, 문서 검색, 내부 리소스 탐색 등으로 확장 가능"
+    },
+    "main_message": "WIZ 어시스턴트와 함께 고객 지원은 더 빨라지고 운영 부담은 더 가벼워집니다.",
+    "ask_button": "WIZ 어시스턴트 문의하기",
+    "availability": "*모든 화면과 브라우저에서 사용 가능",
+    "pricing_tiers": "가격 정책",
+    "tiers": {
+      "lite": {
+        "name": "라이트",
+        "price": "월 29,000원부터 시작",
+        "features": {
+          "basic_guidance": "기본 안내",
+          "faq_responses": "FAQ 응답"
+        }
+      },
+      "standard": {
+        "name": "스탠다드",
+        "price": "월 79,000원부터 시작",
+        "features": {
+          "basic_guidance": "기본 안내",
+          "faq_responses": "FAQ 응답",
+          "document_request": "문서 요청 처리",
+          "operational_guidance": "실무 운영 안내"
+        }
+      },
+      "business": {
+        "name": "비즈니스",
+        "price": "월 149,000원부터 시작",
+        "features": {
+          "basic_guidance": "기본 안내",
+          "faq_responses": "FAQ 응답",
+          "document_request": "문서 요청 처리",
+          "operational_guidance": "실무 운영 안내",
+          "customized_responses": "조직 맞춤형 응답",
+          "strengthened_support": "강화된 운영 지원"
+        }
+      },
+      "enterprise": {
+        "name": "엔터프라이즈",
+        "price": "맞춤 가격 문의",
+        "features": {
+          "basic_guidance": "기본 안내",
+          "faq_responses": "FAQ 응답",
+          "document_request": "문서 요청 처리",
+          "operational_guidance": "실무 운영 안내",
+          "customized_responses": "조직 맞춤형 응답",
+          "strengthened_support": "강화된 운영 지원",
+          "large_organizations": "대규모 조직용",
+          "internal_integrations": "내부 시스템 통합",
+          "custom_features": "맞춤형 기능 설계"
+        }
+      }
+    },
+    "audience": {
+      "businesses": {
+        "title": "기업 / 중소기업",
+        "description": "서비스 안내, 고객 문의 처리, 문서 작성, 내부 운영 지원"
+      },
+      "hospitals": {
+        "title": "병원 / 의료기관",
+        "description": "검진 전 준비 안내, 서류 발급 절차, 행정 문의 처리"
+      },
+      "schools": {
+        "title": "학교 / 교육기관",
+        "description": "강의 자료 안내, 학사 행정 Q&A, 과제 제출 안내"
+      },
+      "associations": {
+        "title": "협회 / 공익기관",
+        "description": "민원 문의 안내, 신청 절차 설명, 서류 제출 요구사항"
+      },
+      "online_stores": {
+        "title": "온라인 스토어 / 이커머스",
+        "description": "주문, 배송, 환불 및 상품 정보 안내"
+      }
+    }
+  }
 }

@@ -1,98 +1,75 @@
-// server/api/getBlogs.get.js
+import { defineEventHandler } from 'h3'
 
 let cachedToken = null;
 let tokenExpiry = null;
 
-export default defineEventHandler(async (event) => {
-  try {
-    const config = useRuntimeConfig();
+async function getValidToken(config) {
+  if (cachedToken && tokenExpiry && Date.now() < tokenExpiry - 300000) {
+    console.log('[API] Using cached token');
+    return cachedToken;
+  }
 
-    console.log("🔑 Blog credentials check:", {
-      hasEmail: !!config.blogEmail,
-      hasPassword: !!config.blogPassword,
-      email: config.blogEmail ? "present" : "missing",
-      env: process.env.NODE_ENV,
-    });
-
-    // Check if we need a new token
-    if (!cachedToken || !tokenExpiry || Date.now() > tokenExpiry) {
-      console.log("🔑 Getting new auth token for blogs...");
-
-      if (!config.blogEmail || !config.blogPassword) {
-        console.error("❌ Missing blog credentials");
-        throw createError({
-          statusCode: 500,
-          statusMessage: "Blog credentials not configured",
-        });
-      }
-
-      const loginResponse = await $fetch(
-        "https://blog.wsoftdev.space/api/login",
-        {
-          method: "POST",
-          body: {
-            email: config.blogEmail,
-            password: config.blogPassword,
-          },
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          timeout: 5000,
-        }
-      );
-
-      console.log("✅ Login response received:", {
-        hasToken: !!loginResponse?.access_token,
-        tokenType: typeof loginResponse?.access_token,
-      });
-
-      if (!loginResponse?.access_token) {
-        console.error("❌ No access token found in login response");
-        throw createError({
-          statusCode: 401,
-          statusMessage: "Authentication failed",
-        });
-      }
-
-      cachedToken = loginResponse.access_token;
-      tokenExpiry = Date.now() + 55 * 60 * 1000; // 55 minutes for safety
+  console.log('[API] Getting new auth token for blogs...');
+  const loginResponse = await $fetch('https://blog.wsoftdev.space/api/login', {
+    method: 'POST',
+    body: {
+      email: config.blogEmail,
+      password: config.blogPassword
     }
+  });
 
-    console.log("🟢 Fetching posts with token");
+  if (!loginResponse?.access_token) {
+    throw new Error('Failed to get access token');
+  }
 
-    const response = await $fetch("https://blog.wsoftdev.space/api/getPosts", {
+  cachedToken = loginResponse.access_token;
+  tokenExpiry = Date.now() + 3600000; 
+
+  return cachedToken;
+}
+
+export default defineEventHandler(async (event) => {
+  if (process.env.prerender || process.env.NITRO_PRESET === 'prerender') {
+    console.log('[API] Skipping blog fetch during prerender');
+    return [];
+  }
+
+  try {
+    const config = useRuntimeConfig(event)
+    
+    console.log('[API] Blog credentials check:', { 
+      hasEmail: !!config.blogEmail, 
+      hasPassword: !!config.blogPassword,
+      env: process.env.NODE_ENV 
+    });
+    
+    const token = await getValidToken(config);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); 
+    
+    const blogsResponse = await $fetch('https://blog.wsoftdev.space/api/getPosts', {
       headers: {
-        Authorization: `Bearer ${cachedToken}`,
-        Accept: "application/json",
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json'
       },
-      timeout: 10000,
+      signal: controller.signal
     });
 
-    console.log("✅ getPosts API success:", {
-      count: Array.isArray(response) ? response.length : "not array",
-      type: typeof response,
-    });
+    clearTimeout(timeoutId);
 
-    // Ensure we always return an array
-    const blogs = Array.isArray(response) ? response : [];
-    console.log(`📝 Returning ${blogs.length} blogs`);
-
-    return blogs;
+    console.log('[API] Received blogs response:', Array.isArray(blogsResponse) ? `${blogsResponse.length} blogs` : typeof blogsResponse);
+    
+    return blogsResponse;
+    
   } catch (error) {
-    console.error("❌ Error in getBlogs API:", {
-      message: error.message,
-      status: error.status,
-      data: error.data,
-    });
-
-    // Clear token on auth errors
-    if (error.status === 401) {
+    console.error('[API] Error fetching blogs:', error);
+    
+    if (error.message?.includes('401') || error.message?.includes('unauthorized')) {
       cachedToken = null;
       tokenExpiry = null;
     }
-
-    // Return empty array but log the error
+    
     return [];
   }
 });

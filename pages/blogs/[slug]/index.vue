@@ -102,83 +102,127 @@
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8"
           >
-            <div v-for="post in popularPosts" :key="post.id" class="group">
-              <div class="relative">
-                <NuxtLink :to="`/blogs/${post.slug}`" class="block">
+            <div
+              v-for="post in popularPosts"
+              :key="post.id"
+              class="group flex flex-col h-full"
+            >
+              <div
+                class="relative overflow-hidden rounded-[15px] flex flex-col h-full"
+              >
+                <div
+                  class="relative overflow-hidden rounded-[16px] mb-5 h-[360px] md:h-[280px] xl:h-[360px] flex-shrink-0"
+                >
+                  <!-- Top shadow -->
                   <NuxtImg
-                    :src="
-                      post.banner_url ||
-                      '/images/blogs/img-blog-placeholder.png'
-                    "
-                    class="max-w-full mb-5 rounded-[16px] h-[360px] md:h-[280px] xl:h-[360px] object-cover w-full transition-transform duration-300 group-hover:scale-105"
-                    :alt="post.title"
+                    class="absolute top-0 left-0 right-0 z-10"
+                    src="/images/blogs/blog-shadow.png"
+                    style="height: 30%"
+                    width="100%"
+                    height="auto"
                     loading="lazy"
                   />
-                </NuxtLink>
 
-                <NuxtImg
-                  class="absolute top-[8%] left-[54%] md:left-[45%] xl:left-[54%]"
-                  src="/images/blogs/wsoft-blog.png"
-                  width="145px"
-                  height="20px"
-                  loading="lazy"
-                />
+                  <!-- Bottom shadow -->
+                  <NuxtImg
+                    class="absolute bottom-0 left-0 right-0 z-10"
+                    src="/images/blogs/blog-bottom-shadow.png"
+                    style="height: 30%"
+                    width="100%"
+                    height="auto"
+                    loading="lazy"
+                  />
 
-                <!-- Updated category badge - Always show "Popular" -->
-                <div
-                  class="absolute rounded-md bg-[#2375E9] text-white px-3 top-[35%] left-[8%]"
-                >
-                  <span class="font-poppins font-[600] text-[15px]">
-                    Popular
-                  </span>
+                  <NuxtLink
+                    :to="`/blogs/${encodeSlug(post.slug)}`"
+                    class="block h-full"
+                  >
+                    <NuxtImg
+                      :src="
+                        post.banner_url ||
+                        '/images/blogs/img-blog-placeholder.png'
+                      "
+                      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      :alt="post.title"
+                      loading="lazy"
+                    />
+                  </NuxtLink>
+
+                  <NuxtImg
+                    class="absolute top-[8%] left-[55%] z-20"
+                    src="/images/blogs/wsoft-blog-white.png"
+                    width="145px"
+                    height="20px"
+                    loading="lazy"
+                  />
+
+                  <div
+                    class="absolute rounded-md bg-[#2375E9] text-white px-3 py-1 top-[64%] left-[5%] z-20"
+                  >
+                    <span class="font-poppins font-[600] text-[15px]">
+                      Popular
+                    </span>
+                  </div>
+
+                  <div
+                    class="absolute bottom-0 left-0 right-0 p-4 z-20 bg-gradient-to-t from-black/70 via-black/40 to-transparent"
+                  >
+                    <NuxtLink
+                      :to="`/blogs/${encodeSlug(post.slug)}`"
+                      class="block"
+                    >
+                      <span
+                        class="font-poppins font-[600] text-[18px] md:text-[22px] text-white line-clamp-2 hover:text-blue-300 transition-colors"
+                      >
+                        {{ post.title }}
+                      </span>
+                    </NuxtLink>
+                  </div>
                 </div>
 
-                <div class="absolute text-black top-[44%] left-[8%]">
-                  <NuxtLink :to="`/blogs/${post.slug}`">
+                <div class="flex flex-col flex-1 min-h-0">
+                  <div class="flex mb-3">
                     <span
-                      class="font-poppins font-[600] text-[22px] truncate overflow-hidden text-ellipsis w-[200px] block hover:text-blue-600 transition-colors"
+                      class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
                     >
-                      {{ post.title }}
+                      {{ formatDate(post.published_at) }}
                     </span>
+
+                    <span
+                      class="font-poppins text-[#333333] text-[12px] font-[700]"
+                    >
+                      {{ post.author?.name || "Unknown Author" }}
+                    </span>
+                  </div>
+
+                  <NuxtLink
+                    :to="`/blogs/${encodeSlug(post.slug)}`"
+                    class="font-poppins font-[600] text-[24px] text-black mb-3 line-clamp-2 hover:text-blue-600 transition-colors block"
+                  >
+                    {{ post.title }}
+                  </NuxtLink>
+
+                  <div
+                    class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden flex-1 min-h-0"
+                    style="max-height: 72px"
+                  >
+                    <div
+                      class="h-full overflow-hidden"
+                      v-html="
+                        post.excerpt ||
+                        stripHtml(post.content || '').slice(0, 150) + '...'
+                      "
+                    />
+                  </div>
+
+                  <NuxtLink
+                    :to="`/blogs/${encodeSlug(post.slug)}`"
+                    class="font-poppins font-[700] text-[18px] text-[#2279E8] cursor-pointer group-hover:underline group-hover:underline-offset-3 transition-all duration-300 ease-in-out inline-block mt-auto pt-3"
+                  >
+                    {{ $t("read-more") }}...
                   </NuxtLink>
                 </div>
               </div>
-              <div class="flex mb-3">
-                <span
-                  class="font-poppins text-[#999999] text-[12px] font-[500] me-3"
-                >
-                  {{ formatDate(post.published_at) }}
-                </span>
-
-                <span
-                  class="font-poppins text-[#333333] text-[12px] font-[700]"
-                >
-                  {{ post.author?.name || "Unknown Author" }}
-                </span>
-              </div>
-
-              <NuxtLink
-                :to="`/blogs/${post.slug}`"
-                class="font-poppins font-[600] text-[24px] text-black mb-3 line-clamp-2 hover:text-blue-600 transition-colors"
-              >
-                {{ post.title }}
-              </NuxtLink>
-
-              <div
-                class="font-poppins font-[400] text-[16px] text-[#666666] mb-3 overflow-hidden"
-                style="min-height: 72px; max-height: 72px"
-                v-html="
-                  post.excerpt ||
-                  stripHtml(post.content || '').slice(0, 150) + '...'
-                "
-              />
-
-              <NuxtLink
-                :to="`/blogs/${post.slug}`"
-                class="font-poppins font-[700] text-[18px] text-[#2279E8] cursor-pointer group-hover:underline group-hover:underline-offset-3 transition-all duration-300 ease-in-out"
-              >
-                {{ $t("read-more") }}...
-              </NuxtLink>
             </div>
           </div>
         </template>
@@ -206,6 +250,27 @@ import { useCanonical } from "@/composables/useCanonical";
 
 const { t } = useI18n();
 const route = useRoute();
+
+// Helper function to encode slugs for URLs
+function encodeSlug(slug) {
+  if (!slug) return "";
+  // Encode the slug for URL usage
+  return encodeURIComponent(slug)
+    .replace(/%20/g, "-")
+    .replace(/%3A/g, "-") // Replace colon
+    .replace(/[^\w\-~.!*()]/g, "-"); // Replace other special chars
+}
+
+// Helper function to decode slugs
+function decodeSlug(encodedSlug) {
+  try {
+    return decodeURIComponent(
+      encodedSlug.replace(/-/g, "%20").replace(/_/g, "%5F"),
+    );
+  } catch {
+    return encodedSlug;
+  }
+}
 
 // Fetch all blogs data
 const {
@@ -240,13 +305,29 @@ const {
       console.log("[CLIENT] Transforming blogs:", data);
       return Array.isArray(data) ? data : [];
     },
-  }
+  },
 );
 
-// Find current blog and popular posts
+// Find current blog - decode the slug from URL
 const blog = computed(() => {
   if (!blogs.value || !Array.isArray(blogs.value)) return null;
-  return blogs.value.find((b) => b.slug === route.params.slug);
+
+  const decodedSlug = decodeSlug(route.params.slug);
+  console.log("Looking for blog with slug:", decodedSlug);
+
+  return blogs.value.find((b) => {
+    // Try exact match first
+    if (b.slug === decodedSlug) return true;
+
+    // Try encoded version
+    if (encodeSlug(b.slug) === route.params.slug) return true;
+
+    // Try partial match for backward compatibility
+    return (
+      encodeSlug(b.slug).includes(route.params.slug) ||
+      route.params.slug.includes(encodeSlug(b.slug))
+    );
+  });
 });
 
 const popularPosts = computed(() => {
@@ -295,14 +376,14 @@ const blogMeta = computed(() => {
 const { canonicalUrl } = useCanonical();
 
 const metaTitle = computed(
-  () => blog.value?.title || t("blog-details") || "Blog Details - W SoftLabs"
+  () => blog.value?.title || t("blog-details") || "Blog Details - W SoftLabs",
 );
 
 const metaDescription = computed(
   () =>
     blog.value?.excerpt ||
     t("blog-description") ||
-    "Read this insightful blog post from W SoftLabs"
+    "Read this insightful blog post from W SoftLabs",
 );
 
 const metaKeywords = computed(() => {
@@ -317,28 +398,19 @@ const metaKeywords = computed(() => {
 });
 
 const structuredData = computed(() =>
-  useStructuredData("blog-post", blog.value || {})
+  useStructuredData("blog-post", blog.value || {}),
 );
 
 useHead({
   title: metaTitle,
   htmlAttrs: {
-    lang: "ko", // Set to appropriate language
+    lang: "ko",
   },
   link: [
     {
       rel: "canonical",
       href: canonicalUrl.value,
     },
-    // Add prev/next for pagination if needed
-    // {
-    //   rel: 'prev',
-    //   href: `${baseUrl}/blogs?page=${prevPage}`
-    // },
-    // {
-    //   rel: 'next',
-    //   href: `${baseUrl}/blogs?page=${nextPage}`
-    // }
   ],
   meta: [
     { charset: "utf-8" },
@@ -354,7 +426,7 @@ useHead({
     { property: "og:url", content: canonicalUrl.value },
     {
       property: "og:image",
-      content: blog.value?.banner_url || "/images/thumbnail.jpg",
+      content: blog.value?.banner_url || "/images/thumbnail.png",
     },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
@@ -371,7 +443,7 @@ useHead({
       property: "article:author",
       content: blog.value?.author?.name || "W SoftLabs",
     },
-    { property: "article:section", content: "Technology" }, // Add appropriate category
+    { property: "article:section", content: "Technology" },
 
     // Twitter
     { name: "twitter:card", content: "summary_large_image" },
@@ -379,28 +451,15 @@ useHead({
     { name: "twitter:description", content: metaDescription },
     {
       name: "twitter:image",
-      content: blog.value?.banner_url || "/images/thumbnail.jpg",
+      content: blog.value?.banner_url || "/images/thumbnail.png",
     },
-    { name: "twitter:site", content: "@wsoftlabs" }, // Add your Twitter handle
+    { name: "twitter:site", content: "@wsoftlabs" },
     {
       name: "twitter:creator",
       content: blog.value?.author?.twitter || "@wsoftlabs",
     },
 
-    // Additional meta tags
     { name: "author", content: blog.value?.author?.name || "W SoftLabs" },
-    {
-      name: "article:publisher",
-      content: "https://www.facebook.com/wsoftlabs",
-    }, // Add your FB page
-
-    // Mobile/App specific
-    { name: "mobile-web-app-capable", content: "yes" },
-    { name: "apple-mobile-web-app-title", content: "W SoftLabs" },
-
-    // Verification tags (add these in your main layout)
-    // { name: 'google-site-verification', content: 'YOUR_VERIFICATION_CODE' },
-    // { name: 'naver-site-verification', content: 'YOUR_NAVER_VERIFICATION_CODE' },
   ],
   script: [
     {

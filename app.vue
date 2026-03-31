@@ -1,32 +1,48 @@
 <template>
   <div>
-    <Html :lang="currentLanguage">
-      <Head>
-        <Link rel="canonical" :href="canonicalUrl" />
-        <Meta name="robots" content="index, follow" />
-      </Head>
-    </Html>
+    <NuxtErrorBoundary>
+      <div class="bg-white overflow-hidden">
+        <div class="bg-[#f9fbfc]">
+          <div class="md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto">
+            <Navbar />
+          </div>
+        </div>
 
-    <div class="bg-[#ebf0f7] overflow-hidden">
-      <div class="md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto">
-        <Navbar />
+        <NuxtPage />
+
+        <div
+          v-if="!isProductsPage && !isWizAssistantPage"
+          class="md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto px-2 md:px-0"
+        >
+          <Footer />
+        </div>
+
+        <ProductsFooter v-if="isProductsPage || isWizAssistantPage" />
       </div>
-      <NuxtPage />
-      <div class="md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto">
-        <Footer />
-      </div>
-    </div>
+
+      <!-- Error fallback -->
+      <!-- <template #error="{ error }">
+        <ErrorFallback :error="error" />
+      </template> -->
+    </NuxtErrorBoundary>
   </div>
 </template>
 
-<script setup lang="ts">
-import { useLanguageStore } from "~/stores/language";
+<script setup>
+import { useI18n } from "vue-i18n";
 
-const languageStore = useLanguageStore();
+const { locale } = useI18n();
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const currentLanguage = computed(() => languageStore.activeLanguage || "ko");
+const isProductsPage = computed(() => {
+  return route.path.startsWith("/optical-microscope");
+});
+
+const isWizAssistantPage = computed(() => {
+  return route.path.startsWith("/wiz-assistant");
+});
+
 const canonicalUrl = computed(() => {
   const baseUrl = config.public.baseUrl || "https://wsoft-v2.vercel.app";
   const path = route.path.replace(/\/+/g, "/");
@@ -34,10 +50,13 @@ const canonicalUrl = computed(() => {
 });
 
 useHead({
+  htmlAttrs: {
+    lang: computed(() => locale.value),
+  },
   link: [
     {
       rel: "canonical",
-      href: canonicalUrl.value,
+      href: computed(() => canonicalUrl.value),
     },
   ],
   meta: [
@@ -46,26 +65,5 @@ useHead({
       content: "index, follow",
     },
   ],
-  htmlAttrs: {
-    lang: currentLanguage.value,
-  },
-});
-
-watch([route, currentLanguage], () => {
-  useHead({
-    link: [
-      {
-        rel: "canonical",
-        href: canonicalUrl.value,
-      },
-    ],
-    htmlAttrs: {
-      lang: currentLanguage.value,
-    },
-  });
-});
-
-onMounted(async () => {
-  await languageStore.initialize();
 });
 </script>

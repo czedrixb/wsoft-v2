@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader :title="$t('find-blogs')" :description="$t('blogs-text')" />
+    <PageHeader :description="$t('blogs-text')" />
 
     <div
       class="px-5 mx-auto md:px-0 md:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mb-[10rem] min-h-[60vh]"
@@ -47,7 +47,7 @@
         </div>
 
         <div v-for="blog in sortedBlogs" :key="blog.id" class="group">
-          <NuxtLink :to="`/blogs/${blog.slug}`" class="block">
+          <NuxtLink :to="`/blogs/${encodeSlug(blog.slug)}`" class="block">
             <div class="relative overflow-hidden rounded-[16px] mb-5">
               <img
                 v-if="blog.banner_url"
@@ -83,7 +83,7 @@
           </div>
 
           <NuxtLink
-            :to="`/blogs/${blog.slug}`"
+            :to="`/blogs/${encodeSlug(blog.slug)}`"
             class="font-poppins font-[600] text-[24px] text-black mb-3 line-clamp-2 hover:text-blue-600 transition-colors"
           >
             {{ blog.title }}
@@ -99,7 +99,7 @@
           />
 
           <NuxtLink
-            :to="`/blogs/${blog.slug}`"
+            :to="`/blogs/${encodeSlug(blog.slug)}`"
             class="font-poppins font-[700] text-[18px] text-[#2279E8] cursor-pointer group-hover:underline group-hover:underline-offset-3 transition-all duration-300 ease-in-out"
           >
             {{ $t("read-more") }}...
@@ -153,18 +153,36 @@ const {
       console.log("[CLIENT] Transforming blogs:", data);
       return Array.isArray(data) ? data : [];
     },
-  }
+  },
 );
 
 const showError = computed(() => {
   return error.value && (!blogs.value || blogs.value.length === 0);
 });
 
+function encodeSlug(slug) {
+  if (!slug) return "";
+  return encodeURIComponent(slug)
+    .replace(/%20/g, "-")
+    .replace(/%3A/g, "-")
+    .replace(/[^\w\-~.!*()]/g, "-");
+}
+
+function decodeSlug(encodedSlug) {
+  try {
+    return decodeURIComponent(
+      encodedSlug.replace(/-/g, "%20").replace(/_/g, "%5F"),
+    );
+  } catch {
+    return encodedSlug;
+  }
+}
+
 const staticMetaTitle = t("blogs-title") || "Blogs - W SoftLabs";
 const staticMetaDescription = t("blogs-description") || t("blogs-text");
 const staticMetaKeywords =
   Array.from({ length: 10 }, (_, i) => t(`blogs-meta-keyword-${i + 1}`)).join(
-    ", "
+    ", ",
   ) || "blog, articles, insights, technology, AI, web development";
 
 const { canonicalUrl } = useCanonical();
@@ -223,7 +241,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.jpg" },
+    { property: "og:image", content: "/images/thumbnail.png" },
     { property: "og:url", content: canonicalUrl.value },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: staticMetaTitle },

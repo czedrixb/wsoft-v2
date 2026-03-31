@@ -1,0 +1,656 @@
+<template>
+  <div>
+    <div
+      class="w-full h-[42rem] md:h-[39rem] lg:h-[38rem] xl:h-[42rem] relative overflow-hidden"
+    >
+      <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+        <source src="/images/home/home-hero-bg.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="absolute inset-0 bg-[#ebf0f7] opacity-[.80]"></div>
+
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
+      >
+        <ClientOnly>
+          <template v-if="currentLanguage === 'en'">
+            <div class="flex justify-center">
+              <NuxtImg
+                src="/images/home/new-at-w-labs.png"
+                class="w-[350px] md:w-[400px] lg:w-[500px]"
+                alt="w-softlabs"
+              />
+            </div>
+
+            <!-- <div class="mb-4">
+              <div class="flex justify-center">
+                <NuxtImg
+                  class="w-[180px] md:w-[190px] lg:w-[290px]"
+                  height="100%"
+                  src="/images/home/jumbotronen.webp"
+                  alt="we-do-en"
+                />
+              </div>
+            </div> -->
+
+            <div
+              class="relative h-[6rem] md:h-[8rem] lg:h-[5rem] overflow-hidden flex justify-center"
+            >
+              <transition
+                enter-active-class="animate-fade-up"
+                leave-active-class="opacity-0"
+              >
+                <h2
+                  :key="currentWord"
+                  class="absolute pb-3 text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
+                >
+                  {{ $t(currentWord) }}
+                </h2>
+              </transition>
+            </div>
+          </template>
+
+          <template v-else>
+            <div
+              class="flex justify-center mb-[1rem] md:mb-[1rem] lg:mb-[1.5rem]"
+            >
+              <NuxtImg
+                src="/images/home/new-w-labs.svg"
+                class="w-[250px] md:w-[310px] lg:w-[410px]"
+                alt="w-softlabs-ko"
+                loading="eager"
+                quality="80"
+              />
+            </div>
+
+            <div
+              class="relative mt-3 md:mt-5 h-[3rem] md:h-[4rem] lg:h-[5rem] overflow-hidden flex justify-center lg:mb-[0.5rem] mb-2"
+            >
+              <transition
+                enter-active-class="animate-fade-up"
+                leave-active-class="opacity-0"
+              >
+                <h2
+                  :key="currentWord"
+                  class="absolute text-[2.5rem] md:text-5xl lg:text-6xl font-[800] text-center bg-gradient-to-r from-[#2376EA] to-[#02C9D1] bg-clip-text text-transparent w-full leading-[1]"
+                >
+                  {{ $t(currentWord) }}
+                </h2>
+              </transition>
+            </div>
+
+            <div class="mb-8">
+              <div class="flex justify-center">
+                <NuxtImg
+                  class="w-[100px] md:w-[120px] lg:w-[180px]"
+                  height="100%"
+                  src="/images/home/jumbotron.webp"
+                  alt="we-do-ko"
+                />
+              </div>
+            </div>
+          </template>
+        </ClientOnly>
+
+        <p
+          class="text-center text-black opacity-100 font-[300] font-[inter] text-[18px] lg:text-[20px] px-5 md:px-0 mb-[3rem] lg:pt-[2rem]"
+        >
+          {{ $t("elevate-business") }}
+        </p>
+
+        <NuxtLink class="flex justify-center z-50" to="/contact-us">
+          <button
+            class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+          >
+            <span class="relative z-10">{{ $t("start-project") }}</span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+            ></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+            ></span>
+          </button>
+        </NuxtLink>
+      </div>
+
+      <div
+        class="pointer-events-none absolute right-[-104%] bottom-[10%] md:bottom-[-15%] md:right-[-121%] lg:right-[-80%] lg:bottom-[-7%] xl:right-[-45%]"
+      >
+        <img
+          src="/images/home/shadow-overlay.png"
+          class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
+          alt="shadow-overlay"
+          loading="lazy"
+        />
+      </div>
+      <div
+        class="pointer-events-none absolute left-[-104%] bottom-[10%] md:bottom-[-15%] md:left-[-121%] lg:left-[-80%] lg:bottom-[-7%] xl:left-[-45%]"
+      >
+        <img
+          src="/images/home/shadow-overlay.png"
+          class="hidden md:block w-[800px] md:w-[1500px] lg:w-[1500px]"
+          alt="shadow-overlay"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div
+      class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto md:mt-[15rem]"
+    >
+      <div class="relative">
+        <!-- Wrap Lottie in ClientOnly -->
+        <ClientOnly>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            <DotLottieVue
+              background="transparent"
+              style="width: 800px; height: 800px"
+              class="hidden md:block"
+              autoplay
+              loop
+              src="https://lottie.host/7e67d469-9dcf-4317-9cee-139c46135a1f/coUWrtlAJz.lottie"
+            />
+          </div>
+        </ClientOnly>
+
+        <div
+          class="absolute top-1/2 left-1/2 2xl:left-[68%] -translate-x-1/2 -translate-y-1/2 z-20 opacity-100 w-full"
+        >
+          <img
+            src="/images/blue-gradient.png"
+            class="hidden md:block w-[5000px] xl:w-[1500px]"
+            alt="shadow-overlay"
+            loading="lazy"
+          />
+        </div>
+        <div class="z-20 relative">
+          <div class="flex justify-center mx-auto mb-5">
+            <h1
+              class="text-center font-poppins font-[600] text-[25px] md:w-[55%] xl:w-[40%] lg:text-[40px] md:px-0 text-black mb-5"
+            >
+              {{ $t("trusted-partner") }}
+            </h1>
+          </div>
+
+          <div class="flex justify-center mb-5">
+            <NuxtImg
+              src="/images/home/partner.png"
+              width="841px"
+              height="448.35px"
+              alt="partner"
+            />
+          </div>
+
+          <p
+            class="font-inter font-[300] text-[18px] lg:text-[20px] text-center mx-auto text-black lg:w-[50%]"
+          >
+            {{ $t("delivers-cutting") }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mx-auto px-8 md:px-0 md:max-w-[90%] lg:max-w-[90%] xl:max-w-[85%]"
+    >
+      <BriefServices />
+      <div class="block lg:hidden mt-[5rem] md:mt-[8rem]">
+        <div
+          v-for="(service, key) in services"
+          :key="key"
+          class="flex flex-col relative justify-between items-center gap-y-8 mb-14"
+        >
+          <div class="text-left lg:w-[45%]">
+            <div class="block lg:hidden">
+              <div
+                class="radial-progress bg-white text-[#C1C1C1] mb-5"
+                style="--value: 100; --size: 3rem; --thickness: 2px"
+                role="progressbar"
+              >
+                {{ service.number }}
+              </div>
+            </div>
+            <h2
+              class="text-black font-poppins font-[600] text-[25px] lg:text-[40px] w-[70%]"
+            >
+              {{ $t(service.title) }}
+            </h2>
+
+            <div v-if="service.slogan" class="mt-5">
+              <p
+                class="font-inter text-[18px] lg:text-[20px] text-black font-[600] lg:w-[80%]"
+              >
+                {{ $t(service.slogan) }}
+              </p>
+            </div>
+
+            <p
+              class="font-inter text-[18px] lg:text-[20px] text-black font-[300] lg:w-[80%] mt-5"
+            >
+              {{ $t(service.description) }}
+            </p>
+          </div>
+
+          <div class="flex justify-end">
+            <img
+              :src="service.image"
+              class="lg:w-[430px] xl:w-[500px]"
+              alt="web-development"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
+      <div
+        class="text-center font-poppins font-[600] text-[25px] lg:text-[40px] px-5 md:px-0 text-black mb-3"
+      >
+        {{ $t("successful-projects") }}
+      </div>
+
+      <p
+        class="font-inter font-[300] text-[18px] lg:text-[20px] text-black text-center lg:max-w-screen-sm mx-auto mb-12"
+      >
+        {{ $t("dedicated-helping") }}
+      </p>
+
+      <!-- LARGE SCREEN -->
+      <div class="hidden md:block mb-[3rem]">
+        <div
+          class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 grid-rows-2 md:gap-3 lg:gap-5"
+        >
+          <div class="md:col-span-2 h-1px md:flex">
+            <NuxtLink
+              to="/our-works/academic-administration-management-system"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
+            >
+              <img
+                src="/images/home/project-1.png"
+                alt="dashboard"
+                loading="lazy"
+                format="webp"
+                quality="75"
+                sizes="sm:100vw md:50vw lg:400px"
+              />
+
+              <div
+                class="absolute left-[0%] md:left-[-2%] lg:left-[0%] md:bottom-[0.5%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt="shadow"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("academic-administration") }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+          <div class="md:flex">
+            <NuxtLink
+              to="/our-works/content-management-system"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
+            >
+              <NuxtImg
+                src="/images/home/project-2.png"
+                class="max-w-full md:h-[255.23px] lg:h-[350.77px] xl:h-[503.39px] 2xl:h-[545.56px]"
+                alt="content-management"
+              />
+              <div
+                class="absolute left-[0%] bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("content-management") }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+          <div class="md:flex">
+            <NuxtLink
+              to="/our-works/foreign-language-learning-system"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
+            >
+              <NuxtImg
+                src="/images/home/project-3.png"
+                class="max-w-full md:h-[255.17px] lg:h-[350.67px] xl:h-[503.25px] xl:w-[100%] 2xl:h-[545.41px]"
+                alt=" mob-app-2"
+              />
+              <div
+                class="absolute left-[0%] md:left-[-2%] lg:left-[0%] bottom-[0%] md:bottom-[0%] lg:bottom-[0%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("foreign-language") }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+          <div class="md:col-span-2 md:flex">
+            <NuxtLink
+              to="/our-works/blockchain"
+              class="relative overflow-hidden group hidden md:block rounded-xl w-[100%]"
+            >
+              <img
+                src="/images/home/project-4.png"
+                class="w-[100%] h-[auto]"
+                alt="diginest"
+                loading="lazy"
+              />
+              <div
+                class="absolute left-[0%] md:left-[-1%] lg:left-[0%] xl:left-[0%] md:bottom-[0%] lg:bottom-[0.5%] xl:bottom-[0%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <img
+                  src="/images/home/shadow-project.png"
+                  class="rounded-2xl"
+                  alt=" shadow"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="absolute left-[2%] bottom-[3%] opacity-100 lg:opacity-0 group-hover:md:opacity-100 transition-opacity duration-300 ease-in-out"
+              >
+                <div
+                  class="font-poppins text-white font-[600] text-[20px] lg:w-[80%]"
+                >
+                  {{ $t("blockchain") }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMALL SCREEN -->
+      <div class="flex flex-col gap-y-5 md:hidden mb-[3rem]">
+        <NuxtLink
+          to="/our-works/academic-administration-management-system"
+          class="relative"
+        >
+          <img src="/images/home/project-1-mobile.png" alt="dashboard-mobs" />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("academic-administration") }}
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/our-works/content-management-system" class="relative">
+          <img
+            src="/images/home/project-2.png"
+            alt="mob-app-1-mobile"
+            loading="lazy"
+          />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("content-management") }}
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink
+          to="/our-works/foreign-language-learning-system"
+          class="relative"
+        >
+          <img
+            src="/images/home/project-3-mobile.png"
+            alt=" mob-app-2-mobile"
+            loading="lazy"
+          />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+              loading="lazy"
+            />
+          </div>
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("foreign-language") }}
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/our-works/blockchain" class="relative">
+          <img
+            src="/images/home/project-4-mobile.png"
+            alt="diginest-mobile"
+            loading="lazy"
+          />
+          <div class="absolute left-[0%] bottom-[0%] opacity-100">
+            <img
+              src="/images/home/shadow-project.png"
+              class="rounded-2xl"
+              alt="shadow"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="absolute left-[2%] bottom-[3%] opacity-100">
+            <div
+              class="font-poppins text-white font-[600] text-[18px] md:text-[20px] lg:w-[80%]"
+            >
+              {{ $t("blockchain") }}
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+
+      <div class="flex justify-center mb-[5rem]">
+        <NuxtLink class="flex justify-center z-50" to="/our-works">
+          <button
+            class="relative font-[400] text-[18px] lg:text-[20px] px-12 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
+          >
+            <span class="relative z-10">{{ $t("explore-more-projects") }}</span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10 transition-all duration-300 hover:opacity-80"
+            ></span>
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
+            ></span>
+          </button>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div class="mb-[12rem]">
+      <TechStackMarquee />
+    </div>
+
+    <ContactEmail />
+  </div>
+</template>
+<script setup>
+import { useI18n } from "vue-i18n";
+import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+import { ref, computed, onMounted } from "vue";
+import { useStructuredData } from "@/composables/useStructuredData";
+import { useInterval } from "@/composables/useInterval";
+import { useCanonical } from "@/composables/useCanonical";
+
+const { canonicalUrl } = useCanonical();
+
+const heroWords = [
+  "hero-1",
+  "hero-2",
+  "hero-3",
+  "hero-4",
+  "hero-5",
+  "hero-6",
+  "hero-7",
+];
+
+const services = ref([
+  {
+    number: 1,
+    title: "action-detection",
+    slogan: "reading-behavior",
+    description: "offers-advanced",
+    image: "/images/home/action-detection.png",
+    progress: 0,
+  },
+  {
+    number: 2,
+    title: "rag",
+    slogan: "retrieving-knowledge",
+    description: "rag-technology",
+    image: "/images/home/rag-new.png",
+    progress: 20,
+  },
+  {
+    number: 3,
+    title: "data-driven",
+    slogan: "reimagining-business",
+    description: "data-driven-text",
+    image: "/images/home/web-development.png",
+    progress: 40,
+  },
+  {
+    number: 4,
+    title: "web-app",
+    description: "build-innovative",
+    image: "/images/home/web-application.png",
+    progress: 60,
+  },
+  {
+    number: 5,
+    title: "ui-design",
+    description: "design-intuitive",
+    image: "/images/home/ui-design.png",
+    progress: 80,
+  },
+  {
+    number: 6,
+    title: "ai-utilization",
+    description: "cut-customer",
+    image: "/images/home/ai-utilization-new.png",
+    progress: 100,
+  },
+]);
+
+const currentIndex = ref(0);
+
+const currentWord = computed(() => heroWords[currentIndex.value]);
+
+const { start } = useInterval(() => {
+  currentIndex.value = (currentIndex.value + 1) % heroWords.length;
+}, 3000);
+
+onMounted(() => {
+  start();
+});
+
+const { locale, t } = useI18n();
+const config = useRuntimeConfig();
+
+const currentLanguage = computed(() => locale.value);
+
+const staticMetaTitle = t("home-title");
+const staticMetaDescription = t("home-description");
+const staticMetaKeywords = [
+  t("home-meta-keyword"),
+  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
+].join(", ");
+
+const structuredData = useStructuredData("home");
+
+useHead({
+  title: staticMetaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(structuredData),
+    },
+  ],
+  meta: [
+    { name: "description", content: staticMetaDescription },
+    { name: "keywords", content: staticMetaKeywords },
+    { property: "og:title", content: staticMetaTitle },
+    { property: "og:description", content: staticMetaDescription },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:url", content: canonicalUrl.value },
+  ],
+});
+</script>
+
+<style scoped>
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-in-out;
+}
+</style>
