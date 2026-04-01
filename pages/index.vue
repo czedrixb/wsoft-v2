@@ -17,7 +17,6 @@
 </template>
 <script setup>
 import { useI18n } from "vue-i18n";
-import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useInterval } from "@/composables/useInterval";

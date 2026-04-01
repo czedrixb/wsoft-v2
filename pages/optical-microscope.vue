@@ -13,7 +13,6 @@
 <script setup>
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
-import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 

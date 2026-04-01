@@ -1105,21 +1105,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lottiefiles/dotlottie-vue@npm:^0.5.8":
-  version: 0.5.8
-  resolution: "@lottiefiles/dotlottie-vue@npm:0.5.8"
+"@lottiefiles/dotlottie-vue@npm:^0.11.9":
+  version: 0.11.9
+  resolution: "@lottiefiles/dotlottie-vue@npm:0.11.9"
   dependencies:
-    "@lottiefiles/dotlottie-web": "npm:0.41.0"
+    "@lottiefiles/dotlottie-web": "npm:0.69.0"
   peerDependencies:
     vue: ^3.3.4
-  checksum: 10c0/e71d8c62c8687171d01097558d0b4db7a1d1eca38846616126b74460bca823b5701444ffb76936126676d3971046d858d918a420acaa4f61f1385b4a8fb02650
+  checksum: 10c0/da7a3018d925f90ec4ee429fa8278cb1ebd7b883f24d649fbd50152bb83409fa2cea2c3c61fde5e8c31b0aa6dd971386b227f13fa432fa178ef7c332cf948a5d
   languageName: node
   linkType: hard
 
-"@lottiefiles/dotlottie-web@npm:0.41.0":
-  version: 0.41.0
-  resolution: "@lottiefiles/dotlottie-web@npm:0.41.0"
-  checksum: 10c0/8fc17d5c38e5e4fe6efa8dd796c2e53fa2fb1927a4e7e65d295125bd6ce3a6b8b54569e107d1748260059d369e7d4d8f6da3cfbb8a2dda70d918bbbb34def602
+"@lottiefiles/dotlottie-web@npm:0.69.0":
+  version: 0.69.0
+  resolution: "@lottiefiles/dotlottie-web@npm:0.69.0"
+  checksum: 10c0/68774f74ace744bdeb8e5653b7deee34401f1024ae5037302a93e437ceda862e0750d8cd53b36ce6e6b07e2afdec6ed2dd7a6cbee2bb3fdb2141f185a8350620
   languageName: node
   linkType: hard
 
@@ -7142,7 +7142,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nuxt-app@workspace:."
   dependencies:
-    "@lottiefiles/dotlottie-vue": "npm:^0.5.8"
+    "@lottiefiles/dotlottie-vue": "npm:^0.11.9"
     "@mdi/font": "npm:^7.4.47"
     "@nuxt/image": "npm:1.9.0"
     "@nuxtjs/i18n": "npm:^9.2.1"
