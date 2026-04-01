@@ -3,10 +3,13 @@
     <div class="dropdown dropdown-end">
       <label
         tabindex="0"
-        class="btn btn-sm h-[38px] font-[400] gap-2 px-4 bg-white border border-gray-200 hover:bg-gray-50"
+        class="btn btn-sm h-[38px] px-2 bg-white border border-gray-200 hover:bg-gray-50 cursor-pointer"
       >
-        <span class="text-xl">{{ getFlag(selectedLanguage.code) }}</span>
-        <span>{{ getDisplayCode(selectedLanguage.code) }}</span>
+        <img
+          :src="`/images/revamp/language/${selectedLanguage.code}.png`"
+          :alt="selectedLanguage.display"
+          class="w-6 h-6 object-cover rounded-[4px]"
+        />
         <svg
           class="w-4 h-4"
           fill="none"
@@ -24,16 +27,19 @@
 
       <ul
         tabindex="0"
-        class="dropdown-content z-[1] menu p-2 shadow-lg bg-white rounded-box w-full min-w-[120px] border border-gray-100"
+        class="dropdown-content z-[1] menu p-2 shadow-lg bg-white rounded-box w-auto min-w-[60px] border border-gray-100"
       >
         <li v-for="lang in languages" :key="lang.code">
           <a
             @click="setActiveLanguage(lang.code)"
             :class="{ 'bg-gray-100': locale === lang.code }"
-            class="gap-2 text-gray-700 hover:bg-gray-50"
+            class="flex justify-center hover:bg-gray-50 p-1.5"
           >
-            <span class="text-xl">{{ lang.flag }}</span>
-            <span>{{ lang.display }}</span>
+            <img
+              :src="`/images/revamp/language/${lang.code}.png`"
+              :alt="lang.display"
+              class="w-6 h-6 object-cover rounded-[4px]"
+            />
           </a>
         </li>
       </ul>
@@ -48,19 +54,9 @@ import { computed } from "vue";
 const { locale } = useI18n();
 
 const languages = [
-  { code: "en", flag: "🇬🇧", display: "EN" },
-  { code: "ko", flag: "🇰🇷", display: "KO" },
+  { code: "en", display: "EN" },
+  { code: "ko", display: "KO" },
 ];
-
-const getFlag = (code) => {
-  const lang = languages.find((l) => l.code === code);
-  return lang ? lang.flag : "";
-};
-
-const getDisplayCode = (code) => {
-  const lang = languages.find((l) => l.code === code);
-  return lang ? lang.display : code.toUpperCase();
-};
 
 const selectedLanguage = computed(() => {
   return languages.find((lang) => lang.code === locale.value) || languages[0];

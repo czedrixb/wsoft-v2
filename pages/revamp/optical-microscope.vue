@@ -1,11 +1,17 @@
 <template>
   <div>
     <div>
-      <AnimatedPrivacyHeader />
+      <AnimatedOpticalHeader />
     </div>
 
-    <div class="px-[2rem] lg:px-[5rem] mx-auto pt-16 pb-10">
-      <Catalogue />
+    <div class="bg-[#e2e8f0]">
+      <div class="mx-auto px-8 max-w-screen-2xl pt-16 pb-10">
+        <Catalogue />
+      </div>
+    </div>
+
+    <div class="mt-5 bg-white py-20">
+      <RelatedProducts />
     </div>
   </div>
 </template>

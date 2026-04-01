@@ -1137,5 +1137,161 @@
         "description": "Order, shipping, refund, and product information guidance"
       }
     }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "welcome": "Welcome to W Labs (operated by 주식회사 더블유랩스, Company Registration No. 387-87-03701). By accessing or using our website at https://wlabs.space/ and any related services, you agree to be bound by these Terms & Conditions. Please read them carefully before using our site.",
+    "disclaimer": "If you do not agree with any part of these terms, please discontinue use of the website immediately.",
+    "sections": {
+      "services": {
+        "title": "1. Services",
+        "content": "W Labs provides software development, AI solutions, UI/UX design, and related digital services. The website is primarily an informational and marketing platform. Specific services are governed by separate agreements or service contracts entered into with clients."
+      },
+      "intellectualProperty": {
+        "title": "2. Intellectual Property",
+        "content": "All content on this website — including text, graphics, logos, icons, images, and software — is the property of W Labs or its content suppliers and is protected under applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent."
+      },
+      "useOfWebsite": {
+        "title": "3. Use of the Website",
+        "permittedUse": {
+          "title": "3.1 Permitted Use",
+          "description": "You may use this website for lawful purposes and in accordance with these Terms. You agree not to:",
+          "items": {
+            "item1": "Use the site in any way that violates applicable local, national, or international laws or regulations.",
+            "item2": "Transmit any unsolicited or unauthorized advertising or promotional material.",
+            "item3": "Attempt to gain unauthorized access to any part of our website or systems.",
+            "item4": "Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the website."
+          }
+        },
+        "contactForm": {
+          "title": "3.2 Contact Form",
+          "content": "When you submit an inquiry through our contact form, you provide us with your information voluntarily. By submitting, you consent to being contacted by W Labs regarding your inquiry."
+        }
+      },
+      "disclaimer": {
+        "title": "4. Disclaimer of Warranties",
+        "content": "This website and its content are provided on an \"as is\" and \"as available\" basis without any warranties of any kind, either express or implied. W Labs does not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components."
+      },
+      "limitationOfLiability": {
+        "title": "5. Limitation of Liability",
+        "content": "To the fullest extent permitted by law, W Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of this website or our services."
+      },
+      "thirdPartyLinks": {
+        "title": "6. Third-Party Links",
+        "content": "Our website may contain links to third-party websites. These links are provided for convenience only. W Labs has no control over the content of those sites and accepts no responsibility for them or for any loss or damage that may arise from your use of them."
+      },
+      "changesToTerms": {
+        "title": "7. Changes to These Terms",
+        "content": "We reserve the right to update or modify these Terms & Conditions at any time. Changes will be effective upon posting to the website with an updated effective date. Your continued use of the site following any changes constitutes your acceptance of the revised terms."
+      },
+      "governingLaw": {
+        "title": "8. Governing Law",
+        "content": "These Terms & Conditions are governed by and construed in accordance with the laws of the Republic of Korea. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts of Korea."
+      },
+      "contactUs": {
+        "title": "9. Contact Us",
+        "description": "For any questions about these Terms & Conditions, please contact:",
+        "companyName": "W Labs (주식회사 더블유랩스)",
+        "website": "Website: https://wsoft.space/contact-us",
+        "duns": "D-U-N-S® Registered: 696568010"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "welcome": "W Labs (주식회사 더블유랩스) is committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights in relation to it when you visit https://wlabs.space/.",
+    "compliance": "This policy is compliant with the Personal Information Protection Act (PIPA) of Korea and applicable international standards.",
+    "sections": {
+      "informationCollected": {
+        "title": "1. Information We Collect",
+        "provided": {
+          "title": "1.1 Information You Provide",
+          "description": "When you use our contact form or reach out to us, we may collect:",
+          "items": {
+            "item1": "Your name",
+            "item2": "Email address",
+            "item3": "Company name (if applicable)",
+            "item4": "Message content and inquiry details"
+          }
+        },
+        "automated": {
+          "title": "1.2 Automatically Collected Information",
+          "description": "When you visit our website, we may automatically collect:",
+          "items": {
+            "item1": "IP address and general location data",
+            "item2": "Browser type and version",
+            "item3": "Pages visited and time spent on site",
+            "item4": "Referring URLs"
+          },
+          "note": "This data is collected through standard web server logs and analytics tools to help us understand how our site is used and improve user experience."
+        }
+      },
+      "howWeUse": {
+        "title": "2. How We Use Your Information",
+        "description": "We use the information we collect to:",
+        "items": {
+          "item1": "Respond to your inquiries and provide requested services",
+          "item2": "Improve and optimize our website and services",
+          "item3": "Communicate with you about our services and relevant updates",
+          "item4": "Comply with legal obligations"
+        },
+        "note": "We do not sell, rent, or trade your personal information to third parties for marketing purposes."
+      },
+      "cookies": {
+        "title": "3. Cookies",
+        "description": "Our website may use cookies and similar tracking technologies to enhance your browsing experience. Cookies are small text files stored on your device. You can control cookie settings through your browser preferences. Note that disabling cookies may affect some features of the site.",
+        "types": {
+          "title": "Types of cookies we may use:",
+          "items": {
+            "item1": "Essential cookies: Required for the website to function properly.",
+            "item2": "Analytics cookies: Help us understand how visitors interact with our site (e.g., page views, session duration)."
+          }
+        }
+      },
+      "dataRetention": {
+        "title": "4. Data Retention",
+        "content": "We retain personal information only for as long as necessary to fulfill the purposes for which it was collected, or as required by law. Contact form submissions are retained for a reasonable period to manage business inquiries and follow-up communications."
+      },
+      "dataSecurity": {
+        "title": "5. Data Security",
+        "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
+      },
+      "thirdPartyServices": {
+        "title": "6. Third-Party Services",
+        "content": "We may use third-party tools and services (such as analytics providers or hosting platforms) that may process data on our behalf. These service providers are contractually obligated to handle data securely and only as instructed by us."
+      },
+      "yourRights": {
+        "title": "7. Your Rights",
+        "description": "Under applicable law, you may have the right to:",
+        "items": {
+          "item1": "Access the personal information we hold about you",
+          "item2": "Request correction of inaccurate or incomplete data",
+          "item3": "Request deletion of your personal information",
+          "item4": "Withdraw consent to processing where applicable",
+          "item5": "Lodge a complaint with the relevant data protection authority"
+        },
+        "note": "To exercise any of these rights, please contact us using the details below."
+      },
+      "internationalUsers": {
+        "title": "8. International Users",
+        "content": "This website is operated from the Republic of Korea. If you are accessing the site from outside Korea, please be aware that your information may be transferred to and processed in Korea, where data protection laws may differ from those in your country."
+      },
+      "changesToPolicy": {
+        "title": "9. Changes to This Policy",
+        "content": "We may update this Privacy Policy from time to time. The updated version will be posted on this page with a revised effective date. We encourage you to review this policy periodically."
+      },
+      "contactUs": {
+        "title": "10. Contact Us",
+        "description": "For any questions about this Privacy Policy, please contact:",
+        "companyName": "W Labs (주식회사 더블유랩스)",
+        "website": "Website: https://wsoft.space/contact-us",
+        "duns": "D-U-N-S® Registered: 696568010"
+      }
+    }
+  },
+  "optical-microscope": {
+    "title": "LC-OCT Skin Structure Analysis",
+    "description": "See beneath the skin's surface without invasive procedures. This cutting-edge imaging technology delivers microscopic views of skin structure in real-time, helping medical professionals diagnose conditions accurately and track treatment progress with unprecedented clarity.",
+    "imageAlt": "LC-OCT Skin Structure Analysis Device"
   }
 }

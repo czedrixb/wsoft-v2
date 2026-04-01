@@ -266,32 +266,28 @@
                   <button
                     type="submit"
                     :disabled="isSubmitting"
-                    class="w-auto rounded-[22px] text-white py-3 font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-6 bg-transparent"
+                    class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
                   >
                     <div
-                      class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#2376e9] to-[#02c7d0] -z-10"
+                      class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#2376e9] to-[#02c7d0]"
                     >
                       <div
-                        class="w-full h-full rounded-[22px] bg-transparent"
+                        class="w-full h-full rounded-[22px] bg-[#20252CE5] group-hover:bg-transparent transition-all"
                       ></div>
                     </div>
 
-                    {{ $t("contact-modal.submit") }}
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
+                    <span
+                      class="relative z-10 bg-gradient-to-r from-[#2376e9] to-[#02c7d0] bg-clip-text text-transparent group-hover:text-white transition-all"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                      {{ $t("contact-modal.submit") }}
+                    </span>
+
+                    <NuxtImg
+                      src="/images/revamp/mail-submit-icon.svg"
+                      width="24"
+                      height="24"
+                      class="relative z-10 transition-all"
+                    />
                   </button>
                 </form>
               </div>

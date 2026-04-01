@@ -1,33 +1,34 @@
 <template>
   <div>
-    <div>
-      <AnimatedPrivacyHeader />
-    </div>
+    <AnimatedTermsHeader />
 
-    <div class="px-[2rem] lg:px-[5rem] mx-auto pt-16 pb-10">
-      <Catalogue />
+    <div class="mt-8">
+      <TermsContent />
     </div>
   </div>
 </template>
 
 <script setup>
-import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
+import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
 
-const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
+const { canonicalUrl } = useCanonical();
+
+const { locale } = useI18n();
 const config = useRuntimeConfig();
 
-const staticMetaTitle = t("products-title");
-const staticMetaDescription = t("about-us-description");
-const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`about-us-meta-keyword-${i + 1}`),
-).join(", ");
+const currentLanguage = computed(() => locale.value);
 
-const structuredData = useStructuredData("about");
+const staticMetaTitle = t("terms.title");
+const staticMetaDescription = t("terms.welcome");
+const staticMetaKeywords = [].join(", ");
+
+const structuredData = useStructuredData("products");
 
 useHead({
   title: staticMetaTitle,
@@ -54,3 +55,20 @@ useHead({
   ],
 });
 </script>
+
+<style scoped>
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-in-out;
+}
+</style>

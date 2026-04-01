@@ -1,48 +1,13 @@
 <template>
-  <div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 mb-5 gap-y-5">
-      <div>
-        <h1
-          class="font-inter font-[300] text-[24px] lg:text-[40px] xl:text-[50px] text-black md:w-[90%]"
-        >
-          {{ $t("products.pageTitle") }}
-        </h1>
-        <!-- <div class="flex justify-center lg:justify-end mt-5">
-          <NuxtImg
-            src="/images/logo.png"
-            class="w-32 sm:w-40 md:w-48 lg:w-56"
-            alt="wsoft-logo"
-          />
-        </div> -->
-      </div>
-      <div>
-        <div class="grid grid-cols-3 md:justify-items-center">
-          <NuxtImg
-            src="/images/products/microscope-1.png"
-            alt="Optical Microscope"
-          />
-          <NuxtImg
-            src="/images/products/microscope-2.png"
-            alt="Optical Microscope"
-          />
-          <NuxtImg
-            src="/images/products/microscope-3.png"
-            alt="Optical Microscope"
-          />
-        </div>
-        <p
-          class="text-center font-[600] text-[14px] text-black font-inter mt-2"
-        >
-          {{ $t("products.productSubtitle") }}
-        </p>
-      </div>
-    </div>
-
+  <div ref="catalogueContainer">
     <!-- Products -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5 mt-20"
-    >
-      <div v-for="(item, key) in items" :key="key" class="flex flex-col h-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-20" ref="productsGrid">
+      <div
+        v-for="(item, key) in items"
+        :key="key"
+        class="flex flex-col h-full catalogue-item"
+        :data-index="key"
+      >
         <div
           class="rounded-[6px] text-white text-center p-5 mb-5"
           :style="{ backgroundColor: item.color }"
@@ -210,9 +175,16 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref, watch } from "vue";
+import { ref, watch, onMounted, onUnmounted, nextTick } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const { t, tm, locale } = useI18n();
+const catalogueContainer = ref(null);
+const productsGrid = ref(null);
+let ctx = null;
 
 const items = ref([]);
 
@@ -326,7 +298,57 @@ const updateItems = () => {
 
 updateItems();
 
-watch(locale, () => {
+const initAnimations = () => {
+  ctx?.revert();
+
+  ctx = gsap.context(() => {
+    // Only run on lg screens (1024px+)
+    ScrollTrigger.matchMedia({
+      "(min-width: 1024px)": () => {
+        const allItems =
+          productsGrid.value?.querySelectorAll(".catalogue-item");
+        if (!allItems || allItems.length < 2) return;
+
+        // Separate left (even index) and right (odd index) columns
+        const leftItems = [...allItems].filter((_, i) => i % 2 === 0);
+        const rightItems = [...allItems].filter((_, i) => i % 2 !== 0);
+
+        // Animate each right-column card: start offset down, scroll up to align
+        rightItems.forEach((rightCard, i) => {
+          const leftCard = leftItems[i];
+          if (!leftCard) return;
+
+          gsap.set(rightCard, { y: 120, opacity: 0 });
+
+          gsap.to(rightCard, {
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: leftCard,
+              start: "top 70%",
+              end: "top 20%",
+              scrub: 1.5,
+            },
+          });
+        });
+      },
+    });
+  }, catalogueContainer.value);
+};
+
+onMounted(async () => {
+  await nextTick();
+  initAnimations();
+});
+
+onUnmounted(() => {
+  ctx?.revert();
+});
+
+watch(locale, async () => {
   updateItems();
+  await nextTick();
+  initAnimations();
 });
 </script>
