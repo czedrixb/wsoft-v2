@@ -651,6 +651,20 @@
     }
   },
   "home": {
+    "partnership": {
+      "fortune100": {
+        "text": "W Labs is now an approved vendor to a",
+        "highlight": "Top 3 of a Fortune 100 pharmaceutical",
+        "text_end": "company."
+      },
+      "scienceExchange": {
+        "text": "W Labs is now a verified supplier on",
+        "highlight": "Science Exchange,",
+        "text_end": "the world's premier R&D marketplace for life sciences."
+      },
+      "link": "https://www.scienceexchange.com/",
+      "description": "Global Top 5 pharmaceutical companies, biotech firms, and research institutions can leverage our AI-powered biomedical imaging analysis software to accelerate cutting-edge projects like LC-OCT and 3D skin analysis."
+    },
     "banner": {
       "title": "A Global AI-First Development Partner Redesigning Productivity",
       "subtitle": "We don't just build software—we design intelligent systems that transform how organizations work.",
@@ -976,11 +990,23 @@
     "animatedProjects": {
       "lcOct": {
         "title": "LC-OCT Skin Structure Analysis",
-        "description": "Comprehensive academy management program integrating progress tracking, achievement monitoring, payment processing, attendance records, and statistical analysis to support both administrative operations and personalized educational effectiveness."
+        "description": "High-resolution optical coherence tomography that enables non-invasive, real-time imaging of skin microstructures—providing dermatologists with cellular-level insights without the need for biopsy.",
+        "cta": "Ask about LC-OCT Skin Structure Analysis"
+      },
+      "aiMeasuring": {
+        "title": "AI-Measuring & Analysis Skin Optics",
+        "description": "Comprehensive academy management program integrating progress tracking, achievement monitoring, payment processing, attendance records, and statistical analysis to support both administrative operations and personalized educational effectiveness.",
+        "cta": "Ask about AI Optics Skin Analyser"
+      },
+      "wizAssistant": {
+        "title": "WIZ Assistant",
+        "description": "Your website's intelligent assistant that answers customer questions instantly, explains service procedures, and handles document requests automatically. Reduce support burden while improving response times—like having a knowledgeable staff member who never sleeps.",
+        "cta": "Ask about WIZ Assistant"
       },
       "aiEncouragement": {
         "title": "AI Encouragement Generation Platform",
-        "description": "Behind-the-scenes CMS engine enabling seamless online book digitization and video subtitle integration, allowing administrators to manage text, images, interactive elements, and multimedia accessibility from a centralized platform."
+        "description": "Behind-the-scenes CMS engine enabling seamless online book digitization and video subtitle integration, allowing administrators to manage text, images, interactive elements, and multimedia accessibility from a centralized platform.",
+        "cta": "Ask about WIZ Assistant"
       },
       "aiDietTracker": {
         "title": "AI-Aided Diet and Calorie Analysis Tracker",

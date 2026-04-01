@@ -18,7 +18,7 @@
 
           <div class="products-header-img">
             <NuxtImg
-              src="/images/revamp/our-projects/project-img.png"
+              src="/images/revamp/our-projects/product-img.png"
               class="h-auto object-cover"
               width="1101px"
             />

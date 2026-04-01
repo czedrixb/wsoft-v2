@@ -14,11 +14,36 @@
               <p class="text-[#20252CE5] font-semibold text-[14px] mt-8">
                 {{ $t("product.animatedProjects.lcOct.description") }}
               </p>
+
+              <div class="mt-5">
+                <div class="max-w-xl mx-auto">
+                  <router-link
+                    to="/revamp/optical-microscope"
+                    class="border border-[#20252CE5] px-10 py-2 text-[14px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
+                  >
+                    {{ $t("product.animatedProjects.lcOct.cta") }}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </router-link>
+                </div>
+              </div>
             </div>
             <div class="image-parallax" data-direction="down">
               <NuxtImg
                 src="/images/revamp/products/lc-oct-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -26,7 +51,7 @@
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/products/lc-oct-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -41,29 +66,54 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
-            <div class="text-block self-center" data-section="1">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
-                {{ $t("product.animatedProjects.aiEncouragement.title") }}
-              </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
-                {{ $t("product.animatedProjects.aiEncouragement.description") }}
-              </p>
-            </div>
             <div class="image-parallax" data-direction="down">
               <img
-                src="/images/revamp/products/wiz-assistant-1.png"
-                class="object-cover w-full rounded-[14px]"
+                src="/images/revamp/products/wiz-assistant-2.png"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
             </div>
             <div class="image-parallax" data-direction="up">
               <NuxtImg
-                src="/images/revamp/products/wiz-assistant-2.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
+                src="/images/revamp/products/wiz-assistant-1.png"
+                class="object-cover rounded-[14px]"
+                width="487px"
                 height="460px"
               />
+            </div>
+            <div class="text-block self-center" data-section="1">
+              <h3 class="text-[#64748B] text-[24px] font-[400]">
+                {{ $t("product.animatedProjects.wizAssistant.title") }}
+              </h3>
+              <p class="text-[#20252CE5] font-semibold text-[14px] mt-8">
+                {{ $t("product.animatedProjects.wizAssistant.description") }}
+              </p>
+
+              <div class="mt-5">
+                <div class="max-w-xl mx-auto">
+                  <router-link
+                    to="/revamp/wiz-assistant"
+                    class="border border-[#20252CE5] px-10 py-2 text-[14px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
+                  >
+                    {{ $t("product.animatedProjects.wizAssistant.cta") }}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -79,16 +129,41 @@
           >
             <div class="text-block self-center" data-section="0">
               <h3 class="text-[#64748B] text-[24px] font-[400]">
-                {{ $t("product.animatedProjects.lcOct.title") }}
+                {{ $t("product.animatedProjects.aiMeasuring.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-[14px] mt-8">
-                {{ $t("product.animatedProjects.lcOct.description") }}
+                {{ $t("product.animatedProjects.aiMeasuring.description") }}
               </p>
+
+              <div class="mt-5">
+                <div class="max-w-xl mx-auto">
+                  <router-link
+                    to="/revamp/optical-microscope"
+                    class="border border-[#20252CE5] px-10 py-2 text-[14px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
+                  >
+                    {{ $t("product.animatedProjects.aiMeasuring.cta") }}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </router-link>
+                </div>
+              </div>
             </div>
             <div class="image-parallax" data-direction="down">
               <NuxtImg
                 src="/images/revamp/products/lc-oct-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -96,7 +171,7 @@
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/products/lc-oct-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -111,6 +186,18 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
+            <div class="image-parallax" data-direction="down">
+              <img
+                src="/images/revamp/our-projects/ai-encourage-1.png"
+                class="object-cover w-full h-[455px] rounded-[14px]"
+              />
+            </div>
+            <div class="image-parallax" data-direction="up">
+              <NuxtImg
+                src="/images/revamp/our-projects/ai-encourage-2.png"
+                class="object-cover w-full h-[455px] rounded-[14px]"
+              />
+            </div>
             <div class="text-block self-center" data-section="1">
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("product.animatedProjects.aiEncouragement.title") }}
@@ -118,22 +205,6 @@
               <p class="text-[#20252CE5] font-semibold text-[14px]">
                 {{ $t("product.animatedProjects.aiEncouragement.description") }}
               </p>
-            </div>
-            <div class="image-parallax" data-direction="down">
-              <img
-                src="/images/revamp/products/wiz-assistant-1.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
-            </div>
-            <div class="image-parallax" data-direction="up">
-              <NuxtImg
-                src="/images/revamp/products/wiz-assistant-2.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
             </div>
           </div>
         </div>
@@ -156,7 +227,7 @@
             <div class="image-parallax" data-direction="down">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-aided-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -164,7 +235,7 @@
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-aided-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -179,18 +250,10 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
-            <div class="text-block self-center" data-section="3">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
-                {{ $t("product.animatedProjects.aiTranslator.title") }}
-              </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
-                {{ $t("product.animatedProjects.aiTranslator.description") }}
-              </p>
-            </div>
             <div class="image-parallax" data-direction="down">
               <img
                 src="/images/revamp/our-projects/ai-powered-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -198,10 +261,18 @@
             <div class="image-parallax" data-direction="up">
               <img
                 src="/images/revamp/our-projects/ai-powered-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
+            </div>
+            <div class="text-block self-center" data-section="3">
+              <h3 class="text-[#64748B] text-[24px] font-[400]">
+                {{ $t("product.animatedProjects.aiTranslator.title") }}
+              </h3>
+              <p class="text-[#20252CE5] font-semibold text-[14px]">
+                {{ $t("product.animatedProjects.aiTranslator.description") }}
+              </p>
             </div>
           </div>
         </div>
@@ -226,7 +297,7 @@
             <div class="image-parallax" data-direction="down">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-generating-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -234,7 +305,7 @@
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-generating-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -249,6 +320,22 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
+            <div class="image-parallax" data-direction="down">
+              <img
+                src="/images/revamp/our-projects/self-management-1.png"
+                class="object-cover rounded-[14px]"
+                width="598px"
+                height="460px"
+              />
+            </div>
+            <div class="image-parallax" data-direction="up">
+              <NuxtImg
+                src="/images/revamp/our-projects/self-management-2.png"
+                class="object-cover rounded-[14px]"
+                width="598px"
+                height="460px"
+              />
+            </div>
             <div class="text-block self-center" data-section="5">
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("product.animatedProjects.aiSelfManagement.title") }}
@@ -258,22 +345,6 @@
                   $t("product.animatedProjects.aiSelfManagement.description")
                 }}
               </p>
-            </div>
-            <div class="image-parallax" data-direction="down">
-              <img
-                src="/images/revamp/our-projects/self-management-1.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
-            </div>
-            <div class="image-parallax" data-direction="up">
-              <NuxtImg
-                src="/images/revamp/our-projects/self-management-2.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
             </div>
           </div>
         </div>
@@ -296,7 +367,7 @@
             <div class="image-parallax" data-direction="down">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-evaluating-1.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -304,7 +375,7 @@
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/our-projects/ai-evaluating-2.png"
-                class="object-cover w-full rounded-[14px]"
+                class="object-cover rounded-[14px]"
                 width="598px"
                 height="460px"
               />
@@ -319,6 +390,22 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
+            <div class="image-parallax" data-direction="down">
+              <img
+                src="/images/revamp/our-projects/ai-enhanced-1.png"
+                class="object-cover rounded-[14px]"
+                width="598px"
+                height="460px"
+              />
+            </div>
+            <div class="image-parallax" data-direction="up">
+              <NuxtImg
+                src="/images/revamp/our-projects/ai-enhanced-2.png"
+                class="object-cover rounded-[14px]"
+                width="598px"
+                height="460px"
+              />
+            </div>
             <div class="text-block self-center" data-section="7">
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("product.animatedProjects.aiLanguageLearning.title") }}
@@ -329,29 +416,12 @@
                 }}
               </p>
             </div>
-            <div class="image-parallax" data-direction="down">
-              <img
-                src="/images/revamp/our-projects/ai-enhanced-1.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
-            </div>
-            <div class="image-parallax" data-direction="up">
-              <NuxtImg
-                src="/images/revamp/our-projects/ai-enhanced-2.png"
-                class="object-cover w-full rounded-[14px]"
-                width="598px"
-                height="460px"
-              />
-            </div>
           </div>
         </div>
       </div>
     </template>
   </div>
 </template>
-
 <script setup>
 import { onMounted, onUnmounted, ref, computed } from "vue";
 import { gsap } from "gsap";

@@ -37,7 +37,7 @@
           :style="{ width: slideWidth }"
         >
           <div class="text-white grid grid-cols-12">
-            <div class="col-span-12 order-2 lg:order-1 md:col-span-6">
+            <div class="col-span-12 order-2 md:order-1 md:col-span-6">
               <div class="flex flex-col h-full">
                 <div class="flex-grow space-y-2 md:space-y-8 mb-16">
                   <div
@@ -52,7 +52,7 @@
                   </div>
 
                   <div
-                    class="font-semibold text-[11px] md:text-[14px] opacity-90 hidden sm:block"
+                    class="font-semibold text-[11px] md:text-[16px] opacity-90 hidden sm:block"
                   >
                     <p>
                       {{
@@ -64,7 +64,7 @@
                   </div>
 
                   <div
-                    class="font-semibold text-[11px] md:text-[14px] opacity-90 hidden sm:block"
+                    class="font-semibold text-[11px] md:text-[16px] opacity-90 hidden sm:block"
                   >
                     <p>
                       {{
@@ -111,7 +111,7 @@
             </div>
             <!-- Image -->
             <div
-              class="col-span-12 order-1 lg:order-2 md:col-span-6 flex justify-center md:justify-end md:items-end"
+              class="col-span-12 order-1 md:order-2 md:col-span-6 flex justify-center md:justify-end md:items-end"
             >
               <img
                 :src="slide.image"

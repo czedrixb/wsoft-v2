@@ -41,7 +41,7 @@
       </div>
 
       <div class="mt-20">
-        <TechStackMarquee />
+        <TechStack />
       </div>
     </div>
   </div>

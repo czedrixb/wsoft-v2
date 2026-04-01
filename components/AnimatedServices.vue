@@ -11,10 +11,10 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("home.services.aiAutomation.title") }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mb-5">
+              <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
                 {{ $t("home.services.aiAutomation.subtitle") }}
               </p>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
+              <p class="text-[#20252CE5] font-semibold text-[16px]">
                 {{ $t("home.services.aiAutomation.description") }}
               </p>
             </div>
@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
@@ -44,15 +44,15 @@
               src="/images/revamp/home/services/overlay.png"
               class="h-auto object-cover w-full"
             />
-          </div>
+          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
             <NuxtImg
-              src="/images/revamp/home/services/ai-automation-animate.gif"
+              src="/images/revamp/home/services/ai-automation-animate.png"
               class="h-auto object-cover w-full"
-              width="200px"
+              width="598px"
             />
           </div>
         </div>
@@ -86,16 +86,16 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("home.services.legacyModernization.title") }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mb-5">
+              <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
                 {{ $t("home.services.legacyModernization.subtitle") }}
               </p>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
+              <p class="text-[#20252CE5] font-semibold text-[16px]">
                 {{ $t("home.services.legacyModernization.description") }}
               </p>
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
@@ -103,15 +103,15 @@
               src="/images/revamp/home/services/overlay.png"
               class="h-auto object-cover w-full"
             />
-          </div>
+          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
             <NuxtImg
-              src="/images/revamp/home/services/legacy-system-animate.gif"
+              src="/images/revamp/home/services/ai-automation-animate.png"
               class="h-auto object-cover w-full"
-              width="200px"
+              width="598px"
             />
           </div>
         </div>
@@ -129,10 +129,10 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("home.services.saasDevelopment.title") }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mb-5">
+              <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
                 {{ $t("home.services.saasDevelopment.subtitle") }}
               </p>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
+              <p class="text-[#20252CE5] font-semibold text-[16px]">
                 {{ $t("home.services.saasDevelopment.description") }}
               </p>
             </div>
@@ -154,7 +154,7 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
@@ -162,15 +162,15 @@
               src="/images/revamp/home/services/overlay.png"
               class="h-auto object-cover w-full"
             />
-          </div>
+          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
             <NuxtImg
-              src="/images/revamp/home/services/saas-custom-animate.gif"
+              src="/images/revamp/home/services/ai-automation-animate.png"
               class="h-auto object-cover w-full"
-              width="200px"
+              width="598px"
             />
           </div>
         </div>
@@ -205,16 +205,16 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("home.services.publicSector.title") }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mb-5">
+              <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
                 {{ $t("home.services.publicSector.subtitle") }}
               </p>
-              <p class="text-[#20252CE5] font-semibold text-[14px]">
+              <p class="text-[#20252CE5] font-semibold text-[16px]">
                 {{ $t("home.services.publicSector.description") }}
               </p>
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
@@ -222,15 +222,15 @@
               src="/images/revamp/home/services/overlay.png"
               class="h-auto object-cover w-full"
             />
-          </div>
+          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
             <NuxtImg
-              src="/images/revamp/home/services/saas-custom-animate.gif"
+              src="/images/revamp/home/services/ai-automation-animate.png"
               class="h-auto object-cover w-full"
-              width="200px"
+              width="598px"
             />
           </div>
         </div>
@@ -262,7 +262,7 @@ onMounted(() => {
         '.image-parallax[data-direction="down"]',
       );
       const animateImg = section.querySelector(".animate-img");
-      const overlayImg = section.querySelector(".overlay-img");
+      // const overlayImg = section.querySelector(".overlay-img");
 
       gsap.set(textBlock, { opacity: 0, y: 50 });
       gsap.set(upImages, { opacity: 0, y: 120 });
@@ -314,7 +314,7 @@ onMounted(() => {
       );
 
       tl.to(
-        [animateImg, overlayImg],
+        animateImg,
         {
           opacity: 1,
           y: "0%",

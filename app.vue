@@ -2,7 +2,7 @@
   <div>
     <NuxtErrorBoundary>
       <div class="bg-white overflow-hidden">
-        <div class="bg-[#f9fbfc]">
+        <div class="sticky top-0 z-50 bg-[#f9fbfc]">
           <div class="md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto">
             <Navbar />
           </div>

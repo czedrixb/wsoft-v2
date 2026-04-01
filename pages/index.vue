@@ -4,7 +4,11 @@
       <Banner />
 
       <div class="mt-20">
-        <TechStackMarquee />
+        <TechStack />
+      </div>
+
+      <div class="mt-20">
+        <Partnership />
       </div>
     </div>
 

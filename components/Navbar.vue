@@ -1,33 +1,35 @@
 <template>
   <div>
     <div>
-      <div class="navbar text-black py-5 px-4 md:px-8">
+      <div class="navbar text-black py-5 px-4 lg:px-8">
         <div class="navbar-start">
           <NuxtLink to="/" @click="handleNavigation('/')">
             <img
               src="/images/logos/w-labs-default.png"
               height="100%"
-              class="w-[150px] md:w-[190px]"
+              class="w-[150px] lg:w-[190px]"
               alt="W Soft Logo"
             />
           </NuxtLink>
         </div>
 
-        <div class="navbar-center hidden md:flex">
+        <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-2">
             <li v-for="link in navLinks" :key="link.title">
-              <!-- Check if it's the contact link -->
               <template v-if="link.isModal">
                 <button
                   @click="openContactModal"
-                  class="mx-3 text-[14px] lg:text-[16px] xl:text-[18px] font-[400] font-inter transition-all !shadow-none duration-300 btn btn-sm border-0"
+                  class="mx-3 text-[14px] nav-slot overflow-hidden lg:text-[16px] xl:text-[18px] font-[400] font-inter transition-all !shadow-none duration-300 btn btn-sm border-0"
                   :class="[
                     isActiveLink(link.to)
                       ? 'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white shadow-cyan-500/50'
                       : 'bg-transparent text-black hover:bg-gray-100',
                   ]"
                 >
-                  {{ $t(link.title) }}
+                  <span class="nav-slot-inner">
+                    <span>{{ $t(link.title) }}</span>
+                    <span aria-hidden="true">{{ $t(link.title) }}</span>
+                  </span>
                 </button>
               </template>
 
@@ -35,26 +37,29 @@
                 <NuxtLink
                   :to="link.to"
                   @click="handleNavigation(link.to)"
-                  class="mx-3 text-[14px] lg:text-[16px] xl:text-[18px] font-[400] border-0 font-inter transition-all !shadow-none duration-300 btn btn-sm border-0`"
+                  class="mx-3 text-[14px] nav-slot overflow-hidden lg:text-[16px] xl:text-[18px] font-[400] border-0 font-inter transition-all !shadow-none duration-300 btn btn-sm border-0`"
                   :class="[
                     isActiveLink(link.to)
                       ? 'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white shadow-cyan-500/50'
                       : 'bg-transparent text-black hover:bg-gray-100',
                   ]"
                 >
-                  {{ $t(link.title) }}
+                  <span class="nav-slot-inner">
+                    <span>{{ $t(link.title) }}</span>
+                    <span aria-hidden="true">{{ $t(link.title) }}</span>
+                  </span>
                 </NuxtLink>
               </template>
             </li>
           </ul>
         </div>
 
-        <div class="navbar-end hidden md:flex">
+        <div class="navbar-end hidden lg:flex">
           <Language />
         </div>
 
         <!-- Mobile menu button -->
-        <div class="navbar-end md:hidden">
+        <div class="navbar-end lg:hidden">
           <button
             @click="isMenuOpen = !isMenuOpen"
             class="btn btn-ghost btn-circle"
@@ -89,7 +94,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-black md:hidden"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-black lg:hidden"
       >
         <button
           @click="isMenuOpen = false"
@@ -231,44 +236,25 @@ const isActiveLink = (linkPath) => {
 </script>
 
 <style scoped>
-.menu li > *:not(ul, .menu-title, details, .btn):active,
-.menu li > *:not(ul, .menu-title, details, .btn).active,
-.menu li > details > summary:active {
-  background-color: transparent !important;
-  --tw-text-opacity: 1;
-  color: black !important;
+.nav-slot {
+  overflow: hidden;
+  height: 1.2em;
 }
 
-.dropdown details summary:active {
-  background-color: transparent !important;
+.nav-slot .nav-slot-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dropdown-content {
-  min-width: 220px;
+.nav-slot .nav-slot-inner span {
+  display: block;
+  height: 1.4em;
+  line-height: 1.8em;
+  flex-shrink: 0;
 }
 
-.products-details summary:focus,
-.products-details summary:active,
-.products-details details:focus,
-.products-details details:active {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.products-details[open] summary {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.products-details summary {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.products-details summary::-moz-focus-inner {
-  border: 0 !important;
+.nav-slot:hover .nav-slot-inner {
+  transform: translateY(-1.4em);
 }
 </style>

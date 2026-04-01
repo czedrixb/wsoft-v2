@@ -259,12 +259,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // Performance optimizations
-  experimental: {
-    payloadExtraction: true,
-    inlineSSRStyles: false,
-  },
-
   nitro: {
     prerender: {
       crawlLinks: false,
