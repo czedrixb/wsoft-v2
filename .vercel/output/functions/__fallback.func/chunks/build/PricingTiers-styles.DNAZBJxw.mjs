@@ -1,0 +1,7 @@
+const PricingTiers_vue_vue_type_style_index_0_scoped_a1c7c2dc_lang = '.card-container[data-v-a1c7c2dc]{position:relative;transition:all .3s ease}.card-container[data-v-a1c7c2dc]:before{background:linear-gradient(135deg,#a9d3d1,#d0e0f0,#ebdfbd,#c9e0ed,#fff0ea,#cdfcf2,#e4efff);border-radius:14px;content:"";inset:0;position:absolute;transition:all .3s ease;z-index:0}.card-container[data-v-a1c7c2dc]:hover:before{background:linear-gradient(135deg,#2376e9,#02c7d0);box-shadow:4px 8px 24px #02c7d07a}.border-gradient[data-v-a1c7c2dc]{background-clip:padding-box,border-box;background-image:linear-gradient(#f8fafc,#f8fafc),linear-gradient(135deg,#a9d3d1,#d0e0f0,#ebdfbd,#c9e0ed,#fff0ea,#cdfcf2,#e4efff);background-origin:border-box;border:1px solid transparent}';
+
+const PricingTiersStyles_DNAZBJxw = [
+  PricingTiers_vue_vue_type_style_index_0_scoped_a1c7c2dc_lang
+];
+
+export { PricingTiersStyles_DNAZBJxw as default };

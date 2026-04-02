@@ -1,0 +1,451 @@
+import { useI18n } from 'vue-i18n';
+import { f as useRoute, g as useRuntimeConfig } from './server.mjs';
+import { computed } from 'vue';
+
+const stripHtml = (html) => {
+  if (!html) return "";
+  return html.replace(/<[^>]+>/g, "");
+};
+const useStructuredData = (pageType = "home", pageData = {}) => {
+  const { t } = useI18n();
+  const route = useRoute();
+  const config = useRuntimeConfig();
+  const baseUrl = config.public.baseUrl;
+  const organizationSchema = {
+    "@type": "Organization",
+    "@id": `${baseUrl}`,
+    name: "W SoftLabs",
+    url: baseUrl,
+    logo: `${baseUrl}/images/home/w-softlabs.svg`,
+    description: t("elevate-business"),
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "KR"
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      url: `${baseUrl}/contact-us`
+    }
+  };
+  const websiteSchema = {
+    "@type": "WebSite",
+    "@id": `${baseUrl}`,
+    url: baseUrl,
+    name: "W Softlabs",
+    description: t("elevate-business"),
+    publisher: {
+      "@id": `${baseUrl}`
+    }
+  };
+  const homeSchema = {
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Service",
+          name: t("action-detection"),
+          description: t("offers-advanced"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Service",
+          name: t("rag"),
+          description: t("rag-technology"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Service",
+          name: t("data-driven"),
+          description: t("data-driven-text"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "Service",
+          name: t("web-app"),
+          description: t("build-innovative"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        item: {
+          "@type": "Service",
+          name: t("ui-design"),
+          description: t("design-intuitive"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        item: {
+          "@type": "Service",
+          name: t("ai-utilization"),
+          description: t("cut-customer"),
+          provider: {
+            "@id": `${baseUrl}`
+          }
+        }
+      }
+    ]
+  };
+  const aboutSchema = {
+    "@type": "AboutPage",
+    name: t("About Us"),
+    description: t("about-text"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "Organization",
+      name: "W-Softlabs",
+      description: t("dedicated-providing"),
+      url: baseUrl,
+      foundingDate: "2020",
+      founders: [],
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "KR"
+      },
+      knowsAbout: [
+        t("action-detection"),
+        t("rag"),
+        t("data-driven"),
+        t("web-app"),
+        t("ui-design"),
+        t("ai-utilization")
+      ]
+    }
+  };
+  const servicesSchema = {
+    "@type": "ItemList",
+    name: t("Services"),
+    description: t("services-text"),
+    url: `${baseUrl}${route.path}`,
+    numberOfItems: 9,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Service",
+          name: t("deep-learning"),
+          description: t("deep-learning-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "AI & Machine Learning",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Service",
+          name: t("real-time"),
+          description: t("real-time-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "Real-time Processing",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Service",
+          name: t("ai-text"),
+          description: t("ai-text-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "AI Solutions",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "Service",
+          name: t("custom-design"),
+          description: t("custom-design-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "Web Design",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        item: {
+          "@type": "Service",
+          name: t("content-management"),
+          description: t("content-management-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "Content Management",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        item: {
+          "@type": "Service",
+          name: t("admin-business"),
+          description: t("admin-business-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "Business Solutions",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 7,
+        item: {
+          "@type": "Service",
+          name: t("user-interaction"),
+          description: t("user-interaction-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "User Experience",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 8,
+        item: {
+          "@type": "Service",
+          name: t("advanced-features"),
+          description: t("advanced-features-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "Advanced Web Features",
+          areaServed: "Worldwide"
+        }
+      },
+      {
+        "@type": "ListItem",
+        position: 9,
+        item: {
+          "@type": "Service",
+          name: t("product-listing"),
+          description: t("product-listing-services-description"),
+          provider: {
+            "@id": `${baseUrl}`
+          },
+          serviceType: "E-commerce Solutions",
+          areaServed: "Worldwide"
+        }
+      }
+    ]
+  };
+  const ourWorksSchema = {
+    "@type": "CollectionPage",
+    name: t("Our Works"),
+    description: t("our-works-text"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: (pageData == null ? void 0 : pageData.projects) ? Object.keys(pageData.projects).length : 0,
+      itemListElement: (pageData == null ? void 0 : pageData.projects) ? Object.entries(pageData.projects).map(([key, project], index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: t(project.title),
+          description: t(`${project.title}`),
+          url: `${baseUrl}/our-works/${key}`,
+          image: `${baseUrl}/images/our-works/thumbnail/${project.image}`,
+          creator: {
+            "@id": `${baseUrl}`
+          }
+        }
+      })) : []
+    }
+  };
+  const contactSchema = {
+    "@type": "ContactPage",
+    name: t("contact-us"),
+    description: t("reach-out"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "Organization",
+      name: "W-Softlabs",
+      description: t("elevate-business"),
+      url: baseUrl,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: t("address"),
+        addressCountry: "KR"
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          email: "contact@wsoft.space",
+          telephone: "+82 10 5067 8800",
+          availableLanguage: ["English", "Korean"]
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "technical support",
+          email: "contact@wsoft.space",
+          availableLanguage: ["English", "Korean"]
+        }
+      ]
+    }
+  };
+  const blogIndexSchema = {
+    "@type": "CollectionPage",
+    name: t("Blogs"),
+    description: t("blogs-text"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: pageData.blogs ? pageData.blogs.length : 0,
+      itemListElement: pageData.blogs ? pageData.blogs.map((blog, index) => {
+        var _a;
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "BlogPosting",
+            name: blog.title,
+            description: blog.excerpt || stripHtml(blog.content).slice(0, 150) + "...",
+            url: `${baseUrl}/blogs/${blog.slug}`,
+            image: blog.banner_url || `${baseUrl}/images/blogs/blog-placeholder.png`,
+            datePublished: blog.published_at,
+            author: {
+              "@type": "Person",
+              name: ((_a = blog.author) == null ? void 0 : _a.name) || "W SoftLabs"
+            },
+            publisher: {
+              "@id": `${baseUrl}`
+            }
+          }
+        };
+      }) : []
+    }
+  };
+  const blogPostSchema = (blogData) => {
+    var _a;
+    return {
+      "@type": "BlogPosting",
+      name: blogData.title,
+      description: blogData.excerpt || stripHtml(blogData.content).slice(0, 150) + "...",
+      url: `${baseUrl}${route.path}`,
+      image: blogData.banner_url || `${baseUrl}/images/blogs/blog-placeholder.png`,
+      datePublished: blogData.published_at,
+      dateModified: blogData.updated_at || blogData.published_at,
+      author: {
+        "@type": "Person",
+        name: ((_a = blogData.author) == null ? void 0 : _a.name) || "W SoftLabs",
+        url: baseUrl
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "W SoftLabs",
+        url: baseUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${baseUrl}/images/home/w-softlabs.svg`
+        }
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${baseUrl}${route.path}`
+      },
+      articleBody: stripHtml(blogData.content)
+    };
+  };
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t(
+          pageType === "home" ? "Home" : pageType === "about" ? "About Us" : pageType === "services" ? "Services" : pageType === "our-works" ? "Our Works" : "Contact Us"
+        ),
+        item: `${baseUrl}${route.path}`
+      }
+    ]
+  };
+  let schema = {
+    "@context": "https://schema.org",
+    "@graph": [organizationSchema, websiteSchema, breadcrumbSchema]
+  };
+  if (pageType === "home") {
+    schema["@graph"].push(homeSchema);
+  } else if (pageType === "about") {
+    schema["@graph"].push(aboutSchema);
+  } else if (pageType === "services") {
+    schema["@graph"].push(servicesSchema);
+  } else if (pageType === "our-works") {
+    schema["@graph"].push(ourWorksSchema);
+  } else if (pageType === "contact") {
+    schema["@graph"].push(contactSchema);
+  } else if (pageType === "blog-index") {
+    schema["@graph"].push(blogIndexSchema);
+  } else if (pageType === "blog-post") {
+    schema["@graph"].push(blogPostSchema(pageData));
+  }
+  return schema;
+};
+const useCanonical = () => {
+  const route = useRoute();
+  const config = useRuntimeConfig();
+  const canonicalUrl = computed(() => {
+    const baseUrl = config.public.baseUrl || "https://wsoft-v2.vercel.app";
+    const path = route.path.replace(/\/+/g, "/");
+    return `${baseUrl}${path}`;
+  });
+  return {
+    canonicalUrl
+  };
+};
+
+export { useStructuredData as a, useCanonical as u };

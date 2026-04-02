@@ -154,15 +154,8 @@ export default defineNuxtConfig({
     // Homepage
     "/": {
       prerender: true,
-      isr: 3600, // Regenerate every hour
-      cache: {
-        maxAge: 3600,
-        staleMaxAge: 86400,
-        swr: true,
-      },
       headers: {
         "X-Robots-Tag": "index, follow",
-        "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
       },
     },
 
@@ -272,7 +265,7 @@ export default defineNuxtConfig({
         "/api/robots.txt",
         "/api/rss.xml",
       ],
-      ignore: ["/blogs", "/blogs/**", "/**/*.json"],
+      ignore: ["/blogs", "/blogs/**"],
     },
     routeRules: {
       "/_nuxt/**": {
@@ -283,16 +276,6 @@ export default defineNuxtConfig({
       "/_ipx/**": {
         headers: {
           "Cache-Control": "public, max-age=31536000, immutable",
-        },
-      },
-      "/**/*.css": {
-        headers: {
-          "Content-Type": "text/css",
-        },
-      },
-      "/**/*.scss": {
-        headers: {
-          "Content-Type": "text/css",
         },
       },
     },

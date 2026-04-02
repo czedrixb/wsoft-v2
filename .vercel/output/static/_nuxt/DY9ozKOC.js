@@ -1,0 +1,1 @@
+import{s as r}from"./BRA7iMiH.js";import{r as n,o as l,a as o}from"./CHCMXOLu.js";const i=(t,a)=>{const e=n(null);return l(()=>{e.value=r(t,a)}),o(()=>{e.value&&clearInterval(e.value)}),{stop:()=>{e.value&&(clearInterval(e.value),e.value=null)},start:()=>{e.value||(e.value=r(t,a))}}};export{i as u};

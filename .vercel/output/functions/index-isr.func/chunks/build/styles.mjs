@@ -1,0 +1,38 @@
+const interopDefault = r => r.default || r || [];
+const styles = {
+  "node_modules/nuxt/dist/app/entry.js": () => import('./entry-styles.DQcKrlya.mjs').then(interopDefault),
+  "pages/index.vue": () => import('./index-styles.Bbsu9_mL.mjs').then(interopDefault),
+  "pages/old_index.vue": () => import('./old_index-styles.D-NRxAmY.mjs').then(interopDefault),
+  "pages/revamp/about-us.vue": () => import('./about-us-styles.C3Hgzl9e.mjs').then(interopDefault),
+  "pages/revamp/products.vue": () => import('./products-styles.CzOVEsfe.mjs').then(interopDefault),
+  "pages/revamp/services.vue": () => import('./services-styles.BoMP200k.mjs').then(interopDefault),
+  "pages/revamp/our-projects.vue": () => import('./our-projects-styles.DBNjbukM.mjs').then(interopDefault),
+  "pages/revamp/newsroom/index.vue": () => import('./index-styles.Ble9BJq3.mjs').then(interopDefault),
+  "pages/revamp/privacy-policy.vue": () => import('./privacy-policy-styles.DSWFBJfB.mjs').then(interopDefault),
+  "pages/revamp/terms-conditions.vue": () => import('./terms-conditions-styles.BwhFRYGx.mjs').then(interopDefault),
+  "pages/revamp/newsroom/[news]/index.vue": () => import('./index-styles.5YRR8z66.mjs').then(interopDefault),
+  "pages/index.vue?vue&type=style&index=0&scoped=b3661cb3&lang.css": () => import('./index-styles.Bbsu9_mL.mjs').then(interopDefault),
+  "pages/old_index.vue?vue&type=style&index=0&scoped=f6e1356c&lang.css": () => import('./old_index-styles.D-NRxAmY.mjs').then(interopDefault),
+  "pages/revamp/about-us.vue?vue&type=style&index=0&scoped=4f38d955&lang.css": () => import('./about-us-styles.C3Hgzl9e.mjs').then(interopDefault),
+  "pages/revamp/products.vue?vue&type=style&index=0&scoped=72023843&lang.css": () => import('./products-styles.CzOVEsfe.mjs').then(interopDefault),
+  "pages/revamp/services.vue?vue&type=style&index=0&scoped=6dc2e465&lang.css": () => import('./services-styles.BoMP200k.mjs').then(interopDefault),
+  "pages/revamp/our-projects.vue?vue&type=style&index=0&scoped=e71750fe&lang.css": () => import('./our-projects-styles.DBNjbukM.mjs').then(interopDefault),
+  "pages/revamp/privacy-policy.vue?vue&type=style&index=0&scoped=cca213af&lang.css": () => import('./privacy-policy-styles.DSWFBJfB.mjs').then(interopDefault),
+  "pages/revamp/terms-conditions.vue?vue&type=style&index=0&scoped=5e6add2f&lang.css": () => import('./terms-conditions-styles.BwhFRYGx.mjs').then(interopDefault),
+  "components/Navbar.vue": () => import('./Navbar-styles.DuDE3rc8.mjs').then(interopDefault),
+  "components/Navbar.vue?vue&type=style&index=0&scoped=6b0c1672&lang.css": () => import('./Navbar-styles.DuDE3rc8.mjs').then(interopDefault),
+  "pages/revamp/newsroom/[news]/index.vue?vue&type=style&index=0&scoped=5e253ed5&lang.css": () => import('./index-styles.5YRR8z66.mjs').then(interopDefault),
+  "pages/revamp/newsroom/index.vue?vue&type=style&index=0&scoped=a5bb1e59&lang.css": () => import('./index-styles.Ble9BJq3.mjs').then(interopDefault),
+  "components/Banner.vue": () => import('./Banner-styles.CKXE_3P2.mjs').then(interopDefault),
+  "components/TechStack.vue": () => import('./TechStack-styles.C6F4rcxh.mjs').then(interopDefault),
+  "components/BriefServices.vue": () => import('./BriefServices-styles.phKDf1v0.mjs').then(interopDefault),
+  "components/Banner.vue?vue&type=style&index=0&scoped=b787c00b&lang.css": () => import('./Banner-styles.CKXE_3P2.mjs').then(interopDefault),
+  "components/TechStack.vue?vue&type=style&index=0&scoped=c20e3046&lang.css": () => import('./TechStack-styles.C6F4rcxh.mjs').then(interopDefault),
+  "components/BriefServices.vue?vue&type=style&index=0&scoped=46be2845&lang.css": () => import('./BriefServices-styles.phKDf1v0.mjs').then(interopDefault),
+  "components/PricingTiers.vue": () => import('./PricingTiers-styles.DNAZBJxw.mjs').then(interopDefault),
+  "components/PricingTiers.vue?vue&type=style&index=0&scoped=a1c7c2dc&lang.css": () => import('./PricingTiers-styles.DNAZBJxw.mjs').then(interopDefault),
+  "components/Carousel.vue": () => import('./Carousel-styles.MPYYIsM9.mjs').then(interopDefault),
+  "components/Carousel.vue?vue&type=style&index=0&scoped=ec199268&lang.css": () => import('./Carousel-styles.MPYYIsM9.mjs').then(interopDefault)
+};
+
+export { styles as default };
