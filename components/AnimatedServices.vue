@@ -1,6 +1,5 @@
 <template>
   <div ref="servicesContainer">
-    <!-- Section 1: AI Automation -->
     <div class="service-section bg-[#e2e8f0] relative overflow-hidden">
       <div class="mx-auto px-8 max-w-screen-4xl py-16">
         <div class="relative">
@@ -49,11 +48,18 @@
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
-            <NuxtImg
-              src="/images/revamp/home/services/ai-automation-animate.png"
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
               class="h-auto object-cover w-full"
-              width="598px"
-            />
+            >
+              <source
+                src="/images/revamp/home/services/ai-automation-animate.webm"
+                type="video/webm"
+              />
+            </video>
           </div>
         </div>
       </div>
@@ -108,11 +114,18 @@
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
-            <NuxtImg
-              src="/images/revamp/home/services/ai-automation-animate.png"
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
               class="h-auto object-cover w-full"
-              width="598px"
-            />
+            >
+              <source
+                src="/images/revamp/home/services/legacy-system-animate.webm"
+                type="video/webm"
+              />
+            </video>
           </div>
         </div>
       </div>
@@ -167,11 +180,18 @@
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
-            <NuxtImg
-              src="/images/revamp/home/services/ai-automation-animate.png"
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
               class="h-auto object-cover w-full"
-              width="598px"
-            />
+            >
+              <source
+                src="/images/revamp/home/services/saas-custom-animate.webm"
+                type="video/webm"
+              />
+            </video>
           </div>
         </div>
       </div>
@@ -227,11 +247,18 @@
           <div
             class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
           >
-            <NuxtImg
-              src="/images/revamp/home/services/ai-automation-animate.png"
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
               class="h-auto object-cover w-full"
-              width="598px"
-            />
+            >
+              <source
+                src="/images/revamp/home/services/education-administration-animate.webm"
+                type="video/webm"
+              />
+            </video>
           </div>
         </div>
       </div>

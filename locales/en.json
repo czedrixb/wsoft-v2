@@ -666,7 +666,14 @@
       "description": "Global Top 5 pharmaceutical companies, biotech firms, and research institutions can leverage our AI-powered biomedical imaging analysis software to accelerate cutting-edge projects like LC-OCT and 3D skin analysis."
     },
     "banner": {
-      "title": "A Global AI-First Development Partner Redesigning Productivity",
+      "title1": "A Global AI-First Development Partner Redesigning Productivity",
+      "title2": "We maximize work efficiency",
+      "title3": "We connect possibilities",
+      "title4": "We design a growth engine",
+      "title5": "We innovate with AI",
+      "title6": "We design trust",
+      "title7": "We innovate with data",
+      "title8": "We lead the future of technology",
       "subtitle": "We don't just build software—we design intelligent systems that transform how organizations work.",
       "description": "W Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
       "button": "Get to know us"
@@ -1006,37 +1013,264 @@
       "aiEncouragement": {
         "title": "AI Encouragement Generation Platform",
         "description": "Behind-the-scenes CMS engine enabling seamless online book digitization and video subtitle integration, allowing administrators to manage text, images, interactive elements, and multimedia accessibility from a centralized platform.",
-        "cta": "Ask about WIZ Assistant"
+        "cta": "Ask about AI Encouragement Generator"
       },
       "aiDietTracker": {
         "title": "AI-Aided Diet and Calorie Analysis Tracker",
-        "description": "English language learning platform offering curated video clips (movies, talk shows, lyrics) with integrated interactive activities, facilitating authentic language acquisition through multimedia content and seamless in-video learning exercises."
+        "description": "English language learning platform offering curated video clips (movies, talk shows, lyrics) with integrated interactive activities, facilitating authentic language acquisition through multimedia content and seamless in-video learning exercises.",
+        "cta": "Ask about AI-Aided Diet and Calorie Analysis"
       },
       "aiTranslator": {
         "title": "AI-Powered Multilingual Translator",
-        "description": "Advertising marketing project management platform with real-time data monitoring, featuring user-friendly dashboards, integrated client/cost management, and streamlined business process workflows."
+        "description": "Advertising marketing project management platform with real-time data monitoring, featuring user-friendly dashboards, integrated client/cost management, and streamlined business process workflows.",
+        "cta": "Ask about AI-Powered Multilingual Translator"
       },
       "aiAudioGenerator": {
         "title": "AI-Generating Audio File",
-        "description": "Digital transformation of Talking Plus and SLE textbooks from hard copy to interactive online format using Laravel API and Vue.js 2, featuring content digitization and seamless backend data management."
+        "description": "Digital transformation of Talking Plus and SLE textbooks from hard copy to interactive online format using Laravel API and Vue.js 2, featuring content digitization and seamless backend data management.",
+        "cta": "Ask about AI-Generating Audio File Generator"
       },
       "aiSelfManagement": {
         "title": "AI Self-Management and Motivation",
-        "description": "Automated data extraction and collection system for gathering, processing, and organizing web-based information for business intelligence and analysis."
+        "description": "Automated data extraction and collection system for gathering, processing, and organizing web-based information for business intelligence and analysis.",
+        "cta": "Ask about AI Self-Management and Motivator"
       },
       "aiEvaluation": {
         "title": "AI-Evaluating Assignment & Learning System",
-        "description": "Performance benchmarking system testing and comparing database systems through complex business queries, measuring speed, efficiency, and scalability to optimize decision-making and data analysis."
+        "description": "Performance benchmarking system testing and comparing database systems through complex business queries, measuring speed, efficiency, and scalability to optimize decision-making and data analysis.",
+        "cta": "Ask about AI Assignment & Learning Evaluator"
       },
       "aiLanguageLearning": {
         "title": "AI-Enhanced Language Learning Platform",
-        "description": "E-commerce AI platform analyzing large volumes of customer reviews using sophisticated algorithms, providing comprehensive insights to help sellers refine products and identify new sales opportunities."
+        "description": "E-commerce AI platform analyzing large volumes of customer reviews using sophisticated algorithms, providing comprehensive insights to help sellers refine products and identify new sales opportunities.",
+        "cta": "Ask about AI Language Learner"
       }
     }
   },
   "our-projects": {
     "title": "Projects",
-    "description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance."
+    "description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance.",
+    "notFound": "Project not found.",
+    "ai-encouragement-generation-platform": {
+      "header": {
+        "title": "AI Motivation Application - KindleUp",
+        "subtitle": "AI Motivation Application",
+        "description": "KindleUp transforms workplace encouragement by combining AI-powered natural language generation with emotional intelligence, enabling leaders and team members to express authentic appreciation instantly. This application reduces message composition time from several minutes to seconds while increasing encouragement frequency by 3x through personalized tone adaptation, context-aware suggestions, and intuitive mobile-first design."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Template-Based Recognition Workflow",
+          "descriptionBody": "Time constraints preventing thoughtful appreciation, generic templates feeling impersonal, difficulty articulating encouragement in diverse situations, and inconsistent recognition culture—making meaningful workplace communication rare.",
+          "solution": "AI-powered encouragement messaging platform with natural language generation, flexible tone adaptation (inspiring, humorous, formal, casual), context-aware personalization, and real-time message creation enabling authentic appreciation without time burden."
+        },
+        "section2": {
+          "titleKey": "AI-Enhanced Emotional Communication Philosophy",
+          "descriptionBody": "W Labs approached this as reducing barriers to authentic human connection, not automating emotional labor. We treated AI as a tool amplifying users' genuine appreciation rather than replacing their emotional intelligence."
+        },
+        "section3": {
+          "titleKey": "Impact on Workplace Culture",
+          "descriptionBody": "KindleUp represents a paradigm shift in recognition culture. By removing time and skill barriers through AI, we've systematized authentic appreciation across organizations."
+        }
+      }
+    },
+    "ai-measuring-analysis-skin-optics": {
+      "header": {
+        "title": "Optical Microscope – Based Skin Measurement",
+        "subtitle": "AI-Measuring & Analysis Skin Optics",
+        "description": "The Optical-Based Skin Measurement System transforms dermatological research by combining high-magnification digital microscopy with AI-powered image analysis, enabling quantitative skin surface evaluation instantly. This system provides objective pore density, flake area, texture roughness, and skin tone measurements through automated analysis of optical microscopy images—supporting cosmetic research and comparative skin studies."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "AI-Measuring & Analysis Skin Optics",
+          "descriptionBody": [
+            "A quantitative analysis project for measuring pore density and pore area ratio",
+            "Tracks skin condition based on the proportion of pore-occupied area relative to a fixed ROI"
+          ],
+          "solutionLabel": "Key Characteristics",
+          "solution": [
+            "Proof of Concept (PoC) implementation feasible without deep learning",
+            "Extremely high user intuitiveness and interpretability"
+          ]
+        },
+        "section2": {
+          "titleKey": "Flake Area Ratio Analyzer",
+          "descriptionBody": [
+            "A project for analyzing the area ratio of dead skin flakes",
+            "Optimized for before-and-after comparison of cleansing and exfoliation treatments"
+          ],
+          "solutionLabel": "Key Characteristics",
+          "solution": [
+            "Strong visual persuasiveness due to clearly observable results",
+            "Highly suitable for integration with cosmetics and dermatology marketing use cases"
+          ]
+        },
+        "section3": {
+          "titleKey": "Skin Roughness (Texture) Scoring Engine",
+          "descriptionBody": [
+            "A project that quantifies skin surface roughness (texture) as a numerical score",
+            "Evaluates skin texture based on the intensity of high-frequency image components"
+          ],
+          "solutionLabel": "Key Characteristics",
+          "solution": [
+            "High information density relative to implementation complexity",
+            "Significantly enhanced interpretability when combined with pore and flake metrics"
+          ]
+        },
+        "section4": {
+          "titleKey": "Darkness / Skin Tone Quantification Module",
+          "descriptionBody": [
+            "A project for quantitative analysis of skin brightness and tone using metrics such as L* and ITA°",
+            "Tracks changes in skin brightness and pigmentation based on color-space analysis"
+          ],
+          "solutionLabel": "Key Characteristics",
+          "solution": [
+            "Well-suited for evaluating skin brightening treatments and UV exposure effects",
+            "Universally applicable across global skin types"
+          ]
+        }
+      }
+    },
+    "ai-aided-diet-calorie-analysis-tracker": {
+      "header": {
+        "title": "Diet & Calorie Analyser - YumTrack",
+        "subtitle": "AI-Aided Diet and Calorie Analysis Tracker",
+        "description": "YumTrack transforms nutrition tracking by combining computer vision with AI-powered food recognition, enabling users to log meals instantly through photos. This Progressive Web Application reduces meal logging time from minutes to seconds while improving tracking accuracy through visual-first interaction, portion size estimation, and historical eating pattern insights."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Manual Database Search Workflow",
+          "descriptionBody": "Manual calorie tracking requiring extensive database searches, users abandoning apps due to complexity, no instant feedback at meal decision points, and lack of historical eating pattern insights—making consistent nutrition tracking unsustainable.",
+          "solution": "Camera-first AI food tracking PWA with instant food recognition via GPT-4 Vision API, automated calorie calculation, portion size estimation through visual analysis, minimal user input, offline capabilities, and installable functionality on iOS and Android."
+        },
+        "section2": {
+          "titleKey": "Visual-First Nutrition Tracking Philosophy",
+          "descriptionBody": "W Labs approached this as making calorie tracking as simple as taking a photo, not simplifying database entry. We treated food recognition as seamless camera interaction eliminating manual search entirely, enabling instant nutrition feedback at meal decision points."
+        },
+        "section3": {
+          "titleKey": "Impact on Personal Health Technology Industry",
+          "descriptionBody": "YumTrack represents paradigm shift in nutrition tracking—from tedious database entry to effortless photo logging. By eliminating manual search friction through computer vision AI, we've made consistent tracking sustainable for everyday users, democratizing nutrition awareness previously requiring significant time investment or professional guidance."
+        }
+      }
+    },
+    "ai-powered-multilingual-translator": {
+      "header": {
+        "title": "Multilingual Translator Platform - Lingrid",
+        "subtitle": "AI-Powered Multilingual Translator",
+        "description": "Lingrid revolutionizes how developers and designers manage multilingual content by combining AI-powered translation with collaborative workflow management. This platform reduces translation time by 85% while maintaining context-aware accuracy through real-time translation APIs, version control, and project-based collaboration—all designed for development team efficiency."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Fragmented Workflow",
+          "descriptionBody": "Development teams faced fragmented translation workflows, manual context management, version control chaos, and no collaborative translation system—making multilingual application development slow, error-prone, and expensive.",
+          "solution": "A comprehensive translation management platform with AI-powered real-time translation, hierarchical key organization, collaborative workflows, version control, and multi-format export—all integrated with development team processes."
+        },
+        "section2": {
+          "titleKey": "Unified Translation Management Platform Philosophy",
+          "descriptionBody": "W Labs approached this challenge as a complete localization ecosystem redesign, not just a translation tool. We treated AI-powered translation, collaborative team workflows, version control, development integration, and real-time synchronization as interconnected system requirements that must work seamlessly for distributed teams."
+        },
+        "section3": {
+          "titleKey": "Impact on Software Localization Industry",
+          "descriptionSubtitle": "Lingrid represents a paradigm shift in how small-to-medium development teams approach application localization. Previously, professional localization was financially viable only for large companies with dedicated budgets. By combining AI automation with collaborative workflows, we've democratized access to professional-quality localization.",
+          "descriptionBody": "The platform's success validates AI-assisted translation as a viable approach when properly integrated with human expertise. Development teams now expand into new markets 3-4x faster than before, directly impacting revenue potential and global reach. Business Model Validation"
+        }
+      }
+    },
+    "ai-generating-audio-file": {
+      "header": {
+        "title": "AI-powered Audio File Generator - AudioMint",
+        "subtitle": "AI-powered Audio File Generation Application",
+        "description": "AudioMint transforms text-to-speech conversion by combining neural voice synthesis with batch processing automation, enabling content creators to generate professional audio instantly. This application reduces audio production time from hours to minutes while eliminating equipment costs through web-based text-to-speech, multi-language support, and scalable batch processing."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Manual Voice Recording Workflow",
+          "descriptionBody": "Traditional voice recording requiring specialized equipment and expertise, manual audio production being time-consuming and costly, scaling audio content creation impractical for large volumes, and lack of accessibility compliance in text-only content.",
+          "solution": "Web-based text-to-speech platform with advanced neural voice synthesis, batch processing supporting JSON and CSV formats, prosody controls for speed and pitch adjustment, automatic MP3 encoding, and usage tracking for resource management."
+        },
+        "section2": {
+          "titleKey": "Automated Audio Production Workflow Philosophy",
+          "descriptionBody": "W Labs approached this as workflow optimization through AI automation, not just voice synthesis. We treated text-to-speech conversion as production pipeline replacing manual recording entirely."
+        },
+        "section3": {
+          "titleKey": "Impact on Content Accessibility",
+          "descriptionBody": "AudioMint represents a paradigm shift in audio content creation—from specialized production to automated generation. By eliminating equipment and expertise barriers, we've made audio accessibility economically feasible for any content volume."
+        }
+      }
+    },
+    "ai-self-management-motivation": {
+      "header": {
+        "title": "AI Self-Management and Motivator - ToDon't",
+        "subtitle": "AI Self-Management and Motivation Application",
+        "description": "ToDon't transforms task management by combining radical simplicity with positive reinforcement, enabling users to focus on completion rather than organization. This application increases task completion rates through minimalist three-column Kanban design, instant visual progress feedback, and AI-generated motivational messages at completion moments."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Feature-Rich Task Management Workflow",
+          "descriptionBody": "Existing productivity apps overwhelming users with excessive features, complex interfaces reducing task completion, decision fatigue from customization options, and lack of positive reinforcement leading to motivation decline.",
+          "solution": "Minimalist task management with three-column Kanban board (To Do, In Progress, Done), drag-and-drop simplicity, AI-powered motivational messages at completions, zero learning curve, and distraction elimination as core value."
+        },
+        "section2": {
+          "titleKey": "Constraint-Based Productivity Philosophy",
+          "descriptionBody": "W Labs approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
+        },
+        "section3": {
+          "titleKey": "Impact on Productivity Culture",
+          "descriptionBody": "ToDon't represents paradigm shift—productivity through subtraction not addition. By eliminating feature overwhelm, we've created tool serving completion rather than organization."
+        }
+      }
+    },
+    "ai-evaluating-assignment-learning-system": {
+      "header": {
+        "title": "U Education Learning Management System (LMS)",
+        "subtitle": "AI-Evaluating Assignment & Learning System",
+        "description": "U Education LMS transforms how educational institutions evaluate student assignments by combining artificial intelligence with human expertise. This system reduces administrative burden by 70% while improving evaluation consistency and providing data-driven insights into learning outcomes."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Manual Workflow",
+          "descriptionBody": "Manual grading processes consuming excessive time, producing inconsistent results, and providing no structured analytics.",
+          "solution": "An intelligent evaluation system that automates repetitive tasks while maintaining human oversight and institutional accountability."
+        },
+        "section2": {
+          "titleKey": "System-Level Redesign Philosophy",
+          "descriptionBody": "W Labs approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
+        },
+        "section3": {
+          "titleKey": "Impact on Education",
+          "descriptionSubtitle": "U Education LMS represents a fundamental shift in how educational institutions can leverage technology. By automating mechanical tasks while preserving human judgment, we enable educators to focus on what they do best—teaching and mentoring students. The data generated by the system drives continuous improvement in curriculum and instruction.",
+          "descriptionBody": "This is AI-driven productivity redesign applied to education: measurable efficiency gains, improved outcomes, and scalable impact."
+        }
+      }
+    },
+    "ai-enhanced-language-learning-platform": {
+      "header": {
+        "title": "Modern Digital Language Learning Platform - Pagoda Talking Plus",
+        "subtitle": "AI-Enhanced Language Learning Platform",
+        "description": "Pagoda Talking Plus transforms English language learning by combining AI conversation practice with structured curriculum, enabling Korean learners to build real-world speaking confidence through personalized feedback and immersive practice. This mobile-first platform bridges the gap between textbook knowledge and practical speaking ability through daily interactive lessons, pronunciation scoring, and adaptive learning paths."
+      },
+      "sections": {
+        "section1": {
+          "titleKey": "Previous vs W Lab's Approach",
+          "descriptionSubtitle": "The Traditional Classroom Learning Workflow",
+          "descriptionBody": "Korean English learners struggle with speaking confidence despite years of grammar study, lacking opportunities for meaningful conversation practice without fear of judgment. Traditional classroom methods couldn't provide scalable, personalized speaking practice accessible anytime, anywhere.",
+          "solution": "Mobile-first learning platform with AI conversation partners, bite-sized daily lessons, pronunciation feedback, video content from native speakers, vocabulary building with spaced repetition, and comprehensive progress tracking adapting to each learner's pace and goals."
+        },
+        "section2": {
+          "titleKey": "Digital-First Conversational Learning Philosophy",
+          "descriptionBody": "W Labs approached this as creating safe, judgment-free practice environments powered by AI, not replacing teachers but extending practice beyond classroom constraints. We treated speaking confidence as skill requiring high-volume practice with immediate feedback—achievable only through scalable technology."
+        },
+        "section3": {
+          "titleKey": "Impact on Language Education Industry",
+          "descriptionBody": "Pagoda Talking Plus represents paradigm shift in English education—from limited classroom practice to unlimited personalized AI conversations. By eliminating scheduling constraints and speaking anxiety, we've made fluency development accessible to anyone with smartphone and motivation."
+        }
+      }
+    }
   },
   "newsroom": {
     "title": "Newsroom",

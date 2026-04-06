@@ -61,13 +61,11 @@
                 </p>
               </div>
 
-              <!-- Card: Featured Blog OR static fallback -->
               <div
                 v-else
                 class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
                 :style="{ minHeight: '300px', aspectRatio: '4/3' }"
               >
-                <!-- Blog banner when available and not broken -->
                 <img
                   v-if="featuredBlog && featuredBlog.banner_url && !bannerError"
                   :src="featuredBlog.banner_url"
@@ -78,7 +76,6 @@
                   @error="onBannerError"
                 />
 
-                <!-- Default newsroom image fallback -->
                 <NuxtImg
                   v-else
                   src="/images/revamp/newsroom/news-1.png"
@@ -98,7 +95,13 @@
                 >
                   <div class="h-full p-4 md:p-6 lg:p-8 flex flex-col">
                     <h5
-                      class="text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#0A1628] line-clamp-3 max-w-lg"
+                      class="text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#0A1628] max-w-[55%]"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
                     >
                       {{
                         featuredBlog?.title ||
@@ -107,15 +110,20 @@
                     </h5>
 
                     <p
-                      class="mt-2 md:mt-3 lg:mt-5 text-[#20252CE5] font-semibold text-[12px] md:text-[14px] line-clamp-3 max-w-lg"
+                      class="mt-2 md:mt-3 lg:mt-5 text-[#20252CE5] font-semibold text-[12px] md:text-[14px] max-w-[55%]"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
                     >
                       {{
                         featuredBlog
-                          ? featuredBlog.excerpt ||
-                            stripHtml(featuredBlog.content || "").slice(
-                              0,
-                              150,
-                            ) + "..."
+                          ? (
+                              featuredBlog.excerpt ||
+                              stripHtml(featuredBlog.content || "")
+                            ).slice(0, 80) + "..."
                           : t("newsroom.featuredArticle.description")
                       }}
                     </p>

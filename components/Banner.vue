@@ -7,8 +7,8 @@
         <h2
           class="text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
         >
-          <span>{{ displayedTitle }}</span
-          ><span
+          <span>{{ displayedTitle }}</span>
+          <span
             class="inline-block w-[3px] h-[56px] ml-1 align-middle bg-gradient-to-b from-[#2376E9] to-[#02C7D0] rounded-sm"
             :class="showCursor ? 'opacity-100' : 'opacity-0'"
           />
@@ -40,14 +40,11 @@
               class="w-full h-full rounded-full bg-white group-hover:bg-transparent transition-all"
             ></div>
           </div>
-
-          <!-- Text -->
           <span
             class="relative z-10 font-medium bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white] transition-all"
           >
             {{ $t("home.banner.button") }}
           </span>
-
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -86,55 +83,94 @@
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
-const fullTitle = computed(() => t("home.banner.title"));
+const titles = computed(() => [
+  t("home.banner.title1"),
+  t("home.banner.title2"),
+  t("home.banner.title3"),
+  t("home.banner.title4"),
+  t("home.banner.title5"),
+  t("home.banner.title6"),
+  t("home.banner.title7"),
+  t("home.banner.title8"),
+]);
 
 const displayedTitle = ref("");
 const showCursor = ref(true);
-const isDone = ref(false);
 
 let typingTimer = null;
 let cursorTimer = null;
+let currentIndex = 0;
 
-const startTyping = () => {
-  clearInterval(typingTimer);
+const TYPING_SPEED = 50;
+const ERASE_SPEED = 30;
+const PAUSE_AFTER_TYPE = 2000;
+const PAUSE_AFTER_ERASE = 400;
+
+const stopAll = () => {
+  clearTimeout(typingTimer);
   clearInterval(cursorTimer);
+};
 
-  displayedTitle.value = "";
-  isDone.value = false;
+const startCursorBlink = () => {
+  clearInterval(cursorTimer);
   showCursor.value = true;
-  let index = 0;
-  const text = fullTitle.value;
-
-  typingTimer = setInterval(() => {
-    if (index < text.length) {
-      displayedTitle.value += text[index];
-      index++;
-    } else {
-      clearInterval(typingTimer);
-      isDone.value = true;
-      setTimeout(() => {
-        clearInterval(cursorTimer);
-        showCursor.value = false;
-      }, 2000);
-    }
-  }, 50);
-
   cursorTimer = setInterval(() => {
     showCursor.value = !showCursor.value;
   }, 500);
 };
 
-watch(fullTitle, () => {
-  startTyping();
+const eraseTitle = (callback) => {
+  const erase = () => {
+    if (displayedTitle.value.length > 0) {
+      displayedTitle.value = displayedTitle.value.slice(0, -1);
+      typingTimer = setTimeout(erase, ERASE_SPEED);
+    } else {
+      typingTimer = setTimeout(callback, PAUSE_AFTER_ERASE);
+    }
+  };
+  erase();
+};
+
+const typeTitle = (text, callback) => {
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      displayedTitle.value += text[i];
+      i++;
+      typingTimer = setTimeout(type, TYPING_SPEED);
+    } else {
+      typingTimer = setTimeout(() => {
+        eraseTitle(callback);
+      }, PAUSE_AFTER_TYPE);
+    }
+  };
+  type();
+};
+
+const cycleNext = () => {
+  const text = titles.value[currentIndex];
+  currentIndex = (currentIndex + 1) % titles.value.length;
+  typeTitle(text, cycleNext);
+};
+
+const startCycle = () => {
+  stopAll();
+  displayedTitle.value = "";
+  currentIndex = 0;
+  startCursorBlink();
+  cycleNext();
+};
+
+watch(titles, () => {
+  startCycle();
 });
 
 onMounted(() => {
-  startTyping();
+  startCycle();
 });
 
 onUnmounted(() => {
-  clearInterval(typingTimer);
-  clearInterval(cursorTimer);
+  stopAll();
 });
 </script>
 
