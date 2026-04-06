@@ -20,14 +20,14 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t(col.titleKey) }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mt-8">
+              <p class="text-[#20252CE5] font-semibold text-md mt-8">
                 {{ $t(col.descriptionKey) }}
               </p>
               <div v-if="col.cta" class="mt-5">
                 <div class="max-w-xl mx-auto">
                   <router-link
                     :to="col.cta.to"
-                    class="border border-[#20252CE5] px-10 py-2 text-[14px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
+                    class="border border-[#20252CE5] px-10 py-2 text-sm text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
                   >
                     {{ $t(col.cta.labelKey) }}
                     <svg

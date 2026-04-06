@@ -11,9 +11,7 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("about.animated_about.cutting_edge.title") }}
               </h3>
-              <p
-                class="text-[#20252CE5] font-semibold text-[14px] mt-8 max-w-md"
-              >
+              <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{ $t("about.animated_about.cutting_edge.description") }}
               </p>
             </div>
@@ -28,21 +26,26 @@
                 />
               </div>
               <div
-                class="section-animate-img absolute inset-0 flex items-center justify-center z-10"
+                class="section-animate-img absolute inset-0 hidden lg:flex items-center justify-center z-10"
               >
-                <NuxtImg
-                  src="/images/revamp/about-us/cutting-edge-animate.png"
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
                   class="h-auto object-cover"
-                  width="200px"
-                  :alt="$t('about.animated_about.cutting_edge.title')"
-                />
+                  width="400"
+                >
+                  <source
+                    src="/images/revamp/about-us/cutting-edge-animate.webm"
+                    type="video/webm"
+                  />
+                </video>
               </div>
             </div>
 
             <div class="section-second-text self-center">
-              <p
-                class="text-[#20252CE5] font-semibold text-[14px] mt-8 max-w-md"
-              >
+              <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{ $t("about.animated_about.cutting_edge.second_description") }}
               </p>
             </div>
@@ -59,9 +62,7 @@
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
             <div class="section-second-text self-center">
-              <p
-                class="text-[#20252CE5] font-semibold text-[14px] mt-8 max-w-md"
-              >
+              <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{
                   $t(
                     "about.animated_about.expertise_innovation.second_description",
@@ -80,14 +81,21 @@
                 />
               </div>
               <div
-                class="section-animate-img absolute inset-0 flex items-center justify-center z-10"
+                class="section-animate-img absolute inset-0 hidden lg:flex items-center justify-center z-10"
               >
-                <NuxtImg
-                  src="/images/revamp/about-us/cutting-edge-animate.png"
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
                   class="h-auto object-cover"
-                  width="200px"
-                  :alt="$t('about.animated_about.cutting_edge.title')"
-                />
+                  width="400"
+                >
+                  <source
+                    src="/images/revamp/about-us/expertise-innovation-animate.webm"
+                    type="video/webm"
+                  />
+                </video>
               </div>
             </div>
 
@@ -95,9 +103,7 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("about.animated_about.expertise_innovation.title") }}
               </h3>
-              <p
-                class="text-[#20252CE5] font-semibold text-[14px] mt-8 max-w-md"
-              >
+              <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{
                   $t("about.animated_about.expertise_innovation.description")
                 }}
@@ -119,7 +125,7 @@
               <h3 class="text-[#64748B] text-[24px] font-[400]">
                 {{ $t("about.animated_about.reliable_partner.title") }}
               </h3>
-              <p class="text-[#20252CE5] font-semibold text-[14px] mt-8">
+              <p class="text-[#20252CE5] font-semibold text-md mt-8">
                 {{ $t("about.animated_about.reliable_partner.description") }}
               </p>
             </div>
@@ -134,21 +140,26 @@
                 />
               </div>
               <div
-                class="section-animate-img absolute inset-0 flex items-center justify-center z-10"
+                class="section-animate-img absolute inset-0 hidden lg:flex items-center justify-center z-10"
               >
-                <NuxtImg
-                  src="/images/revamp/about-us/cutting-edge-animate.png"
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
                   class="h-auto object-cover"
-                  width="200px"
-                  :alt="$t('about.animated_about.cutting_edge.title')"
-                />
+                  width="400"
+                >
+                  <source
+                    src="/images/revamp/about-us/reliable-technology-animate.webm"
+                    type="video/webm"
+                  />
+                </video>
               </div>
             </div>
 
             <div class="section-second-text self-center">
-              <p
-                class="text-[#20252CE5] font-semibold text-[14px] mt-8 max-w-md"
-              >
+              <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{
                   $t("about.animated_about.reliable_partner.second_description")
                 }}

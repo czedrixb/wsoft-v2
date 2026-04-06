@@ -7,22 +7,20 @@
 </template>
 
 <script setup>
+import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
-import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
-import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
 
 const { canonicalUrl } = useCanonical();
-
-const { locale, t } = useI18n();
+const { t } = useI18n();
 const config = useRuntimeConfig();
 
-const currentLanguage = computed(() => locale.value);
-
-const staticMetaTitle = t("services.metaTitle");
-const staticMetaDescription = t("services.metaDescription");
-const staticMetaKeywords = t("services.metaKeywords");
+const staticMetaTitle = t("services-title");
+const staticMetaDescription = t("services-description");
+const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
+  t(`services-meta-keyword-${i + 1}`),
+).join(", ");
 
 const structuredData = useStructuredData("services");
 
@@ -51,20 +49,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.6s ease-in-out;
-}
-</style>

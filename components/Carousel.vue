@@ -40,9 +40,7 @@
             <div class="col-span-12 order-2 md:order-1 md:col-span-6">
               <div class="flex flex-col h-full">
                 <div class="flex-grow space-y-2 md:space-y-8 mb-16">
-                  <div
-                    class="text-[16px] md:text-[24px] font-medium leading-snug"
-                  >
+                  <div class="text-lg md:text-[24px] font-medium leading-snug">
                     <p>
                       {{ $t(`home.carousel.slide${slide.id + 1}.title.line1`) }}
                     </p>
@@ -52,7 +50,7 @@
                   </div>
 
                   <div
-                    class="font-semibold text-[11px] md:text-[16px] opacity-90 hidden sm:block"
+                    class="font-semibold text-md md:text-[16px] opacity-90 hidden sm:block"
                   >
                     <p>
                       {{
@@ -64,7 +62,7 @@
                   </div>
 
                   <div
-                    class="font-semibold text-[11px] md:text-[16px] opacity-90 hidden sm:block"
+                    class="font-semibold text-md md:text-[16px] opacity-90 hidden sm:block"
                   >
                     <p>
                       {{
@@ -76,7 +74,7 @@
                   </div>
 
                   <div
-                    class="font-semibold text-[11px] opacity-90 sm:hidden line-clamp-3"
+                    class="font-semibold text-md opacity-90 sm:hidden line-clamp-3"
                   >
                     <p>
                       {{
@@ -88,7 +86,7 @@
                   </div>
                 </div>
                 <button
-                  class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-[11px] md:text-sm"
+                  class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm"
                 >
                   {{ $t("home.carousel.readMore") }}
                   <svg

@@ -14,7 +14,7 @@
               <li
                 v-for="(item, index) in deepLearningItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -55,7 +55,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/real-time-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -68,7 +68,7 @@
               <li
                 v-for="(item, index) in realTimeStreamingItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -92,7 +92,7 @@
               <li
                 v-for="(item, index) in aiDataIntegrationItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -100,7 +100,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/ai-data-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -133,7 +133,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/custom-media-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -146,7 +146,7 @@
               <li
                 v-for="(item, index) in customDesignItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -170,7 +170,7 @@
               <li
                 v-for="(item, index) in contentMediaItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -178,7 +178,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/content-media-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -211,7 +211,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/admin-business-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -224,7 +224,7 @@
               <li
                 v-for="(item, index) in adminBusinessItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -248,7 +248,7 @@
               <li
                 v-for="(item, index) in userInteractionItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -256,7 +256,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/user-interaction-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -289,7 +289,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/advanced-features-animate.png"
               class="h-auto object-cover"
               width="291px"
             />
@@ -302,7 +302,7 @@
               <li
                 v-for="(item, index) in advancedFeaturesItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -326,7 +326,7 @@
               <li
                 v-for="(item, index) in ecommerceItems"
                 :key="index"
-                class="text-[#20252CE5] font-semibold text-[14px] mb-2"
+                class="text-[#20252CE5] font-semibold text-md mb-2"
               >
                 {{ item }}
               </li>
@@ -334,7 +334,7 @@
           </div>
           <div class="section-animate-img flex items-center justify-center">
             <img
-              src="/images/revamp/products-services/deep-learning-animate.png"
+              src="/images/revamp/products-services/e-commerce-animate.png"
               class="h-auto object-cover"
               width="291px"
             />

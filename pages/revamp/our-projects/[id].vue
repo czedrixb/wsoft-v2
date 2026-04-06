@@ -16,6 +16,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { useCanonical } from "@/composables/useCanonical";
+import { useStructuredData } from "@/composables/useStructuredData";
 
 const route = useRoute();
 const { t, tm } = useI18n();
@@ -708,9 +709,10 @@ const projectConfigs = {
   },
 };
 
+const id = route.params.id;
+const config = projectConfigs[id];
+
 const project = computed(() => {
-  const id = route.params.id;
-  const config = projectConfigs[id];
   if (!config) return null;
   return buildProject(id, config.imagePath, config.sections(id));
 });
@@ -722,9 +724,21 @@ const descText = computed(() =>
   project.value ? project.value.header.description : "",
 );
 
+const structuredData = useStructuredData("our-project", {
+  title: project.value?.header.title ?? "",
+  description: project.value?.header.description ?? "",
+  image: config?.imagePath ?? "",
+});
+
 useHead({
   title: titleText,
   link: [{ rel: "canonical", href: canonicalUrl.value }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(structuredData),
+    },
+  ],
   meta: [
     { name: "description", content: descText },
     { property: "og:title", content: titleText },

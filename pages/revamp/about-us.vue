@@ -9,10 +9,9 @@
     </div>
   </div>
 </template>
-h
+
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
@@ -22,16 +21,13 @@ const { canonicalUrl } = useCanonical();
 const { locale, t } = useI18n();
 const config = useRuntimeConfig();
 
-const currentLanguage = computed(() => locale.value);
+const staticMetaTitle = t("about-title");
+const staticMetaDescription = t("about-us-description");
+const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
+  t(`about-us-meta-keyword-${i + 1}`),
+).join(", ");
 
-const staticMetaTitle = t("home-title");
-const staticMetaDescription = t("home-description");
-const staticMetaKeywords = [
-  t("home-meta-keyword"),
-  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
-].join(", ");
-
-const structuredData = useStructuredData("home");
+const structuredData = useStructuredData("about");
 
 useHead({
   title: staticMetaTitle,

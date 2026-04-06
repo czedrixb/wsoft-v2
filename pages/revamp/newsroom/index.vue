@@ -61,98 +61,116 @@
                 </p>
               </div>
 
-              <div
-                v-else
-                class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
-                :style="{ minHeight: '300px', aspectRatio: '4/3' }"
-              >
+              <div v-else>
                 <img
-                  v-if="featuredBlog && featuredBlog.banner_url && !bannerError"
+                  v-if="featuredBlog?.banner_url && !bannerError"
                   :src="featuredBlog.banner_url"
-                  :alt="featuredBlog.title"
-                  class="w-full h-full object-cover"
+                  class="hidden"
                   loading="eager"
                   @load="onBannerLoad"
                   @error="onBannerError"
                 />
 
-                <NuxtImg
-                  v-else
-                  src="/images/revamp/newsroom/news-1.png"
-                  alt="Newsroom image"
-                  class="w-full h-full object-cover"
-                  :modifiers="{ width: 800, quality: 80 }"
-                  loading="eager"
-                />
-
-                <!-- Overlay with text & CTA -->
                 <div
-                  class="absolute inset-0"
-                  :style="{
-                    backgroundColor: '#F8FAFC99',
-                    clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
-                  }"
+                  v-if="
+                    !bannerLoaded && featuredBlog?.banner_url && !bannerError
+                  "
+                  class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100 animate-pulse flex items-center justify-center"
+                  :style="{ minHeight: '300px', aspectRatio: '4/3' }"
                 >
-                  <div class="h-full p-4 md:p-6 lg:p-8 flex flex-col">
-                    <h5
-                      class="text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#0A1628] max-w-[55%]"
-                      style="
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                      "
-                    >
-                      {{
-                        featuredBlog?.title ||
-                        t("newsroom.featuredArticle.title")
-                      }}
-                    </h5>
+                  <div
+                    class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"
+                  ></div>
+                </div>
 
-                    <p
-                      class="mt-2 md:mt-3 lg:mt-5 text-[#20252CE5] font-semibold text-[12px] md:text-[14px] max-w-[55%]"
-                      style="
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                      "
-                    >
-                      {{
-                        featuredBlog
-                          ? (
-                              featuredBlog.excerpt ||
-                              stripHtml(featuredBlog.content || "")
-                            ).slice(0, 80) + "..."
-                          : t("newsroom.featuredArticle.description")
-                      }}
-                    </p>
+                <div
+                  v-else
+                  class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
+                  :style="{ minHeight: '300px', aspectRatio: '4/3' }"
+                >
+                  <img
+                    v-if="featuredBlog?.banner_url && !bannerError"
+                    :src="featuredBlog.banner_url"
+                    :alt="featuredBlog.title"
+                    class="w-full h-full object-cover"
+                  />
+                  <NuxtImg
+                    v-else
+                    src="/images/revamp/newsroom/news-1.png"
+                    alt="Newsroom image"
+                    class="w-full h-full object-cover"
+                    :modifiers="{ width: 800, quality: 80 }"
+                    loading="eager"
+                  />
 
-                    <div class="mt-5 md:mt-20">
-                      <NuxtLink
-                        :to="
-                          featuredBlog
-                            ? `/revamp/newsroom/${encodeSlug(featuredBlog.slug)}`
-                            : '/revamp/newsroom'
+                  <div
+                    class="absolute inset-0"
+                    :style="{
+                      backgroundColor: '#F8FAFC99',
+                      clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
+                    }"
+                  >
+                    <div class="h-full p-4 md:p-6 lg:p-8 flex flex-col">
+                      <h5
+                        class="text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#0A1628] max-w-[55%]"
+                        style="
+                          display: -webkit-box;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
                         "
-                        class="border border-[#20252CE5] px-4 md:px-6 lg:px-8 py-1.5 md:py-2 text-[#20252CE5] text-[12px] md:text-[14px] font-semibold rounded-[22px] inline-flex items-center gap-2 hover:bg-[#20252CE5] hover:text-white transition-colors duration-300"
                       >
-                        {{ t("newsroom.readMore") }}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="inline-block md:w-4 md:h-4"
+                        {{
+                          featuredBlog?.title ||
+                          t("newsroom.featuredArticle.title")
+                        }}
+                      </h5>
+
+                      <p
+                        class="mt-2 md:mt-3 lg:mt-5 text-[#20252CE5] font-semibold text-[12px] md:text-[14px] max-w-[55%]"
+                        style="
+                          display: -webkit-box;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
+                        "
+                      >
+                        {{
+                          featuredBlog
+                            ? (
+                                featuredBlog.excerpt ||
+                                stripHtml(featuredBlog.content || "")
+                              ).slice(0, 80) + "..."
+                            : t("newsroom.featuredArticle.description")
+                        }}
+                      </p>
+
+                      <div class="mt-5 md:mt-20">
+                        <NuxtLink
+                          :to="
+                            featuredBlog
+                              ? `/revamp/newsroom/${encodeSlug(featuredBlog.slug)}`
+                              : '/revamp/newsroom'
+                          "
+                          class="border border-[#20252CE5] px-4 md:px-6 lg:px-8 py-1.5 md:py-2 text-[#20252CE5] text-[12px] md:text-[14px] font-semibold rounded-[22px] inline-flex items-center gap-2 hover:bg-[#20252CE5] hover:text-white transition-colors duration-300"
                         >
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </NuxtLink>
+                          {{ t("newsroom.readMore") }}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="inline-block md:w-4 md:h-4"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </NuxtLink>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -174,7 +192,6 @@ import { useCanonical } from "@/composables/useCanonical";
 const { canonicalUrl } = useCanonical();
 const { locale, t } = useI18n();
 
-// ── Mobile detection ──────────────────────────────────────────────────────────
 const isMobile = ref(false);
 const checkMobile = () => {
   isMobile.value = window.innerWidth < 768;
@@ -187,16 +204,18 @@ onUnmounted(() => {
   window.removeEventListener("resize", checkMobile);
 });
 
-// ── Banner error tracking ─────────────────────────────────────────────────────
 const bannerError = ref(false);
+const bannerLoaded = ref(false);
+
 const onBannerLoad = () => {
   bannerError.value = false;
+  bannerLoaded.value = true;
 };
 const onBannerError = () => {
   bannerError.value = true;
+  bannerLoaded.value = true;
 };
 
-// ── Blog fetching ─────────────────────────────────────────────────────────────
 const {
   data: blogs,
   pending,
@@ -223,7 +242,6 @@ const showError = computed(
   () => error.value && (!blogs.value || blogs.value.length === 0),
 );
 
-// Most recently published blog
 const featuredBlog = computed(() => {
   if (!blogs.value?.length) return null;
   return (
@@ -234,7 +252,6 @@ const featuredBlog = computed(() => {
   );
 });
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 const stripHtml = (html) => html?.replace(/<[^>]+>/g, "") || "";
 
 const encodeSlug = (slug) => {
@@ -245,7 +262,6 @@ const encodeSlug = (slug) => {
     .replace(/[^\w\-~.!*()]/g, "-");
 };
 
-// ── Head ──────────────────────────────────────────────────────────────────────
 const staticMetaTitle = t("home-title");
 const staticMetaDescription = t("home-description");
 const staticMetaKeywords = [
@@ -253,7 +269,9 @@ const staticMetaKeywords = [
   ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
 ].join(", ");
 
-const structuredData = useStructuredData("home");
+const structuredData = useStructuredData("blog-index", {
+  blogs: blogs.value ?? [],
+});
 
 useHead({
   title: staticMetaTitle,

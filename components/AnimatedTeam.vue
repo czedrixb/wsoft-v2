@@ -3,7 +3,7 @@
     <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
       <div class="max-w-4xl mx-auto">
         <h2
-          class="text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
         >
           {{ $t("about.team.title") }}
         </h2>
@@ -28,9 +28,10 @@
         <div
           ref="teamDisplayArea"
           class="team-display-area relative overflow-hidden"
+          :style="{ height: displayAreaHeight }"
         >
           <div
-            class="team-row team-row-first grid grid-cols-1 md:grid-cols-3 gap-8"
+            class="team-row team-row-first grid grid-cols-1 md:grid-cols-3 gap-8 absolute top-0 left-0 w-full"
           >
             <div
               v-for="member in members.slice(0, 3)"
@@ -46,7 +47,7 @@
               />
               <div class="py-2">
                 <p
-                  class="text-[#64748B] text-[48px] leading-[1.2] font-light capitalize"
+                  class="text-[#64748B] text-3xl lg:text-[48px] leading-[1.2] font-light capitalize"
                 >
                   {{ member.nickname }}
                 </p>
@@ -82,7 +83,7 @@
               />
               <div class="py-2">
                 <p
-                  class="text-[#64748B] text-[48px] leading-[1.2] font-light capitalize"
+                  class="text-[#64748B] text-3xl lg:text-[48px] leading-[1.2] font-light capitalize"
                 >
                   {{ member.nickname }}
                 </p>
@@ -104,7 +105,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from "vue";
+import { onMounted, onUnmounted, ref, computed, nextTick } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -113,6 +114,7 @@ gsap.registerPlugin(ScrollTrigger);
 const teamContainer = ref(null);
 const teamScrollSection = ref(null);
 const teamDisplayArea = ref(null);
+const displayAreaHeight = ref("auto");
 let ctx = null;
 
 const members = ref([
@@ -217,79 +219,99 @@ const memberChunks = computed(() => {
   return chunks;
 });
 
-onMounted(() => {
+const isMobile = () => window.innerWidth < 768;
+
+function initAnimation() {
+  ctx?.revert();
+
   ctx = gsap.context(() => {
+    const firstRow = teamDisplayArea.value?.querySelector(".team-row-first");
     const slideRows = gsap.utils.toArray(".team-row-slide");
     const rowCount = slideRows.length;
 
-    gsap.set(slideRows[0], { y: "110%", opacity: 1 });
+    if (!firstRow || !slideRows.length) return;
 
-    gsap.set(slideRows.slice(1), { y: "250%", opacity: 1 });
+    const allRows = [firstRow, ...slideRows];
+    let maxHeight = 0;
+    allRows.forEach((row) => {
+      gsap.set(row, {
+        position: "relative",
+        visibility: "visible",
+        y: 0,
+        opacity: 1,
+      });
+      const h = row.offsetHeight;
+      if (h > maxHeight) maxHeight = h;
+    });
+
+    gsap.set(allRows, { position: "absolute", top: 0, left: 0, width: "100%" });
+
+    displayAreaHeight.value = `${maxHeight}px`;
+    gsap.set(teamDisplayArea.value, { height: maxHeight });
+
+    const offscreenDown = window.innerHeight;
+    const offscreenUp = -maxHeight - 40;
+
+    gsap.set(firstRow, { y: 0, opacity: 1 });
+
+    gsap.set(slideRows, { y: offscreenDown, opacity: 1 });
+
+    const scrollPerStep = isMobile() ? 80 : 120;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: teamScrollSection.value,
         start: "center center",
-        end: `+=${rowCount * 120}%`,
+        end: `+=${rowCount * scrollPerStep}%`,
         pin: true,
-        scrub: 2,
+        scrub: isMobile() ? 1 : 2,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
     slideRows.forEach((row, i) => {
       const offset = i * 1.6;
 
-      tl.to(
-        row,
-        {
-          y: "0%",
-          duration: 1.2,
-          ease: "power2.out",
-        },
-        offset,
-      );
+      tl.to(row, { y: 0, duration: 1.2, ease: "power2.out" }, offset);
 
       if (i < slideRows.length - 1) {
         tl.to(
           slideRows[i + 1],
-          {
-            y: "110%",
-            duration: 1.2,
-            ease: "power2.out",
-          },
+          { y: maxHeight + 40, duration: 1.2, ease: "power2.out" },
           offset,
         );
       }
 
-      if (i === 0) {
-        tl.to(
-          ".team-row-first",
-          {
-            y: "-100%",
-            opacity: 0,
-            duration: 1,
-            ease: "power2.in",
-          },
-          offset,
-        );
-      } else {
-        tl.to(
-          slideRows[i - 1],
-          {
-            y: "-100%",
-            opacity: 0,
-            duration: 1,
-            ease: "power2.in",
-          },
-          offset,
-        );
-      }
+      const exiting = i === 0 ? firstRow : slideRows[i - 1];
+      tl.to(
+        exiting,
+        { y: offscreenUp, opacity: 0, duration: 1, ease: "power2.in" },
+        offset,
+      );
     });
   }, teamContainer.value);
+}
+
+onMounted(async () => {
+  await nextTick();
+  initAnimation();
+
+  window.addEventListener("resize", handleResize);
 });
+
+let resizeTimer = null;
+function handleResize() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    initAnimation();
+    ScrollTrigger.refresh();
+  }, 300);
+}
 
 onUnmounted(() => {
   ctx?.revert();
+  window.removeEventListener("resize", handleResize);
+  clearTimeout(resizeTimer);
 });
 </script>

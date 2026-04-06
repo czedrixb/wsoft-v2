@@ -5,7 +5,7 @@
     >
       <div class="md:text-center max-w-6xl mx-auto">
         <h2
-          class="text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
         >
           <span>{{ displayedTitle }}</span>
           <span
@@ -14,7 +14,7 @@
           />
         </h2>
 
-        <p class="text-[24px] text-[#20252CE5] mt-5">
+        <p class="text-lg lg:text-[24px] text-[#20252CE5] mt-5">
           {{ $t("home.banner.subtitle") }}
         </p>
       </div>

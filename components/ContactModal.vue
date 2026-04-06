@@ -25,7 +25,7 @@
     >
       <div
         v-if="modelValue"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        class="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4"
         @click.self="closeModal"
       >
         <div
@@ -41,7 +41,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div class="col-span-12 lg:col-span-5">
                 <h2
-                  class="text-[48px] font-[300] leading-tight bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                  class="text-3xl lg:text-[48px] font-[300] leading-tight bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
                 >
                   {{ $t("contact-modal.title") }}
                 </h2>
@@ -65,7 +65,7 @@
                     :key="detail.label"
                     class="flex gap-5 items-center"
                   >
-                    <NuxtImg
+                    <img
                       width="40"
                       height="40"
                       :src="`/images/revamp/contact-us/${detail.icon}`"
@@ -74,7 +74,7 @@
                       <p class="text-[14px] font-semibold mb-0">
                         {{ $t(`contact-modal.${detail.labelKey}`) }}
                       </p>
-                      <p class="text-[24px] mb-0">{{ detail.value }}</p>
+                      <p class="text-lg lg:text-md mb-0">{{ detail.value }}</p>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
                       <label class="block text-sm mb-2">{{
                         $t("full-name")
                       }}</label>
-                      <div class="grid grid-cols-2 gap-5">
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                           <input
                             type="text"
@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="mb-0 col-span-12">
-                      <div class="grid grid-cols-2 gap-5">
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                           <label class="block text-sm mb-2">{{
                             $t("email-address")
@@ -198,7 +198,7 @@
                     </div>
 
                     <div class="mb-0 col-span-12">
-                      <div class="grid grid-cols-2 gap-5">
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                           <label class="block text-sm mb-2">{{
                             $t("company")

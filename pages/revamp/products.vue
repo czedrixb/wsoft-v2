@@ -7,27 +7,34 @@
 </template>
 
 <script setup>
+import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
-import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
-import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
 
-const { t } = useI18n();
 const { canonicalUrl } = useCanonical();
+const { t } = useI18n();
 
-const { locale } = useI18n();
-const config = useRuntimeConfig();
+const staticMetaTitle = t("products-title");
+const staticMetaDescription = t("products-description");
 
-const currentLanguage = computed(() => locale.value);
+const productKeys = [
+  "lcOct",
+  "aiMeasuring",
+  "wizAssistant",
+  "aiEncouragement",
+  "aiDietTracker",
+  "aiTranslator",
+  "aiAudioGenerator",
+  "aiSelfManagement",
+  "aiEvaluation",
+  "aiLanguageLearning",
+];
+const staticMetaKeywords = productKeys
+  .map((key) => t(`animatedProjects.${key}.title`))
+  .join(", ");
 
-const staticMetaTitle = t("product.products-title");
-const staticMetaDescription = t("product.products-description");
-const staticMetaKeywords = [
-  // t("product.products-meta-keyword"),
-].join(", ");
-
-const structuredData = useStructuredData("products");
+const structuredData = useStructuredData("product");
 
 useHead({
   title: staticMetaTitle,
@@ -54,20 +61,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped>
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.6s ease-in-out;
-}
-</style>

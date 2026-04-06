@@ -14,20 +14,28 @@ import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
 
 const { canonicalUrl } = useCanonical();
-
 const { locale, t } = useI18n();
-const config = useRuntimeConfig();
 
 const currentLanguage = computed(() => locale.value);
 
-const staticMetaTitle = t("home-title");
-const staticMetaDescription = t("home-description");
-const staticMetaKeywords = [
-  t("home-meta-keyword"),
-  ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
-].join(", ");
+const staticMetaTitle = t("our-projects.title");
+const staticMetaDescription = t("our-projects.description");
 
-const structuredData = useStructuredData("home");
+const projectSlugs = [
+  "ai-encouragement-generation-platform",
+  "ai-measuring-analysis-skin-optics",
+  "ai-aided-diet-calorie-analysis-tracker",
+  "ai-powered-multilingual-translator",
+  "ai-generating-audio-file",
+  "ai-self-management-motivation",
+  "ai-evaluating-assignment-learning-system",
+  "ai-enhanced-language-learning-platform",
+];
+const staticMetaKeywords = projectSlugs
+  .map((slug) => t(`our-projects.${slug}.header.title`))
+  .join(", ");
+
+const structuredData = useStructuredData("our-projects");
 
 useHead({
   title: staticMetaTitle,

@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-5">
       <div>
         <div class="flex justify-center">
           <NuxtImg
@@ -12,7 +12,7 @@
 
         <div class="mt-5">
           <p
-            class="text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
           >
             {{ t("home.partnership.fortune100.text") }}
             <span class="font-bold">{{
@@ -34,7 +34,7 @@
 
         <div class="mt-5">
           <p
-            class="text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
           >
             {{ t("home.partnership.scienceExchange.text") }}
             <span class="font-bold">{{

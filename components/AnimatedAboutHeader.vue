@@ -8,7 +8,7 @@
           >
             <div class="about-text self-center">
               <h2
-                class="text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
               >
                 {{ $t("about.title") }}
               </h2>

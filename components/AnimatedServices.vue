@@ -36,7 +36,7 @@
           </div>
 
           <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
+            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
             <NuxtImg
@@ -46,14 +46,15 @@
           </div> -->
 
           <div
-            class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
+            class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
             <video
               autoplay
               loop
               muted
               playsinline
-              class="h-auto object-cover w-full"
+              class="h-auto object-cover"
+              width="400"
             >
               <source
                 src="/images/revamp/home/services/ai-automation-animate.webm"
@@ -102,7 +103,7 @@
           </div>
 
           <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
+            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
             <NuxtImg
@@ -112,14 +113,15 @@
           </div> -->
 
           <div
-            class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
+            class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
             <video
               autoplay
               loop
               muted
               playsinline
-              class="h-auto object-cover w-full"
+              class="h-auto object-cover"
+              width="400"
             >
               <source
                 src="/images/revamp/home/services/legacy-system-animate.webm"
@@ -168,7 +170,7 @@
           </div>
 
           <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
+            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
             <NuxtImg
@@ -178,14 +180,15 @@
           </div> -->
 
           <div
-            class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
+            class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
             <video
               autoplay
               loop
               muted
               playsinline
-              class="h-auto object-cover w-full"
+              class="h-auto object-cover"
+              width="400"
             >
               <source
                 src="/images/revamp/home/services/saas-custom-animate.webm"
@@ -235,7 +238,7 @@
           </div>
 
           <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center"
+            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
             style="z-index: 9"
           >
             <NuxtImg
@@ -245,14 +248,15 @@
           </div> -->
 
           <div
-            class="animate-img pointer-events-none absolute top-0 left-[33.33%] w-[33.33%] h-full flex items-center z-10"
+            class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
             <video
               autoplay
               loop
               muted
               playsinline
-              class="h-auto object-cover w-full"
+              class="h-auto object-cover"
+              width="400"
             >
               <source
                 src="/images/revamp/home/services/education-administration-animate.webm"

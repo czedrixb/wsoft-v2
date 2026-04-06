@@ -379,6 +379,87 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     },
   };
 
+  const productSchema = {
+    "@type": "CollectionPage",
+    name: t("products-title"),
+    description: t("products-description"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: 10,
+      itemListElement: [
+        "lcOct",
+        "aiMeasuring",
+        "wizAssistant",
+        "aiEncouragement",
+        "aiDietTracker",
+        "aiTranslator",
+        "aiAudioGenerator",
+        "aiSelfManagement",
+        "aiEvaluation",
+        "aiLanguageLearning",
+      ].map((key, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: t(`animatedProjects.${key}.title`),
+          description: t(`animatedProjects.${key}.description`),
+          url: `${baseUrl}/products`,
+          provider: {
+            "@id": `${baseUrl}`,
+          },
+        },
+      })),
+    },
+  };
+
+  const ourProjectsSchema = {
+    "@type": "CollectionPage",
+    name: t("our-projects.title"),
+    description: t("our-projects.description"),
+    url: `${baseUrl}${route.path}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: 8,
+      itemListElement: [
+        "ai-encouragement-generation-platform",
+        "ai-measuring-analysis-skin-optics",
+        "ai-aided-diet-calorie-analysis-tracker",
+        "ai-powered-multilingual-translator",
+        "ai-generating-audio-file",
+        "ai-self-management-motivation",
+        "ai-evaluating-assignment-learning-system",
+        "ai-enhanced-language-learning-platform",
+      ].map((slug, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: t(`our-projects.${slug}.header.title`),
+          description: t(`our-projects.${slug}.header.description`),
+          url: `${baseUrl}/our-projects/${slug}`,
+          creator: {
+            "@id": `${baseUrl}`,
+          },
+        },
+      })),
+    },
+  };
+
+  const ourProjectSchema = {
+    "@type": "CreativeWork",
+    name: pageData?.title || "",
+    description: pageData?.description || "",
+    url: `${baseUrl}${route.path}`,
+    image: pageData?.image
+      ? `${baseUrl}${pageData.image}`
+      : `${baseUrl}/images/thumbnail.png`,
+    creator: {
+      "@id": `${baseUrl}`,
+    },
+  };
+
   const blogPostSchema = (blogData) => ({
     "@type": "BlogPosting",
     name: blogData.title,
@@ -426,12 +507,12 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
           pageType === "home"
             ? "Home"
             : pageType === "about"
-            ? "About Us"
-            : pageType === "services"
-            ? "Services"
-            : pageType === "our-works"
-            ? "Our Works"
-            : "Contact Us"
+              ? "About Us"
+              : pageType === "services"
+                ? "Services"
+                : pageType === "our-works"
+                  ? "Our Works"
+                  : "Contact Us",
         ),
         item: `${baseUrl}${route.path}`,
       },
@@ -457,6 +538,12 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     schema["@graph"].push(blogIndexSchema);
   } else if (pageType === "blog-post") {
     schema["@graph"].push(blogPostSchema(pageData));
+  } else if (pageType === "product") {
+    schema["@graph"].push(productSchema);
+  } else if (pageType === "our-projects") {
+    schema["@graph"].push(ourProjectsSchema);
+  } else if (pageType === "our-project") {
+    schema["@graph"].push(ourProjectSchema);
   }
 
   return schema;

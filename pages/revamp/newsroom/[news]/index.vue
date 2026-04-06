@@ -66,12 +66,12 @@
             <div class="grid grid-cols-1 lg:grid-cols-2">
               <div>
                 <h2
-                  class="text-[40px] md:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                  class="text-2xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
                 >
                   {{ blog.title }}
                 </h2>
                 <div class="mt-5">
-                  <p class="text-[#64748B] text-[24px]">
+                  <p class="text-[#64748B] text-xl lg:text-[24px]">
                     {{
                       blog.excerpt ||
                       stripHtml(blog.content || "").slice(0, 150) + "..."
@@ -115,11 +115,11 @@
           </div>
 
           <!-- More posts section -->
-          <div class="text-center">
-            <h5 class="text-[#64748B] text-[24px]">
+          <!-- <div class="text-center">
+            <h5 class="text-[#64748B] text-md lg:text-[24px]">
               More from our News, Articles, and Blogs
             </h5>
-          </div>
+          </div> -->
 
           <div class="mt-[5rem]">
             <div
@@ -132,7 +132,6 @@
                 class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
                 :style="{ minHeight: '300px', aspectRatio: '4/3' }"
               >
-                <!-- Post image or newsroom fallback -->
                 <img
                   v-if="post.banner_url"
                   :src="post.banner_url"
@@ -202,7 +201,7 @@
             <!-- Fallback: no other posts -->
             <div
               v-else
-              class="text-center text-gray-500 font-poppins text-xl py-10"
+              class="text-center text-gray-500 font-poppins text-md lg:text-xl py-10"
             >
               {{ $t("no-popular") }}
             </div>
@@ -223,7 +222,6 @@ const { t } = useI18n();
 const route = useRoute();
 const { canonicalUrl } = useCanonical();
 
-// ── Mobile detection ──────────────────────────────────────────────────────────
 const isMobile = ref(false);
 const checkMobile = () => {
   isMobile.value = window.innerWidth < 768;
@@ -236,13 +234,11 @@ onUnmounted(() => {
   window.removeEventListener("resize", checkMobile);
 });
 
-// ── Banner error: fall through to newsroom default image ──────────────────────
 const bannerError = ref(false);
 const onBannerError = () => {
   bannerError.value = true;
 };
 
-// ── Slug helpers (same as blogs [slug]) ───────────────────────────────────────
 function encodeSlug(slug) {
   if (!slug) return "";
   return encodeURIComponent(slug)
@@ -261,7 +257,6 @@ function decodeSlug(encodedSlug) {
   }
 }
 
-// ── Blog fetching (same pattern as blogs [slug]) ──────────────────────────────
 const {
   data: blogs,
   pending,
@@ -290,7 +285,6 @@ const showError = computed(
   () => error.value && (!blogs.value || blogs.value.length === 0),
 );
 
-// Current blog matched by slug from route
 const blog = computed(() => {
   if (!blogs.value?.length) return null;
   const decodedSlug = decodeSlug(route.params.news);
@@ -306,7 +300,6 @@ const blog = computed(() => {
   );
 });
 
-// 2 most recent other posts for the "More" grid
 const morePosts = computed(() => {
   if (!blogs.value?.length) return [];
   return [...blogs.value]
@@ -315,7 +308,6 @@ const morePosts = computed(() => {
     .slice(0, 2);
 });
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 const stripHtml = (html) => html?.replace(/<[^>]+>/g, "") || "";
 
 const formatDate = (dateString) => {
@@ -331,7 +323,6 @@ const formatDate = (dateString) => {
   }
 };
 
-// ── Head ──────────────────────────────────────────────────────────────────────
 const metaTitle = computed(
   () => blog.value?.title || t("blog-details") || "News - W SoftLabs",
 );
@@ -339,9 +330,7 @@ const metaDescription = computed(
   () => blog.value?.excerpt || t("blog-description") || "W SoftLabs News",
 );
 
-const structuredData = computed(() =>
-  useStructuredData("blog-post", blog.value || {}),
-);
+const structuredData = useStructuredData("blog-post", blog.value ?? {});
 
 useHead({
   title: metaTitle,
@@ -349,7 +338,7 @@ useHead({
   script: [
     {
       type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData.value),
+      innerHTML: JSON.stringify(structuredData),
     },
   ],
   meta: [
