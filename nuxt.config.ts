@@ -254,6 +254,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'vercel',
+    externals: {
+    inline: ['ipx']
+  },
     prerender: {
       crawlLinks: false,
       routes: [
