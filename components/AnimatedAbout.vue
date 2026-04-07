@@ -193,6 +193,28 @@ onMounted(() => {
       const mainImg = section.querySelector(".section-main-img");
       const secondText = section.querySelector(".section-second-text");
 
+      const mobile = isMobile();
+
+      if (mobile) {
+        gsap.set([mainImg, secondText], { opacity: 0, y: 0 });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(mainImg, { opacity: 1, duration: 0.4, ease: "power1.out" });
+            gsap.to(secondText, {
+              opacity: 1,
+              duration: 0.4,
+              delay: 0.15,
+              ease: "power1.out",
+            });
+          },
+        });
+        return;
+      }
+
       gsap.set(animateImg, { opacity: 0, y: "180%" });
       gsap.set(mainImg, { opacity: 0, y: 200 });
       gsap.set(secondText, { opacity: 0, y: 200 });
@@ -201,7 +223,7 @@ onMounted(() => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: isMobile() ? "+=130%" : "+=280%",
+          end: "+=280%",
           pin: true,
           scrub: 2,
           anticipatePin: 1,
@@ -210,34 +232,17 @@ onMounted(() => {
 
       tl.to(
         animateImg,
-        {
-          opacity: 1,
-          y: "0%",
-          duration: 1.5,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: "0%", duration: 1.5, ease: "power2.out" },
         0.5,
       );
-
       tl.to(
         mainImg,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
         1.8,
       );
-
       tl.to(
         secondText,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
         1.8,
       );
     });

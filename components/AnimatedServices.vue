@@ -257,66 +257,84 @@ onMounted(() => {
 
       const mobile = isMobile();
 
-      // On mobile: smaller initial offsets so elements don't travel as far
-      const upOffset = mobile ? 60 : 120;
-      const downOffset = mobile ? -60 : -120;
-      const textOffset = mobile ? 30 : 50;
+      if (mobile) {
+        // Set final visual state immediately, then do a quick fade-in only
+        gsap.set(textBlock, { opacity: 0, y: 0 });
+        gsap.set(upImages, { opacity: 0, y: 0 });
+        gsap.set(downImages, { opacity: 0, y: 0 });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(textBlock, {
+              opacity: 1,
+              duration: 0.4,
+              ease: "power1.out",
+            });
+            gsap.to(upImages, {
+              opacity: 1,
+              duration: 0.4,
+              delay: 0.1,
+              ease: "power1.out",
+            });
+            gsap.to(downImages, {
+              opacity: 1,
+              duration: 0.4,
+              delay: 0.2,
+              ease: "power1.out",
+            });
+          },
+        });
+        return;
+      }
+
+      // Desktop: full pin + parallax animation
+      const upOffset = 120;
+      const downOffset = -120;
+      const textOffset = 50;
 
       gsap.set(textBlock, { opacity: 0, y: textOffset });
       gsap.set(upImages, { opacity: 0, y: upOffset });
       gsap.set(downImages, { opacity: 0, y: downOffset });
 
-      // animate-img is desktop-only (hidden on mobile via CSS), but guard anyway
       if (animateImg) {
         gsap.set(animateImg, { opacity: 0, y: "220%" });
       }
-
-      // On mobile: much shorter pin duration so the user scrolls through faster
-      const scrollEnd = mobile ? "+=80%" : "+=250%";
-      const scrubSpeed = mobile ? 1 : 2;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: scrollEnd,
+          end: "+=250%",
           pin: true,
-          scrub: scrubSpeed,
+          scrub: 2,
           anticipatePin: 1,
         },
       });
 
-      // On mobile: compress all animation timings so they complete within the
-      // shorter scroll window (durations are relative to the scrub timeline).
-      const textDuration = mobile ? 0.6 : 1;
-      const imgDuration = mobile ? 0.8 : 1.5;
-      const animDuration = mobile ? 1 : 2;
-      const imgStart = mobile ? 0.4 : 0.8;
-      const animStart = mobile ? 1 : 1.8;
-
       tl.to(
         textBlock,
-        { opacity: 1, y: 0, duration: textDuration, ease: "power2.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
         0,
       );
-
       tl.to(
         upImages,
-        { opacity: 1, y: 0, duration: imgDuration, ease: "power2.out" },
-        imgStart,
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        0.8,
       );
-
       tl.to(
         downImages,
-        { opacity: 1, y: 0, duration: imgDuration, ease: "power2.out" },
-        imgStart,
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        0.8,
       );
 
       if (animateImg) {
         tl.to(
           animateImg,
-          { opacity: 1, y: "0%", duration: animDuration, ease: "power3.out" },
-          animStart,
+          { opacity: 1, y: "0%", duration: 2, ease: "power3.out" },
+          1.8,
         );
       }
     });

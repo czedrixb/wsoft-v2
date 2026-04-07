@@ -65,6 +65,28 @@ onMounted(() => {
     const img1 = section.querySelector(".about-img-1");
     const img2 = section.querySelector(".about-img-2");
 
+    const mobile = isMobile();
+
+    if (mobile) {
+      gsap.set([img1, img2], { opacity: 0, y: 0 });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.to(img1, { opacity: 1, duration: 0.4, ease: "power1.out" });
+          gsap.to(img2, {
+            opacity: 1,
+            duration: 0.4,
+            delay: 0.15,
+            ease: "power1.out",
+          });
+        },
+      });
+      return;
+    }
+
     gsap.set(img1, { opacity: 0, y: 160 });
     gsap.set(img2, { opacity: 0, y: 280 });
 
@@ -72,34 +94,15 @@ onMounted(() => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: isMobile() ? "+=120%" : "+=250%",
+        end: "+=250%",
         pin: true,
         scrub: 2,
         anticipatePin: 1,
       },
     });
 
-    tl.to(
-      img1,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-      },
-      0.8,
-    );
-
-    tl.to(
-      img2,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 2.5,
-        ease: "power1.out",
-      },
-      1.2,
-    );
+    tl.to(img1, { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }, 0.8);
+    tl.to(img2, { opacity: 1, y: 0, duration: 2.5, ease: "power1.out" }, 1.2);
   }, aboutContainer.value);
 });
 

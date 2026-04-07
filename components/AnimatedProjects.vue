@@ -338,9 +338,11 @@ const currentSections = computed(() =>
   isProductsPage.value ? productsSections : projectsSections,
 );
 
+const isMobile = () => window.innerWidth < 1024;
+
 onMounted(() => {
   ctx = gsap.context(() => {
-    const isMobile = window.innerWidth < 1024;
+    const mobile = isMobile();
     const sections = gsap.utils.toArray(".project-section");
 
     sections.forEach((section) => {
@@ -352,17 +354,41 @@ onMounted(() => {
         '.image-parallax[data-direction="down"]',
       );
 
-      gsap.set(textBlock, { opacity: 0, y: isMobile ? 30 : 50 });
-      gsap.set(upImages, { opacity: 0, y: isMobile ? 60 : 120 });
-      gsap.set(downImages, { opacity: 0, y: isMobile ? 60 : 120 });
+      if (mobile) {
+        gsap.set([textBlock, ...upImages, ...downImages], { opacity: 0, y: 0 });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(textBlock, {
+              opacity: 1,
+              duration: 0.4,
+              ease: "power1.out",
+            });
+            gsap.to([...downImages, ...upImages], {
+              opacity: 1,
+              duration: 0.4,
+              delay: 0.15,
+              ease: "power1.out",
+            });
+          },
+        });
+        return;
+      }
+
+      gsap.set(textBlock, { opacity: 0, y: 50 });
+      gsap.set(upImages, { opacity: 0, y: 120 });
+      gsap.set(downImages, { opacity: 0, y: 120 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: isMobile ? "+=80%" : "+=250%",
+          end: "+=250%",
           pin: true,
-          scrub: isMobile ? 1 : 2,
+          scrub: 2,
           anticipatePin: 1,
         },
       });
@@ -374,13 +400,13 @@ onMounted(() => {
       );
       tl.to(
         downImages,
-        { opacity: 1, y: 0, duration: isMobile ? 1 : 1.5, ease: "power2.out" },
-        isMobile ? 0.4 : 0.8,
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        0.8,
       );
       tl.to(
         upImages,
-        { opacity: 1, y: 0, duration: isMobile ? 1 : 1.5, ease: "power2.out" },
-        isMobile ? 0.6 : 1.2,
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        1.2,
       );
     });
   }, projectsContainer.value);

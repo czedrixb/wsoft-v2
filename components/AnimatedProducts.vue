@@ -20,7 +20,9 @@
               </li>
             </ul>
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/deep-learning-animate.png"
               class="h-auto object-cover"
@@ -53,7 +55,9 @@
               width="700px"
             />
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/real-time-animate.png"
               class="h-auto object-cover"
@@ -98,7 +102,9 @@
               </li>
             </ul>
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/ai-data-animate.png"
               class="h-auto object-cover"
@@ -131,7 +137,9 @@
               width="700px"
             />
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/custom-media-animate.png"
               class="h-auto object-cover"
@@ -176,7 +184,9 @@
               </li>
             </ul>
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/content-media-animate.png"
               class="h-auto object-cover"
@@ -209,7 +219,9 @@
               width="700px"
             />
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/admin-business-animate.png"
               class="h-auto object-cover"
@@ -254,7 +266,9 @@
               </li>
             </ul>
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/user-interaction-animate.png"
               class="h-auto object-cover"
@@ -287,7 +301,9 @@
               width="700px"
             />
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/advanced-features-animate.png"
               class="h-auto object-cover"
@@ -332,7 +348,9 @@
               </li>
             </ul>
           </div>
-          <div class="section-animate-img flex items-center justify-center">
+          <div
+            class="section-animate-img hidden lg:flex items-center justify-center"
+          >
             <img
               src="/images/revamp/products-services/e-commerce-animate.png"
               class="h-auto object-cover"
@@ -396,9 +414,36 @@ const isMobile = () => window.innerWidth < 768;
 onMounted(() => {
   ctx = gsap.context(() => {
     const sections = gsap.utils.toArray(".product-section");
+
     sections.forEach((section) => {
       const animateImg = section.querySelector(".section-animate-img");
       const mainImg = section.querySelector(".section-main-img");
+
+      const mobile = isMobile();
+
+      if (mobile) {
+        gsap.set([animateImg, mainImg], { opacity: 0, y: 0 });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(animateImg, {
+              opacity: 1,
+              duration: 0.4,
+              ease: "power1.out",
+            });
+            gsap.to(mainImg, {
+              opacity: 1,
+              duration: 0.4,
+              delay: 0.15,
+              ease: "power1.out",
+            });
+          },
+        });
+        return;
+      }
 
       gsap.set(animateImg, { opacity: 0, y: "180%" });
       gsap.set(mainImg, { opacity: 0, y: 200 });
@@ -407,7 +452,7 @@ onMounted(() => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: isMobile() ? "+=130%" : "+=280%",
+          end: "+=280%",
           pin: true,
           scrub: 2,
           anticipatePin: 1,
@@ -416,23 +461,12 @@ onMounted(() => {
 
       tl.to(
         animateImg,
-        {
-          opacity: 1,
-          y: "0%",
-          duration: 1.5,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: "0%", duration: 1.5, ease: "power2.out" },
         0.5,
       );
-
       tl.to(
         mainImg,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
         1.8,
       );
     });

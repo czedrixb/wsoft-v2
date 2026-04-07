@@ -41,37 +41,44 @@ const { t } = useI18n();
 const productsHeaderContainer = ref(null);
 let ctx = null;
 
+const isMobile = () => window.innerWidth < 1024;
+
 onMounted(() => {
   ctx = gsap.context(() => {
     const section = productsHeaderContainer.value.querySelector(
       ".products-header-section",
     );
     const img = section.querySelector(".products-header-img");
-    const isMobile = window.innerWidth < 1024;
+    const mobile = isMobile();
 
-    gsap.set(img, { opacity: 0, y: isMobile ? 80 : 180 });
+    if (mobile) {
+      gsap.set(img, { opacity: 0, y: 0 });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 95%",
+        once: true,
+        onEnter: () => {
+          gsap.to(img, { opacity: 1, duration: 0.25, ease: "power1.out" });
+        },
+      });
+      return;
+    }
+
+    gsap.set(img, { opacity: 0, y: 180 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: isMobile ? "+=80%" : "+=250%",
+        end: "+=250%",
         pin: true,
-        scrub: isMobile ? 1 : 2,
+        scrub: 2,
         anticipatePin: 1,
       },
     });
 
-    tl.to(
-      img,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: "power2.out",
-      },
-      0.5,
-    );
+    tl.to(img, { opacity: 1, y: 0, duration: 2, ease: "power2.out" }, 0.5);
   }, productsHeaderContainer.value);
 });
 

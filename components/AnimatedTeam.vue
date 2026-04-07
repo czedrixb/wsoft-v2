@@ -231,8 +231,10 @@ function initAnimation() {
 
     if (!firstRow || !slideRows.length) return;
 
+    const mobile = isMobile();
     const allRows = [firstRow, ...slideRows];
     let maxHeight = 0;
+
     allRows.forEach((row) => {
       gsap.set(row, {
         position: "relative",
@@ -245,9 +247,28 @@ function initAnimation() {
     });
 
     gsap.set(allRows, { position: "absolute", top: 0, left: 0, width: "100%" });
-
     displayAreaHeight.value = `${maxHeight}px`;
     gsap.set(teamDisplayArea.value, { height: maxHeight });
+
+    if (mobile) {
+      allRows.forEach((row, i) => {
+        gsap.set(row, { position: "relative", y: 0, opacity: 0 });
+      });
+      displayAreaHeight.value = "auto";
+      gsap.set(teamDisplayArea.value, { height: "auto" });
+
+      allRows.forEach((row, i) => {
+        ScrollTrigger.create({
+          trigger: row,
+          start: "top 90%",
+          once: true,
+          onEnter: () => {
+            gsap.to(row, { opacity: 1, duration: 0.4, ease: "power1.out" });
+          },
+        });
+      });
+      return;
+    }
 
     const offscreenDown = window.innerHeight;
     const offscreenUp = -maxHeight - 40;
@@ -255,15 +276,13 @@ function initAnimation() {
     gsap.set(firstRow, { y: 0, opacity: 1 });
     gsap.set(slideRows, { y: offscreenDown, opacity: 1 });
 
-    const scrollPerStep = isMobile() ? 40 : 120;
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: teamScrollSection.value,
         start: "center center",
-        end: `+=${rowCount * scrollPerStep}%`,
+        end: `+=${rowCount * 120}%`,
         pin: true,
-        scrub: isMobile() ? 1 : 2,
+        scrub: 2,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       },
@@ -271,7 +290,6 @@ function initAnimation() {
 
     slideRows.forEach((row, i) => {
       const offset = i * 1.6;
-
       tl.to(row, { y: 0, duration: 1.2, ease: "power2.out" }, offset);
 
       if (i < slideRows.length - 1) {
