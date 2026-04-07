@@ -3,7 +3,7 @@
     <!-- Prev Button -->
     <button
       @click="prevSlide"
-      class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 rounded-full p-1.5 md:p-2 backdrop-blur-sm transition-all"
+      class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 rounded-full p-1.5 md:p-2 backdrop-blur-sm transition-all hidden"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,6 +23,10 @@
     <div
       class="flex items-center justify-center overflow-hidden"
       style="height: 320px"
+      @mouseenter="pauseAutoSlide"
+      @mouseleave="resumeAutoSlide"
+      @touchstart="onTouchStart"
+      @touchend="onTouchEnd"
     >
       <div
         v-for="(slide, i) in slides"
@@ -85,26 +89,28 @@
                     </p>
                   </div>
                 </div>
-                <button
-                  class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm"
-                >
-                  {{ $t("home.carousel.readMore") }}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    class="md:w-4 md:h-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                <router-link to="/revamp/products">
+                  <button
+                    class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm"
                   >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </button>
+                    {{ $t("home.carousel.readMore") }}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12"
+                      class="md:w-4 md:h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </button>
+                </router-link>
               </div>
             </div>
             <!-- Image -->
@@ -135,7 +141,7 @@
     <!-- Next Button -->
     <button
       @click="nextSlide"
-      class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 rounded-full p-1.5 md:p-2 backdrop-blur-sm transition-all"
+      class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 rounded-full p-1.5 md:p-2 backdrop-blur-sm transition-all hidden"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -175,8 +181,48 @@ const slides = [
 
 const activeIndex = ref(1);
 const total = slides.length;
-
 const slideWidth = ref("936px");
+
+const AUTO_SLIDE_INTERVAL = 2000;
+let autoSlideTimer = null;
+
+const startAutoSlide = () => {
+  stopAutoSlide();
+  autoSlideTimer = setInterval(() => {
+    nextSlide();
+  }, AUTO_SLIDE_INTERVAL);
+};
+
+const stopAutoSlide = () => {
+  if (autoSlideTimer) {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = null;
+  }
+};
+
+const pauseAutoSlide = () => stopAutoSlide();
+
+const resumeAutoSlide = () => startAutoSlide();
+
+const SWIPE_THRESHOLD = 50; // px
+let touchStartX = 0;
+
+const onTouchStart = (e) => {
+  touchStartX = e.touches[0].clientX;
+  pauseAutoSlide(); // pause while user is interacting
+};
+
+const onTouchEnd = (e) => {
+  const deltaX = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
+    if (deltaX < 0) {
+      nextSlide(); // swipe left → advance
+    } else {
+      prevSlide(); // swipe right → go back
+    }
+  }
+  resumeAutoSlide();
+};
 
 const updateSlideWidth = () => {
   const vw = window.innerWidth;
@@ -194,10 +240,12 @@ const updateSlideWidth = () => {
 onMounted(() => {
   updateSlideWidth();
   window.addEventListener("resize", updateSlideWidth);
+  startAutoSlide();
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", updateSlideWidth);
+  stopAutoSlide();
 });
 
 const getPosition = (slideIndex) => {

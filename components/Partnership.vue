@@ -12,7 +12,7 @@
 
         <div class="mt-5">
           <p
-            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
           >
             {{ t("home.partnership.fortune100.text") }}
             <span class="font-bold">{{
@@ -34,7 +34,7 @@
 
         <div class="mt-5">
           <p
-            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
           >
             {{ t("home.partnership.scienceExchange.text") }}
             <span class="font-bold">{{
@@ -42,22 +42,22 @@
             }}</span>
             {{ t("home.partnership.scienceExchange.text_end") }}
           </p>
-        </div>
 
-        <div class="mt-5 max-w-xl mx-auto">
-          <a
-            href="https://www.scienceexchange.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="border border-[#20252CE5] px-10 py-2 text-[16px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
-          >
-            {{ t("home.partnership.link") }}
-            <NuxtImg
-              src="/images/revamp/home/web-icon.png"
-              class="object-cover h-auto"
-              width="16px"
-            />
-          </a>
+          <div class="mt-5 flex justify-center">
+            <a
+              href="https://www.scienceexchange.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-[#20252CE5] px-10 py-2 text-[16px] text-black font-semibold flex items-center gap-3 rounded-[22px] w-fit"
+            >
+              {{ t("home.partnership.link") }}
+              <NuxtImg
+                src="/images/revamp/home/web-icon.png"
+                class="object-cover h-auto"
+                width="16px"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

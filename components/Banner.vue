@@ -30,50 +30,52 @@
       </p>
 
       <div class="mt-8 flex justify-center">
-        <button
-          class="group btn w-auto py-2 flex gap-3 items-center relative overflow-hidden rounded-full px-8"
-        >
-          <div
-            class="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-[#2376E9] to-[#02C7D0]"
+        <router-link to="/revamp/about-us">
+          <button
+            class="group btn w-auto py-2 flex gap-3 items-center relative overflow-hidden rounded-full px-8"
           >
             <div
-              class="w-full h-full rounded-full bg-white group-hover:bg-transparent transition-all"
-            ></div>
-          </div>
-          <span
-            class="relative z-10 font-medium bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white] transition-all"
-          >
-            {{ $t("home.banner.button") }}
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="relative z-10 transition-all"
-          >
-            <defs>
-              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#2376E9" />
-                <stop offset="100%" stop-color="#02C7D0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M5 12h14"
-              stroke="url(#grad)"
-              class="group-hover:stroke-white transition-all"
-            />
-            <path
-              d="m12 5 7 7-7 7"
-              stroke="url(#grad)"
-              class="group-hover:stroke-white transition-all"
-            />
-          </svg>
-        </button>
+              class="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-[#2376E9] to-[#02C7D0]"
+            >
+              <div
+                class="w-full h-full rounded-full bg-white group-hover:bg-transparent transition-all"
+              ></div>
+            </div>
+            <span
+              class="relative z-10 font-medium bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white] transition-all"
+            >
+              {{ $t("home.banner.button") }}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="relative z-10 transition-all"
+            >
+              <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2376E9" />
+                  <stop offset="100%" stop-color="#02C7D0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M5 12h14"
+                stroke="url(#grad)"
+                class="group-hover:stroke-white transition-all"
+              />
+              <path
+                d="m12 5 7 7-7 7"
+                stroke="url(#grad)"
+                class="group-hover:stroke-white transition-all"
+              />
+            </svg>
+          </button>
+        </router-link>
       </div>
     </div>
   </div>

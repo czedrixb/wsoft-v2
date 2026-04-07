@@ -32,7 +32,7 @@
               />
             </div>
 
-            <div class="mt-5 flex justify-end">
+            <div class="mt-5 flex justify-center md:justify-end">
               <button
                 type="submit"
                 class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
@@ -77,7 +77,9 @@
     </div>
 
     <!-- Logo -->
-    <NuxtImg src="/images/revamp/footer-logo.png" width="118" height="auto" />
+    <div class="flex justify-center md:justify-start">
+      <NuxtImg src="/images/revamp/footer-logo.png" width="118" height="auto" />
+    </div>
 
     <div class="mt-5">
       <div class="lg:px-5 grid grid-cols-1 lg:grid-cols-12">
@@ -87,14 +89,14 @@
               <button
                 v-if="link.isModal"
                 @click="openContactModal"
-                class="text-[#64748B] font-semibold text-[16px] hover:underline text-left"
+                class="text-[#64748B] font-semibold text-[16px] hover:underline text-left text-center md:text-start"
               >
                 {{ $t(link.label) }}
               </button>
               <NuxtLink
                 v-else
                 :to="link.to"
-                class="text-[#64748B] font-semibold text-[16px] hover:underline"
+                class="text-[#64748B] font-semibold text-[16px] hover:underline text-center md:text-start"
               >
                 {{ $t(link.label) }}
               </NuxtLink>
@@ -106,7 +108,7 @@
               v-for="link in additionalLinks"
               :key="link.to"
               :to="link.to"
-              class="text-[#64748B] font-semibold text-[16px] hover:underline"
+              class="text-[#64748B] font-semibold text-[16px] hover:underline text-center md:text-start"
             >
               {{ $t(link.label) }}
             </NuxtLink>
@@ -118,19 +120,21 @@
     <div class="mt-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <div class="col-span-12 lg:col-span-3">
-          <div class="flex items-center gap-5">
+          <div class="flex items-center gap-5 justify-center md:justify-start">
             <img src="/images/revamp/facebook.png" width="24" height="auto" />
             <img src="/images/revamp/instagram.png" width="24" height="auto" />
           </div>
 
           <div class="mt-7">
-            <span class="text-[#64748B] text-[16px] font-semibold">
+            <span
+              class="text-[#64748B] text-[16px] font-semibold text-center md:text-start"
+            >
               {{ $t("footer.copyright_text") }}
             </span>
           </div>
         </div>
         <div class="col-span-12 lg:col-span-5">
-          <div>
+          <div class="text-center md:text-start">
             <a
               href="https://www.dunsregistered.com/"
               target="_blank"
@@ -149,7 +153,7 @@
             </a>
           </div>
 
-          <div class="mt-3">
+          <div class="mt-5">
             <div
               class="flex flex-col md:flex-row items-center font-inter gap-2 md:gap-2"
             >
