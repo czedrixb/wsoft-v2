@@ -182,6 +182,8 @@ gsap.registerPlugin(ScrollTrigger);
 const aboutAnimatedContainer = ref(null);
 let ctx = null;
 
+const isMobile = () => window.innerWidth < 768;
+
 onMounted(() => {
   ctx = gsap.context(() => {
     const sections = gsap.utils.toArray(".about-section");
@@ -199,7 +201,7 @@ onMounted(() => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=280%",
+          end: isMobile() ? "+=130%" : "+=280%",
           pin: true,
           scrub: 2,
           anticipatePin: 1,

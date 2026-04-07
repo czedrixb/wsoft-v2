@@ -57,13 +57,14 @@ gsap.registerPlugin(ScrollTrigger);
 const aboutContainer = ref(null);
 let ctx = null;
 
+const isMobile = () => window.innerWidth < 768;
+
 onMounted(() => {
   ctx = gsap.context(() => {
     const section = aboutContainer.value.querySelector(".about-section");
     const img1 = section.querySelector(".about-img-1");
     const img2 = section.querySelector(".about-img-2");
 
-    // Set initial hidden states for images only
     gsap.set(img1, { opacity: 0, y: 160 });
     gsap.set(img2, { opacity: 0, y: 280 });
 
@@ -71,14 +72,13 @@ onMounted(() => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=250%",
+        end: isMobile() ? "+=120%" : "+=250%",
         pin: true,
         scrub: 2,
         anticipatePin: 1,
       },
     });
 
-    // Phase 1: Image 1 slides up and aligns
     tl.to(
       img1,
       {
@@ -90,7 +90,6 @@ onMounted(() => {
       0.8,
     );
 
-    // Phase 2: Image 2 slides up slower, arrives after image 1
     tl.to(
       img2,
       {

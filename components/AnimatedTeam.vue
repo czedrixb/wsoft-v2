@@ -253,10 +253,9 @@ function initAnimation() {
     const offscreenUp = -maxHeight - 40;
 
     gsap.set(firstRow, { y: 0, opacity: 1 });
-
     gsap.set(slideRows, { y: offscreenDown, opacity: 1 });
 
-    const scrollPerStep = isMobile() ? 80 : 120;
+    const scrollPerStep = isMobile() ? 40 : 120;
 
     const tl = gsap.timeline({
       scrollTrigger: {

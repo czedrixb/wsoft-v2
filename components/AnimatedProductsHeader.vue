@@ -47,16 +47,17 @@ onMounted(() => {
       ".products-header-section",
     );
     const img = section.querySelector(".products-header-img");
+    const isMobile = window.innerWidth < 1024;
 
-    gsap.set(img, { opacity: 0, y: 180 });
+    gsap.set(img, { opacity: 0, y: isMobile ? 80 : 180 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=250%",
+        end: isMobile ? "+=80%" : "+=250%",
         pin: true,
-        scrub: 2,
+        scrub: isMobile ? 1 : 2,
         anticipatePin: 1,
       },
     });

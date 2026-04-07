@@ -35,16 +35,6 @@
             </div>
           </div>
 
-          <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
-            style="z-index: 9"
-          >
-            <NuxtImg
-              src="/images/revamp/home/services/overlay.png"
-              class="h-auto object-cover w-full"
-            />
-          </div> -->
-
           <div
             class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
@@ -101,16 +91,6 @@
               </p>
             </div>
           </div>
-
-          <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
-            style="z-index: 9"
-          >
-            <NuxtImg
-              src="/images/revamp/home/services/overlay.png"
-              class="h-auto object-cover w-full"
-            />
-          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
@@ -169,16 +149,6 @@
             </div>
           </div>
 
-          <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
-            style="z-index: 9"
-          >
-            <NuxtImg
-              src="/images/revamp/home/services/overlay.png"
-              class="h-auto object-cover w-full"
-            />
-          </div> -->
-
           <div
             class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
           >
@@ -207,7 +177,6 @@
           <div
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
-            <!-- Image: col 1 -->
             <div class="image-parallax" data-direction="up">
               <NuxtImg
                 src="/images/revamp/home/services/education-administration-1.png"
@@ -236,16 +205,6 @@
               </p>
             </div>
           </div>
-
-          <!-- <div
-            class="overlay-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full flex items-center"
-            style="z-index: 9"
-          >
-            <NuxtImg
-              src="/images/revamp/home/services/overlay.png"
-              class="h-auto object-cover w-full"
-            />
-          </div> -->
 
           <div
             class="animate-img pointer-events-none absolute top-0 left-[38%] w-[33.33%] h-full hidden lg:flex items-center z-10"
@@ -280,6 +239,8 @@ gsap.registerPlugin(ScrollTrigger);
 const servicesContainer = ref(null);
 let ctx = null;
 
+const isMobile = () => window.innerWidth < 1024;
+
 onMounted(() => {
   ctx = gsap.context(() => {
     const sections = gsap.utils.toArray(".service-section");
@@ -293,67 +254,71 @@ onMounted(() => {
         '.image-parallax[data-direction="down"]',
       );
       const animateImg = section.querySelector(".animate-img");
-      // const overlayImg = section.querySelector(".overlay-img");
 
-      gsap.set(textBlock, { opacity: 0, y: 50 });
-      gsap.set(upImages, { opacity: 0, y: 120 });
-      gsap.set(downImages, { opacity: 0, y: -120 });
-      gsap.set(animateImg, { opacity: 0, y: "220%" });
+      const mobile = isMobile();
+
+      // On mobile: smaller initial offsets so elements don't travel as far
+      const upOffset = mobile ? 60 : 120;
+      const downOffset = mobile ? -60 : -120;
+      const textOffset = mobile ? 30 : 50;
+
+      gsap.set(textBlock, { opacity: 0, y: textOffset });
+      gsap.set(upImages, { opacity: 0, y: upOffset });
+      gsap.set(downImages, { opacity: 0, y: downOffset });
+
+      // animate-img is desktop-only (hidden on mobile via CSS), but guard anyway
+      if (animateImg) {
+        gsap.set(animateImg, { opacity: 0, y: "220%" });
+      }
+
+      // On mobile: much shorter pin duration so the user scrolls through faster
+      const scrollEnd = mobile ? "+=80%" : "+=250%";
+      const scrubSpeed = mobile ? 1 : 2;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=250%",
+          end: scrollEnd,
           pin: true,
-          scrub: 2,
+          scrub: scrubSpeed,
           anticipatePin: 1,
         },
       });
 
+      // On mobile: compress all animation timings so they complete within the
+      // shorter scroll window (durations are relative to the scrub timeline).
+      const textDuration = mobile ? 0.6 : 1;
+      const imgDuration = mobile ? 0.8 : 1.5;
+      const animDuration = mobile ? 1 : 2;
+      const imgStart = mobile ? 0.4 : 0.8;
+      const animStart = mobile ? 1 : 1.8;
+
       tl.to(
         textBlock,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        },
+        { opacity: 1, y: 0, duration: textDuration, ease: "power2.out" },
         0,
       );
 
       tl.to(
         upImages,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power2.out",
-        },
-        0.8,
+        { opacity: 1, y: 0, duration: imgDuration, ease: "power2.out" },
+        imgStart,
       );
 
       tl.to(
         downImages,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power2.out",
-        },
-        0.8,
+        { opacity: 1, y: 0, duration: imgDuration, ease: "power2.out" },
+        imgStart,
       );
 
-      tl.to(
-        animateImg,
-        {
-          opacity: 1,
-          y: "0%",
-          duration: 2,
-          ease: "power3.out",
-        },
-        1.8,
-      );
+      if (animateImg) {
+        tl.to(
+          animateImg,
+          { opacity: 1, y: "0%", duration: animDuration, ease: "power3.out" },
+          animStart,
+        );
+      }
     });
   }, servicesContainer.value);
 });

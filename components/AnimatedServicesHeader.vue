@@ -53,6 +53,8 @@ const { t } = useI18n();
 const servicesHeaderContainer = ref(null);
 let ctx = null;
 
+const isMobile = () => window.innerWidth < 768;
+
 onMounted(() => {
   ctx = gsap.context(() => {
     const section = servicesHeaderContainer.value.querySelector(
@@ -67,7 +69,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=250%",
+        end: isMobile() ? "+=120%" : "+=250%",
         pin: true,
         scrub: 2,
         anticipatePin: 1,

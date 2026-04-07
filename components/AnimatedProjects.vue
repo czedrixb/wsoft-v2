@@ -340,6 +340,7 @@ const currentSections = computed(() =>
 
 onMounted(() => {
   ctx = gsap.context(() => {
+    const isMobile = window.innerWidth < 1024;
     const sections = gsap.utils.toArray(".project-section");
 
     sections.forEach((section) => {
@@ -351,17 +352,17 @@ onMounted(() => {
         '.image-parallax[data-direction="down"]',
       );
 
-      gsap.set(textBlock, { opacity: 0, y: 50 });
-      gsap.set(upImages, { opacity: 0, y: 120 });
-      gsap.set(downImages, { opacity: 0, y: 120 });
+      gsap.set(textBlock, { opacity: 0, y: isMobile ? 30 : 50 });
+      gsap.set(upImages, { opacity: 0, y: isMobile ? 60 : 120 });
+      gsap.set(downImages, { opacity: 0, y: isMobile ? 60 : 120 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=250%",
+          end: isMobile ? "+=80%" : "+=250%",
           pin: true,
-          scrub: 2,
+          scrub: isMobile ? 1 : 2,
           anticipatePin: 1,
         },
       });
@@ -373,13 +374,13 @@ onMounted(() => {
       );
       tl.to(
         downImages,
-        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
-        0.8,
+        { opacity: 1, y: 0, duration: isMobile ? 1 : 1.5, ease: "power2.out" },
+        isMobile ? 0.4 : 0.8,
       );
       tl.to(
         upImages,
-        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
-        1.2,
+        { opacity: 1, y: 0, duration: isMobile ? 1 : 1.5, ease: "power2.out" },
+        isMobile ? 0.6 : 1.2,
       );
     });
   }, projectsContainer.value);
