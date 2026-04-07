@@ -1048,6 +1048,8 @@
     }
   },
   "our-projects": {
+    "solution": "Solution",
+    "key-characteristics": "Key Characteristics",
     "title": "Projects",
     "description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance.",
     "notFound": "Project not found.",

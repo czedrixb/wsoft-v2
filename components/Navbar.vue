@@ -140,7 +140,7 @@
           </li>
         </ul>
 
-        <div class="text-center">
+        <!-- <div class="text-center">
           <button
             @click="openContactModalFromMobile"
             class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
@@ -153,7 +153,7 @@
               class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px]"
             ></span>
           </button>
-        </div>
+        </div> -->
       </div>
     </transition>
     <ContactModal v-model="showContactModal" />
