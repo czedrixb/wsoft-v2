@@ -31,7 +31,7 @@
           :style="{ height: displayAreaHeight }"
         >
           <div
-            class="team-row team-row-first grid grid-cols-1 md:grid-cols-3 gap-8 absolute top-0 left-0 w-full"
+            class="team-row mb-8 team-row-first grid grid-cols-1 md:grid-cols-3 gap-8 absolute top-0 left-0 w-full"
           >
             <div
               v-for="member in members.slice(0, 3)"
@@ -47,11 +47,11 @@
               />
               <div class="py-2">
                 <p
-                  class="text-[#64748B] text-3xl lg:text-[48px] leading-[1.2] font-light capitalize"
+                  class="text-[#64748B] text-xl lg:text-[30px] leading-[1.2] font-light capitalize"
                 >
-                  {{ member.nickname }}
+                  {{ $t(`about.team.members.${member.nickname}.nickname`) }}
                 </p>
-                <p class="text-[#64748B] text-[24px] leading-[1.3]">
+                <p class="text-[#64748B] text-md lg:text-[24px] leading-[1.3]">
                   {{ $t(`about.team.members.${member.nickname}.name`) }}
                 </p>
                 <p
@@ -66,7 +66,7 @@
           <div
             v-for="(chunk, index) in memberChunks"
             :key="index"
-            class="team-row-slide grid grid-cols-1 md:grid-cols-3 gap-8 absolute top-0 left-0 w-full"
+            class="team-row-slide grid grid-cols-1 md:grid-cols-3 mb-8 gap-8 absolute top-0 left-0 w-full"
             :data-index="index"
           >
             <div
@@ -83,11 +83,11 @@
               />
               <div class="py-2">
                 <p
-                  class="text-[#64748B] text-3xl lg:text-[48px] leading-[1.2] font-light capitalize"
+                  class="text-[#64748B] text-xl lg:text-[30px] leading-[1.2] font-light capitalize"
                 >
-                  {{ member.nickname }}
+                  {{ $t(`about.team.members.${member.nickname}.nickname`) }}
                 </p>
-                <p class="text-[#64748B] text-[24px] leading-[1.3]">
+                <p class="text-[#64748B] text-md lg:text-[24px] leading-[1.3]">
                   {{ $t(`about.team.members.${member.nickname}.name`) }}
                 </p>
                 <p
@@ -200,13 +200,18 @@ const members = ref([
     position: "marketing-specialist",
   },
   {
-    image: "/images/revamp/about-us/our-team/virnel.png",
-    nickname: "virnel",
+    image: "/images/revamp/about-us/our-team/karlo.png",
+    nickname: "karlo",
     position: "designer",
   },
   {
-    image: "/images/revamp/about-us/our-team/karlo.png",
-    nickname: "karlo",
+    image: "/images/revamp/about-us/our-team/ritchlee.png",
+    nickname: "ritchlee",
+    position: "full-stack",
+  },
+  {
+    image: "/images/revamp/about-us/our-team/placeholder.png",
+    nickname: "camille",
     position: "designer",
   },
 ]);

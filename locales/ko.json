@@ -820,61 +820,100 @@
       "meet_team": "W Labs 팀 소개",
       "members": {
         "matt": {
-          "name": "맷 G."
+          "nickname": "매트 ( Matt )",
+          "name": "정원석"
         },
         "ricky": {
-          "name": "리키 F."
+          "nickname": "리키 ( Ricky )",
+          "name": "이현석"
         },
         "joseph": {
-          "name": "조셉 B."
+          "nickname": "조셉 ( Joseph )",
+          "name": "이강준"
         },
         "hoon": {
-          "name": "훈 L."
+          "nickname": "마일로 ( Milo )",
+          "name": "문훈재"
         },
         "lin": {
-          "name": "린 T."
+          "nickname": "린 ( Lin )",
+          "name": "강혜린"
         },
         "songyi": {
-          "name": "송이 L."
+          "nickname": "송이 (Songyi)",
+          "name": "한송이"
         },
         "gale": {
-          "name": "게일 B."
+          "nickname": "게일 ( Gale )",
+          "name": "레슬리"
         },
         "jaimie": {
-          "name": "제이미 F."
+          "nickname": "제이미 ( Jaimie )",
+          "name": "앰런 플러렌스 아르다"
         },
         "salve": {
-          "name": "살브 R."
+          "nickname": "살베 ( Salve )",
+          "name": "살바시언 파레뇨"
         },
         "lora": {
-          "name": "로라 C."
+          "nickname": "로라 ( Lora )",
+          "name": "로다 그레이스 브리토"
         },
         "ben": {
-          "name": "벤 R."
+          "nickname": "벤 ( Ben )",
+          "name": "베니토 오비노"
         },
         "czedrix": {
-          "name": "체드릭스 M."
+          "nickname": "세드릭 ( Czedrix )",
+          "name": "세드릭 바세나"
+        },
+        "rj": {
+          "nickname": "알제이 ( RJ )",
+          "name": "레이몬드 존 요롱"
+        },
+        "mon": {
+          "nickname": "레이먼드 ( Raymond )",
+          "name": "레이먼드 델라 크루즈"
+        },
+        "orland": {
+          "nickname": "올랜드 ( Orland )",
+          "name": "올랜드 살라스"
         },
         "neil": {
-          "name": "닐 P."
+          "nickname": "닐 ( Neil )",
+          "name": "닐 크리스토퍼 지파야"
         },
         "jason": {
-          "name": "제이슨 D."
+          "nickname": "제이슨 ( Jason )",
+          "name": "제이슨 리프레소"
         },
         "winona": {
-          "name": "위노나 E."
+          "nickname": "위노나( Winona)",
+          "name": "위노나 토마스"
         },
         "pola": {
-          "name": "폴라 F."
+          "nickname": "폴라 (Pola)",
+          "name": "폴라 메이 다일로"
         },
         "zyra": {
-          "name": "자이라 G."
+          "nickname": "자이라 (Zyra)",
+          "name": "자이라 카필라스틱"
         },
         "virnel": {
-          "name": "버넬 C."
+          "nickname": "버넬 (Virnel)",
+          "name": "버넬 루이즈 데 구즈만"
         },
         "karlo": {
-          "name": "카를로 M."
+          "nickname": "카를로 (Karlo)",
+          "name": "카를로 미구엘 페레즈"
+        },
+        "ritchlee": {
+          "nickname": "리치리 (Ritchlee)",
+          "name": "리치리 살라반테"
+        },
+        "camille": {
+          "nickname": "Camille",
+          "name": "Camille Galang"
         }
       },
       "positions": {

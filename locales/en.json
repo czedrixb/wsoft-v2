@@ -820,61 +820,100 @@
       "meet_team": "Meet the W Labs Team",
       "members": {
         "matt": {
-          "name": "Matt G."
+          "nickname": "Matt",
+          "name": "WonSeok Jung"
         },
         "ricky": {
-          "name": "Ricky F."
+          "nickname": "Ricky",
+          "name": "HyunSuk Lee"
         },
         "joseph": {
-          "name": "Joseph B."
+          "nickname": "Joseph",
+          "name": "Kang Jun Lee"
         },
         "hoon": {
-          "name": "Hoon L."
+          "nickname": "Hoon",
+          "name": "Hun-Jae Moon"
         },
         "lin": {
-          "name": "Lin T."
+          "nickname": "Lin",
+          "name": "Hyelin Kang"
         },
         "songyi": {
-          "name": "Songyi L."
+          "nickname": "Songyi",
+          "name": "Songyi Han"
         },
         "gale": {
-          "name": "Gale B."
+          "nickname": "Gale",
+          "name": "Leslie Palmos"
         },
         "jaimie": {
-          "name": "Jaimie F."
+          "nickname": "Jaimie",
+          "name": "Amron Florence Arda"
         },
         "salve": {
-          "name": "Salve R."
+          "nickname": "Salve",
+          "name": "Salvacion Parreño"
         },
         "lora": {
-          "name": "Lora C."
+          "nickname": "Lora",
+          "name": "Rhoda Grace Brito"
         },
         "ben": {
-          "name": "Ben R."
+          "nickname": "Ben",
+          "name": "Benito Orbino"
         },
         "czedrix": {
-          "name": "Czedrix M."
+          "nickname": "Czedrix",
+          "name": "Czedrix Barcena"
+        },
+        "rj": {
+          "nickname": "RJ",
+          "name": "Raymond John Yorong"
+        },
+        "mon": {
+          "nickname": "Raymond",
+          "name": "Raymond De La Cruz"
+        },
+        "orland": {
+          "nickname": "Orland",
+          "name": "Orland Salas"
         },
         "neil": {
-          "name": "Neil P."
+          "nickname": "Neil",
+          "name": "Neil Christopher Gipaya"
         },
         "jason": {
-          "name": "Jason D."
+          "nickname": "Jason",
+          "name": "Jason Lipreso"
         },
         "winona": {
-          "name": "Winona E."
+          "nickname": "Winona",
+          "name": "Winona Thomas"
         },
         "pola": {
-          "name": "Pola F."
+          "nickname": "Pola",
+          "name": "Pola Mei Dailo"
         },
         "zyra": {
-          "name": "Zyra G."
+          "nickname": "Zyra",
+          "name": "Zyra Capilastique"
         },
         "virnel": {
-          "name": "Virnel C."
+          "nickname": "Virnel",
+          "name": "Virnel Louise De Guzman"
         },
         "karlo": {
-          "name": "Karlo M."
+          "nickname": "Karlo",
+          "name": "Karlo Miguel Perez"
+        },
+        "ritchlee": {
+          "nickname": "Ritchlee",
+          "name": "Ritchlee Salavante"
+        },
+        "camille": {
+          "nickname": "Camille",
+          "name": "Camille Galang"
         }
       },
       "positions": {
