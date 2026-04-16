@@ -202,32 +202,32 @@ const footerLinks = computed(() => [
   },
   {
     label: "footer.about_us",
-    to: "/revamp/about-us",
+    to: "/about-us",
     isModal: false,
   },
   {
     label: "footer.services",
-    to: "/revamp/services",
+    to: "/services",
     isModal: false,
   },
   {
     label: "footer.products",
-    to: "/revamp/products",
+    to: "/products",
     isModal: false,
   },
   {
     label: "footer.projects",
-    to: "/revamp/our-projects",
+    to: "/our-projects",
     isModal: false,
   },
   {
     label: "footer.newsroom",
-    to: "/revamp/newsroom",
+    to: "/newsroom",
     isModal: false,
   },
   {
     label: "footer.contact_us",
-    to: "/revamp/contact",
+    to: "/contact",
     isModal: true,
   },
 ]);
@@ -235,11 +235,11 @@ const footerLinks = computed(() => [
 const additionalLinks = computed(() => [
   {
     label: t("footer.terms_conditions"),
-    to: "/revamp/terms-conditions",
+    to: "/terms-conditions",
   },
   {
     label: t("footer.privacy_policy"),
-    to: "/revamp/privacy-policy",
+    to: "/privacy-policy",
   },
 ]);
 

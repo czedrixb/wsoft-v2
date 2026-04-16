@@ -15,7 +15,12 @@
               <p
                 class="text-[#20252CE5] font-semibold text-[16px] mt-8 max-w-lg"
               >
-                {{ $t("about.description") }}
+                {{ $t("about.description1") }}
+              </p>
+              <p
+                class="text-[#20252CE5] font-semibold text-[16px] mt-6 max-w-lg"
+              >
+                {{ $t("about.description2") }}
               </p>
             </div>
 

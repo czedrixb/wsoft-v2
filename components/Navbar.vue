@@ -13,7 +13,7 @@
           </NuxtLink>
         </div>
 
-        <div class="navbar-center hidden lg:flex">
+        <div class="navbar-center hidden xl:flex">
           <ul class="menu menu-horizontal px-2">
             <li v-for="link in navLinks" :key="link.title">
               <template v-if="link.isModal">
@@ -54,12 +54,12 @@
           </ul>
         </div>
 
-        <div class="navbar-end hidden lg:flex">
+        <div class="navbar-end hidden xl:flex">
           <Language />
         </div>
 
         <!-- Mobile menu button -->
-        <div class="navbar-end lg:hidden">
+        <div class="navbar-end xl:hidden">
           <button
             @click="isMenuOpen = !isMenuOpen"
             class="btn btn-ghost btn-circle"
@@ -94,7 +94,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-black lg:hidden"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-black xl:hidden"
       >
         <button
           @click="isMenuOpen = false"
@@ -179,32 +179,32 @@ const navLinks = [
   },
   {
     title: "About Us",
-    to: "/revamp/about-us",
+    to: "/about-us",
     isModal: false,
   },
   {
     title: "Services",
-    to: "/revamp/services",
+    to: "/services",
     isModal: false,
   },
   {
     title: "Products",
-    to: "/revamp/products",
+    to: "/products",
     isModal: false,
   },
   {
     title: "Projects",
-    to: "/revamp/our-projects",
+    to: "/our-projects",
     isModal: false,
   },
   {
     title: "NewsRoom",
-    to: "/revamp/newsroom",
+    to: "/newsroom",
     isModal: false,
   },
   {
     title: "ContactUs",
-    to: "/revamp/contact-us",
+    to: "/contact-us",
     isModal: true,
   },
 ];

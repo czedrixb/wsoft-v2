@@ -675,7 +675,7 @@
       "title7": "We innovate with data",
       "title8": "We lead the future of technology",
       "subtitle": "We don't just build software—we design intelligent systems that transform how organizations work.",
-      "description": "W Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
+      "description": "We are technology company that leverages AI to interpret bio-imaging data and accelerate research and decision-making.",
       "button": "Get to know us"
     },
     "carousel": {
@@ -757,7 +757,8 @@
   },
   "about": {
     "title": "About Us",
-    "description": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+    "description1": "W Labs is an AI-driven bio-image analysis company that transforms complex biological imaging data into actionable insights, accelerating research outcomes.",
+    "description2": "By precisely segmenting intricate bio-imaging data and quantifying 3D structures and tissue characteristics, we enable digital transformation and innovation across the pharmaceutical, medical, and research industries.",
     "hero_words": {
       "hero-1": "Innovation",
       "hero-2": "Excellence",

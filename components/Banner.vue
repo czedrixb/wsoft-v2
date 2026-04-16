@@ -30,7 +30,7 @@
       </p>
 
       <div class="mt-8 flex justify-center">
-        <router-link to="/revamp/about-us">
+        <router-link to="/about-us">
           <button
             class="group btn w-auto py-2 flex gap-3 items-center relative overflow-hidden rounded-full px-8"
           >

@@ -62,17 +62,17 @@ const { t } = useI18n();
 const route = useRoute();
 
 const relatedProduct = computed(() => {
-  if (route.path === "/revamp/wiz-assistant") {
+  if (route.path === "/wiz-assistant") {
     return {
       image: "/images/revamp/products/optical-microscope.png",
-      to: "/revamp/optical-microscope",
+      to: "/optical-microscope",
       arrowDirection: "left",
     };
   }
 
   return {
     image: "/images/revamp/products/wiz-assistant.png",
-    to: "/revamp/wiz-assistant",
+    to: "/wiz-assistant",
     arrowDirection: "right",
   };
 });

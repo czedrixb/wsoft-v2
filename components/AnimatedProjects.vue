@@ -82,7 +82,7 @@ const route = useRoute();
 const projectsContainer = ref(null);
 let ctx = null;
 
-const isProductsPage = computed(() => route.path === "/revamp/products");
+const isProductsPage = computed(() => route.path === "/products");
 
 const productsSections = [
   {
@@ -93,7 +93,7 @@ const productsSections = [
         titleKey: "product.animatedProjects.lcOct.title",
         descriptionKey: "product.animatedProjects.lcOct.description",
         cta: {
-          to: "/revamp/optical-microscope",
+          to: "/optical-microscope",
           labelKey: "product.animatedProjects.lcOct.cta",
         },
       },
@@ -128,7 +128,7 @@ const productsSections = [
         titleKey: "product.animatedProjects.wizAssistant.title",
         descriptionKey: "product.animatedProjects.wizAssistant.description",
         cta: {
-          to: "/revamp/wiz-assistant",
+          to: "/wiz-assistant",
           labelKey: "product.animatedProjects.wizAssistant.cta",
         },
       },
@@ -145,7 +145,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiMeasuring.title",
         descriptionKey: "product.animatedProjects.aiMeasuring.description",
         cta: {
-          to: "/revamp/our-projects/ai-measuring-analysis-skin-optics",
+          to: "/our-projects/ai-measuring-analysis-skin-optics",
           labelKey: "product.animatedProjects.aiMeasuring.cta",
         },
       },
@@ -181,7 +181,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiEncouragement.title",
         descriptionKey: "product.animatedProjects.aiEncouragement.description",
         cta: {
-          to: "/revamp/our-projects/ai-encouragement-generation-platform",
+          to: "/our-projects/ai-encouragement-generation-platform",
           labelKey: "product.animatedProjects.aiEncouragement.cta",
         },
       },
@@ -195,7 +195,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiDietTracker.title",
         descriptionKey: "product.animatedProjects.aiDietTracker.description",
         cta: {
-          to: "/revamp/our-projects/ai-aided-diet-calorie-analysis-tracker",
+          to: "/our-projects/ai-aided-diet-calorie-analysis-tracker",
           labelKey: "product.animatedProjects.aiDietTracker.cta",
         },
       },
@@ -229,7 +229,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiTranslator.title",
         descriptionKey: "product.animatedProjects.aiTranslator.description",
         cta: {
-          to: "/revamp/our-projects/ai-powered-multilingual-translator",
+          to: "/our-projects/ai-powered-multilingual-translator",
           labelKey: "product.animatedProjects.aiTranslator.cta",
         },
       },
@@ -243,7 +243,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiAudioGenerator.title",
         descriptionKey: "product.animatedProjects.aiAudioGenerator.description",
         cta: {
-          to: "/revamp/our-projects/ai-generating-audio-file",
+          to: "/our-projects/ai-generating-audio-file",
           labelKey: "product.animatedProjects.aiAudioGenerator.cta",
         },
       },
@@ -277,7 +277,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiSelfManagement.title",
         descriptionKey: "product.animatedProjects.aiSelfManagement.description",
         cta: {
-          to: "/revamp/our-projects/ai-self-management-motivation",
+          to: "/our-projects/ai-self-management-motivation",
           labelKey: "product.animatedProjects.aiSelfManagement.cta",
         },
       },
@@ -291,7 +291,7 @@ const projectsSections = [
         titleKey: "product.animatedProjects.aiEvaluation.title",
         descriptionKey: "product.animatedProjects.aiEvaluation.description",
         cta: {
-          to: "/revamp/our-projects/ai-evaluating-assignment-learning-system",
+          to: "/our-projects/ai-evaluating-assignment-learning-system",
           labelKey: "product.animatedProjects.aiEvaluation.cta",
         },
       },
@@ -326,7 +326,7 @@ const projectsSections = [
         descriptionKey:
           "product.animatedProjects.aiLanguageLearning.description",
         cta: {
-          to: "/revamp/our-projects/ai-enhanced-language-learning-platform",
+          to: "/our-projects/ai-enhanced-language-learning-platform",
           labelKey: "product.animatedProjects.aiLanguageLearning.cta",
         },
       },

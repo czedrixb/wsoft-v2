@@ -89,7 +89,7 @@
                     </p>
                   </div>
                 </div>
-                <router-link to="/revamp/products">
+                <router-link to="/products">
                   <button
                     class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm"
                   >

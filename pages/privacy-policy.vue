@@ -1,33 +1,33 @@
 <template>
   <div>
-    <AnimatedAboutHeader />
+    <AnimatedPrivacyHeader />
 
-    <AnimatedAbout />
-
-    <div class="mb-20">
-      <AnimatedTeam />
+    <div class="mt-8">
+      <PrivacyContent />
     </div>
   </div>
 </template>
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { ref, computed, onMounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useInterval } from "@/composables/useInterval";
 import { useCanonical } from "@/composables/useCanonical";
 
+const { t } = useI18n();
 const { canonicalUrl } = useCanonical();
 
-const { locale, t } = useI18n();
+const { locale } = useI18n();
 const config = useRuntimeConfig();
 
-const staticMetaTitle = t("about-title");
-const staticMetaDescription = t("about-us-description");
-const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`about-us-meta-keyword-${i + 1}`),
-).join(", ");
+const currentLanguage = computed(() => locale.value);
 
-const structuredData = useStructuredData("about");
+const staticMetaTitle = t("privacy.title");
+const staticMetaDescription = t("privacy.welcome");
+const staticMetaKeywords = [].join(", ");
+
+const structuredData = useStructuredData("products");
 
 useHead({
   title: staticMetaTitle,
