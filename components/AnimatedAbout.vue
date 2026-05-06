@@ -12,7 +12,11 @@
                 {{ $t("about.animated_about.cutting_edge.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
-                {{ $t("about.animated_about.cutting_edge.description") }}
+                {{
+                  $t("about.animated_about.cutting_edge.description", {
+                    brand: brand,
+                  })
+                }}
               </p>
             </div>
 
@@ -46,7 +50,11 @@
 
             <div class="section-second-text self-center">
               <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
-                {{ $t("about.animated_about.cutting_edge.second_description") }}
+                {{
+                  $t("about.animated_about.cutting_edge.second_description", {
+                    brand: brand,
+                  })
+                }}
               </p>
             </div>
           </div>
@@ -66,6 +74,7 @@
                 {{
                   $t(
                     "about.animated_about.expertise_innovation.second_description",
+                    { brand: brand },
                   )
                 }}
               </p>
@@ -105,7 +114,9 @@
               </h3>
               <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{
-                  $t("about.animated_about.expertise_innovation.description")
+                  $t("about.animated_about.expertise_innovation.description", {
+                    brand: brand,
+                  })
                 }}
               </p>
             </div>
@@ -126,7 +137,11 @@
                 {{ $t("about.animated_about.reliable_partner.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-md mt-8">
-                {{ $t("about.animated_about.reliable_partner.description") }}
+                {{
+                  $t("about.animated_about.reliable_partner.description", {
+                    brand: brand,
+                  })
+                }}
               </p>
             </div>
 
@@ -161,7 +176,10 @@
             <div class="section-second-text self-center">
               <p class="text-[#20252CE5] font-semibold text-md mt-8 max-w-md">
                 {{
-                  $t("about.animated_about.reliable_partner.second_description")
+                  $t(
+                    "about.animated_about.reliable_partner.second_description",
+                    { brand: brand },
+                  )
                 }}
               </p>
             </div>
@@ -173,7 +191,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, computed } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -183,6 +201,7 @@ const aboutAnimatedContainer = ref(null);
 let ctx = null;
 
 const isMobile = () => window.innerWidth < 768;
+const isUedu = ref(false);
 
 onMounted(() => {
   ctx = gsap.context(() => {
@@ -223,9 +242,9 @@ onMounted(() => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=280%",
+          end: "+=100%",
           pin: true,
-          scrub: 2,
+          scrub: 1,
           anticipatePin: 1,
         },
       });
@@ -247,7 +266,11 @@ onMounted(() => {
       );
     });
   }, aboutAnimatedContainer.value);
+
+  isUedu.value = window.location.hostname === "ueducation.co.kr";
 });
+
+const brand = computed(() => (isUedu.value ? "UEducation" : "W Labs"));
 
 onUnmounted(() => {
   ctx?.revert();

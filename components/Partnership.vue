@@ -14,7 +14,7 @@
           <p
             class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
           >
-            {{ t("home.partnership.fortune100.text") }}
+            {{ t("home.partnership.fortune100.text", { brand: brand }) }}
             <span class="font-bold">{{
               t("home.partnership.fortune100.highlight")
             }}</span>
@@ -36,7 +36,7 @@
           <p
             class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
           >
-            {{ t("home.partnership.scienceExchange.text") }}
+            {{ t("home.partnership.scienceExchange.text", { brand: brand }) }}
             <span class="font-bold">{{
               t("home.partnership.scienceExchange.highlight")
             }}</span>
@@ -64,7 +64,7 @@
 
     <div class="mt-12">
       <div class="mx-auto max-w-4xl">
-        <p class="text-[#64748B] text-[16px] font-semibold">
+        <p class="text-[#64748B] text-[16px] text-center font-semibold">
           {{ t("home.partnership.description") }}
         </p>
       </div>
@@ -73,6 +73,16 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+
 const { t } = useI18n();
+
+const isUedu = ref(false);
+
+onMounted(() => {
+  isUedu.value = window.location.hostname === "ueducation.co.kr";
+});
+
+const brand = computed(() => (isUedu.value ? "UEducation" : "W Labs"));
 </script>

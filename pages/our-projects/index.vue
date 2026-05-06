@@ -37,6 +37,8 @@ const staticMetaKeywords = projectSlugs
 
 const structuredData = useStructuredData("our-projects");
 
+const { brandThumbnailPath } = useBrand();
+
 useHead({
   title: staticMetaTitle,
   link: [
@@ -57,7 +59,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: brandThumbnailPath.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

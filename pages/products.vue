@@ -11,6 +11,7 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
+import { ref, onMounted } from "vue";
 
 const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
@@ -36,6 +37,8 @@ const staticMetaKeywords = productKeys
 
 const structuredData = useStructuredData("product");
 
+const { brandThumbnailPath } = useBrand();
+
 useHead({
   title: staticMetaTitle,
   link: [
@@ -56,7 +59,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: brandThumbnailPath.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

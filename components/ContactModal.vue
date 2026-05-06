@@ -82,7 +82,7 @@
 
               <div class="col-span-12 lg:col-span-7 mt-20">
                 <p class="text-[#64748B] text-[14px] font-semibold mb-2">
-                  {{ $t("contact-modal.schedule-text") }}
+                  {{ $t("contact-modal.schedule-text", { brand: brandName }) }}
                 </p>
                 <form @submit.prevent="submitForm">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -300,8 +300,9 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import { useContact } from "@/composables/useContact";
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -310,16 +311,19 @@ const props = defineProps({
   },
 });
 
-const details = [
-  { labelKey: "email-label", icon: "mail.png", value: "contact@wsoft.space" },
+const { t } = useI18n();
+
+const { brandName, brandEmail } = useBrand();
+
+const details = computed(() => [
+  { labelKey: "email-label", icon: "mail.png", value: brandEmail.value },
   { labelKey: "phone-label", icon: "phone.png", value: "+82 10 5067 8800" },
   {
     labelKey: "office-label",
     icon: "location.png",
-    value:
-      "3F, 219, Segwon-ro, Gwonseon-gu, Suwon-si, Gyeonggi-do, Republic of Korea",
+    value: t("address"),
   },
-];
+]);
 
 const emit = defineEmits(["update:modelValue"]);
 

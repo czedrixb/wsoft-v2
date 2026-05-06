@@ -1,1 +1,0 @@
-import"./CHCMXOLu.js";const s=globalThis.setInterval;export{s};

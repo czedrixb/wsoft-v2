@@ -1,11 +1,13 @@
 import { useI18n } from "vue-i18n";
-import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+import { ref } from "vue";
 
 export function useContact() {
   const { t } = useI18n();
+  const isSubmitting = ref(false);
+
   const { errors, defineField, handleSubmit, resetForm } = useForm({
     validationSchema: yup.object({
       first_name: yup.string().required(t("first-name-required")),
@@ -30,26 +32,20 @@ export function useContact() {
   const [message] = defineField("message");
 
   const submitForm = handleSubmit(async (values) => {
-    console.log("Submitting form with values:", values);
-
-    const templateParams = {
-      name: `${values.first_name} ${values.last_name}`,
-      email: values.email,
-      phone: values.phone,
-      company: values.company,
-      message: values.message,
-    };
+    isSubmitting.value = true;
 
     try {
-      console.log("Sending email...");
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-
-      console.log("Email sent successfully!");
+      await $fetch("/api/contact", {
+        method: "POST",
+        body: {
+          first_name: values.first_name,
+          last_name: values.last_name,
+          email: values.email,
+          phone: values.phone,
+          company: values.company || "",
+          message: values.message,
+        },
+      });
 
       Swal.fire({
         icon: "success",
@@ -57,30 +53,32 @@ export function useContact() {
         toast: true,
         position: "top-end",
         iconColor: "white",
-        customClass: {
-          popup: "toast-success",
-        },
+        customClass: { popup: "toast-success" },
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
       });
 
       resetForm();
+      return true;
     } catch (error) {
       console.error("Error sending email:", error);
+
       Swal.fire({
         icon: "error",
         title: "Message failed to send!",
         toast: true,
         position: "top-end",
         iconColor: "white",
-        customClass: {
-          popup: "toast-error",
-        },
+        customClass: { popup: "toast-error" },
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
       });
+
+      return false;
+    } finally {
+      isSubmitting.value = false;
     }
   });
 
@@ -93,5 +91,6 @@ export function useContact() {
     message,
     submitForm,
     errors,
+    isSubmitting,
   };
 }

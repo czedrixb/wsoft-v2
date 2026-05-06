@@ -44,7 +44,7 @@ const isWizAssistantPage = computed(() => {
 });
 
 const canonicalUrl = computed(() => {
-  const baseUrl = config.public.baseUrl || "https://wsoft-v2.vercel.app";
+  const baseUrl = config.public.baseUrl || "https://wsoft.space/";
   const path = route.path.replace(/\/+/g, "/");
   return `${baseUrl}${path}`;
 });

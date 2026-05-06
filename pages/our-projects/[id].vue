@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { useCanonical } from "@/composables/useCanonical";
@@ -730,6 +730,8 @@ const structuredData = useStructuredData("our-project", {
   image: config?.imagePath ?? "",
 });
 
+const { brandThumbnailPath } = useBrand();
+
 useHead({
   title: titleText,
   link: [{ rel: "canonical", href: canonicalUrl.value }],
@@ -744,7 +746,7 @@ useHead({
     { property: "og:title", content: titleText },
     { property: "og:description", content: descText },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: brandThumbnailPath.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

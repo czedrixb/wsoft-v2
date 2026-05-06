@@ -40,6 +40,8 @@ const staticMetaKeywords = [
 
 const structuredData = useStructuredData("home");
 
+const { brandThumbnailPath } = useBrand();
+
 useHead({
   title: staticMetaTitle,
   script: [
@@ -60,7 +62,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: brandThumbnailPath.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

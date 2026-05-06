@@ -63,46 +63,21 @@ onMounted(() => {
     const img1 = section.querySelector(".services-img-1");
     const img2 = section.querySelector(".services-img-2");
 
-    const mobile = isMobile();
-
-    if (mobile) {
-      gsap.set([img1, img2], { opacity: 0, y: 0 });
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 85%",
-        once: true,
-        onEnter: () => {
-          gsap.to(img1, { opacity: 1, duration: 0.4, ease: "power1.out" });
-          gsap.to(img2, {
-            opacity: 1,
-            duration: 0.4,
-            delay: 0.15,
-            ease: "power1.out",
-          });
-        },
-      });
-      return;
-    }
-
-    gsap.set([img1, img2], { opacity: 0, y: 180 });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=250%",
-        pin: true,
-        scrub: 2,
-        anticipatePin: 1,
-      },
+    gsap.set([img1, img2], { opacity: 0, y: 30 });
+    gsap.to(img1, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 0.2,
     });
-
-    tl.to(
-      [img1, img2],
-      { opacity: 1, y: 0, duration: 2, ease: "power2.out" },
-      0.5,
-    );
+    gsap.to(img2, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 0.35,
+    });
   }, servicesHeaderContainer.value);
 });
 

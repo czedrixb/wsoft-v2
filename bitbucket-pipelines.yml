@@ -15,9 +15,8 @@ pipelines:
             - corepack enable
             - yarn install
 
-            # Inject .env
-            - echo "$ENV_CONTENTS" | tr ' ' '\n' > .env
-            - cat .env
+            # Inject .env (ENV_CONTENTS is base64-encoded to preserve spaces/special chars in values)
+            - echo "$ENV_CONTENTS" | base64 -d > .env
 
             # Build for SERVER mode
             - yarn build

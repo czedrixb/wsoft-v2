@@ -3,41 +3,55 @@
     <div class="space-y-10">
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.services.title") }}
+          {{ t("terms.sections.services.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.services.content") }}
+            {{ t("terms.sections.services.content", { brand: brandName }) }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.intellectualProperty.title") }}
+          {{
+            t("terms.sections.intellectualProperty.title", { brand: brandName })
+          }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.intellectualProperty.content") }}
+            {{
+              t("terms.sections.intellectualProperty.content", {
+                brand: brandName,
+              })
+            }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.useOfWebsite.title") }}
+          {{ t("terms.sections.useOfWebsite.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5 space-y-2">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.useOfWebsite.permittedUse.title") }}
+            {{
+              t("terms.sections.useOfWebsite.permittedUse.title", {
+                brand: brand,
+              })
+            }}
           </p>
 
           <div>
             <p class="text-[#20252CE5] font-semibold text-[16px]">
-              {{ t("terms.sections.useOfWebsite.permittedUse.description") }}
+              {{
+                t("terms.sections.useOfWebsite.permittedUse.description", {
+                  brand: brand,
+                })
+              }}
             </p>
             <div class="px-3">
               <ul class="list-disc list-inside">
@@ -54,10 +68,18 @@
 
           <div>
             <p class="text-[#20252CE5] font-semibold text-[16px]">
-              {{ t("terms.sections.useOfWebsite.contactForm.title") }}
+              {{
+                t("terms.sections.useOfWebsite.contactForm.title", {
+                  brand: brand,
+                })
+              }}
             </p>
             <p class="text-[#20252CE5] font-semibold text-[16px]">
-              {{ t("terms.sections.useOfWebsite.contactForm.content") }}
+              {{
+                t("terms.sections.useOfWebsite.contactForm.content", {
+                  brand: brand,
+                })
+              }}
             </p>
           </div>
         </div>
@@ -65,81 +87,101 @@
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.disclaimer.title") }}
+          {{ t("terms.sections.disclaimer.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.disclaimer.content") }}
+            {{ t("terms.sections.disclaimer.content", { brand: brandName }) }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.limitationOfLiability.title") }}
+          {{
+            t("terms.sections.limitationOfLiability.title", {
+              brand: brandName,
+            })
+          }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.limitationOfLiability.content") }}
+            {{
+              t("terms.sections.limitationOfLiability.content", {
+                brand: brand,
+              })
+            }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.thirdPartyLinks.title") }}
+          {{ t("terms.sections.thirdPartyLinks.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.thirdPartyLinks.content") }}
+            {{
+              t("terms.sections.thirdPartyLinks.content", { brand: brandName })
+            }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.changesToTerms.title") }}
+          {{ t("terms.sections.changesToTerms.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.changesToTerms.content") }}
+            {{
+              t("terms.sections.changesToTerms.content", { brand: brandName })
+            }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.governingLaw.title") }}
+          {{ t("terms.sections.governingLaw.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.governingLaw.content") }}
+            {{ t("terms.sections.governingLaw.content", { brand: brandName }) }}
           </p>
         </div>
       </div>
 
       <div>
         <h4 class="text-[#64748B] text-[24px] font-satoshi">
-          {{ t("terms.sections.contactUs.title") }}
+          {{ t("terms.sections.contactUs.title", { brand: brandName }) }}
         </h4>
 
         <div class="mt-5">
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.contactUs.description") }}
+            {{
+              t("terms.sections.contactUs.description", { brand: brandName })
+            }}
           </p>
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.contactUs.companyName") }}
+            {{
+              t("terms.sections.contactUs.companyName", {
+                brand: brandName,
+                company: brandCompany,
+              })
+            }}
           </p>
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.contactUs.website") }}
-          </p>
-          <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("terms.sections.contactUs.duns") }}
+            {{
+              t("terms.sections.contactUs.website", {
+                contactUrl: brandSiteUrl,
+              })
+            }}
           </p>
         </div>
       </div>
@@ -149,6 +191,7 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { ref, computed, onMounted } from "vue";
 const { t } = useI18n();
 
 const permittedUseItems = computed(() => {
@@ -159,4 +202,11 @@ const permittedUseItems = computed(() => {
     t("terms.sections.useOfWebsite.permittedUse.items.item4"),
   ];
 });
+
+const isUedu = ref(false);
+onMounted(() => {
+  isUedu.value = window.location.hostname === "ueducation.co.kr";
+});
+
+const { brandName, brandCompany, brandSiteUrl } = useBrand();
 </script>

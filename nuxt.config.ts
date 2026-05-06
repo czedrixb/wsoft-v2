@@ -159,15 +159,19 @@ export default defineNuxtConfig({
       },
     },
 
-    // Blog pages - high priority for SEO
-    "/blogs": {
+    "/api/getBlogs": {
+      cache: {
+        maxAge: 60, // Serve cached for 60 seconds
+        staleMaxAge: 300, // Serve stale for up to 5 min while revalidating in background
+        swr: true, // Stale-while-revalidate = never blocks, always fast
+      },
+    },
+
+    // Blog pages
+    "/newsroom": {
       prerender: false,
       isr: 180,
-      cache: {
-        maxAge: 300,
-        staleMaxAge: 3600,
-        swr: true,
-      },
+      cache: { maxAge: 300, staleMaxAge: 3600, swr: true },
       headers: {
         "X-Robots-Tag": "index, follow",
         "Cache-Control": "public, max-age=300, stale-while-revalidate=3600",
@@ -175,14 +179,10 @@ export default defineNuxtConfig({
     },
 
     // Individual blog posts
-    "/blogs/**": {
+    "/newsroom/**": {
       prerender: false,
       isr: 180,
-      cache: {
-        maxAge: 600,
-        staleMaxAge: 3600,
-        swr: true,
-      },
+      cache: { maxAge: 600, staleMaxAge: 3600, swr: true },
       headers: {
         "X-Robots-Tag": "index, follow",
         "Cache-Control": "public, max-age=600, stale-while-revalidate=3600",
@@ -265,7 +265,7 @@ export default defineNuxtConfig({
         "/api/robots.txt",
         "/api/rss.xml",
       ],
-      ignore: ["/blogs", "/blogs/**"],
+      ignore: ["/newsroom", "/newsroom/**"],
     },
     routeRules: {
       "/_nuxt/**": {

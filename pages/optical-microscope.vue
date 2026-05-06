@@ -21,10 +21,16 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
+import { ref, onMounted } from "vue";
 
 const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 const config = useRuntimeConfig();
+
+const isUedu = ref(false);
+onMounted(() => {
+  isUedu.value = window.location.hostname === "ueducation.co.kr";
+});
 
 const staticMetaTitle = t("products-title");
 const staticMetaDescription = t("about-us-description");
@@ -33,6 +39,10 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
 ).join(", ");
 
 const structuredData = useStructuredData("about");
+
+const thumbnailUrl = computed(() => {
+  return isUedu.value ? "/images/thumbnail-uedu.png" : "/images/thumbnail.png";
+});
 
 useHead({
   title: staticMetaTitle,
@@ -54,7 +64,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: thumbnailUrl.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

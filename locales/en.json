@@ -18,11 +18,11 @@
   "no-popular": "We’re just getting started! Our most popular stories are on the horizon. Check back soon.",
   "Products": "Products",
   "home-title": "Home",
-  "home-description": "Elevate your business with W Labs’ AI and custom development.",
+  "home-description": "Elevate your business with {brand}’ AI and custom development.",
   "home-meta-keyword": "W Soft",
   "home-meta-keyword-1": "W Soft Website",
-  "home-meta-keyword-2": "W Labs",
-  "home-meta-keyword-3": "W Labs Website",
+  "home-meta-keyword-2": "{brand}",
+  "home-meta-keyword-3": "{brand} Website",
   "home-meta-keyword-4": "Web Application Development Services",
   "home-meta-keyword-5": "Web App Development",
   "home-meta-keyword-6": "Web Application Experts",
@@ -74,12 +74,12 @@
   "home-meta-keyword-52": "IT Solutions Provider",
   "home-meta-keyword-53": "Business IT",
   "home-meta-keyword-54": "WSoft Website",
-  "home-meta-keyword-55": "W Labs",
-  "home-meta-keyword-56": "W Labs Website",
+  "home-meta-keyword-55": "{brand}",
+  "home-meta-keyword-56": "{brand} Website",
   "about-title": "About Us",
   "products-title": "Products",
-  "about-us-description": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
-  "about-us-meta-keyword-1": "About W Labs in South Korea",
+  "about-us-description": "{brand} delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+  "about-us-meta-keyword-1": "About {brand} in South Korea",
   "about-us-meta-keyword-2": "IT Services Company in South Korea",
   "about-us-meta-keyword-3": "Web and App Development Experts in South Korea",
   "about-us-meta-keyword-4": "Professional IT Company in South Korea",
@@ -144,7 +144,7 @@
   "Blogs": "Blogs",
   "our-blogs": "Our Blogs",
   "find-blogs": "Build. Design. Inspire.",
-  "blogs-text": "Welcome to the W Labs blog, where innovation meets creativity. Our developers, designers, and research teams share their expertise, experience, and ideas—bringing you a closer look at our technology and the stories behind it. Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of W Labs.",
+  "blogs-text": "Welcome to the {brand} blog, where innovation meets creativity. Our developers, designers, and research teams share their expertise, experience, and ideas—bringing you a closer look at our technology and the stories behind it. Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of {brand}.",
   "january": "January",
   "february": "February",
   "march": "March",
@@ -163,12 +163,12 @@
   "Talk with an Expert": "Talk with an Expert",
   "start-project": "Start Your Project Today",
   "explore-more-projects": "Explore More Projects",
-  "elevate-business": "Elevate your business with W Labs’ AI and custom development.",
+  "elevate-business": "Elevate your business with {brand}’ AI and custom development.",
   "project-success": "100% Projects Success Rate",
   "customer-retention": "95% Customer Retention Rate",
   "project-completed": "21 Projects Completed",
   "trusted-partner": "Smarter Business, Powered by AI",
-  "delivers-cutting": "W Labs is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
+  "delivers-cutting": "{brand} is a globally growth-driven IT partner that designs digital success for clients through AI and web/app development, grounded in innovative technology and a flexible organizational culture.",
   "web-dev": "Website Development",
   "create-website": "We create websites that work for you. Whether you’re a small business or a large enterprise, our team specializes in designing dynamic, user-friendly websites that reflect your brand and meet your needs. From beautiful designs to smooth functionality, we make sure your online presence grabs attention and connects with your audience.",
   "web-app": "Web Application Development",
@@ -178,25 +178,25 @@
   "ai-utilization": "AI Utilization Service",
   "cut-customer": "Cut customer service costs, speed up response times, and boost customer satisfaction with our AI solutions. We use advanced automation and smart technologies to streamline your operations. Whether it’s chatbots or predictive analytics, we help you work more efficiently and create a better experience for your customers.",
   "successful-projects": "Our Successful Projects",
-  "dedicated-helping": "At W Labs, we’re dedicated to helping you grow your business with tailored solutions that boost productivity and efficiency.",
+  "dedicated-helping": "At {brand}, we’re dedicated to helping you grow your business with tailored solutions that boost productivity and efficiency.",
   "academic-administration": "Academic Administration Management System",
   "partner-growth": "Partner for Growth and Digital Transformation",
   "help-transform": "Let us help transform your online presence and support your business’s growth in the digital world.",
   "enter-email": "Enter your email",
   "send": "Send",
   "all-rights": "All Rights Reserved",
-  "about-text": "W Labs delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
+  "about-text": "{brand} delivers cutting-edge solutions to optimize business operations. Leveraging the latest IT advancements, we empower organizations efficiently. Stay competitive with us as your trusted technology partner.",
   "innovating-business": "Innovating Business Operations with Technology",
-  "dedicated-providing": "W Labs is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently.",
-  "staying-ahead": "By staying ahead of emerging technologies and industry trends, W Labs ensures that our clients remain competitive in today's dynamic market landscape. With W Labs as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest.",
+  "dedicated-providing": "{brand} is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently.",
+  "staying-ahead": "By staying ahead of emerging technologies and industry trends, {brand} ensures that our clients remain competitive in today's dynamic market landscape. With {brand} as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest.",
   "why-choose": "Why Choose Us?",
-  "provide-more": "At W Labs, we provide more than just innovative solutions; we offer a collaborative partnership that drives your business forward. Here's why you should choose us:",
+  "provide-more": "At {brand}, we provide more than just innovative solutions; we offer a collaborative partnership that drives your business forward. Here's why you should choose us:",
   "cutting-edge": "Cutting-edge Solutions",
   "specialize-developing": "We specialize in developing cutting-edge solutions that are tailored to your specific needs. Our team stays at the forefront of information technology, ensuring you receive the latest advancements that optimize your business operations and drive success.",
   "expertise-innovation": "Expertise and Innovation",
   "deep-understanding": "With a deep understanding of emerging technologies and industry trends, we bring expertise and innovation to every project. By leveraging our knowledge, we keep your business competitive in today's dynamic market landscape, helping you stay ahead of the curve.",
   "reliable-tech": "Reliable Technology Partner",
-  "trust-paramount": "Trust is paramount in any partnership. With W Labs as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
+  "trust-paramount": "Trust is paramount in any partnership. With {brand} as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
   "our-team": "Our Team",
   "ceo": "CEO",
   "senior-dev": "Senior Developer",
@@ -324,7 +324,7 @@
   "company": "Company",
   "footer-company": "Company",
   "footer-uedu": "U Education Inc.",
-  "footer-wlabs": "W Labs Inc.",
+  "footer-wlabs": "{brand} Inc.",
   "footer-ceo": "CEO",
   "footer-matt": "Matt Jung",
   "footer-business-id": "Business ID",
@@ -403,7 +403,7 @@
   "karlo-name": "Karlo Miguel Perez",
   "qa-specialist": "QA Specialist",
   "see-more": "See More",
-  "top-tool": "W Labs develops specialized solutions for various industries, leveraging AI-based technologies.",
+  "top-tool": "{brand} develops specialized solutions for various industries, leveraging AI-based technologies.",
   "bottom-tool": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students’ learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI.",
   "project-manager": "Project Manager",
   "system-architect": "System Architect",
@@ -426,8 +426,8 @@
   "dynamic-roi": "Dynamic ROI auto-resetting algorithm",
   "incremental-learning": "Incremental learning framework for continuous learning",
   "jumbotron": "We Do",
-  "meet-team": "Meet the W Labs Team — The Driving Force Behind Innovation and Growth",
-  "team-experts": "W Labs is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance. Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
+  "meet-team": "Meet the {brand} Team — The Driving Force Behind Innovation and Growth",
+  "team-experts": "{brand} is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance. Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
   "lead-developer": "Lead Developer",
   "junior-project": "Junior Project Manager",
   "operations-assistant": "Operations Assistant",
@@ -438,10 +438,10 @@
   "slogan": "Slogan",
   "action-detection": "Action detection based on real-time video analysis",
   "reading-behavior": "Reading Behavior in Real Time, Advancing Safety",
-  "offers-advanced": "W Labs offers advanced AI solutions that automatically detect human behaviors and identify anomalies through real-time video analytics. Our technology enables rapid response and optimized operations across security, safety, and customer service scenarios.",
+  "offers-advanced": "{brand} offers advanced AI solutions that automatically detect human behaviors and identify anomalies through real-time video analytics. Our technology enables rapid response and optimized operations across security, safety, and customer service scenarios.",
   "rag": "RAG-based knowledge generation AI",
   "retrieving-knowledge": "Retrieving Knowledge, Generating Answers",
-  "rag-technology": "W Labs leverages state-of-the-art RAG technology to deliver real-time, knowledge-augmented AI solutions. Designed for domains requiring high precision, our systems combine internal data with external sources to provide intelligent, reliable responses.",
+  "rag-technology": "{brand} leverages state-of-the-art RAG technology to deliver real-time, knowledge-augmented AI solutions. Designed for domains requiring high precision, our systems combine internal data with external sources to provide intelligent, reliable responses.",
   "hero-1": "We maximize work efficiency",
   "hero-2": "We connect possibilities",
   "hero-3": "We design a growth engine",
@@ -455,7 +455,7 @@
   "full-ai": "Full Stack Developer / AI Engineer",
   "data-driven": "Data-Driven Custom Platform Development",
   "reimagining-business": "Reimagining Your Business Through Technology",
-  "data-driven-text": "At W Labs, we go beyond static websites to build data-centric platforms that empower smart decision-making. By integrating the latest front-end frameworks with cloud-native backend architectures, we deliver systems that are scalable, maintainable, and future-ready. Our approach focuses not just on today’s needs, but on designing technology that grows with your business.",
+  "data-driven-text": "At {brand}, we go beyond static websites to build data-centric platforms that empower smart decision-making. By integrating the latest front-end frameworks with cloud-native backend architectures, we deliver systems that are scalable, maintainable, and future-ready. Our approach focuses not just on today’s needs, but on designing technology that grows with your business.",
   "niftle-description": "Niftle Craft is a blockchain-based web application designed to enhance user immersion in the virtual world through a visually engaging and intuitive interface. Built on modern design principles, the platform offers a smooth and immersive user experience across various devices.",
   "niftle-title1": "Key Technical Achievements",
   "niftle-title1-sub": "Tech Stack & Architecture",
@@ -653,12 +653,12 @@
   "home": {
     "partnership": {
       "fortune100": {
-        "text": "W Labs is now an approved vendor to a",
+        "text": "{brand} is now an approved vendor to a",
         "highlight": "Top 3 of a Fortune 100 pharmaceutical",
         "text_end": "company."
       },
       "scienceExchange": {
-        "text": "W Labs is now a verified supplier on",
+        "text": "{brand} is now a verified supplier on",
         "highlight": "Science Exchange,",
         "text_end": "the world's premier R&D marketplace for life sciences."
       },
@@ -667,22 +667,25 @@
     },
     "banner": {
       "title1": "A Global AI-First Development Partner Redesigning Productivity",
-      "title2": "We maximize work efficiency",
-      "title3": "We connect possibilities",
-      "title4": "We design a growth engine",
-      "title5": "We innovate with AI",
-      "title6": "We design trust",
-      "title7": "We innovate with data",
-      "title8": "We lead the future of technology",
-      "subtitle": "We don't just build software—we design intelligent systems that transform how organizations work.",
-      "description": "We are technology company that leverages AI to interpret bio-imaging data and accelerate research and decision-making.",
+      "title2": "Maximizing work efficiency.",
+      "title3": "Connecting Possibilities",
+      "title4": "Designing Growth Engines",
+      "title5": "Innovation Through AI",
+      "title6": "Trust by Design",
+      "title7": "Data-Driven Innovation",
+      "title8": "Leading the Future of Technology",
+      "subtitle1": "We don't just build software",
+      "subtitle2": "We design intelligent systems that transform how organizations work.",
+      "description": "We are a technology company leveraging AI to interpret bioimaging data and accelerate research and decision-making.",
       "button": "Get to know us"
     },
     "carousel": {
       "readMore": "Read more",
+      "brand": "W Labs",
+      "brand-uedu": "UEducation",
       "slide1": {
         "title": {
-          "line1": "At W Labs,",
+          "line1": "At {brand},",
           "line2": "We innovate with data and AI"
         },
         "description": {
@@ -692,7 +695,7 @@
       },
       "slide2": {
         "title": {
-          "line1": "At W Labs,",
+          "line1": "At {brand},",
           "line2": "We design a growth engine and trust"
         },
         "description": {
@@ -702,7 +705,7 @@
       },
       "slide3": {
         "title": {
-          "line1": "At W Labs,",
+          "line1": "At {brand},",
           "line2": "We maximize work efficiency and lead the future of technology"
         },
         "description": {
@@ -750,15 +753,18 @@
     "contact_us": "Contact Us",
     "terms_conditions": "Terms & Conditions",
     "privacy_policy": "Privacy Policy",
-    "copyright_text": "W Labs © All Rights Reserved 2026. Ver #.00",
+    "copyright_text": "{brand} © All Rights Reserved 2026. Ver #.00",
     "company_name": "Company Name",
     "business_id": "Business ID",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "subscribe-success": "Subscribed successfully!",
+    "subscribe-error": "Subscription failed, please try again.",
+    "subscribing": "Subscribing..."
   },
   "about": {
     "title": "About Us",
-    "description1": "W Labs is an AI-driven bio-image analysis company that transforms complex biological imaging data into actionable insights, accelerating research outcomes.",
-    "description2": "By precisely segmenting intricate bio-imaging data and quantifying 3D structures and tissue characteristics, we enable digital transformation and innovation across the pharmaceutical, medical, and research industries.",
+    "description1": "{brand} is an AI-driven bioimaging analysis company that transforms biological imaging data into actionable insights to accelerate research outcomes.",
+    "description2": "By precisely segmenting bioimaging data and quantifying 3D structures and tissue characteristics, we enable digital transformation and innovation across the pharmaceutical, healthcare, and research industries.",
     "hero_words": {
       "hero-1": "Innovation",
       "hero-2": "Excellence",
@@ -801,24 +807,24 @@
       "cutting_edge": {
         "title": "Cutting-edge Solutions",
         "description": "We specialize in developing cutting-edge solutions that are tailored to your specific needs. Our team stays at the forefront of information technology, ensuring you receive the latest advancements that optimize your business operations and drive success.",
-        "second_description": "W Labs is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently."
+        "second_description": "{brand} is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently."
       },
       "expertise_innovation": {
         "title": "Expertise and Innovation",
         "description": "With a deep understanding of emerging technologies and industry trends, we bring expertise and innovation to every project. By leveraging our knowledge, we keep your business competitive in today's dynamic market landscape, helping you stay ahead of the curve.",
-        "second_description": "By staying ahead of emerging technologies and industry trends, W Labs ensures that our clients remain competitive in today's dynamic market landscape. With W Labs as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest."
+        "second_description": "By staying ahead of emerging technologies and industry trends, {brand} ensures that our clients remain competitive in today's dynamic market landscape. With {brand} as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest."
       },
       "reliable_partner": {
         "title": "Reliable Technology Partner",
-        "description": "Trust is paramount in any partnership. With W Labs as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
+        "description": "Trust is paramount in any partnership. With {brand} as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
         "second_description": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students' learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI."
       }
     },
     "team": {
       "title": "The Driving Force Behind Innovation and Growth",
-      "description_1": "W Labs is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance.",
+      "description_1": "{brand} is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance.",
       "description_2": "Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
-      "meet_team": "Meet the W Labs Team",
+      "meet_team": "Meet the {brand} Team",
       "members": {
         "matt": {
           "nickname": "Matt",
@@ -915,6 +921,10 @@
         "camille": {
           "nickname": "Camille",
           "name": "Camille Galang"
+        },
+        "song": {
+          "nickname": "Song",
+          "name": "Kim Shin-young"
         }
       },
       "positions": {
@@ -1042,7 +1052,7 @@
       },
       "aiMeasuring": {
         "title": "AI-Measuring & Analysis Skin Optics",
-        "description": "Comprehensive academy management program integrating progress tracking, achievement monitoring, payment processing, attendance records, and statistical analysis to support both administrative operations and personalized educational effectiveness.",
+        "description": "An optical-based skin measurement system combining high-magnification digital microscopy with AI-powered image analysis, enabling quantitative evaluation of pore density, flake area, texture roughness, and skin tone to support cosmetic research and comparative skin studies.",
         "cta": "Ask about AI Optics Skin Analyser"
       },
       "wizAssistant": {
@@ -1052,37 +1062,37 @@
       },
       "aiEncouragement": {
         "title": "AI Encouragement Generation Platform",
-        "description": "Behind-the-scenes CMS engine enabling seamless online book digitization and video subtitle integration, allowing administrators to manage text, images, interactive elements, and multimedia accessibility from a centralized platform.",
+        "description": "An AI-powered encouragement platform combining natural language generation with emotional intelligence, enabling leaders and team members to express authentic appreciation instantly—reducing message composition time from minutes to seconds while increasing encouragement frequency by 3x.",
         "cta": "Ask about AI Encouragement Generator"
       },
       "aiDietTracker": {
         "title": "AI-Aided Diet and Calorie Analysis Tracker",
-        "description": "English language learning platform offering curated video clips (movies, talk shows, lyrics) with integrated interactive activities, facilitating authentic language acquisition through multimedia content and seamless in-video learning exercises.",
+        "description": "A nutrition tracking application combining computer vision with AI-powered food recognition, enabling users to log meals instantly through photos—reducing logging time from minutes to seconds through visual-first interaction and portion size estimation.",
         "cta": "Ask about AI-Aided Diet and Calorie Analysis"
       },
       "aiTranslator": {
         "title": "AI-Powered Multilingual Translator",
-        "description": "Advertising marketing project management platform with real-time data monitoring, featuring user-friendly dashboards, integrated client/cost management, and streamlined business process workflows.",
+        "description": "A multilingual content management platform combining AI-powered translation with collaborative workflow management—reducing translation time by 85% through real-time translation APIs, version control, and project-based collaboration designed for development team efficiency.",
         "cta": "Ask about AI-Powered Multilingual Translator"
       },
       "aiAudioGenerator": {
         "title": "AI-Generating Audio File",
-        "description": "Digital transformation of Talking Plus and SLE textbooks from hard copy to interactive online format using Laravel API and Vue.js 2, featuring content digitization and seamless backend data management.",
+        "description": "A text-to-speech platform combining neural voice synthesis with batch processing automation, enabling content creators to generate professional audio instantly—reducing production time from hours to minutes while eliminating equipment costs.",
         "cta": "Ask about AI-Generating Audio File Generator"
       },
       "aiSelfManagement": {
         "title": "AI Self-Management and Motivation",
-        "description": "Automated data extraction and collection system for gathering, processing, and organizing web-based information for business intelligence and analysis.",
+        "description": "A task management application combining radical simplicity with positive reinforcement, enabling users to focus on completion rather than organization—increasing task completion rates through minimalist Kanban design and AI-generated motivational messages.",
         "cta": "Ask about AI Self-Management and Motivator"
       },
       "aiEvaluation": {
         "title": "AI-Evaluating Assignment & Learning System",
-        "description": "Performance benchmarking system testing and comparing database systems through complex business queries, measuring speed, efficiency, and scalability to optimize decision-making and data analysis.",
+        "description": "An intelligent learning management system that transforms how institutions evaluate student assignments by combining AI with human expertise—reducing administrative burden by 70% while improving evaluation consistency and providing data-driven insights into learning outcomes.",
         "cta": "Ask about AI Assignment & Learning Evaluator"
       },
       "aiLanguageLearning": {
         "title": "AI-Enhanced Language Learning Platform",
-        "description": "E-commerce AI platform analyzing large volumes of customer reviews using sophisticated algorithms, providing comprehensive insights to help sellers refine products and identify new sales opportunities.",
+        "description": "A language learning platform combining AI conversation practice with structured curriculum, bridging the gap between textbook knowledge and practical speaking ability through daily interactive lessons, pronunciation scoring, and adaptive learning paths.",
         "cta": "Ask about AI Language Learner"
       }
     }
@@ -1108,7 +1118,7 @@
         },
         "section2": {
           "titleKey": "AI-Enhanced Emotional Communication Philosophy",
-          "descriptionBody": "W Labs approached this as reducing barriers to authentic human connection, not automating emotional labor. We treated AI as a tool amplifying users' genuine appreciation rather than replacing their emotional intelligence."
+          "descriptionBody": "{brand} approached this as reducing barriers to authentic human connection, not automating emotional labor. We treated AI as a tool amplifying users' genuine appreciation rather than replacing their emotional intelligence."
         },
         "section3": {
           "titleKey": "Impact on Workplace Culture",
@@ -1188,7 +1198,7 @@
         },
         "section2": {
           "titleKey": "Visual-First Nutrition Tracking Philosophy",
-          "descriptionBody": "W Labs approached this as making calorie tracking as simple as taking a photo, not simplifying database entry. We treated food recognition as seamless camera interaction eliminating manual search entirely, enabling instant nutrition feedback at meal decision points."
+          "descriptionBody": "{brand} approached this as making calorie tracking as simple as taking a photo, not simplifying database entry. We treated food recognition as seamless camera interaction eliminating manual search entirely, enabling instant nutrition feedback at meal decision points."
         },
         "section3": {
           "titleKey": "Impact on Personal Health Technology Industry",
@@ -1211,7 +1221,7 @@
         },
         "section2": {
           "titleKey": "Unified Translation Management Platform Philosophy",
-          "descriptionBody": "W Labs approached this challenge as a complete localization ecosystem redesign, not just a translation tool. We treated AI-powered translation, collaborative team workflows, version control, development integration, and real-time synchronization as interconnected system requirements that must work seamlessly for distributed teams."
+          "descriptionBody": "{brand} approached this challenge as a complete localization ecosystem redesign, not just a translation tool. We treated AI-powered translation, collaborative team workflows, version control, development integration, and real-time synchronization as interconnected system requirements that must work seamlessly for distributed teams."
         },
         "section3": {
           "titleKey": "Impact on Software Localization Industry",
@@ -1235,7 +1245,7 @@
         },
         "section2": {
           "titleKey": "Automated Audio Production Workflow Philosophy",
-          "descriptionBody": "W Labs approached this as workflow optimization through AI automation, not just voice synthesis. We treated text-to-speech conversion as production pipeline replacing manual recording entirely."
+          "descriptionBody": "{brand} approached this as workflow optimization through AI automation, not just voice synthesis. We treated text-to-speech conversion as production pipeline replacing manual recording entirely."
         },
         "section3": {
           "titleKey": "Impact on Content Accessibility",
@@ -1258,7 +1268,7 @@
         },
         "section2": {
           "titleKey": "Constraint-Based Productivity Philosophy",
-          "descriptionBody": "W Labs approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
+          "descriptionBody": "{brand} approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
         },
         "section3": {
           "titleKey": "Impact on Productivity Culture",
@@ -1281,7 +1291,7 @@
         },
         "section2": {
           "titleKey": "System-Level Redesign Philosophy",
-          "descriptionBody": "W Labs approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
+          "descriptionBody": "{brand} approached this challenge not as an AI feature addition, but as a complete workflow transformation. We treated assignment evaluation as a system-level automation problem requiring thoughtful integration of technology, pedagogy, and institutional requirements."
         },
         "section3": {
           "titleKey": "Impact on Education",
@@ -1305,7 +1315,7 @@
         },
         "section2": {
           "titleKey": "Digital-First Conversational Learning Philosophy",
-          "descriptionBody": "W Labs approached this as creating safe, judgment-free practice environments powered by AI, not replacing teachers but extending practice beyond classroom constraints. We treated speaking confidence as skill requiring high-volume practice with immediate feedback—achievable only through scalable technology."
+          "descriptionBody": "{brand} approached this as creating safe, judgment-free practice environments powered by AI, not replacing teachers but extending practice beyond classroom constraints. We treated speaking confidence as skill requiring high-volume practice with immediate feedback—achievable only through scalable technology."
         },
         "section3": {
           "titleKey": "Impact on Language Education Industry",
@@ -1316,9 +1326,10 @@
   },
   "newsroom": {
     "title": "Newsroom",
-    "welcome": "Welcome to the W Labs blog, where innovation meets creativity.",
+    "welcome": "Welcome to the {brand} blog, where innovation meets creativity.",
+    "noPosts": "No posts available at the moment.",
     "description1": "Our developers, designers, and research teams share their expertise, experience, and ideas—bringing you a closer look at our technology and the stories behind it.",
-    "description2": "Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of W Labs.",
+    "description2": "Discover insights into our latest projects, product updates, and the cutting-edge solutions shaping the future of {brand}.",
     "readMore": "Read More",
     "featuredArticle": {
       "title": "OpenAI Launches GPT-4 Turbo with Enhanced Vision Capabilities",
@@ -1329,7 +1340,7 @@
     "title": "Let's Get Started With Your Idea",
     "description": "Reach out to us and our dedicated team will get back to you as soon as possible.",
     "description2": "Your input is valuable to us, so don't hesitate to get in touch. We look forward to hearing from you!",
-    "schedule-text": "Schedule a consultation to discuss your challenges and explore how W Labs can help solve your problems.",
+    "schedule-text": "Schedule a consultation to discuss your challenges and explore how {brand} can help solve your problems.",
     "full-name": "Full Name",
     "first-name": "First Name",
     "last-name": "Last Name",
@@ -1442,16 +1453,16 @@
   },
   "terms": {
     "title": "Terms & Conditions",
-    "welcome": "Welcome to W Labs (operated by 주식회사 더블유랩스, Company Registration No. 387-87-03701). By accessing or using our website at https://wlabs.space/ and any related services, you agree to be bound by these Terms & Conditions. Please read them carefully before using our site.",
+    "welcome": "Welcome to {brand} (operated by {company}, Company Registration No. {regNo}). By accessing or using our website at {siteUrl} and any related services, you agree to be bound by these Terms & Conditions. Please read them carefully before using our site.",
     "disclaimer": "If you do not agree with any part of these terms, please discontinue use of the website immediately.",
     "sections": {
       "services": {
         "title": "1. Services",
-        "content": "W Labs provides software development, AI solutions, UI/UX design, and related digital services. The website is primarily an informational and marketing platform. Specific services are governed by separate agreements or service contracts entered into with clients."
+        "content": "{brand} provides software development, AI solutions, UI/UX design, and related digital services. The website is primarily an informational and marketing platform. Specific services are governed by separate agreements or service contracts entered into with clients."
       },
       "intellectualProperty": {
         "title": "2. Intellectual Property",
-        "content": "All content on this website — including text, graphics, logos, icons, images, and software — is the property of W Labs or its content suppliers and is protected under applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent."
+        "content": "All content on this website — including text, graphics, logos, icons, images, and software — is the property of {brand} or its content suppliers and is protected under applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent."
       },
       "useOfWebsite": {
         "title": "3. Use of the Website",
@@ -1467,20 +1478,20 @@
         },
         "contactForm": {
           "title": "3.2 Contact Form",
-          "content": "When you submit an inquiry through our contact form, you provide us with your information voluntarily. By submitting, you consent to being contacted by W Labs regarding your inquiry."
+          "content": "When you submit an inquiry through our contact form, you provide us with your information voluntarily. By submitting, you consent to being contacted by {brand} regarding your inquiry."
         }
       },
       "disclaimer": {
         "title": "4. Disclaimer of Warranties",
-        "content": "This website and its content are provided on an \"as is\" and \"as available\" basis without any warranties of any kind, either express or implied. W Labs does not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components."
+        "content": "This website and its content are provided on an \"as is\" and \"as available\" basis without any warranties of any kind, either express or implied. {brand} does not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components."
       },
       "limitationOfLiability": {
         "title": "5. Limitation of Liability",
-        "content": "To the fullest extent permitted by law, W Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of this website or our services."
+        "content": "To the fullest extent permitted by law, {brand} shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of this website or our services."
       },
       "thirdPartyLinks": {
         "title": "6. Third-Party Links",
-        "content": "Our website may contain links to third-party websites. These links are provided for convenience only. W Labs has no control over the content of those sites and accepts no responsibility for them or for any loss or damage that may arise from your use of them."
+        "content": "Our website may contain links to third-party websites. These links are provided for convenience only. {brand} has no control over the content of those sites and accepts no responsibility for them or for any loss or damage that may arise from your use of them."
       },
       "changesToTerms": {
         "title": "7. Changes to These Terms",
@@ -1493,15 +1504,15 @@
       "contactUs": {
         "title": "9. Contact Us",
         "description": "For any questions about these Terms & Conditions, please contact:",
-        "companyName": "W Labs (주식회사 더블유랩스)",
-        "website": "Website: https://wsoft.space/contact-us",
+        "companyName": "{brand} ({company})",
+        "website": "Website: {contactUrl}",
         "duns": "D-U-N-S® Registered: 696568010"
       }
     }
   },
   "privacy": {
     "title": "Privacy Policy",
-    "welcome": "W Labs (주식회사 더블유랩스) is committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights in relation to it when you visit https://wlabs.space/.",
+    "welcome": "{brand} ({company}) is committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights in relation to it when you visit {siteUrl}.",
     "compliance": "This policy is compliant with the Personal Information Protection Act (PIPA) of Korea and applicable international standards.",
     "sections": {
       "informationCollected": {
@@ -1585,8 +1596,8 @@
       "contactUs": {
         "title": "10. Contact Us",
         "description": "For any questions about this Privacy Policy, please contact:",
-        "companyName": "W Labs (주식회사 더블유랩스)",
-        "website": "Website: https://wsoft.space/contact-us",
+        "companyName": "{brand} ({company})",
+        "website": "Website: {contactUrl}",
         "duns": "D-U-N-S® Registered: 696568010"
       }
     }

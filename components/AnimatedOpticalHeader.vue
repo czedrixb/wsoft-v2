@@ -51,29 +51,14 @@ onMounted(() => {
     );
     const img = section.querySelector(".terms-header-img");
 
-    gsap.set(img, { opacity: 0, y: 180 });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=250%",
-        pin: true,
-        scrub: 2,
-        anticipatePin: 1,
-      },
+    gsap.set(img, { opacity: 0, y: 30 });
+    gsap.to(img, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 0.2,
     });
-
-    tl.to(
-      img,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: "power2.out",
-      },
-      0.5,
-    );
   }, termsHeaderContainer.value);
 });
 

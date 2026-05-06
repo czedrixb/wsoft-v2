@@ -219,13 +219,19 @@
             {{ t("privacy.sections.contactUs.description") }}
           </p>
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("privacy.sections.contactUs.companyName") }}
+            {{
+              t("privacy.sections.contactUs.companyName", {
+                brand: brandName,
+                company: brandCompany,
+              })
+            }}
           </p>
           <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("privacy.sections.contactUs.website") }}
-          </p>
-          <p class="text-[#20252CE5] font-semibold text-[16px]">
-            {{ t("privacy.sections.contactUs.duns") }}
+            {{
+              t("privacy.sections.contactUs.website", {
+                contactUrl: brandSiteUrl,
+              })
+            }}
           </p>
         </div>
       </div>
@@ -235,49 +241,43 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+import { useBrand } from "@/composables/useBrand";
+
 const { t } = useI18n();
+const { brandName, brandCompany, brandSiteUrl } = useBrand();
 
-const providedInfoItems = computed(() => {
-  return [
-    t("privacy.sections.informationCollected.provided.items.item1"),
-    t("privacy.sections.informationCollected.provided.items.item2"),
-    t("privacy.sections.informationCollected.provided.items.item3"),
-    t("privacy.sections.informationCollected.provided.items.item4"),
-  ];
-});
+const providedInfoItems = computed(() => [
+  t("privacy.sections.informationCollected.provided.items.item1"),
+  t("privacy.sections.informationCollected.provided.items.item2"),
+  t("privacy.sections.informationCollected.provided.items.item3"),
+  t("privacy.sections.informationCollected.provided.items.item4"),
+]);
 
-const automatedInfoItems = computed(() => {
-  return [
-    t("privacy.sections.informationCollected.automated.items.item1"),
-    t("privacy.sections.informationCollected.automated.items.item2"),
-    t("privacy.sections.informationCollected.automated.items.item3"),
-    t("privacy.sections.informationCollected.automated.items.item4"),
-  ];
-});
+const automatedInfoItems = computed(() => [
+  t("privacy.sections.informationCollected.automated.items.item1"),
+  t("privacy.sections.informationCollected.automated.items.item2"),
+  t("privacy.sections.informationCollected.automated.items.item3"),
+  t("privacy.sections.informationCollected.automated.items.item4"),
+]);
 
-const howWeUseItems = computed(() => {
-  return [
-    t("privacy.sections.howWeUse.items.item1"),
-    t("privacy.sections.howWeUse.items.item2"),
-    t("privacy.sections.howWeUse.items.item3"),
-    t("privacy.sections.howWeUse.items.item4"),
-  ];
-});
+const howWeUseItems = computed(() => [
+  t("privacy.sections.howWeUse.items.item1"),
+  t("privacy.sections.howWeUse.items.item2"),
+  t("privacy.sections.howWeUse.items.item3"),
+  t("privacy.sections.howWeUse.items.item4"),
+]);
 
-const cookieTypesItems = computed(() => {
-  return [
-    t("privacy.sections.cookies.types.items.item1"),
-    t("privacy.sections.cookies.types.items.item2"),
-  ];
-});
+const cookieTypesItems = computed(() => [
+  t("privacy.sections.cookies.types.items.item1"),
+  t("privacy.sections.cookies.types.items.item2"),
+]);
 
-const yourRightsItems = computed(() => {
-  return [
-    t("privacy.sections.yourRights.items.item1"),
-    t("privacy.sections.yourRights.items.item2"),
-    t("privacy.sections.yourRights.items.item3"),
-    t("privacy.sections.yourRights.items.item4"),
-    t("privacy.sections.yourRights.items.item5"),
-  ];
-});
+const yourRightsItems = computed(() => [
+  t("privacy.sections.yourRights.items.item1"),
+  t("privacy.sections.yourRights.items.item2"),
+  t("privacy.sections.yourRights.items.item3"),
+  t("privacy.sections.yourRights.items.item4"),
+  t("privacy.sections.yourRights.items.item5"),
+]);
 </script>

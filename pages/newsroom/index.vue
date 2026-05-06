@@ -5,7 +5,7 @@
         class="mx-auto px-4 md:px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10"
       >
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          <!-- Left: Title + Description -->
+          <!-- Left -->
           <div>
             <h2
               class="text-[40px] md:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
@@ -17,7 +17,7 @@
               <p
                 class="text-[#20252CE5] font-semibold text-[14px] md:text-[16px]"
               >
-                {{ t("newsroom.welcome") }}
+                {{ t("newsroom.welcome", { brand: brandName }) }}
               </p>
               <p
                 class="text-[#20252CE5] font-semibold text-[14px] md:text-[16px]"
@@ -27,16 +27,23 @@
               <p
                 class="text-[#20252CE5] font-semibold text-[14px] md:text-[16px]"
               >
-                {{ t("newsroom.description2") }}
+                {{ t("newsroom.description2", { brand: brandName }) }}
               </p>
             </div>
 
             <div class="mt-6 md:mt-8">
               <div class="bg-black w-full" style="height: 1px"></div>
             </div>
+
+            <div class="mt-8">
+              <Pagination
+                v-model:currentPage="currentPage"
+                :totalPages="totalPages"
+              />
+            </div>
           </div>
 
-          <!-- Right: All Blogs Grid -->
+          <!-- Right -->
           <div>
             <!-- Loading State -->
             <div
@@ -65,7 +72,7 @@
             <!-- All Blogs Grid -->
             <div v-else class="flex flex-col gap-4 md:gap-6">
               <div
-                v-for="post in otherBlogs"
+                v-for="post in paginatedBlogs"
                 :key="post.id"
                 class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
                 style="min-height: 250px; aspect-ratio: 4/3"
@@ -154,10 +161,7 @@
               </div>
 
               <!-- No posts fallback -->
-              <div
-                v-if="!pending && otherBlogs.length === 0"
-                class="text-center text-gray-400 text-lg py-10"
-              >
+              <div v-if="!pending && blogs !== null && otherBlogs.length === 0">
                 {{ t("newsroom.noPosts") }}
               </div>
             </div>
@@ -170,7 +174,7 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
 
@@ -218,8 +222,11 @@ const {
   },
   {
     server: true,
-    client: true,
+    lazy: false,
     transform: (data) => (Array.isArray(data) ? data : []),
+    getCachedData(key, nuxtApp) {
+      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key];
+    },
   },
 );
 
@@ -254,6 +261,24 @@ const encodeSlug = (slug) => {
     .replace(/[^\w\-~.!*()]/g, "-");
 };
 
+const ITEMS_PER_PAGE = 5;
+const currentPage = ref(1);
+
+const paginatedBlogs = computed(() => {
+  const start = (currentPage.value - 1) * ITEMS_PER_PAGE;
+  return otherBlogs.value.slice(start, start + ITEMS_PER_PAGE);
+});
+
+const totalPages = computed(() =>
+  Math.ceil(otherBlogs.value.length / ITEMS_PER_PAGE),
+);
+
+watch(currentPage, () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+const { brandName, brandThumbnailPath } = useBrand();
+
 const staticMetaTitle = t("home-title");
 const staticMetaDescription = t("home-description");
 const staticMetaKeywords = [
@@ -277,7 +302,7 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: brandThumbnailPath.value },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

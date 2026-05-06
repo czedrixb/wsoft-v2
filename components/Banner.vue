@@ -15,7 +15,10 @@
         </h2>
 
         <p class="text-lg lg:text-[24px] text-[#20252CE5] mt-5">
-          {{ $t("home.banner.subtitle") }}
+          {{ $t("home.banner.subtitle1") }}
+        </p>
+        <p class="text-lg lg:text-[24px] text-[#20252CE5]">
+          {{ $t("home.banner.subtitle2") }}
         </p>
       </div>
     </div>

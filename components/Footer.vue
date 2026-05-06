@@ -1,8 +1,8 @@
 <template>
   <div
-    class="rounded-[14px] mb-8 p-8 text-white bg-[radial-gradient(213.33%_134.04%_at_50%_-20.22%,#2376E9_0%,#0A1628_17.54%,#000000_100%)]"
+    class="rounded-[14px] mb-8 p-5 sm:p-8 text-white bg-[radial-gradient(213.33%_134.04%_at_50%_-20.22%,#2376E9_0%,#0A1628_17.54%,#000000_100%)]"
   >
-    <div class="grid grid-cols-2 lg:grid-cols-12 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-hidden">
       <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
         <div class="lg:max-w-md">
           <h4
@@ -24,17 +24,28 @@
               }}</label>
               <input
                 type="email"
+                v-model="subscribeEmail"
                 :class="[
                   'w-full px-4 py-2 border rounded-lg focus:ring-2 bg-white text-black',
-                  'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
+                  subscribeError
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : 'border-[#475766] focus:border-[#2375E9] focus:ring-[#2375E9]',
                 ]"
                 :placeholder="$t('enter-email')"
+                @keyup.enter="handleSubscribe"
               />
+              <div class="h-[1rem]">
+                <p v-if="subscribeError" class="text-red-400 text-sm mt-1 mb-0">
+                  {{ subscribeError }}
+                </p>
+              </div>
             </div>
 
             <div class="mt-5 flex justify-center md:justify-end">
               <button
-                type="submit"
+                type="button"
+                :disabled="isSubscribing"
+                @click="handleSubscribe"
                 class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
               >
                 <div
@@ -48,7 +59,11 @@
                 <span
                   class="relative z-10 bg-gradient-to-r from-[#2376e9] to-[#02c7d0] bg-clip-text text-transparent group-hover:text-white transition-all"
                 >
-                  {{ $t("footer.subscribe") }}
+                  {{
+                    isSubscribing
+                      ? $t("footer.subscribing") || "Subscribing..."
+                      : $t("footer.subscribe")
+                  }}
                 </span>
 
                 <NuxtImg
@@ -68,6 +83,7 @@
           width="1025"
           height="auto"
           alt="icon-2"
+          class="w-full h-auto"
         />
       </div>
     </div>
@@ -78,7 +94,13 @@
 
     <!-- Logo -->
     <div class="flex justify-center md:justify-start">
-      <NuxtImg src="/images/revamp/footer-logo.png" width="118" height="auto" />
+      <NuxtImg
+        :src="
+          isUedu ? '/images/logos/uedu.png' : '/images/revamp/footer-logo.svg'
+        "
+        width="118"
+        height="auto"
+      />
     </div>
 
     <div class="mt-5">
@@ -129,7 +151,7 @@
             <span
               class="text-[#64748B] text-[16px] font-semibold text-center md:text-start"
             >
-              {{ $t("footer.copyright_text") }}
+              {{ $t("footer.copyright_text", { brand: brandName }) }}
             </span>
           </div>
         </div>
@@ -159,9 +181,7 @@
             >
               <p class="font-inter text-[#64748B] font-semibold text-uppercase">
                 {{ $t("footer.company_name") }}:
-                <span class="font-semibold text-white">
-                  {{ isUedu ? $t("footer-uedu") : $t("footer-wlabs") }}</span
-                >
+                <span class="font-semibold text-white"> {{ brandName }}</span>
               </p>
               <span class="hidden md:inline">|</span>
               <p class="font-inter text-[#64748B] font-semibold">
@@ -189,66 +209,84 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import Swal from "sweetalert2";
 
 const { t, locale } = useI18n();
 const showContactModal = ref(false);
 
+const subscribeEmail = ref("");
+const subscribeError = ref("");
+const isSubscribing = ref(false);
+
+const handleSubscribe = async () => {
+  subscribeError.value = "";
+
+  if (!subscribeEmail.value) {
+    subscribeError.value = t("email-required");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(subscribeEmail.value)) {
+    subscribeError.value = t("invalid-email");
+    return;
+  }
+
+  isSubscribing.value = true;
+
+  try {
+    await $fetch("/api/subscribe", {
+      method: "POST",
+      body: { email: subscribeEmail.value },
+    });
+
+    Swal.fire({
+      icon: "success",
+      title: t("footer.subscribe-success") || "Subscribed successfully!",
+      toast: true,
+      position: "top-end",
+      iconColor: "white",
+      customClass: { popup: "toast-success" },
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+
+    subscribeEmail.value = "";
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: t("footer.subscribe-error") || "Subscription failed!",
+      toast: true,
+      position: "top-end",
+      iconColor: "white",
+      customClass: { popup: "toast-error" },
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+  } finally {
+    isSubscribing.value = false;
+  }
+};
+
 const footerLinks = computed(() => [
-  {
-    label: "footer.home",
-    to: "/",
-    isModal: false,
-  },
-  {
-    label: "footer.about_us",
-    to: "/about-us",
-    isModal: false,
-  },
-  {
-    label: "footer.services",
-    to: "/services",
-    isModal: false,
-  },
-  {
-    label: "footer.products",
-    to: "/products",
-    isModal: false,
-  },
-  {
-    label: "footer.projects",
-    to: "/our-projects",
-    isModal: false,
-  },
-  {
-    label: "footer.newsroom",
-    to: "/newsroom",
-    isModal: false,
-  },
-  {
-    label: "footer.contact_us",
-    to: "/contact",
-    isModal: true,
-  },
+  { label: "footer.home", to: "/", isModal: false },
+  { label: "footer.about_us", to: "/about-us", isModal: false },
+  { label: "footer.services", to: "/services", isModal: false },
+  { label: "footer.products", to: "/products", isModal: false },
+  { label: "footer.projects", to: "/our-projects", isModal: false },
+  { label: "footer.newsroom", to: "/newsroom", isModal: false },
+  { label: "footer.contact_us", to: "/contact", isModal: true },
 ]);
 
 const additionalLinks = computed(() => [
-  {
-    label: t("footer.terms_conditions"),
-    to: "/terms-conditions",
-  },
-  {
-    label: t("footer.privacy_policy"),
-    to: "/privacy-policy",
-  },
+  { label: t("footer.terms_conditions"), to: "/terms-conditions" },
+  { label: t("footer.privacy_policy"), to: "/privacy-policy" },
 ]);
 
-const products = computed(() => [
-  { name: t("products.pageTitle"), to: "/optical-microscope" },
-  { name: t("wizAssistant"), to: "/wiz-assistant" },
-]);
-
-const isUedu = ref(false);
+const { isUedu, brandName, brandBusinessId, brandCompany } = useBrand();
 
 const openContactModal = () => {
   showContactModal.value = true;
@@ -257,8 +295,4 @@ const openContactModal = () => {
 const trackSealClick = () => {
   console.log("D-U-N-S® Seal clicked");
 };
-
-onMounted(() => {
-  isUedu.value = window.location.hostname === "uedu.wsoft.space";
-});
 </script>

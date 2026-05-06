@@ -44,13 +44,13 @@
         </div>
 
         <template v-else-if="blog">
-          <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="grid grid-cols-1">
             <div class="lg:col-start-2">
               <img
                 v-if="blog.banner_url && !bannerError"
                 :src="blog.banner_url"
                 :alt="blog.title"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover rounded-[14px]"
                 @error="onBannerError"
               />
               <NuxtImg
@@ -63,15 +63,17 @@
           </div>
 
           <div class="my-[10rem]">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="grid grid-cols-1">
               <div>
                 <h2
-                  class="text-2xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                  class="font-satoshi font-bold text-[36px] leading-[44px] md:text-[48px] md:leading-[60px] lg:text-[64px] lg:leading-[80px] bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
                 >
                   {{ blog.title }}
                 </h2>
                 <div class="mt-5">
-                  <p class="text-[#64748B] text-xl lg:text-[24px]">
+                  <p
+                    class="font-satoshi font-normal text-[18px] leading-[26px] md:text-[20px] md:leading-[28px] lg:text-[24px] lg:leading-[32px] text-[#64748B]"
+                  >
                     {{
                       blog.excerpt ||
                       stripHtml(blog.content || "").slice(0, 150) + "..."
@@ -83,15 +85,17 @@
           </div>
 
           <div class="my-[15rem]">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 gap-12">
               <div>
-                <h5 class="text-[#64748B] text-[24px]">
+                <h5
+                  class="font-satoshi font-normal text-[18px] leading-[32px] lg:text-[24px] text-[#64748B]"
+                >
                   {{ blog.author?.name || "" }}
                 </h5>
                 <div class="mt-8">
                   <article
                     v-html="blog.content"
-                    class="prose prose-lg max-w-none font-poppins text-[#20252C] text-[14px] font-semibold leading-relaxed space-y-5 prose-p:my-4 prose-ul:my-6 prose-ol:my-6 prose-li:my-2 prose-strong:text-[#222] prose-strong:font-semibold prose-headings:font-semibold prose-a:text-blue-600 prose-a:underline prose-img:rounded-xl"
+                    class="prose prose-lg max-w-none font-opensans text-[#20252C] text-[14px] font-semibold leading-relaxed [&>p]:mb-[96px] [&>section]:mb-[96px] [&>h1]:font-satoshi [&>h1]:font-bold [&>h1]:mb-[24px] [&>h2]:font-satoshi [&>h2]:font-bold [&>h2]:mb-[24px] [&>h3]:font-satoshi [&>h3]:font-bold [&>h3]:mb-[24px] [&>h4]:font-satoshi [&>h4]:font-bold [&>h4]:mb-[24px] prose-a:text-blue-600 prose-a:underline prose-img:rounded-xl"
                   />
                 </div>
               </div>
@@ -164,11 +168,17 @@
                       {{ post.title }}
                     </h5>
                     <p
-                      class="mt-2 md:mt-3 lg:mt-5 text-[#20252CE5] font-semibold text-[12px] md:text-[14px] line-clamp-3 max-w-lg"
+                      class="mt-2 md:mt-3 text-[#20252CE5] font-semibold text-[12px] md:text-[13px] max-w-[50%]"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
                     >
                       {{
                         post.excerpt ||
-                        stripHtml(post.content || "").slice(0, 150) + "..."
+                        stripHtml(post.content || "").slice(0, 80) + "..."
                       }}
                     </p>
                     <div class="mt-5 md:mt-20">

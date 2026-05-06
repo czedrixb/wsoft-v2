@@ -5,7 +5,11 @@
         <div class="flex justify-center lg:justify-start mb-5 md:mb-8">
           <NuxtLink to="/" class="inline-block">
             <NuxtImg
-              src="/images/logos/w-labs-white.png"
+              :src="
+                isUedu
+                  ? '/images/logos/uedu.png'
+                  : '/images/logos/w-labs-white.png'
+              "
               alt="W Soft Logo"
               class="w-[134px]"
             />
@@ -23,7 +27,7 @@
                 <span class="text-[#F8FAFC99]">{{
                   $t("productsFooter.inquiryEmail")
                 }}</span>
-                <span class="text-white">contact@wsoft.space</span>
+                <span class="text-white">{{ brandEmail }}</span>
               </div>
               <div class="flex items-center gap-3 text-[14px] mt-3">
                 <span class="text-[#F8FAFC99]">{{
@@ -46,7 +50,7 @@
                 <span class="text-[#F8FAFC99]">{{
                   $t("productsFooter.serviceProvider")
                 }}</span>
-                <span class="text-white">W Labs Inc.</span>
+                <span class="text-white">{{ brandName }}</span>
               </div>
               <div class="flex items-center gap-3 text-[14px] mt-3">
                 <span class="text-[#F8FAFC99]">{{
@@ -119,13 +123,9 @@ const navLinks = [
   },
 ];
 
-const isUedu = ref(false);
+const { isUedu, brandEmail, brandName } = useBrand();
 
 const trackSealClick = () => {
   console.log("D-U-N-S® Seal clicked");
 };
-
-onMounted(() => {
-  isUedu.value = window.location.hostname === "uedu.wsoft.space";
-});
 </script>

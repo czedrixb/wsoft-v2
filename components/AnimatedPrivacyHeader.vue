@@ -14,9 +14,14 @@
             <p
               class="text-[#20252CE5] font-semibold text-[16px] mt-8 mb-5 max-w-lg"
             >
-              {{ t("privacy.welcome") }}
+              {{
+                t("privacy.welcome", {
+                  brand: brandName,
+                  company: brandCompany,
+                  siteUrl: brandSiteUrl,
+                })
+              }}
             </p>
-
             <p class="text-[#20252CE5] font-semibold text-[16px] max-w-lg">
               {{ t("privacy.compliance") }}
             </p>
@@ -36,7 +41,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, computed } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useI18n } from "vue-i18n";
@@ -46,6 +51,7 @@ gsap.registerPlugin(ScrollTrigger);
 const { t } = useI18n();
 const termsHeaderContainer = ref(null);
 let ctx = null;
+const { brandName, brandCompany, brandSiteUrl } = useBrand();
 
 onMounted(() => {
   ctx = gsap.context(() => {
@@ -54,29 +60,14 @@ onMounted(() => {
     );
     const img = section.querySelector(".terms-header-img");
 
-    gsap.set(img, { opacity: 0, y: 180 });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=250%",
-        pin: true,
-        scrub: 2,
-        anticipatePin: 1,
-      },
+    gsap.set(img, { opacity: 0, y: 30 });
+    gsap.to(img, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 0.2,
     });
-
-    tl.to(
-      img,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: "power2.out",
-      },
-      0.5,
-    );
   }, termsHeaderContainer.value);
 });
 

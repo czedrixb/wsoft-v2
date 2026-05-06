@@ -5,10 +5,14 @@
         <div class="navbar-start">
           <NuxtLink to="/" @click="handleNavigation('/')">
             <img
-              src="/images/logos/w-labs-default.png"
+              :src="
+                isUedu
+                  ? '/images/logos/uedu.png'
+                  : '/images/logos/w-labs-default-new.svg'
+              "
               height="100%"
               class="w-[150px] lg:w-[190px]"
-              alt="W Soft Logo"
+              alt="Logo"
             />
           </NuxtLink>
         </div>
@@ -106,7 +110,11 @@
         <div class="text-center">
           <NuxtLink to="/" @click="isMenuOpen = false">
             <img
-              src="/images/logos/w-labs-default.png"
+              :src="
+                isUedu
+                  ? '/images/logos/uedu.png'
+                  : '/images/logos/w-labs-default-new.svg'
+              "
               class="w-[180px] mb-3"
               alt="W Soft Logo"
               loading="lazy"
@@ -161,13 +169,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
+const { isUedu } = useBrand();
 const isMenuOpen = ref(false);
 const showContactModal = ref(false);
 

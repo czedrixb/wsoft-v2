@@ -46,7 +46,15 @@
                 <div class="flex-grow space-y-2 md:space-y-8 mb-16">
                   <div class="text-lg md:text-[24px] font-medium leading-snug">
                     <p>
-                      {{ $t(`home.carousel.slide${slide.id + 1}.title.line1`) }}
+                      {{
+                        $t(`home.carousel.slide${slide.id + 1}.title.line1`, {
+                          brand: $t(
+                            isUedu
+                              ? "home.carousel.brand-uedu"
+                              : "home.carousel.brand",
+                          ),
+                        })
+                      }}
                     </p>
                     <p>
                       {{ $t(`home.carousel.slide${slide.id + 1}.title.line2`) }}
@@ -161,6 +169,16 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from "vue";
+const isUedu = ref(false);
+
+onMounted(() => {
+  isUedu.value = window.location.hostname === "ueducation.co.kr";
+  updateSlideWidth();
+  window.addEventListener("resize", updateSlideWidth);
+  startAutoSlide();
+});
+
 const slides = [
   {
     id: 0,

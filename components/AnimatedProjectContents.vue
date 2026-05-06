@@ -123,9 +123,9 @@ onMounted(() => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=250%",
+          end: "+=100%",
           pin: true,
-          scrub: 2,
+          scrub: 1,
           anticipatePin: 1,
         },
       });

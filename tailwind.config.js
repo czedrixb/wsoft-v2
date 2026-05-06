@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        satoshi: ['Satoshi', 'sans-serif'],
+        opensans: ['"Open Sans"', 'sans-serif'],
       },
       keyframes: {
         moveRightLeft: {
