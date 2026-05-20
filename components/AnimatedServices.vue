@@ -7,7 +7,7 @@
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
             <div class="text-block self-center" data-section="0">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
+              <h3 class="text-[#752323] text-[24px] font-[400]">
                 {{ $t("home.services.aiAutomation.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
@@ -80,7 +80,7 @@
             </div>
 
             <div class="text-block self-center" data-section="1">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
+              <h3 class="text-[#752323] text-[24px] font-[400]">
                 {{ $t("home.services.legacyModernization.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
@@ -121,7 +121,7 @@
             class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[500px]"
           >
             <div class="text-block self-center" data-section="2">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
+              <h3 class="text-[#752323] text-[24px] font-[400]">
                 {{ $t("home.services.saasDevelopment.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">
@@ -194,7 +194,7 @@
             </div>
 
             <div class="text-block self-center" data-section="3">
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
+              <h3 class="text-[#752323] text-[24px] font-[400]">
                 {{ $t("home.services.publicSector.title") }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-[16px] mb-5">

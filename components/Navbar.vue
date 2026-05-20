@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="navbar text-black py-5 px-4 lg:px-8">
+      <div class="navbar text-white py-5 px-4 lg:px-8">
         <div class="navbar-start">
           <NuxtLink to="/" @click="handleNavigation('/')">
             <img
@@ -26,8 +26,8 @@
                   class="mx-3 text-[14px] nav-slot overflow-hidden lg:text-[16px] xl:text-[18px] font-[400] font-inter transition-all !shadow-none duration-300 btn btn-sm border-0"
                   :class="[
                     isActiveLink(link.to)
-                      ? 'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white shadow-cyan-500/50'
-                      : 'bg-transparent text-black hover:bg-gray-100',
+                      ? 'bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] !text-black shadow-cyan-500/50'
+                      : 'bg-transparent !text-[#64748B] hover:bg-gray-100',
                   ]"
                 >
                   <span class="nav-slot-inner">
@@ -44,8 +44,8 @@
                   class="mx-3 text-[14px] nav-slot overflow-hidden lg:text-[16px] xl:text-[18px] font-[400] border-0 font-inter transition-all !shadow-none duration-300 btn btn-sm border-0`"
                   :class="[
                     isActiveLink(link.to)
-                      ? 'bg-gradient-to-r from-[#2375E9] to-[#02C7D0] text-white shadow-cyan-500/50'
-                      : 'bg-transparent text-black hover:bg-gray-100',
+                      ? 'bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] !text-black shadow-cyan-500/50'
+                      : 'bg-transparent !text-[#64748B] hover:bg-gray-100',
                   ]"
                 >
                   <span class="nav-slot-inner">
@@ -98,7 +98,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-black xl:hidden"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-white xl:hidden"
       >
         <button
           @click="isMenuOpen = false"
@@ -130,7 +130,7 @@
           <li
             v-for="link in navLinks"
             :key="link.title"
-            class="text-[18px] font-[400] active:!bg-transparent active:!border-0 active:!text-black"
+            class="text-[18px] font-[400] active:!bg-transparent active:!border-0 active:!text-white"
           >
             <template v-if="link.isModal">
               <button
@@ -147,21 +147,6 @@
             </template>
           </li>
         </ul>
-
-        <!-- <div class="text-center">
-          <button
-            @click="openContactModalFromMobile"
-            class="relative font-[400] text-[18px] px-8 py-5 bg-gradient-to-r from-[#82b6ed] to-[#76d3e4] text-white rounded-full cursor-pointer transition-all duration-300 hover:opacity-90"
-          >
-            <span class="relative z-10">{{ $t("Talk with an Expert") }}</span>
-            <span
-              class="absolute inset-0 bg-gradient-to-r from-[#70aae9] to-[#68d2e5] rounded-full p-[8px] -z-10"
-            ></span>
-            <span
-              class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px]"
-            ></span>
-          </button>
-        </div> -->
       </div>
     </transition>
     <ContactModal v-model="showContactModal" />

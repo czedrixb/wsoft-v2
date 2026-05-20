@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div class="my-20">
-      <div
-        class="mx-auto px-4 md:px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10"
-      >
+    <div class="mt-20">
+      <div class="mx-auto px-4 md:px-8 max-w-screen-lg pb-0 md:pt-16">
         <!-- Loading State -->
         <div v-if="pending && !blog" class="animate-pulse">
           <div class="grid grid-cols-1 lg:grid-cols-2">
@@ -31,7 +29,7 @@
           </button>
         </div>
 
-        <div v-else-if="!blog && !pending" class="text-center py-20">
+        <div v-else-if="!pending && !blog" class="text-center py-20">
           <div class="text-gray-500 font-poppins text-3xl mb-4">
             {{ $t("blog-not-found") }}
           </div>
@@ -66,7 +64,7 @@
             <div class="grid grid-cols-1">
               <div>
                 <h2
-                  class="font-satoshi font-bold text-[36px] leading-[44px] md:text-[48px] md:leading-[60px] lg:text-[64px] lg:leading-[80px] bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                  class="font-satoshi font-bold text-[36px] leading-[44px] md:text-[48px] md:leading-[60px] lg:text-[64px] lg:leading-[80px] bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
                 >
                   {{ blog.title }}
                 </h2>
@@ -84,7 +82,7 @@
             </div>
           </div>
 
-          <div class="my-[15rem]">
+          <div class="mt-[15rem]">
             <div class="grid grid-cols-1 gap-12">
               <div>
                 <h5
@@ -124,99 +122,68 @@
               More from our News, Articles, and Blogs
             </h5>
           </div> -->
-
-          <div class="mt-[5rem]">
-            <div
-              v-if="morePosts.length > 0"
-              class="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            >
-              <div
-                v-for="post in morePosts"
-                :key="post.id"
-                class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100"
-                :style="{ minHeight: '300px', aspectRatio: '4/3' }"
-              >
-                <img
-                  v-if="post.banner_url"
-                  :src="post.banner_url"
-                  :alt="post.title"
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                  @error="(e) => (e.target.style.display = 'none')"
-                />
-                <NuxtImg
-                  v-else
-                  src="/images/revamp/newsroom/news-1.png"
-                  alt="Newsroom image"
-                  class="w-full h-full object-cover"
-                  :modifiers="{ width: 800, quality: 80 }"
-                  loading="eager"
-                />
-
-                <!-- Overlay -->
-                <div
-                  class="absolute inset-0"
-                  :style="{
-                    backgroundColor: '#F8FAFC99',
-                    clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
-                  }"
-                >
-                  <div class="h-full p-4 md:p-6 lg:p-8 flex flex-col">
-                    <h5
-                      class="text-[18px] md:text-[20px] lg:text-[24px] font-bold text-[#0A1628] line-clamp-3 max-w-lg"
-                    >
-                      {{ post.title }}
-                    </h5>
-                    <p
-                      class="mt-2 md:mt-3 text-[#20252CE5] font-semibold text-[12px] md:text-[13px] max-w-[50%]"
-                      style="
-                        display: -webkit-box;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                      "
-                    >
-                      {{
-                        post.excerpt ||
-                        stripHtml(post.content || "").slice(0, 80) + "..."
-                      }}
-                    </p>
-                    <div class="mt-5 md:mt-20">
-                      <NuxtLink
-                        :to="`/news/${encodeSlug(post.slug)}`"
-                        class="border border-[#20252CE5] px-4 md:px-6 lg:px-8 py-1.5 md:py-2 text-[#20252CE5] text-[12px] md:text-[14px] font-semibold rounded-[22px] inline-flex items-center gap-2 hover:bg-[#20252CE5] hover:text-white transition-colors duration-300"
-                      >
-                        Read More
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="inline-block md:w-4 md:h-4"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </NuxtLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Fallback: no other posts -->
-            <div
-              v-else
-              class="text-center text-gray-500 font-poppins text-md lg:text-xl py-10"
-            >
-              {{ $t("no-popular") }}
-            </div>
-          </div>
         </template>
+      </div>
+
+      <div class="mx-auto px-4 md:px-8 max-w-screen-2xl mb-[10rem]">
+        <div
+          v-if="morePosts.length > 0"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        >
+          <NuxtLink
+            v-for="post in morePosts"
+            :key="post.id"
+            :to="`/newsroom/${post.id}/${encodeSlug(post.slug)}`"
+            class="relative w-full overflow-hidden rounded-2xl shadow-lg bg-gray-100 block h-[230px]"
+          >
+            <img
+              v-if="post.banner_url"
+              :src="post.banner_url"
+              :alt="post.title"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              @error="(e) => (e.target.style.display = 'none')"
+            />
+            <NuxtImg
+              v-else
+              src="/images/revamp/newsroom/news-1.png"
+              alt="Newsroom image"
+              class="w-full h-full object-cover"
+              :modifiers="{ width: 800, quality: 80 }"
+              loading="eager"
+            />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 flex flex-col justify-start p-4 md:p-6"
+              style="
+                background-color: #20252ce5;
+                clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+              "
+            >
+              <h5
+                class="text-[16px] md:text-[18px] font-bold text-white line-clamp-1 max-w-[60%]"
+              >
+                {{ post.title }}
+              </h5>
+              <p
+                class="mt-2 text-white/80 font-semibold text-[11px] md:text-[12px] max-w-[50%] line-clamp-2"
+              >
+                {{
+                  post.excerpt ||
+                  stripHtml(post.content || "").slice(0, 50) + "..."
+                }}
+              </p>
+            </div>
+          </NuxtLink>
+        </div>
+
+        <div
+          v-else
+          class="text-center text-gray-500 font-poppins text-md lg:text-xl py-10"
+        >
+          {{ $t("no-popular") }}
+        </div>
       </div>
     </div>
   </div>
@@ -251,62 +218,57 @@ const onBannerError = () => {
 
 function encodeSlug(slug) {
   if (!slug) return "";
-  return encodeURIComponent(slug)
-    .replace(/%20/g, "-")
-    .replace(/%3A/g, "-")
-    .replace(/[^\w\-~.!*()]/g, "-");
+  return slug
+    .replace(/[^a-zA-Z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
 }
 
-function decodeSlug(encodedSlug) {
-  try {
-    return decodeURIComponent(
-      encodedSlug.replace(/-/g, "%20").replace(/_/g, "%5F"),
-    );
-  } catch {
-    return encodedSlug;
-  }
-}
-
-// Fetch ALL posts for morePosts sidebar
-const { data: allPosts } = await useAsyncData("all-posts", async () => {
-  try {
+// Reuse the cached posts list from the index page — no extra network call
+const { data: allPosts } = await useAsyncData(
+  "newsroom-blogs", // ← same key as index so Nuxt reuses the payload
+  async () => {
     const res = await $fetch("/api/getBlogs");
     return Array.isArray(res) ? res : [];
-  } catch (err) {
-    console.error("[NEWS] Error fetching all posts:", err);
-    return [];
-  }
-});
+  },
+  {
+    getCachedData(key, nuxtApp) {
+      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key];
+    },
+  },
+);
 
-// Fetch the single matched post by finding ID from allPosts, then calling getPost
 const {
   data: blog,
   pending,
   error,
   refresh,
-} = await useAsyncData(`news-blog-${route.params.news}`, async () => {
-  try {
-    const res = await $fetch("/api/getBlogs");
-    if (!Array.isArray(res)) return null;
+} = await useAsyncData(
+  `news-blog-${route.params.id}`,
+  async () => {
+    try {
+      const id = route.params.id;
+      if (!id) return null;
+      const res = await $fetch(`/api/getPost/${id}`);
+      return res ?? null;
+    } catch (err) {
+      console.error("[NEWS] Error fetching post:", err);
+      return null;
+    }
+  },
+  {
+    server: true,
+    lazy: false,
+    getCachedData(key, nuxtApp) {
+      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key];
+    },
+  },
+);
 
-    const decodedSlug = decodeSlug(route.params.news);
-    const match = res.find(
-      (b) =>
-        b.slug === decodedSlug ||
-        encodeSlug(b.slug) === route.params.news ||
-        encodeSlug(b.slug).includes(route.params.news) ||
-        route.params.news.includes(encodeSlug(b.slug)),
-    );
-    if (!match) return null;
-
-    return await $fetch(`https://blog.wsoftdev.space/api/getPost/${match.id}`);
-  } catch (err) {
-    console.error("[NEWS] Error fetching post:", err);
-    return null;
-  }
-});
-
-const showError = computed(() => !!error.value && !blog.value);
+const showError = computed(
+  () => !pending.value && !!error.value && !blog.value,
+);
 
 const morePosts = computed(() => {
   if (!allPosts.value?.length) return [];
@@ -317,19 +279,6 @@ const morePosts = computed(() => {
 });
 
 const stripHtml = (html) => html?.replace(/<[^>]+>/g, "") || "";
-
-const formatDate = (dateString) => {
-  if (!dateString) return "";
-  try {
-    return new Date(dateString).toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  } catch {
-    return "";
-  }
-};
 
 const metaTitle = computed(
   () => blog.value?.title || t("blog-details") || "News - W SoftLabs",
@@ -344,10 +293,7 @@ useHead({
   title: metaTitle,
   link: [{ rel: "canonical", href: canonicalUrl.value }],
   script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify(structuredData),
-    },
+    { type: "application/ld+json", innerHTML: JSON.stringify(structuredData) },
   ],
   meta: [
     { name: "description", content: metaDescription },

@@ -5,11 +5,11 @@
     >
       <div class="md:text-center max-w-6xl mx-auto">
         <h2
-          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
         >
           <span>{{ displayedTitle }}</span>
           <span
-            class="inline-block w-[3px] h-[56px] ml-1 align-middle bg-gradient-to-b from-[#2376E9] to-[#02C7D0] rounded-sm"
+            class="inline-block w-[3px] h-[56px] ml-1 align-middle bg-gradient-to-b from-[#FFD5EB] to-[#E1D176] rounded-sm"
             :class="showCursor ? 'opacity-100' : 'opacity-0'"
           />
         </h2>
@@ -38,14 +38,14 @@
             class="group btn w-auto py-2 flex gap-3 items-center relative overflow-hidden rounded-full px-8"
           >
             <div
-              class="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-[#2376E9] to-[#02C7D0]"
+              class="absolute inset-0 rounded-full p-[1px] bg-gradient-to-r from-[#E96F23] to-[#D0B802]"
             >
               <div
                 class="w-full h-full rounded-full bg-white group-hover:bg-transparent transition-all"
               ></div>
             </div>
             <span
-              class="relative z-10 font-medium bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white] transition-all"
+              class="relative z-10 font-medium bg-gradient-to-r from-[#E96F23] to-[#D0B802] bg-clip-text text-transparent group-hover:text-white group-hover:[background:none] group-hover:[-webkit-text-fill-color:white] transition-all"
             >
               {{ $t("home.banner.button") }}
             </span>
@@ -62,8 +62,8 @@
             >
               <defs>
                 <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#2376E9" />
-                  <stop offset="100%" stop-color="#02C7D0" />
+                  <stop offset="0%" stop-color="#E96F23" />
+                  <stop offset="100%" stop-color="#D0B802" />
                 </linearGradient>
               </defs>
               <path

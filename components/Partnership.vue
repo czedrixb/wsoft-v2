@@ -12,7 +12,7 @@
 
         <div class="mt-5">
           <p
-            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#E96F23] to-[#D0B802] bg-clip-text text-transparent text-center"
           >
             {{ t("home.partnership.fortune100.text", { brand: brand }) }}
             <span class="font-bold">{{
@@ -34,7 +34,7 @@
 
         <div class="mt-5">
           <p
-            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent text-center"
+            class="text-2xl lg;text-[40px] leading-[1.2] max-w-xl mx-auto font-light bg-gradient-to-r from-[#E96F23] to-[#D0B802] bg-clip-text text-transparent text-center"
           >
             {{ t("home.partnership.scienceExchange.text", { brand: brand }) }}
             <span class="font-bold">{{

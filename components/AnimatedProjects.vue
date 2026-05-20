@@ -17,7 +17,7 @@
               class="text-block self-center"
               :data-section="index"
             >
-              <h3 class="text-[#64748B] text-[24px] font-[400]">
+              <h3 class="text-[#752323] text-[24px] font-[400]">
                 {{ $t(col.titleKey) }}
               </h3>
               <p class="text-[#20252CE5] font-semibold text-md mt-8">

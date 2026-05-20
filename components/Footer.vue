@@ -1,12 +1,12 @@
 <template>
   <div
-    class="rounded-[14px] mb-8 p-5 sm:p-8 text-white bg-[radial-gradient(213.33%_134.04%_at_50%_-20.22%,#2376E9_0%,#0A1628_17.54%,#000000_100%)]"
+    class="rounded-[14px] mb-8 p-5 sm:p-8 text-white bg-[radial-gradient(213.33%_134.04%_at_50%_-20.22%,#E1D176_0%,#473720_17.54%,#20252C_100%)]"
   >
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-hidden">
       <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
         <div class="lg:max-w-md">
           <h4
-            class="text-[24px] leading-tight bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+            class="text-[24px] leading-tight bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
           >
             {{ $t("footer.title") }}
           </h4>
@@ -49,15 +49,15 @@
                 class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
               >
                 <div
-                  class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#2376e9] to-[#02c7d0]"
+                  class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#E96F23] to-[#D0B802]"
                 >
                   <div
-                    class="w-full h-full rounded-[22px] bg-[#07101d] group-hover:bg-transparent transition-all"
+                    class="w-full h-full rounded-[22px] bg-[#20252C] group-hover:bg-transparent transition-all"
                   ></div>
                 </div>
 
                 <span
-                  class="relative z-10 bg-gradient-to-r from-[#2376e9] to-[#02c7d0] bg-clip-text text-transparent group-hover:text-white transition-all"
+                  class="relative z-10 text-[#E96F23] group-hover:text-white font-medium transition-all"
                 >
                   {{
                     isSubscribing
@@ -71,6 +71,10 @@
                   width="24"
                   height="24"
                   class="relative z-10 transition-all"
+                  style="
+                    filter: invert(49%) sepia(72%) saturate(600%)
+                      hue-rotate(353deg) brightness(100%);
+                  "
                 />
               </button>
             </div>
@@ -139,7 +143,7 @@
       </div>
     </div>
 
-    <div class="mt-8">
+    <div class="mt-24">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <div class="col-span-12 lg:col-span-3">
           <div class="flex items-center gap-5 justify-center md:justify-start">

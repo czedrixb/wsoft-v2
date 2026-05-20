@@ -8,7 +8,7 @@
           <!-- Left -->
           <div>
             <h2
-              class="text-[40px] md:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+              class="text-[40px] md:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
             >
               {{ t("newsroom.title") }}
             </h2>
@@ -136,7 +136,7 @@
                       class="mt-[1rem] md:mt-[8rem] lg:mt-[2rem] xl:mt-[12rem]"
                     >
                       <NuxtLink
-                        :to="`/newsroom/${encodeSlug(post.slug)}`"
+                        :to="`/newsroom/${post.id}/${encodeSlug(post.slug)}`"
                         class="border border-[#20252CE5] px-4 md:px-6 py-1.5 md:py-2 text-[#20252CE5] text-[12px] md:text-[14px] font-semibold rounded-[22px] inline-flex items-center gap-2 hover:bg-[#20252CE5] hover:text-white transition-colors duration-300"
                       >
                         {{ t("newsroom.readMore") }}

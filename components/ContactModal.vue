@@ -41,7 +41,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div class="col-span-12 lg:col-span-5">
                 <h2
-                  class="text-3xl lg:text-[48px] font-[300] leading-tight bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+                  class="text-3xl lg:text-[48px] font-[300] leading-tight bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
                 >
                   {{ $t("contact-modal.title") }}
                 </h2>
@@ -269,7 +269,7 @@
                     class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
                   >
                     <div
-                      class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#2376e9] to-[#02c7d0]"
+                      class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#FFD5EB] to-[#E1D176]"
                     >
                       <div
                         class="w-full h-full rounded-[22px] bg-[#20252CE5] group-hover:bg-transparent transition-all"
@@ -277,7 +277,7 @@
                     </div>
 
                     <span
-                      class="relative z-10 bg-gradient-to-r from-[#2376e9] to-[#02c7d0] bg-clip-text text-transparent group-hover:text-white transition-all"
+                      class="relative z-10 bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent group-hover:text-white transition-all"
                     >
                       {{ $t("contact-modal.submit") }}
                     </span>

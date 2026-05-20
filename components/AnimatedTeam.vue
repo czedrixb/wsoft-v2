@@ -3,7 +3,7 @@
     <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16 mb-0 md:mb-10">
       <div class="max-w-4xl mx-auto">
         <h2
-          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+          class="text-4xl lg:text-[60px] leading-tight font-bold bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
         >
           {{ $t("about.team.title") }}
         </h2>
@@ -97,8 +97,8 @@ const members = ref([
     position: "designer",
   },
   {
-    image: "/images/revamp/about-us/our-team/placeholder.png",
-    nickname: "song",
+    image: "/images/revamp/about-us/our-team/sing.png",
+    nickname: "sing",
     position: "project-manager",
   },
   {
@@ -161,16 +161,6 @@ const members = ref([
     nickname: "karlo",
     position: "designer",
   },
-  {
-    image: "/images/revamp/about-us/our-team/ritchlee.png",
-    nickname: "ritchlee",
-    position: "full-stack",
-  },
-  {
-    image: "/images/revamp/about-us/our-team/placeholder.png",
-    nickname: "camille",
-    position: "designer",
-  },
 ]);
 
 function initAnimation() {
@@ -193,7 +183,7 @@ function initAnimation() {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-          delay: (i % 3) * 0.15, // stagger within each row
+          delay: (i % 3) * 0.15,
         },
       );
     });

@@ -7,7 +7,7 @@
         >
           <div class="self-center">
             <h2
-              class="text-[60px] leading-tight font-bold max-w-lg bg-gradient-to-r from-[#2376E9] to-[#02C7D0] bg-clip-text text-transparent"
+              class="text-[60px] leading-tight font-bold max-w-lg bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
             >
               {{ t("privacy.title") }}
             </h2>

@@ -44,7 +44,10 @@
             <div class="col-span-12 order-2 md:order-1 md:col-span-6">
               <div class="flex flex-col h-full">
                 <div class="flex-grow space-y-2 md:space-y-8 mb-16">
-                  <div class="text-lg md:text-[24px] font-medium leading-snug">
+                  <div
+                    class="text-lg md:text-[24px] font-medium leading-snug"
+                    :class="slide.id === 1 ? 'text-[#752323]' : 'text-white'"
+                  >
                     <p>
                       {{
                         $t(`home.carousel.slide${slide.id + 1}.title.line1`, {
@@ -63,6 +66,7 @@
 
                   <div
                     class="font-semibold text-md md:text-[16px] opacity-90 hidden sm:block"
+                    :class="slide.id === 1 ? 'text-[#473720]' : 'text-white'"
                   >
                     <p>
                       {{
@@ -75,6 +79,7 @@
 
                   <div
                     class="font-semibold text-md md:text-[16px] opacity-90 hidden sm:block"
+                    :class="slide.id === 1 ? 'text-[#473720]' : 'text-white'"
                   >
                     <p>
                       {{
@@ -99,7 +104,12 @@
                 </div>
                 <router-link to="/products">
                   <button
-                    class="btn w-auto border bg-transparent hover:bg-[#2376E9] hover:border-[#2376E9] border-[#F8FAFC99] rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm"
+                    class="btn w-auto border rounded-full px-4 md:px-8 py-1.5 md:py-2 flex gap-2 md:gap-3 items-center mt-4 md:mt-0 self-start text-md md:text-sm bg-transparent"
+                    :class="
+                      slide.id === 1
+                        ? 'border-[#752323] text-[#752323] hover:bg-[#752323] hover:border-[#752323] hover:text-white'
+                        : 'border-[#F8FAFC99] text-white hover:bg-[#2376E9] hover:border-[#2376E9]'
+                    "
                   >
                     {{ $t("home.carousel.readMore") }}
                     <svg
@@ -187,7 +197,7 @@ const slides = [
   },
   {
     id: 1,
-    gradientClass: "bg-gradient-to-r from-[#2376E9] to-[#02C7D0]",
+    gradientClass: "bg-gradient-to-r from-[#FFD5EB] to-[#E1D176]",
     image: "/images/home/banner/icon-2.png",
   },
   {

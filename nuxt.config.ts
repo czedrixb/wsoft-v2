@@ -167,6 +167,14 @@ export default defineNuxtConfig({
       },
     },
 
+    "/api/getPost/**": {
+      cache: {
+        maxAge: 60,
+        staleMaxAge: 300,
+        swr: true,
+      },
+    },
+
     // Blog pages
     "/newsroom": {
       prerender: false,
