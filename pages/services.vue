@@ -3,6 +3,7 @@
     <AnimatedServicesHeader />
 
     <AnimatedProducts />
+
   </div>
 </template>
 
@@ -17,7 +18,7 @@ const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 const config = useRuntimeConfig();
 
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 const staticMetaTitle = t("services-title");
 const staticMetaDescription = t("services-description");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
@@ -46,8 +47,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

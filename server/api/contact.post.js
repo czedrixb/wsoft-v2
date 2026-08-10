@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { first_name, last_name, email, phone, company, message } = body;
+  const { first_name, last_name, email, phone, company, subject, message } = body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -182,6 +182,11 @@ export default defineEventHandler(async (event) => {
           <div class="field-label">Company</div>
           <div class="field-value">${company}</div>
         </div>` : ""}
+        ${subject ? `
+        <div class="field full-width">
+          <div class="field-label">Topic / Subject</div>
+          <div class="field-value">${subject}</div>
+        </div>` : ""}
       </div>
 
       <div class="message-box">
@@ -208,9 +213,9 @@ export default defineEventHandler(async (event) => {
   try {
     await transporter.sendMail({
       from: `"WSoft Contact Form" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER, // receives the email
+      to: process.env.CONTACT_RECIPIENT_EMAIL || process.env.GMAIL_USER,
       replyTo: email,             // reply goes back to the sender
-      subject: `New message from ${first_name} ${last_name}`,
+      subject: subject ? `[${subject}] — ${first_name} ${last_name}` : `New message from ${first_name} ${last_name}`,
       html: htmlBody,
     });
     console.log("✅ Email sent successfully");

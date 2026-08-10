@@ -64,5 +64,6 @@ const selectedLanguage = computed(() => {
 
 const setActiveLanguage = (language) => {
   locale.value = language;
+  document.activeElement?.blur();
 };
 </script>

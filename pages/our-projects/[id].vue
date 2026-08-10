@@ -3,6 +3,67 @@
     <div v-if="project">
       <AnimatedBaseProjectHeader :project="project.header" />
       <AnimatedProjectContents :sections="project.sections" />
+
+      <!-- Prev / Next project navigation (WOS-264 #10) -->
+      <section class="mx-auto px-8 max-w-screen-2xl py-16">
+        <!-- Heading -->
+        <p
+          class="text-center text-[#64748B] font-opensans font-semibold text-[14px] lg:font-satoshi lg:font-normal lg:text-[24px] lg:leading-[32px] mb-8 lg:mb-12"
+        >
+          {{ t("our-projects.moreProjects") }}
+        </p>
+
+        <!-- Prev / Next project cards -->
+        <div class="flex items-start gap-2 md:gap-4">
+          <NuxtLink
+            v-for="card in [prevProject, nextProject]"
+            :key="card.id"
+            :to="`/our-projects/${card.id}`"
+            class="relative block flex-1 overflow-hidden rounded-t-[14px] h-[115px] md:h-[230px]"
+          >
+            <img
+              :src="card.image"
+              alt=""
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <!-- Gray wash -->
+            <div class="absolute inset-0 bg-[rgba(137,137,137,0.5)]" />
+            <!-- Diagonal dark overlay + title -->
+            <div
+              class="absolute inset-0 p-2 md:p-4 lg:p-6"
+              style="background-color: #20252ce5; clip-path: polygon(0% 0%, 100% 0%, 0% 100%);"
+            >
+              <h3
+                class="max-w-[60%] text-[#F8FAFC] font-opensans text-[12px] leading-normal lg:font-satoshi lg:text-[24px] lg:leading-[32px]"
+              >
+                {{ card.title }}
+              </h3>
+            </div>
+          </NuxtLink>
+        </div>
+
+        <!-- Arrow nav buttons -->
+        <div class="flex items-center justify-center gap-2 md:gap-4 py-4">
+          <NuxtLink
+            :to="`/our-projects/${prevProject.id}`"
+            :aria-label="t('our-projects.prevProject')"
+            class="inline-flex items-center justify-center px-6 py-2 rounded-[22px] border border-[rgba(32,37,44,0.9)] bg-white shadow-sm hover:bg-gray-50 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+            </svg>
+          </NuxtLink>
+          <NuxtLink
+            :to="`/our-projects/${nextProject.id}`"
+            :aria-label="t('our-projects.nextProject')"
+            class="inline-flex items-center justify-center px-6 py-2 rounded-[22px] border border-[rgba(32,37,44,0.9)] bg-white shadow-sm hover:bg-gray-50 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </NuxtLink>
+        </div>
+      </section>
     </div>
 
     <div v-else class="min-h-screen flex items-center justify-center">
@@ -712,6 +773,28 @@ const projectConfigs = {
 const id = route.params.id;
 const config = projectConfigs[id];
 
+// Ordered list of project ids for prev/next navigation (WOS-264 #10)
+const projectIds = Object.keys(projectConfigs);
+const currentIndex = projectIds.indexOf(id);
+const totalProjects = projectIds.length;
+
+function toNavCard(projectId) {
+  return {
+    id: projectId,
+    title: t(`our-projects.${projectId}.header.title`),
+    image: projectConfigs[projectId].imagePath,
+  };
+}
+
+// Wraps around: prev of the first project is the last, next of the last is the first.
+const prevProject = computed(() =>
+  toNavCard(projectIds[(currentIndex - 1 + totalProjects) % totalProjects]),
+);
+
+const nextProject = computed(() =>
+  toNavCard(projectIds[(currentIndex + 1) % totalProjects]),
+);
+
 const project = computed(() => {
   if (!config) return null;
   return buildProject(id, config.imagePath, config.sections(id));
@@ -730,7 +813,7 @@ const structuredData = useStructuredData("our-project", {
   image: config?.imagePath ?? "",
 });
 
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: titleText,
@@ -746,7 +829,10 @@ useHead({
     { property: "og:title", content: titleText },
     { property: "og:description", content: descText },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
+    { name: "twitter:image", content: shareImageUrl },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

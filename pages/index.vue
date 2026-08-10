@@ -17,6 +17,7 @@
     <div class="mb-20">
       <BriefProjects />
     </div>
+
   </div>
 </template>
 <script setup>
@@ -31,8 +32,14 @@ const { canonicalUrl } = useCanonical();
 const { locale, t } = useI18n();
 const config = useRuntimeConfig();
 
+const { brandName } = useBrand();
+
 const staticMetaTitle = t("home-title");
-const staticMetaDescription = t("home-description");
+// home-description carries a {brand} placeholder; without the param it renders
+// with the brand name missing. WOS-275.
+const staticMetaDescription = t("home-description", {
+  brand: brandName.value,
+});
 const staticMetaKeywords = [
   t("home-meta-keyword"),
   ...Array.from({ length: 53 }, (_, i) => t(`home-meta-keyword-${i + 1}`)),
@@ -40,7 +47,7 @@ const staticMetaKeywords = [
 
 const structuredData = useStructuredData("home");
 
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -62,8 +69,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

@@ -101,7 +101,7 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <fieldset class="fieldset w-100">
                       <legend class="fieldset-legend mb-1 text-black">
-                        {{ $t("full-name") }}
+                        {{ $t("full-name") }} <span class="text-red-500">*</span>
                       </legend>
                       <input
                         type="text"
@@ -149,7 +149,7 @@
 
                     <fieldset class="fieldset md:col-span-2">
                       <legend class="fieldset-legend mb-1 text-black">
-                        {{ $t("email-address") }}
+                        {{ $t("email-address") }} <span class="text-red-500">*</span>
                       </legend>
                       <input
                         type="email"
@@ -179,7 +179,7 @@
 
                     <fieldset class="fieldset md:col-span-2">
                       <legend class="fieldset-legend mb-1 text-black">
-                        {{ $t("phone-number") }}
+                        {{ $t("phone-number") }} <span class="text-red-500">*</span>
                       </legend>
                       <input
                         type="number"
@@ -226,7 +226,7 @@
 
                     <fieldset class="fieldset md:col-span-2">
                       <legend class="fieldset-legend mb-1 text-black">
-                        {{ $t("message") }}
+                        {{ $t("message") }} <span class="text-red-500">*</span>
                       </legend>
                       <textarea
                         v-model="message"
@@ -262,6 +262,13 @@
                           class="absolute inset-0 bg-gradient-to-r from-[#2375E9] to-[#02C7D0] rounded-full m-[8px] transition-all duration-300 hover:m-[4px]"
                         ></span>
                       </button>
+                    </div>
+
+                    <!-- Required-fields note (WOS-264 #8) -->
+                    <div class="md:col-span-2 flex justify-end">
+                      <p class="text-[12px] text-[#64748B]">
+                        <span class="text-red-500">*</span> {{ $t("required-fields") }}
+                      </p>
                     </div>
                   </div>
                 </form>
@@ -303,6 +310,8 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
 
 const structuredData = useStructuredData("contact");
 
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
+
 useHead({
   title: staticMetaTitle,
   link: [
@@ -327,8 +336,11 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

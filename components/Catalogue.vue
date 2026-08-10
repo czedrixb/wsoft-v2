@@ -1,172 +1,189 @@
 <template>
   <div ref="catalogueContainer">
-    <!-- Products -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-20" ref="productsGrid">
-      <div
-        v-for="(item, key) in items"
-        :key="key"
-        class="flex flex-col h-full catalogue-item"
-        :data-index="key"
-      >
+    <div
+      v-for="(item, key) in items"
+      :key="key"
+      class="flex flex-col gap-16 items-center"
+    >
+      <!-- 1. Decorative title -->
+      <div class="catalogue-section text-center w-full select-none">
+        <div class="font-inter inline-flex items-start justify-center">
+          <span
+            class="font-bold text-black tracking-tight leading-none mix-blend-hard-light text-[56px] sm:text-[88px] lg:text-[130px] xl:text-[185px]"
+          >SkinArch</span>
+          <span
+            class="font-bold text-black leading-none mix-blend-hard-light relative text-[24px] sm:text-[38px] lg:text-[56px] xl:text-[80px] -top-1 sm:-top-2 lg:-top-4 xl:-top-6"
+          >™</span>
+        </div>
         <div
-          class="rounded-[6px] text-white text-center p-5 mb-5"
-          :style="{ backgroundColor: item.color }"
+          class="font-inter font-normal uppercase leading-none text-[#125b64] text-[20px] sm:text-[34px] lg:text-[50px] xl:text-[70px]"
+          style="text-shadow: 0 0 24px #00c8ff, 0 0 48px rgba(0, 200, 255, 0.3)"
         >
-          <h2 class="font-inter font-[400] text-[20px]">
-            {{ item.productName }}
-          </h2>
-          <span class="font-600 text-[12px] text-[#F8FAFC99]">
-            {{ item.subText }}
-          </span>
+          LC-OCT ANALYZER
         </div>
+      </div>
 
-        <div class="mb-4">
-          <div class="flex items-center gap-x-2 mb-2">
-            <div
-              class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-[600] text-[14px] shrink-0 whitespace-nowrap"
-            >
-              <span class="font-inter">{{
-                $t("products.catalogueNumber")
-              }}</span>
-            </div>
-            <span class="text-black text-[14px] font-[600] flex-1 truncate">
-              {{ item.catalogueNumber }}
-            </span>
+      <!-- 2. Description -->
+      <div class="catalogue-section max-w-3xl w-full text-center">
+        <p
+          v-for="(desc, i) in item.descriptions"
+          :key="i"
+          class="font-opensans text-[#20252CE5] text-[15px] leading-relaxed"
+        >
+          {{ desc }}
+        </p>
+      </div>
+
+      <!-- 3. Catalogue Number + Product Type -->
+      <div class="catalogue-section max-w-3xl w-full space-y-3">
+        <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
+          <div
+            class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
+          >
+            {{ $t("products.catalogueNumber") }}
           </div>
-          <div class="flex items-center gap-x-2">
-            <div
-              class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-[600] text-[14px] shrink-0 whitespace-nowrap"
-            >
-              <span class="font-inter">{{ $t("products.productType") }}</span>
+          <span class="text-[#20252CE5] text-[14px] font-[600] break-all">{{
+            item.catalogueNumber
+          }}</span>
+        </div>
+        <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
+          <div
+            class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
+          >
+            {{ $t("products.productType") }}
+          </div>
+          <span class="text-[#20252CE5] text-[14px] font-[600]">{{
+            item.productType
+          }}</span>
+        </div>
+      </div>
+
+      <!-- 4. Included Program -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.includedProgram") }}
+          </p>
+        </div>
+        <div
+          v-for="(program, pi) in item.programs"
+          :key="pi"
+          class="text-[#20252CE5] text-[14px] font-[600]"
+        >
+          <p class="mb-2">{{ program.name }}</p>
+          <ul class="list-disc ps-6 space-y-1">
+            <li v-for="(feature, fi) in program.features" :key="fi">
+              {{ feature }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. Intended Use -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.intendedUse") }}
+          </p>
+        </div>
+        <p class="text-[#20252CE5] text-[14px] font-[600]">
+          {{ item.intendedUse }}
+        </p>
+      </div>
+
+      <!-- 6. Research Use Disclaimer -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.researchUseDisclaimer") }}
+          </p>
+        </div>
+        <div class="text-[#20252CE5] text-[14px] font-[600] space-y-1">
+          <p v-for="(line, li) in item.researchUse" :key="li">{{ line }}</p>
+        </div>
+      </div>
+
+      <!-- 7. Feature Cards -->
+      <div class="catalogue-section w-full">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+          <div
+            v-for="(card, ci) in featureCards"
+            :key="ci"
+            class="rounded-[14px] p-5 flex flex-col gap-3 bg-white/20 backdrop-blur-sm border border-white/10"
+            :style="{ borderTop: `1.5px solid ${card.color}` }"
+          >
+            <span
+              class="mdi text-[28px] leading-none"
+              :class="`mdi-${card.icon}`"
+              :style="{ color: card.color }"
+            />
+            <div>
+              <p
+                class="font-satoshi font-bold text-[12px] text-[#0a1628] uppercase tracking-wider leading-tight"
+              >
+                {{ card.label }}
+              </p>
+              <p class="font-opensans text-[12px] text-[#20252CE5] mt-1 leading-snug">
+                {{ card.sub }}
+              </p>
             </div>
-            <span class="text-black text-[14px] font-[600] flex-1">
-              {{ item.productType }}
-            </span>
           </div>
         </div>
+      </div>
 
-        <div class="text-black font-[600] text-[14px] mb-5">
-          <div class="h-[18rem] overflow-y-auto">
-            <p
-              class="mt-5 first:mt-0"
-              v-for="(desc, index) in item.descriptions"
-              :key="index"
-            >
-              {{ desc }}
+      <!-- 8. Report Preview -->
+      <!-- Note: this image should be anonymized before production — see plan notes -->
+      <div class="catalogue-section w-full max-w-4xl">
+        <NuxtImg
+          src="/images/revamp/products/report-preview-lcoct.png"
+          class="w-full h-auto rounded-[14px] shadow-xl"
+          :alt="$t('products.items.lcOct.reportAlt')"
+        />
+      </div>
+
+      <!-- 9. Package Components / Pricing / Lead Time -->
+      <div
+        class="catalogue-section grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl"
+      >
+        <!-- Package Components -->
+        <div>
+          <div class="border-b border-[#64748B] pb-2 mb-4">
+            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+              {{ $t("products.packageComponents") }}
             </p>
           </div>
+          <ol class="list-decimal ps-4 text-[#20252CE5] text-[14px] font-[600] space-y-1">
+            <li
+              v-for="(comp, ci) in item.packageComponents"
+              :key="ci"
+            >
+              {{ comp }}
+            </li>
+          </ol>
         </div>
 
-        <!-- Image -->
-        <NuxtImg
-          :src="`/images/products/${item.image}`"
-          alt="pore-density"
-          class="w-full h-auto mb-5"
-        />
-
-        <div class="mt-[3rem]">
-          <!-- Included Program -->
-          <div class="h-[17rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.includedProgram") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <div
-                v-for="(program, programKey) in item.programs"
-                :key="programKey"
-                class="mb-4 last:mb-0"
-              >
-                <p class="mb-1">{{ program.name }}</p>
-                <ul class="list-disc ps-7">
-                  <li
-                    v-for="(feature, index) in program.features"
-                    :key="index"
-                    class="mb-1 last:mb-0"
-                  >
-                    {{ feature }}
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <!-- Pricing -->
+        <div>
+          <div class="border-b border-[#64748B] pb-2 mb-4">
+            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+              {{ $t("products.pricing") }}
+            </p>
           </div>
+          <p class="text-[#20252CE5] text-[14px] font-[600]">
+            {{ item.pricing || $t("products.pricingUponRequest") }}
+          </p>
+        </div>
 
-          <!-- Intended Use -->
-          <div class="h-[15rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.intendedUse") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <p class="min-h-[20px]">{{ item.intendedUse }}</p>
-            </div>
+        <!-- Lead Time -->
+        <div>
+          <div class="border-b border-[#64748B] pb-2 mb-4">
+            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+              {{ $t("products.leadTime") }}
+            </p>
           </div>
-
-          <!-- Research Use Only Disclaimer -->
-          <div class="h-[15rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.researchUseDisclaimer") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <p
-                v-for="(line, index) in item.researchUse"
-                :key="index"
-                class="mb-1 last:mb-0"
-              >
-                {{ line }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Package Components -->
-          <div class="h-[17rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.packageComponents") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <ol class="list-decimal ps-3">
-                <li
-                  v-for="(component, index) in item.packageComponents"
-                  :key="index"
-                  class="mb-1 last:mb-0"
-                >
-                  {{ component }}
-                </li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- Pricing -->
-          <div class="h-[15rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.pricing") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <p class="min-h-[20px]">
-                {{ $t("products.pricingUponRequest") }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Lead Time -->
-          <div class="h-[15rem]">
-            <div class="border-b-[1px] border-[#64748B] mb-2">
-              <p class="font-inter font-[400] text-[20px] text-black">
-                {{ $t("products.leadTime") }}
-              </p>
-            </div>
-            <div class="text-black text-[14px] font-[600]">
-              <p class="min-h-[20px]">{{ $t("products.leadTimeValue") }}</p>
-            </div>
-          </div>
+          <p class="text-[#20252CE5] text-[14px] font-[600]">
+            {{ item.leadTime || $t("products.leadTimeValue") }}
+          </p>
         </div>
       </div>
     </div>
@@ -183,156 +200,90 @@ gsap.registerPlugin(ScrollTrigger);
 
 const { t, tm, locale } = useI18n();
 const catalogueContainer = ref(null);
-const productsGrid = ref(null);
 let ctx = null;
 
 const items = ref([]);
+const featureCards = ref([]);
 
 const updateItems = () => {
   items.value = [
     {
-      color: "#6AA05D",
-      productName: t("products.items.poreDensity.productName"),
-      subText: t("products.items.poreDensity.subText"),
-      catalogueNumber: t("products.items.poreDensity.catalogueNumber"),
-      productType: t("products.items.poreDensity.productType"),
-      descriptions: tm("products.items.poreDensity.descriptions"),
-      image: "pore-density.png",
+      productName: t("products.items.lcOct.productName"),
+      subText: t("products.items.lcOct.subText"),
+      catalogueNumber: t("products.items.lcOct.catalogueNumber"),
+      productType: t("products.items.lcOct.productType"),
+      descriptions: tm("products.items.lcOct.descriptions"),
       programs: [
         {
-          name: t(
-            "products.items.poreDensity.programs.skinPoreDensityAnalysis",
-          ),
-          features: tm("products.items.poreDensity.programs.features"),
+          name: t("products.items.lcOct.programs.name"),
+          features: tm("products.items.lcOct.programs.features"),
         },
       ],
-      intendedUse: t("products.items.poreDensity.intendedUse"),
+      intendedUse: t("products.items.lcOct.intendedUse"),
       researchUse: [
         t("products.researchUseOnly"),
         t("products.notForCosmetic"),
       ],
-      packageComponents: tm("products.items.poreDensity.packageComponents"),
+      packageComponents: tm("products.items.lcOct.packageComponents"),
+      pricing: t("products.items.lcOct.pricing"),
+      leadTime: t("products.items.lcOct.leadTime"),
+    },
+  ];
+};
+
+const updateFeatureCards = () => {
+  featureCards.value = [
+    {
+      label: t("products.featureCards.csv.label"),
+      sub: t("products.featureCards.csv.sub"),
+      icon: "file-delimited-outline",
+      color: "#6d28d9",
     },
     {
-      color: "#5790DE",
-      productName: t("products.items.skinFlake.productName"),
-      subText: t("products.items.skinFlake.subText"),
-      catalogueNumber: t("products.items.skinFlake.catalogueNumber"),
-      productType: t("products.items.skinFlake.productType"),
-      descriptions: tm("products.items.skinFlake.descriptions"),
-      image: "flake-area.png",
-      programs: [
-        {
-          name: t("products.items.skinFlake.programs.skinPoreDensityAnalysis"),
-          features: [],
-        },
-        {
-          name: t(
-            "products.items.skinFlake.programs.skinFlakeAreaRatioAnalysis",
-          ),
-          features: [],
-        },
-      ],
-      intendedUse: t("products.items.skinFlake.intendedUse"),
-      researchUse: [t("products.researchUseOnly"), t("products.notForMedical")],
-      packageComponents: tm("products.items.skinFlake.packageComponents"),
+      label: t("products.featureCards.dashboard.label"),
+      sub: t("products.featureCards.dashboard.sub"),
+      icon: "view-dashboard-outline",
+      color: "#00b8cc",
     },
     {
-      color: "#802FA5",
-      productName: t("products.items.skinTexture.productName"),
-      subText: t("products.items.skinTexture.subText"),
-      catalogueNumber: t("products.items.skinTexture.catalogueNumber"),
-      productType: t("products.items.skinTexture.productType"),
-      descriptions: tm("products.items.skinTexture.descriptions"),
-      image: "skin-roughness.png",
-      programs: [
-        {
-          name: t(
-            "products.items.skinTexture.programs.skinPoreDensityAnalysis",
-          ),
-          features: [],
-        },
-        {
-          name: t(
-            "products.items.skinTexture.programs.skinFlakeAreaRatioAnalysis",
-          ),
-          features: [],
-        },
-        {
-          name: t(
-            "products.items.skinTexture.programs.skinTextureRoughnessAnalysis",
-          ),
-          features: [],
-        },
-      ],
-      intendedUse: t("products.items.skinTexture.intendedUse"),
-      researchUse: [
-        t("products.researchUseOnly"),
-        t("products.notForCosmeticClaims"),
-      ],
-      packageComponents: tm("products.items.skinTexture.packageComponents"),
+      label: t("products.featureCards.mesh.label"),
+      sub: t("products.featureCards.mesh.sub"),
+      icon: "cube-outline",
+      color: "#a78bfa",
     },
     {
-      color: "#D86429",
-      productName: t("products.items.skinTone.productName"),
-      subText: t("products.items.skinTone.subText"),
-      catalogueNumber: t("products.items.skinTone.catalogueNumber"),
-      productType: t("products.items.skinTone.productType"),
-      descriptions: tm("products.items.skinTone.descriptions"),
-      image: "skin-tone.png",
-      programs: [
-        {
-          name: t("products.items.skinTone.programs.skinDarknessAnalysis"),
-          features: tm("products.items.skinTone.programs.features"),
-        },
-      ],
-      intendedUse: t("products.items.skinTone.intendedUse"),
-      researchUse: [
-        t("products.researchUseOnly"),
-        t("products.notForCosmeticEfficacy"),
-      ],
-      packageComponents: tm("products.items.skinTone.packageComponents"),
+      label: t("products.featureCards.pdf.label"),
+      sub: t("products.featureCards.pdf.sub"),
+      icon: "file-pdf-box",
+      color: "#00e5ff",
     },
   ];
 };
 
 updateItems();
+updateFeatureCards();
 
 const initAnimations = () => {
   ctx?.revert();
 
   ctx = gsap.context(() => {
-    // Only run on lg screens (1024px+)
-    ScrollTrigger.matchMedia({
-      "(min-width: 1024px)": () => {
-        const allItems =
-          productsGrid.value?.querySelectorAll(".catalogue-item");
-        if (!allItems || allItems.length < 2) return;
+    const sections =
+      catalogueContainer.value?.querySelectorAll(".catalogue-section");
+    if (!sections?.length) return;
 
-        // Separate left (even index) and right (odd index) columns
-        const leftItems = [...allItems].filter((_, i) => i % 2 === 0);
-        const rightItems = [...allItems].filter((_, i) => i % 2 !== 0);
-
-        // Animate each right-column card: start offset down, scroll up to align
-        rightItems.forEach((rightCard, i) => {
-          const leftCard = leftItems[i];
-          if (!leftCard) return;
-
-          gsap.set(rightCard, { y: 120, opacity: 0 });
-
-          gsap.to(rightCard, {
-            y: 0,
-            opacity: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: leftCard,
-              start: "top 70%",
-              end: "top 20%",
-              scrub: 1.5,
-            },
-          });
-        });
-      },
+    sections.forEach((section) => {
+      gsap.set(section, { opacity: 0, y: 24 });
+      gsap.to(section, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
     });
   }, catalogueContainer.value);
 };
@@ -348,6 +299,7 @@ onUnmounted(() => {
 
 watch(locale, async () => {
   updateItems();
+  updateFeatureCards();
   await nextTick();
   initAnimations();
 });

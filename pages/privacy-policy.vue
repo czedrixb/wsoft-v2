@@ -21,11 +21,6 @@ const { canonicalUrl } = useCanonical();
 const { locale } = useI18n();
 const config = useRuntimeConfig();
 
-const isUedu = ref(false);
-onMounted(() => {
-  isUedu.value = window.location.hostname === "ueducation.co.kr";
-});
-
 const currentLanguage = computed(() => locale.value);
 
 const staticMetaTitle = t("privacy.title");
@@ -34,9 +29,7 @@ const staticMetaKeywords = [].join(", ");
 
 const structuredData = useStructuredData("products");
 
-const thumbnailUrl = computed(() => {
-  return isUedu.value ? "/images/thumbnail-uedu.png" : "/images/thumbnail.png";
-});
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -58,8 +51,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: thumbnailUrl.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

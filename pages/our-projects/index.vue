@@ -37,7 +37,7 @@ const staticMetaKeywords = projectSlugs
 
 const structuredData = useStructuredData("our-projects");
 
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -59,7 +59,10 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
+    { name: "twitter:image", content: shareImageUrl },
     { property: "og:url", content: canonicalUrl.value },
   ],
 });

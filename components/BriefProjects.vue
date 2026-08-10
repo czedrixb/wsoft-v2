@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto px-8 max-w-screen-4xl pb-0 md:py-16 mb-0 md:mb-10">
     <div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
         <div class="col-span-12 lg:col-span-8">
           <NuxtImg
             src="/images/revamp/home/projects/hems.png"
@@ -38,5 +38,24 @@
         {{ $t("home.projects.description") }}
       </h4>
     </div>
+
+    <div class="mt-6 flex justify-end max-w-2xl">
+      <BaseButton variant="secondary" @click="openContact($t('home.projects.cta'))">
+        {{ $t("home.projects.cta") }}
+      </BaseButton>
+    </div>
+
+    <ContactModal v-model="showContactModal" :subject="contactSubject" />
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const showContactModal = ref(false);
+const contactSubject = ref("");
+const openContact = (subject) => {
+  contactSubject.value = subject;
+  showContactModal.value = true;
+};
+</script>

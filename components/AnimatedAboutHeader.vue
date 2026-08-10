@@ -25,7 +25,6 @@
             </div>
 
             <div class="about-img-1">
-              ``
               <NuxtImg
                 :src="
                   isUedu

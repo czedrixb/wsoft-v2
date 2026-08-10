@@ -6,6 +6,20 @@
           class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[500px]"
         >
           <div class="self-center">
+            <!-- Back to Projects — list icon to discourage immediate back-out (WOS-264 #9) -->
+            <NuxtLink
+              to="/our-projects"
+              class="inline-flex items-center gap-2 mb-6 text-[#64748B] hover:text-[#20252C] transition-colors text-[14px] font-opensans"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <polyline points="3 6 4 7 6 5" />
+                <polyline points="3 12 4 13 6 11" />
+                <polyline points="3 18 4 19 6 17" />
+              </svg>
+            </NuxtLink>
             <h2
               class="text-[60px] leading-tight font-bold bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent"
             >

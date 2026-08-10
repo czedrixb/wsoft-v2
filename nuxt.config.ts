@@ -1,8 +1,16 @@
 // nuxt.config.ts
+
+// NUXT_PUBLIC_BASE_URL carries a trailing slash, which would produce
+// double-slashed absolute URLs when joined with a path. Normalise once here.
+const SITE_ORIGIN = (
+  process.env.NUXT_PUBLIC_BASE_URL || "https://wsoft.space"
+).replace(/\/+$/, "");
+
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false }, // Disable in production
   css: [
+    "~/assets/styles/fonts.css",
     "~/assets/styles/style.css",
     "~/assets/styles/marquee.scss",
     "@mdi/font/css/materialdesignicons.css",
@@ -55,11 +63,25 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        // { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        // { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        // { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-        // { rel: 'manifest', href: '/site.webmanifest' },
-        // { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#2375e9' },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/favicon-16x16.png",
+        },
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "/apple-touch-icon.png",
+        },
+        // No manifest or safari-pinned-tab asset exists yet — leaving those out
+        // rather than linking 404s.
         {
           rel: "alternate",
           type: "application/rss+xml",
@@ -100,8 +122,8 @@ export default defineNuxtConfig({
         // Open Graph - Enhanced
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "W Labs" },
-        { property: "og:locale", content: "ko_KR" },
-        { property: "og:locale:alternate", content: "en_US" },
+        // og:locale / og:locale:alternate are set reactively in app.vue so they
+        // follow the resolved locale instead of always claiming ko_KR. WOS-275.
 
         // Twitter Card
         { name: "twitter:card", content: "summary_large_image" },
@@ -116,8 +138,8 @@ export default defineNuxtConfig({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "W Labs",
-            url: process.env.NUXT_PUBLIC_BASE_URL || "https://wsoft.space",
-            logo: `${process.env.NUXT_PUBLIC_BASE_URL || "https://wsoft.space"}/images/logo.png`,
+            url: SITE_ORIGIN,
+            logo: `${SITE_ORIGIN}/images/logos/w-labs-logo.png`,
             description:
               "Innovative software solutions and AI technology development",
             address: {
@@ -151,9 +173,9 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // Homepage
+    // Homepage — SSR per request so i18n locale detection runs and the correct
+    // language is baked into the HTML (no KO flash for EN browsers). WOS-258.
     "/": {
-      prerender: true,
       headers: {
         "X-Robots-Tag": "index, follow",
       },
@@ -197,30 +219,23 @@ export default defineNuxtConfig({
       },
     },
 
+    // SSR per request — same reason as "/" above (WOS-258).
     "/about-us": {
-      prerender: true,
-      isr: 86400,
       headers: {
         "X-Robots-Tag": "index, follow",
       },
     },
     "/services": {
-      prerender: true,
-      isr: 86400,
       headers: {
         "X-Robots-Tag": "index, follow",
       },
     },
     "/our-works": {
-      prerender: true,
-      isr: 86400,
       headers: {
         "X-Robots-Tag": "index, follow",
       },
     },
     "/contact-us": {
-      prerender: true,
-      isr: 86400,
       headers: {
         "X-Robots-Tag": "index, follow",
       },
@@ -263,12 +278,9 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: false,
+      // Page routes removed — they are now SSR per request for correct locale
+      // detection (WOS-258). Only locale-independent API routes are prerendered.
       routes: [
-        "/",
-        "/about-us",
-        "/services",
-        "/our-works",
-        "/contact-us",
         "/api/sitemap.xml",
         "/api/robots.txt",
         "/api/rss.xml",

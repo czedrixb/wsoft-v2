@@ -17,7 +17,7 @@ const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 
 const staticMetaTitle = t("products-title");
-const staticMetaDescription = t("products-description");
+const staticMetaDescription = t("product.products-description");
 
 const productKeys = [
   "lcOct",
@@ -32,12 +32,12 @@ const productKeys = [
   "aiLanguageLearning",
 ];
 const staticMetaKeywords = productKeys
-  .map((key) => t(`animatedProjects.${key}.title`))
+  .map((key) => t(`product.animatedProjects.${key}.title`))
   .join(", ");
 
 const structuredData = useStructuredData("product");
 
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -59,8 +59,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

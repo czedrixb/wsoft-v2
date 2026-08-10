@@ -28,17 +28,17 @@
         <div
           v-for="(member, index) in members"
           :key="member.nickname"
-          class="team-member flex bg-[#F8FAFC] gap-8"
+          class="team-member flex bg-[#F8FAFC] gap-8 md:flex-col md:items-center md:gap-6 md:p-4 md:rounded-[7px] lg:flex-row lg:items-stretch lg:gap-8 lg:p-0 lg:rounded-none"
           :data-index="index"
         >
           <NuxtImg
             :src="member.image"
             width="144px"
             height="100%"
-            class="object-cover"
+            class="object-cover md:w-[144px] md:h-[166px] md:rounded-[7px] md:shrink-0 lg:h-full lg:rounded-none"
             :alt="member.nickname"
           />
-          <div class="py-2">
+          <div class="py-2 md:w-full">
             <p
               class="text-[#64748B] text-xl lg:text-[30px] leading-[1.2] font-light capitalize"
             >

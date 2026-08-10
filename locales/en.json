@@ -124,7 +124,7 @@
   "contact-us-meta-keyword-9": "Schedule a Consultation with W Soft",
   "contact-us-meta-keyword-10": "Contact for AI and Software Services Korea",
   "blogs-title": "Blogs",
-  "blogs-description": "Discover the latest insights, trends, and expertise from W SoftLabs. Read our articles on AI, web development, and technology solutions.",
+  "blogs-description": "Discover the latest insights, trends, and expertise from W Labs. Read our articles on AI, web development, and technology solutions.",
   "blogs-meta-keyword-1": "Blog",
   "blogs-meta-keyword-2": "Articles",
   "blogs-meta-keyword-3": "Insights",
@@ -163,6 +163,7 @@
   "Talk with an Expert": "Talk with an Expert",
   "start-project": "Start Your Project Today",
   "explore-more-projects": "Explore More Projects",
+  "more-of-our-products": "More of our Products",
   "elevate-business": "Elevate your business with {brand}’ AI and custom development.",
   "project-success": "100% Projects Success Rate",
   "customer-retention": "95% Customer Retention Rate",
@@ -344,6 +345,7 @@
   "phone-required": "Please enter your phone number",
   "invalid-phone": "Phone number must be entered as numbers only",
   "message-required": "Please enter your message",
+  "required-fields": "required fields",
   "dashboard-comprehensive": "The dashboard offers a comprehensive view of your projects, earnings, tasks, and more, simplifying the process of monitoring your business's progress.",
   "crawled-products": "Crawled Products",
   "products-have": "Products have been crawled from websites, allowing for easy checking of their specifications and more.",
@@ -549,31 +551,44 @@
     "notForCosmetic": "Not for diagnostic, therapeutic, cosmetic, or clinical use.",
     "notForCosmeticClaims": "Not for diagnostic, therapeutic, cosmetic claims, or clinical use.",
     "notForCosmeticEfficacy": "Not for diagnostic, therapeutic, cosmetic efficacy claims, or clinical use.",
+    "notForDiagnostic": "Not for diagnostic or therapeutic use.",
+    "featureCards": {
+      "csv":       { "label": "CSV EXPORT",        "sub": "Raw metrics + versioning" },
+      "dashboard": { "label": "DASHBOARD SUMMARY", "sub": "Visual report overview" },
+      "mesh":      { "label": "MESH EXPORT",       "sub": ".PLY / .OBJ 3D file" },
+      "pdf":       { "label": "PDF REPORT",        "sub": "Full quantitative analysis" }
+    },
     "items": {
-      "poreDensity": {
-        "productName": "Optical Microscope–Based Pore Density Analysis System",
-        "subText": "Direct pore coverage measurement",
-        "catalogueNumber": "WSL-ODM-SKIN-S1",
-        "productType": "Research Product, Device + Analysis Software Package",
+      "lcOct": {
+        "productName": "SkinArch™ LC-OCT Analyzer v1.0",
+        "subText": "LC-OCT Skin Structure Analysis",
+        "catalogueNumber": "SkinArch-LCOCT-Analyzer-v1.0",
+        "productType": "Research-use software for LC-OCT skin volume image analysis",
         "descriptions": [
-          "This service combines a high-magnification digital optical microscope with a basic image analysis program for quantitative evaluation of skin pore density.",
-          "The service measures visible pore-like structures within optical microscopy images and provides numerical pore density metrics for research and comparative evaluation."
+          "See beneath the skin's surface without invasive procedures. This cutting-edge imaging technology delivers microscopic views of skin structure in real-time, helping medical professionals diagnose conditions accurately and track treatment progress with unprecedented clarity."
         ],
         "programs": {
-          "skinPoreDensityAnalysis": "Skin Pore Density Analysis",
+          "name": "SkinArch™ LC-OCT Analyzer v1.0",
           "features": [
-            "Pore count per unit area (mm²)",
-            "ROI-based quantitative output",
-            "Comparative trend indicators"
+            "Image-stack import and standardization module",
+            "AI-based LC-OCT skin layer segmentation module",
+            "DEJ 3D surface reconstruction module",
+            "Quantitative analysis module for undulation, thickness, and surface area",
+            "2D/3D visualization and report export module"
           ]
         },
-        "intendedUse": "This service is intended for research and experimental evaluation of skin pore density using optical microscopy images.",
+        "intendedUse": "This product is research-use software designed to analyze LC-OCT skin volume images. It identifies key skin layers, including the skin surface, stratum corneum, and dermal-epidermal junction (DEJ), and generates DEJ 3D surfaces and quantitative metrics for skin research, pharmaceutical R&D, and CRO analysis workflows. This product is for research use only and is not intended for diagnostic or therapeutic use.",
         "packageComponents": [
-          "Digital Optical Microscope (up to 1000x)",
-          "PC-Compatible Image Acquisition Software",
-          "Skin Pore Density Analysis Program",
-          "Technical Documentation"
-        ]
+          "SkinArch™ LC-OCT Analyzer v1.0 software license",
+          "Installation package or on-premise deployment package",
+          "Basic user guide",
+          "Standard report template",
+          "CSV, mesh, and image export functions",
+          "Initial installation and user support"
+        ],
+        "pricing": "Priced Upon Request (USD)",
+        "leadTime": "Estimated 4-8 weeks after purchase order, depending on installation environment, data format review, and deployment requirements.",
+        "reportAlt": "SkinArch LC-OCT V1 model performance report preview"
       },
       "skinFlake": {
         "productName": "Optical Microscope–Based Skin Flake Analysis System",
@@ -653,9 +668,9 @@
   "home": {
     "partnership": {
       "fortune100": {
-        "text": "{brand} is now an approved vendor to a",
-        "highlight": "Top 3 of a Fortune 100 pharmaceutical",
-        "text_end": "company."
+        "text": "{brand} is currently an approved vendor for",
+        "highlight": "one of the Top 5 companies among the world's 100",
+        "text_end": "largest pharmaceutical companies."
       },
       "scienceExchange": {
         "text": "{brand} is now a verified supplier on",
@@ -718,27 +733,32 @@
       "aiAutomation": {
         "title": "AI automation projects",
         "subtitle": "Let AI handle the repetitive work while your team focuses on strategy.",
-        "description": "We deploy intelligent automation—computer vision, NLP, and machine learning—that streamlines operations and unlocks new capabilities."
+        "description": "We deploy intelligent automation—computer vision, NLP, and machine learning—that streamlines operations and unlocks new capabilities.",
+        "cta": "Ask about AI Automation Projects"
       },
       "legacyModernization": {
         "title": "Legacy system modernization",
         "subtitle": "Don't let outdated technology hold you back.",
-        "description": "We transform legacy systems into modern, cloud-native platforms that enhance performance, reduce costs, and position your business for future growth."
+        "description": "We transform legacy systems into modern, cloud-native platforms that enhance performance, reduce costs, and position your business for future growth.",
+        "cta": "Ask about Legacy System Modernization"
       },
       "saasDevelopment": {
         "title": "SaaS & Custom Platform development",
         "subtitle": "Build software products that scale from startup to enterprise.",
-        "description": "We create cloud-based platforms with seamless UX, rock-solid infrastructure, and the flexibility to evolve with your business needs."
+        "description": "We create cloud-based platforms with seamless UX, rock-solid infrastructure, and the flexibility to evolve with your business needs.",
+        "cta": "Ask about SaaS & Custom Platform Development"
       },
       "publicSector": {
         "title": "Education, administrative & public-sector systems",
         "subtitle": "Technology that serves the public good.",
-        "description": "We build specialized systems for educational institutions, government agencies, and non-profits—making administration efficient and learning experiences exceptional."
+        "description": "We build specialized systems for educational institutions, government agencies, and non-profits—making administration efficient and learning experiences exceptional.",
+        "cta": "Ask about the Edu-Admin-Public Systems"
       }
     },
     "projects": {
       "title": "Projects",
-      "description": "Let us help transform your online presence and support your business's growth in the digital world."
+      "description": "Let us help transform your online presence and support your business's growth in the digital world.",
+      "cta": "Ask about AI Automation Projects"
     }
   },
   "footer": {
@@ -807,17 +827,20 @@
       "cutting_edge": {
         "title": "Cutting-edge Solutions",
         "description": "We specialize in developing cutting-edge solutions that are tailored to your specific needs. Our team stays at the forefront of information technology, ensuring you receive the latest advancements that optimize your business operations and drive success.",
-        "second_description": "{brand} is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently."
+        "second_description": "{brand} is dedicated to providing cutting-edge solutions that optimize business operations and drive success. Leveraging the latest advancements in information technology, we develop tailored solutions to streamline processes and empower organizations to achieve their goals efficiently.",
+        "cta": "Ask about our Cutting-edge Solutions"
       },
       "expertise_innovation": {
         "title": "Expertise and Innovation",
         "description": "With a deep understanding of emerging technologies and industry trends, we bring expertise and innovation to every project. By leveraging our knowledge, we keep your business competitive in today's dynamic market landscape, helping you stay ahead of the curve.",
-        "second_description": "By staying ahead of emerging technologies and industry trends, {brand} ensures that our clients remain competitive in today's dynamic market landscape. With {brand} as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest."
+        "second_description": "By staying ahead of emerging technologies and industry trends, {brand} ensures that our clients remain competitive in today's dynamic market landscape. With {brand} as your technology partner, you can trust that your business operations are in capable hands, allowing you to focus on what you do best while we take care of the rest.",
+        "cta": "Ask about our Expertise"
       },
       "reliable_partner": {
         "title": "Reliable Technology Partner",
         "description": "Trust is paramount in any partnership. With {brand} as your technology partner, you can rely on us to handle your business operations efficiently, allowing you to focus on your core competencies. Our commitment is to support your success, every step of the way.",
-        "second_description": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students' learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI."
+        "second_description": "We develop systems such as AI-powered video analysis platforms, enterprise capability assessment tools, and personalized educational systems that offer AI coaching based on students' learning progress and patterns — all built using cutting-edge technologies like PyTorch, Hugging Face Transformers, LoRA, LangChain, and FastAPI.",
+        "cta": "Ask about our Reliability"
       }
     },
     "team": {
@@ -825,6 +848,7 @@
       "description_1": "{brand} is a team of experts leading technological innovation across diverse IT domains, including AI data integration and automated learning systems, AI-powered application solutions, and web and app IT maintenance.",
       "description_2": "Each team member goes beyond simply fulfilling a role — they are strategic partners and creative problem solvers who shape project direction and design success alongside our clients.",
       "meet_team": "Meet the {brand} Team",
+      "cta": "Ask about Partnering with W Labs",
       "members": {
         "matt": {
           "nickname": "Matt",
@@ -949,6 +973,7 @@
   "services": {
     "title": "Services",
     "description": "Our skilled developers and designers will create a stunning, user-friendly website tailored to your specific company requirements. We ensure an engaging user experience that captivates your audience, from adaptable designs to seamless functionality.",
+    "cta": "Ask about our Cutting-edge Solutions",
     "product1Alt": "Product development service illustration",
     "product2Alt": "Design and development service illustration",
     "metaTitle": "Professional Web Development & Design Services | Your Company Name",
@@ -963,7 +988,8 @@
           "Behavior sequence analysis based on ROI",
           "Precision optimization of abnormal behavior classification model"
         ],
-        "imageAlt": "Deep learning object detection and behavior analysis illustration"
+        "imageAlt": "Deep learning object detection and behavior analysis illustration",
+        "cta": "Ask about Deep Learning and Behavior Analysis"
       },
       "realTimeStreaming": {
         "title": "Real-time streaming data processing technology",
@@ -973,7 +999,8 @@
           "Real-time frame analysis using OpenCV",
           "Multi-stream parallel processing architecture design"
         ],
-        "imageAlt": "Real-time streaming data processing technology illustration"
+        "imageAlt": "Real-time streaming data processing technology illustration",
+        "cta": "Ask about Real-time Stream Processing"
       },
       "aiDataIntegration": {
         "title": "AI data integration and automated learning system",
@@ -983,7 +1010,8 @@
           "Dynamic ROI auto-resetting algorithm",
           "Incremental learning framework for continuous learning"
         ],
-        "imageAlt": "AI data integration and automated learning system illustration"
+        "imageAlt": "AI data integration and automated learning system illustration",
+        "cta": "Ask about AI Integration for Automated Learning"
       },
       "customDesign": {
         "title": "Custom Design & UI/UX",
@@ -992,7 +1020,8 @@
           "Responsive, user-friendly layouts",
           "Engaging UI/UX for better usability"
         ],
-        "imageAlt": "Custom design and UI/UX services illustration"
+        "imageAlt": "Custom design and UI/UX services illustration",
+        "cta": "Ask about Custom Design & UI/UX"
       },
       "contentMedia": {
         "title": "Content & Media Management",
@@ -1001,7 +1030,8 @@
           "Image, file, and video uploads (YouTube, audio, playback)",
           "Auto-tagging and data visualization"
         ],
-        "imageAlt": "Content and media management system illustration"
+        "imageAlt": "Content and media management system illustration",
+        "cta": "Ask about Content & Media Management"
       },
       "adminBusiness": {
         "title": "Admin & Business Management",
@@ -1010,7 +1040,8 @@
           "Inventory, order, and delivery tracking",
           "Secure payment processing"
         ],
-        "imageAlt": "Admin and business management dashboard illustration"
+        "imageAlt": "Admin and business management dashboard illustration",
+        "cta": "Ask about Admin & Business Management"
       },
       "userInteraction": {
         "title": "User Interaction & Communication",
@@ -1019,7 +1050,8 @@
           "Seller & company dashboards",
           "Messaging, questionnaires, and team collaboration"
         ],
-        "imageAlt": "User interaction and communication features illustration"
+        "imageAlt": "User interaction and communication features illustration",
+        "cta": "Ask about User Interaction & Communication"
       },
       "advancedFeatures": {
         "title": "Advanced Features & Security",
@@ -1028,7 +1060,8 @@
           "Location-based map integrations",
           "reCAPTCHA security protection"
         ],
-        "imageAlt": "Advanced features and security system illustration"
+        "imageAlt": "Advanced features and security system illustration",
+        "cta": "Ask about Advanced Features & Security"
       },
       "ecommerce": {
         "title": "E-Commerce & Product Listings",
@@ -1037,7 +1070,8 @@
           "Wishlist & star rating system",
           "Smooth checkout & payment experience"
         ],
-        "imageAlt": "E-commerce and product listings platform illustration"
+        "imageAlt": "E-commerce and product listings platform illustration",
+        "cta": "Ask about E-Commerce & Products"
       }
     }
   },
@@ -1103,6 +1137,9 @@
     "title": "Projects",
     "description": "We take pride in delivering high-quality, innovative digital solutions that drive success. From custom websites and powerful web applications to AI-driven platforms, our portfolio showcases a commitment to excellence, usability, and performance.",
     "notFound": "Project not found.",
+    "prevProject": "Previous Project",
+    "nextProject": "Next Project",
+    "moreProjects": "More of our Projects",
     "ai-encouragement-generation-platform": {
       "header": {
         "title": "AI Motivation Application - KindleUp",
@@ -1356,6 +1393,8 @@
     "invalid-phone": "Please enter a valid phone number",
     "company": "Company",
     "enter-company": "Enter your company name",
+    "subject": "Topic / Subject",
+    "enter-subject": "Enter what you want to ask...",
     "message": "Message",
     "enter-message": "Enter your message",
     "message-required": "Message is required",
@@ -1367,6 +1406,16 @@
     "privacy-agreement-required": "Please agree to the privacy agreement to continue"
   },
   "wiz": {
+    "integration_title": "How is WIZ Assistant integrated to your website?",
+    "integration_cards": {
+      "embed": "Delivered by embedding a WIZ widget or embeddable UI directly into the client's website.",
+      "setup": "Initial setup configures each client's permitted response scope, prohibited response scope, tone of voice, brand expressions, and representative questions.",
+      "post_deployment": "Post-deployment operations are managed under the monthly subscription model, with optional monthly reports and improvement recommendations."
+    },
+    "header": {
+      "description1": "WIZ is your conversational work-support AI Assistant embedded directly into your website, allowing users to ask questions and receive instant, contextually relevant responses — from service information and operating policies to document requests and department-specific use case examples.",
+      "description2": "Unlike a simple FAQ chatbot, WIZ is designed as a practical work-support assistant that understands your business and helps users get things done."
+    },
     "title": "WIZ Assistant",
     "subtitle": "A smart information desk employee - embedded inside a website",
     "features": {
@@ -1605,6 +1654,24 @@
   "optical-microscope": {
     "title": "LC-OCT Skin Structure Analysis",
     "description": "See beneath the skin's surface without invasive procedures. This cutting-edge imaging technology delivers microscopic views of skin structure in real-time, helping medical professionals diagnose conditions accurately and track treatment progress with unprecedented clarity.",
-    "imageAlt": "LC-OCT Skin Structure Analysis Device"
+    "imageAlt": "LC-OCT Skin Structure Analysis Device",
+    "back": "Back to Products"
+  },
+  "blog": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "search": {
+    "placeholder": "Search here",
+    "title": "Search",
+    "suggestions": "Search suggestions",
+    "recent": "Recent searches",
+    "noResults": "No results found",
+    "clear": "Clear",
+    "groups": {
+      "pages": "Pages",
+      "products": "Products",
+      "news": "Newsroom"
+    }
   }
 }

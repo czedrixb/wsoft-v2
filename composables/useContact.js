@@ -29,6 +29,7 @@ export function useContact() {
   const [email] = defineField("email");
   const [phone] = defineField("phone");
   const [company] = defineField("company");
+  const [subject] = defineField("subject");
   const [message] = defineField("message");
 
   const submitForm = handleSubmit(async (values) => {
@@ -43,6 +44,7 @@ export function useContact() {
           email: values.email,
           phone: values.phone,
           company: values.company || "",
+          subject: values.subject || "",
           message: values.message,
         },
       });
@@ -88,6 +90,7 @@ export function useContact() {
     email,
     phone,
     company,
+    subject,
     message,
     submitForm,
     errors,

@@ -79,6 +79,53 @@
         </article>
       </template>
 
+      <!-- Previous / Next post navigation (WOS-264 #10) — always visible; disabled when no adjacent post -->
+      <div v-if="!pending && !showError && blog" class="mt-16 mb-8">
+        <div class="flex items-center justify-between gap-4">
+          <!-- Previous: active link or disabled placeholder -->
+          <NuxtLink
+            v-if="prevPost"
+            :to="`/blogs/${encodeSlug(prevPost.slug)}`"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-[999px] border border-[#20252CE5] bg-white text-sm font-medium text-[#20252C] hover:bg-gray-50 transition-colors max-w-[45%]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+            </svg>
+            <span class="truncate">{{ prevPost.title }}</span>
+          </NuxtLink>
+          <span
+            v-else
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-[999px] border border-[#20252C33] bg-white text-sm font-medium text-[#20252C] opacity-40 cursor-not-allowed pointer-events-none select-none max-w-[45%]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+            </svg>
+            {{ $t('blog.prev') }}
+          </span>
+
+          <!-- Next: active link or disabled placeholder -->
+          <NuxtLink
+            v-if="nextPost"
+            :to="`/blogs/${encodeSlug(nextPost.slug)}`"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-[999px] border border-[#20252CE5] bg-white text-sm font-medium text-[#20252C] hover:bg-gray-50 transition-colors max-w-[45%] ml-auto text-right"
+          >
+            <span class="truncate">{{ nextPost.title }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </NuxtLink>
+          <span
+            v-else
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-[999px] border border-[#20252C33] bg-white text-sm font-medium text-[#20252C] opacity-40 cursor-not-allowed pointer-events-none select-none max-w-[45%] ml-auto"
+          >
+            {{ $t('blog.next') }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
       <!-- Popular posts section -->
       <div
         v-if="!pending && !showError && blog"
@@ -339,6 +386,31 @@ const popularPosts = computed(() => {
     .slice(0, 3); // Get only the 3 latest posts
 });
 
+// Prev / Next post navigation (WOS-264 #10)
+// Posts are ordered newest-first; "previous" = older post, "next" = newer post.
+const sortedBlogs = computed(() => {
+  if (!blogs.value || !Array.isArray(blogs.value)) return [];
+  return [...blogs.value].sort(
+    (a, b) => new Date(b.published_at) - new Date(a.published_at),
+  );
+});
+
+const currentBlogIndex = computed(() =>
+  sortedBlogs.value.findIndex((b) => b.id === blog.value?.id),
+);
+
+const prevPost = computed(() => {
+  const idx = currentBlogIndex.value;
+  return idx >= 0 && idx < sortedBlogs.value.length - 1
+    ? sortedBlogs.value[idx + 1]
+    : null;
+});
+
+const nextPost = computed(() => {
+  const idx = currentBlogIndex.value;
+  return idx > 0 ? sortedBlogs.value[idx - 1] : null;
+});
+
 const showError = computed(() => {
   return error.value && (!blogs.value || blogs.value.length === 0);
 });
@@ -376,14 +448,14 @@ const blogMeta = computed(() => {
 const { canonicalUrl } = useCanonical();
 
 const metaTitle = computed(
-  () => blog.value?.title || t("blog-details") || "Blog Details - W SoftLabs",
+  () => blog.value?.title || t("blog-details") || "Blog Details - W Labs",
 );
 
 const metaDescription = computed(
   () =>
     blog.value?.excerpt ||
     t("blog-description") ||
-    "Read this insightful blog post from W SoftLabs",
+    "Read this insightful blog post from W Labs",
 );
 
 const metaKeywords = computed(() => {
@@ -401,11 +473,16 @@ const structuredData = computed(() =>
   useStructuredData("blog-post", blog.value || {}),
 );
 
+const { shareImageUrl } = useShareImage();
+
+// Prefer the post's own banner; fall back to the site share image. Computed so
+// it resolves once `blog` loads rather than being captured as undefined.
+const articleImageUrl = computed(
+  () => blog.value?.banner_url || shareImageUrl.value,
+);
+
 useHead({
   title: metaTitle,
-  htmlAttrs: {
-    lang: "ko",
-  },
   link: [
     {
       rel: "canonical",
@@ -424,14 +501,10 @@ useHead({
     { property: "og:description", content: metaDescription },
     { property: "og:type", content: "article" },
     { property: "og:url", content: canonicalUrl.value },
-    {
-      property: "og:image",
-      content: blog.value?.banner_url || "/images/thumbnail.png",
-    },
-    { property: "og:image:width", content: "1200" },
-    { property: "og:image:height", content: "630" },
-    { property: "og:site_name", content: "W SoftLabs" },
-    { property: "og:locale", content: "ko_KR" },
+    // No og:image:width/height here — a post banner's dimensions are unknown,
+    // so declaring the site thumbnail's size would misreport them.
+    { property: "og:image", content: articleImageUrl },
+    { property: "og:site_name", content: "W Labs" },
 
     // Article specific
     { property: "article:published_time", content: blog.value?.published_at },
@@ -441,7 +514,7 @@ useHead({
     },
     {
       property: "article:author",
-      content: blog.value?.author?.name || "W SoftLabs",
+      content: blog.value?.author?.name || "W Labs",
     },
     { property: "article:section", content: "Technology" },
 
@@ -449,17 +522,14 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: metaTitle },
     { name: "twitter:description", content: metaDescription },
-    {
-      name: "twitter:image",
-      content: blog.value?.banner_url || "/images/thumbnail.png",
-    },
+    { name: "twitter:image", content: articleImageUrl },
     { name: "twitter:site", content: "@wsoftlabs" },
     {
       name: "twitter:creator",
       content: blog.value?.author?.twitter || "@wsoftlabs",
     },
 
-    { name: "author", content: blog.value?.author?.name || "W SoftLabs" },
+    { name: "author", content: blog.value?.author?.name || "W Labs" },
   ],
   script: [
     {

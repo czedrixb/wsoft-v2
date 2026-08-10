@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div class="relative z-0 pt-10">
+    <img
+      src="/images/home/banner/textured-wlabs-logo.png"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none select-none absolute -z-10 left-1/2 -translate-x-1/2 -top-24 w-[min(1024px,95vw)]"
+    />
     <div
       class="px-8 md:px-0 md:max-w-[90%] lg:max-w-[95%] xl:max-w-[95%] mx-auto"
     >

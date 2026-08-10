@@ -28,17 +28,17 @@ export default defineEventHandler(async (event) => {
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
-  <title>W Soft Labs Newsroom</title>
+  <title>W Labs Newsroom</title>
   <!-- ✅ /blogs → /newsroom -->
   <link>${baseUrl}/newsroom</link>
   <atom:link href="${baseUrl}/api/rss.xml" rel="self" type="application/rss+xml" />
-  <description>Latest insights and technology articles from W Soft Labs</description>
+  <description>Latest insights and technology articles from W Labs</description>
   <language>ko</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
   <ttl>60</ttl>
   <image>
-    <url>${baseUrl}/images/logo.png</url>
-    <title>W Soft Labs Newsroom</title>
+    <url>${baseUrl}/images/logos/w-labs-logo.png</url>
+    <title>W Labs Newsroom</title>
     <link>${baseUrl}/newsroom</link>
   </image>
 
@@ -75,9 +75,9 @@ export default defineEventHandler(async (event) => {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>W Soft Labs Newsroom</title>
+  <title>W Labs Newsroom</title>
   <link>${baseUrl}/newsroom</link>
-  <description>Latest insights and technology articles from W Soft Labs</description>
+  <description>Latest insights and technology articles from W Labs</description>
   <language>ko</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 </channel>

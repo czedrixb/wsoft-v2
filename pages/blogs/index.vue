@@ -178,7 +178,7 @@ function decodeSlug(encodedSlug) {
   }
 }
 
-const staticMetaTitle = t("blogs-title") || "Blogs - W SoftLabs";
+const staticMetaTitle = t("blogs-title") || "Blogs - W Labs";
 const staticMetaDescription = t("blogs-description") || t("blogs-text");
 const staticMetaKeywords =
   Array.from({ length: 10 }, (_, i) => t(`blogs-meta-keyword-${i + 1}`)).join(
@@ -221,6 +221,8 @@ const updatedStructuredData = computed(() => {
   });
 });
 
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
+
 useHead({
   title: staticMetaTitle,
   link: [
@@ -241,11 +243,14 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: staticMetaTitle },
     { name: "twitter:description", content: staticMetaDescription },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

@@ -281,13 +281,21 @@ const morePosts = computed(() => {
 const stripHtml = (html) => html?.replace(/<[^>]+>/g, "") || "";
 
 const metaTitle = computed(
-  () => blog.value?.title || t("blog-details") || "News - W SoftLabs",
+  () => blog.value?.title || t("blog-details") || "News - W Labs",
 );
 const metaDescription = computed(
-  () => blog.value?.excerpt || t("blog-description") || "W SoftLabs News",
+  () => blog.value?.excerpt || t("blog-description") || "W Labs News",
 );
 
 const structuredData = useStructuredData("blog-post", blog.value ?? {});
+
+const { shareImageUrl } = useShareImage();
+
+// Prefer the post's own banner; fall back to the site share image. Computed so
+// it resolves once `blog` loads rather than being captured as undefined.
+const articleImageUrl = computed(
+  () => blog.value?.banner_url || shareImageUrl.value,
+);
 
 useHead({
   title: metaTitle,
@@ -301,22 +309,16 @@ useHead({
     { property: "og:description", content: metaDescription },
     { property: "og:type", content: "article" },
     { property: "og:url", content: canonicalUrl.value },
-    {
-      property: "og:image",
-      content: blog.value?.banner_url || "/images/thumbnail.png",
-    },
+    { property: "og:image", content: articleImageUrl },
     { property: "article:published_time", content: blog.value?.published_at },
     {
       property: "article:author",
-      content: blog.value?.author?.name || "W SoftLabs",
+      content: blog.value?.author?.name || "W Labs",
     },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: metaTitle },
     { name: "twitter:description", content: metaDescription },
-    {
-      name: "twitter:image",
-      content: blog.value?.banner_url || "/images/thumbnail.png",
-    },
+    { name: "twitter:image", content: articleImageUrl },
   ],
 });
 </script>

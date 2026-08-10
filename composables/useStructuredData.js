@@ -5,20 +5,31 @@ export const stripHtml = (html) => {
   return html.replace(/<[^>]+>/g, "");
 };
 
+// Brand name used throughout the emitted schema. Kept as a literal rather than
+// read from useBrand(), because useStructuredData is sometimes called inside a
+// computed() where registering useBrand's onMounted hook would be invalid.
+const ORG_NAME = "W Labs";
+
 export const useStructuredData = (pageType = "home", pageData = {}) => {
   const { t } = useI18n();
   const route = useRoute();
   const config = useRuntimeConfig();
 
-  const baseUrl = config.public.baseUrl;
+  // config.public.baseUrl carries a trailing slash; strip it so every
+  // `${baseUrl}/path` below yields a single slash. Crawlers reject the
+  // double-slashed URLs this previously emitted. WOS-275.
+  const baseUrl = (config.public.baseUrl || "https://wsoft.space").replace(
+    /\/+$/,
+    ""
+  );
 
   const organizationSchema = {
     "@type": "Organization",
     "@id": `${baseUrl}`,
-    name: "W SoftLabs",
+    name: ORG_NAME,
     url: baseUrl,
-    logo: `${baseUrl}/images/home/w-softlabs.svg`,
-    description: t("elevate-business"),
+    logo: `${baseUrl}/images/logos/w-labs-logo.png`,
+    description: t("elevate-business", { brand: ORG_NAME }),
     address: {
       "@type": "PostalAddress",
       addressCountry: "KR",
@@ -34,8 +45,8 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     "@type": "WebSite",
     "@id": `${baseUrl}`,
     url: baseUrl,
-    name: "W Softlabs",
-    description: t("elevate-business"),
+    name: ORG_NAME,
+    description: t("elevate-business", { brand: ORG_NAME }),
     publisher: {
       "@id": `${baseUrl}`,
     },
@@ -126,7 +137,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     url: `${baseUrl}${route.path}`,
     mainEntity: {
       "@type": "Organization",
-      name: "W-Softlabs",
+      name: ORG_NAME,
       description: t("dedicated-providing"),
       url: baseUrl,
       foundingDate: "2020",
@@ -318,8 +329,8 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     url: `${baseUrl}${route.path}`,
     mainEntity: {
       "@type": "Organization",
-      name: "W-Softlabs",
-      description: t("elevate-business"),
+      name: ORG_NAME,
+      description: t("elevate-business", { brand: ORG_NAME }),
       url: baseUrl,
       address: {
         "@type": "PostalAddress",
@@ -368,7 +379,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
               datePublished: blog.published_at,
               author: {
                 "@type": "Person",
-                name: blog.author?.name || "W SoftLabs",
+                name: blog.author?.name || "W Labs",
               },
               publisher: {
                 "@id": `${baseUrl}`,
@@ -382,7 +393,7 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
   const productSchema = {
     "@type": "CollectionPage",
     name: t("products-title"),
-    description: t("products-description"),
+    description: t("product.products-description"),
     url: `${baseUrl}${route.path}`,
     mainEntity: {
       "@type": "ItemList",
@@ -403,8 +414,8 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
         position: index + 1,
         item: {
           "@type": "SoftwareApplication",
-          name: t(`animatedProjects.${key}.title`),
-          description: t(`animatedProjects.${key}.description`),
+          name: t(`product.animatedProjects.${key}.title`),
+          description: t(`product.animatedProjects.${key}.description`),
           url: `${baseUrl}/products`,
           provider: {
             "@id": `${baseUrl}`,
@@ -472,16 +483,16 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     dateModified: blogData.updated_at || blogData.published_at,
     author: {
       "@type": "Person",
-      name: blogData.author?.name || "W SoftLabs",
+      name: blogData.author?.name || "W Labs",
       url: baseUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "W SoftLabs",
+      name: ORG_NAME,
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/images/home/w-softlabs.svg`,
+        url: `${baseUrl}/images/logos/w-labs-logo.png`,
       },
     },
     mainEntityOfPage: {

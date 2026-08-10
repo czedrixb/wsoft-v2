@@ -58,13 +58,14 @@
 
           <div class="mt-auto relative z-20">
             <div
-              class="rounded-[22px] w-full py-2 px-4 flex justify-center gap-5 items-center transition-all duration-300 bg-[#F8FAFC] relative group/btn"
+              class="rounded-[22px] w-full py-2 px-4 flex justify-center gap-5 items-center transition-all duration-300 bg-[#F8FAFC] relative group/btn cursor-pointer"
               :style="{
                 background:
                   'linear-gradient(#f8fafc, #f8fafc) padding-box, linear-gradient(135deg, #2376e9, #02c7d0) border-box',
                 border: '2px solid transparent',
                 borderRadius: '22px',
               }"
+              @click="goToWiz"
             >
               <span
                 :style="{
@@ -114,6 +115,10 @@
 </template>
 
 <script setup>
+const goToWiz = () => {
+  window.open("https://wiz.wsoft.space/login", "_blank");
+};
+
 const tiers = [
   { key: "lite" },
   { key: "standard" },

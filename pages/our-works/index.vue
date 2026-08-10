@@ -122,6 +122,8 @@ const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
 
 const structuredData = useStructuredData("our-works", { projects });
 
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
+
 useHead({
   title: staticMetaTitle,
   link: [
@@ -140,8 +142,11 @@ useHead({
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/thumbnail.png" },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

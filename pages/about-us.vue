@@ -7,6 +7,7 @@
     <div class="mb-20">
       <AnimatedTeam />
     </div>
+
   </div>
 </template>
 
@@ -22,14 +23,20 @@ const { canonicalUrl } = useCanonical();
 const { locale, t } = useI18n();
 const config = useRuntimeConfig();
 
+const { brandName } = useBrand();
+
 const staticMetaTitle = t("about-title");
-const staticMetaDescription = t("about-us-description");
+// about-us-description carries a {brand} placeholder; without the param it
+// renders with the brand name missing. WOS-275.
+const staticMetaDescription = t("about-us-description", {
+  brand: brandName.value,
+});
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`about-us-meta-keyword-${i + 1}`),
 ).join(", ");
 
 const structuredData = useStructuredData("about");
-const { brandThumbnailPath } = useBrand();
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -51,8 +58,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: brandThumbnailPath.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

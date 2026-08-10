@@ -214,6 +214,22 @@
                     </div>
 
                     <div class="mb-0 col-span-12">
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label class="block text-sm mb-2">{{
+                            $t("contact-modal.subject")
+                          }}</label>
+                          <input
+                            type="text"
+                            v-model="subject"
+                            class="w-full px-4 py-2 bg-white text-black border border-[#475766] rounded-lg focus:border-[#2375E9] focus:ring-2"
+                            :placeholder="$t('contact-modal.enter-subject')"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-0 col-span-12">
                       <label class="block text-sm mb-2">{{
                         $t("message")
                       }}</label>
@@ -263,32 +279,13 @@
                     </label>
                   </div>
 
-                  <button
+                  <BaseButton
+                    variant="primary"
                     type="submit"
                     :disabled="isSubmitting"
-                    class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
                   >
-                    <div
-                      class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#FFD5EB] to-[#E1D176]"
-                    >
-                      <div
-                        class="w-full h-full rounded-[22px] bg-[#20252CE5] group-hover:bg-transparent transition-all"
-                      ></div>
-                    </div>
-
-                    <span
-                      class="relative z-10 bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent group-hover:text-white transition-all"
-                    >
-                      {{ $t("contact-modal.submit") }}
-                    </span>
-
-                    <NuxtImg
-                      src="/images/revamp/mail-submit-icon.svg"
-                      width="24"
-                      height="24"
-                      class="relative z-10 transition-all"
-                    />
-                  </button>
+                    {{ $t("contact-modal.submit") }}
+                  </BaseButton>
                 </form>
               </div>
             </div>
@@ -302,12 +299,16 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import { useContact } from "@/composables/useContact";
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 
 const props = defineProps({
   modelValue: {
     type: Boolean,
     default: false,
+  },
+  subject: {
+    type: String,
+    default: "",
   },
 });
 
@@ -333,6 +334,7 @@ const {
   email,
   phone,
   company,
+  subject,
   message,
   submitForm: originalSubmitForm,
   errors: originalErrors,
@@ -353,6 +355,13 @@ const closeModal = () => {
   privacyAgreed.value = false;
   submitted.value = false;
 };
+
+watch(
+  () => props.modelValue,
+  (open) => {
+    if (open) subject.value = props.subject;
+  },
+);
 
 const submitForm = async () => {
   submitted.value = true;

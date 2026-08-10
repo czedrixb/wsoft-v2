@@ -4,8 +4,11 @@
       <AnimatedOpticalHeader />
     </div>
 
-    <div class="bg-[#e2e8f0]">
-      <div class="mx-auto px-8 max-w-screen-2xl pt-16 pb-10">
+    <div
+      class="relative bg-[#f3f0ff] bg-cover bg-center bg-no-repeat"
+      :style="{ backgroundImage: 'url(/images/revamp/products/topo-grid-purple.png)' }"
+    >
+      <div class="mx-auto px-8 max-w-screen-2xl pt-24 md:pt-40 pb-24 md:pb-36">
         <Catalogue />
       </div>
     </div>
@@ -21,28 +24,22 @@ import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
-import { ref, onMounted } from "vue";
 
 const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 const config = useRuntimeConfig();
 
-const isUedu = ref(false);
-onMounted(() => {
-  isUedu.value = window.location.hostname === "ueducation.co.kr";
-});
-
 const staticMetaTitle = t("products-title");
-const staticMetaDescription = t("about-us-description");
+const staticMetaDescription = t("about-us-description", {
+  brand: useBrand().brandName.value,
+});
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`about-us-meta-keyword-${i + 1}`),
 ).join(", ");
 
 const structuredData = useStructuredData("about");
 
-const thumbnailUrl = computed(() => {
-  return isUedu.value ? "/images/thumbnail-uedu.png" : "/images/thumbnail.png";
-});
+const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
   title: staticMetaTitle,
@@ -64,8 +61,11 @@ useHead({
     { property: "og:title", content: staticMetaTitle },
     { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: thumbnailUrl.value },
+    { property: "og:image", content: shareImageUrl },
+    { property: "og:image:width", content: shareImageWidth },
+    { property: "og:image:height", content: shareImageHeight },
     { property: "og:url", content: canonicalUrl.value },
+    { name: "twitter:image", content: shareImageUrl },
   ],
 });
 </script>

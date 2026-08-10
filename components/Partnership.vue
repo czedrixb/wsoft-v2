@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-auto px-8 max-w-screen-2xl pb-0 md:py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-5">
+  <div class="mx-auto px-8 max-w-screen-md pb-0 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-5 gap-x-10">
       <div>
         <div class="flex justify-center">
           <NuxtImg

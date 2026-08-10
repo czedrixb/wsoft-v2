@@ -9,7 +9,6 @@ const BRANDS = {
     siteUrl: "https://ueducation.co.kr/",
     logoPath: "/images/logos/uedu.png",
     footerLogo: "/images/logos/uedu.png",
-    thumbnailPath: "/images/thumbnail-uedu.png",
     footerCeoName: "footer-uedu",
     email: "matt@ueducation.co.kr",
   },
@@ -21,7 +20,6 @@ const BRANDS = {
     siteUrl: "https://wsoft.space/",
     logoPath: "/images/logos/w-labs-default-new.svg",
     footerLogo: "/images/revamp/footer-logo.svg",
-    thumbnailPath: "/images/thumbnail.png",
     footerCeoName: "footer-wlabs",
     email: "contact@wsoft.space",
   },
@@ -49,7 +47,6 @@ export function useBrand() {
   const brandSiteUrl = computed(() => brand.value.siteUrl);
   const brandLogoPath = computed(() => brand.value.logoPath);
   const brandFooterLogo = computed(() => brand.value.footerLogo);
-  const brandThumbnailPath = computed(() => brand.value.thumbnailPath);
   const brandEmail = computed(() => brand.value.email);
 
   return {
@@ -61,7 +58,6 @@ export function useBrand() {
     brandSiteUrl,
     brandLogoPath,
     brandFooterLogo,
-    brandThumbnailPath,
     brandEmail,
   };
 }

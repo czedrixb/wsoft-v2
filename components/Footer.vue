@@ -42,41 +42,18 @@
             </div>
 
             <div class="mt-5 flex justify-center md:justify-end">
-              <button
+              <BaseButton
+                variant="primary"
                 type="button"
                 :disabled="isSubscribing"
                 @click="handleSubscribe"
-                class="group w-auto rounded-[22px] py-3 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed relative inline-flex items-center justify-center gap-2 px-12"
               >
-                <div
-                  class="absolute inset-0 rounded-[22px] p-[1px] bg-gradient-to-r from-[#E96F23] to-[#D0B802]"
-                >
-                  <div
-                    class="w-full h-full rounded-[22px] bg-[#20252C] group-hover:bg-transparent transition-all"
-                  ></div>
-                </div>
-
-                <span
-                  class="relative z-10 text-[#E96F23] group-hover:text-white font-medium transition-all"
-                >
-                  {{
-                    isSubscribing
-                      ? $t("footer.subscribing") || "Subscribing..."
-                      : $t("footer.subscribe")
-                  }}
-                </span>
-
-                <NuxtImg
-                  src="/images/revamp/mail-submit-icon.svg"
-                  width="24"
-                  height="24"
-                  class="relative z-10 transition-all"
-                  style="
-                    filter: invert(49%) sepia(72%) saturate(600%)
-                      hue-rotate(353deg) brightness(100%);
-                  "
-                />
-              </button>
+                {{
+                  isSubscribing
+                    ? $t("footer.subscribing") || "Subscribing..."
+                    : $t("footer.subscribe")
+                }}
+              </BaseButton>
             </div>
           </div>
         </div>
@@ -183,19 +160,19 @@
             <div
               class="flex flex-col md:flex-row items-center font-inter gap-2 md:gap-2"
             >
-              <p class="font-inter text-[#64748B] font-semibold text-uppercase">
+              <p class="font-inter text-[#64748B] font-semibold text-uppercase whitespace-nowrap">
                 {{ $t("footer.company_name") }}:
                 <span class="font-semibold text-white"> {{ brandName }}</span>
               </p>
               <span class="hidden md:inline">|</span>
-              <p class="font-inter text-[#64748B] font-semibold">
+              <p class="font-inter text-[#64748B] font-semibold whitespace-nowrap">
                 {{ $t("footer-ceo") }}:
                 <span class="font-semibold text-white">
                   {{ $t("footer-matt") }}</span
                 >
               </p>
               <span class="hidden md:inline">|</span>
-              <p class="font-inter text-[#64748B] font-semibold text-uppercase">
+              <p class="font-inter text-[#64748B] font-semibold text-uppercase whitespace-nowrap">
                 {{ $t("footer.business_id") }}:
                 <span class="font-semibold text-white">{{
                   isUedu ? "124-87-33297" : "387-87-03701"
@@ -286,8 +263,8 @@ const footerLinks = computed(() => [
 ]);
 
 const additionalLinks = computed(() => [
-  { label: t("footer.terms_conditions"), to: "/terms-conditions" },
-  { label: t("footer.privacy_policy"), to: "/privacy-policy" },
+  { label: "footer.terms_conditions", to: "/terms-conditions" },
+  { label: "footer.privacy_policy", to: "/privacy-policy" },
 ]);
 
 const { isUedu, brandName, brandBusinessId, brandCompany } = useBrand();

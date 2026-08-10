@@ -1,21 +1,20 @@
 <template>
   <div>
     <div class="text-center">
-      <p class="text-[#64748B] text-[24px]">More of our Products</p>
+      <p class="text-[#64748B] text-[24px]">{{ t("more-of-our-products") }}</p>
     </div>
 
     <div class="mt-[5rem] flex justify-center">
       <img
         :src="relatedProduct.image"
-        class="h-auto object-cover rounded-[14px]"
-        width="794px"
+        class="w-full max-w-[794px] h-auto rounded-t-[14px]"
       />
     </div>
 
-    <div class="mt-12 flex justify-center">
+    <div class="mt-8 flex justify-center">
       <router-link
         :to="relatedProduct.to"
-        class="px-8 py-3 rounded-[22px] border border-[#20252CE5] bg-white text-sm font-medium transition-all duration-200 hover:bg-gray-100 active:scale-95 inline-flex items-center"
+        class="px-8 py-3 rounded-[999px] border border-[#20252CE5] bg-white text-sm font-medium transition-all duration-200 hover:bg-gray-100 active:scale-95 inline-flex items-center"
       >
         <svg
           v-if="relatedProduct.arrowDirection === 'left'"
