@@ -11,6 +11,7 @@ const BRANDS = {
     footerLogo: "/images/logos/uedu.png",
     footerCeoName: "footer-uedu",
     email: "matt@ueducation.co.kr",
+    phone: "+82 10 5067 8800",
   },
   "wsoft.space": {
     key: "wlabs",
@@ -22,6 +23,7 @@ const BRANDS = {
     footerLogo: "/images/revamp/footer-logo.svg",
     footerCeoName: "footer-wlabs",
     email: "contact@wsoft.space",
+    phone: "+82 10 5067 8800",
   },
 };
 
@@ -29,7 +31,16 @@ const DEFAULT_BRAND = BRANDS["wsoft.space"];
 // const DEFAULT_BRAND = BRANDS["ueducation.co.kr"];
 
 export function useBrand() {
-  const hostname = ref("");
+  // Resolved during SSR too. brandEmail/brandPhone now feed mailto:/tel:
+  // hrefs, so an SSR value that only settles in onMounted (client-only)
+  // would be a hydration mismatch on the ueducation.co.kr host. AB-134.
+  const hostname = ref(
+    import.meta.server
+      ? useRequestURL().hostname
+      : typeof window !== "undefined"
+        ? window.location.hostname
+        : ""
+  );
 
   onMounted(() => {
     hostname.value = window.location.hostname;
@@ -48,6 +59,13 @@ export function useBrand() {
   const brandLogoPath = computed(() => brand.value.logoPath);
   const brandFooterLogo = computed(() => brand.value.footerLogo);
   const brandEmail = computed(() => brand.value.email);
+  const brandPhone = computed(() => brand.value.phone);
+  const brandEmailHref = computed(() => `mailto:${brand.value.email}`);
+  // E.164-ish for tel:. nuxt.config.ts sets format-detection: telephone=no,
+  // which suppresses auto-linkification but not an explicit tel: href.
+  const brandPhoneHref = computed(
+    () => `tel:${brand.value.phone.replace(/[^\d+]/g, "")}`
+  );
 
   return {
     isUedu,
@@ -59,5 +77,8 @@ export function useBrand() {
     brandLogoPath,
     brandFooterLogo,
     brandEmail,
+    brandPhone,
+    brandEmailHref,
+    brandPhoneHref,
   };
 }

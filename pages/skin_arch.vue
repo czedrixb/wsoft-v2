@@ -10,6 +10,16 @@
     >
       <div class="mx-auto px-8 max-w-screen-2xl pt-24 md:pt-40 pb-24 md:pb-36">
         <Catalogue />
+
+        <!-- The SkinArch page had no contact affordance of its own: the only
+             inquiry paths were the global navbar and footer, neither of which
+             passed a subject, so an inquiry arrived with no indication of
+             which product it was about. AB-134 item 1. -->
+        <ContactCTA
+          :label="$t('optical-microscope.inquiryCta')"
+          :subject="$t('optical-microscope.inquirySubject')"
+          show-email
+        />
       </div>
     </div>
 
@@ -20,6 +30,7 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import { useHead } from "@vueuse/head";
 import { useI18n } from "vue-i18n";
 import { useStructuredData } from "@/composables/useStructuredData";
@@ -29,20 +40,23 @@ const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 const config = useRuntimeConfig();
 
-const staticMetaTitle = t("products-title");
-const staticMetaDescription = t("about-us-description", {
-  brand: useBrand().brandName.value,
-});
-const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
-  t(`about-us-meta-keyword-${i + 1}`),
-).join(", ");
+// computed rather than a snapshot at setup: a client-side language switch
+// (Language.vue) used to leave this page's <title>/description in whichever
+// locale rendered first. AB-134 item 4.
+const metaTitle = computed(() => t("optical-microscope.title"));
+const metaDescription = computed(() => t("optical-microscope.description"));
 
-const structuredData = useStructuredData("about");
+// This page previously emitted the About-Us schema and a "Home → About Us"
+// breadcrumb (useStructuredData("about")) — wrong for the SkinArch product
+// page. "product-detail" emits a real Product schema with no
+// offers/price/sku, consistent with item 2 removing those signals from the
+// visible page. AB-134.
+const structuredData = useStructuredData("product-detail");
 
 const { shareImageUrl, shareImageWidth, shareImageHeight } = useShareImage();
 
 useHead({
-  title: staticMetaTitle,
+  title: metaTitle,
   link: [
     {
       rel: "canonical",
@@ -56,10 +70,9 @@ useHead({
     },
   ],
   meta: [
-    { name: "description", content: staticMetaDescription },
-    { name: "keywords", content: staticMetaKeywords },
-    { property: "og:title", content: staticMetaTitle },
-    { property: "og:description", content: staticMetaDescription },
+    { name: "description", content: metaDescription },
+    { property: "og:title", content: metaTitle },
+    { property: "og:description", content: metaDescription },
     { property: "og:type", content: "website" },
     { property: "og:image", content: shareImageUrl },
     { property: "og:image:width", content: shareImageWidth },

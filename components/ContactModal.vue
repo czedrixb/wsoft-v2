@@ -47,10 +47,10 @@
                 </h2>
 
                 <div class="mt-8 space-y-5">
-                  <p class="font-semibold text-[14px]">
+                  <p class="font-semibold text-[14px] text-white">
                     {{ $t("contact-modal.description") }}
                   </p>
-                  <p class="font-semibold text-[14px]">
+                  <p class="font-semibold text-[14px] text-white">
                     {{ $t("contact-modal.description2") }}
                   </p>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="mt-8 space-y-6">
                   <div
                     v-for="detail in details"
-                    :key="detail.label"
+                    :key="detail.labelKey"
                     class="flex gap-5 items-center"
                   >
                     <img
@@ -71,10 +71,18 @@
                       :src="`/images/revamp/contact-us/${detail.icon}`"
                     />
                     <div>
-                      <p class="text-[14px] font-semibold mb-0">
+                      <p class="text-[14px] font-semibold mb-0 text-white">
                         {{ $t(`contact-modal.${detail.labelKey}`) }}
                       </p>
-                      <p class="text-lg lg:text-md mb-0">{{ detail.value }}</p>
+                      <p class="text-lg lg:text-md mb-0 text-white">
+                        <a
+                          v-if="detail.href"
+                          :href="detail.href"
+                          class="hover:underline"
+                          >{{ detail.value }}</a
+                        >
+                        <template v-else>{{ detail.value }}</template>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -314,11 +322,22 @@ const props = defineProps({
 
 const { t } = useI18n();
 
-const { brandName, brandEmail } = useBrand();
+const { brandName, brandEmail, brandEmailHref, brandPhone, brandPhoneHref } =
+  useBrand();
 
 const details = computed(() => [
-  { labelKey: "email-label", icon: "mail.png", value: brandEmail.value },
-  { labelKey: "phone-label", icon: "phone.png", value: "+82 10 5067 8800" },
+  {
+    labelKey: "email-label",
+    icon: "mail.png",
+    value: brandEmail.value,
+    href: brandEmailHref.value,
+  },
+  {
+    labelKey: "phone-label",
+    icon: "phone.png",
+    value: brandPhone.value,
+    href: brandPhoneHref.value,
+  },
   {
     labelKey: "office-label",
     icon: "location.png",

@@ -161,6 +161,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     blogEmail: process.env.BLOG_EMAIL,
     blogPassword: process.env.BLOG_PASSWORD,
+    // The site advertises contact@wsoft.space in four places (useBrand.js,
+    // the JSON-LD Organization above, the contact-page JSON-LD, and
+    // contact-us.vue). Default the send path to it so the advertised inbox
+    // provably is the receiving inbox; CONTACT_RECIPIENT_EMAIL still
+    // overrides for staging. AB-134 item 1.
+    contactRecipientEmail:
+      process.env.CONTACT_RECIPIENT_EMAIL || "contact@wsoft.space",
 
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "https://wsoft.space/",
@@ -197,25 +204,29 @@ export default defineNuxtConfig({
       },
     },
 
-    // Blog pages
+    // Blog pages — SSR per request. An HTML cache keyed on path alone (isr +
+    // cache below, previously) served the first requester's language to
+    // everyone for up to 10 minutes, which defeats locale detection — the
+    // same reason page-route prerendering was removed in WOS-258. The
+    // expensive part is already cached independently at /api/getBlogs and
+    // /api/getPost/** above, so dropping the HTML cache costs one Vue
+    // render, not a data fetch. AB-134 item 4.
     "/newsroom": {
       prerender: false,
-      isr: 180,
-      cache: { maxAge: 300, staleMaxAge: 3600, swr: true },
       headers: {
         "X-Robots-Tag": "index, follow",
-        "Cache-Control": "public, max-age=300, stale-while-revalidate=3600",
+        "Cache-Control": "private, no-cache",
+        Vary: "Accept-Language, Cookie",
       },
     },
 
-    // Individual blog posts
+    // Individual blog posts — same reasoning as "/newsroom" above.
     "/newsroom/**": {
       prerender: false,
-      isr: 180,
-      cache: { maxAge: 600, staleMaxAge: 3600, swr: true },
       headers: {
         "X-Robots-Tag": "index, follow",
-        "Cache-Control": "public, max-age=600, stale-while-revalidate=3600",
+        "Cache-Control": "private, no-cache",
+        Vary: "Accept-Language, Cookie",
       },
     },
 
@@ -272,6 +283,11 @@ export default defineNuxtConfig({
       headers: {
         "X-Robots-Tag": "noindex, nofollow",
       },
+    },
+
+    // WOS-282 follow-up — page renamed to /skin_arch; preserve old links/SEO.
+    "/optical-microscope": {
+      redirect: { to: "/skin_arch", statusCode: 301 },
     },
   },
 

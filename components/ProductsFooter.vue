@@ -27,7 +27,9 @@
                 <span class="text-[#F8FAFC99]">{{
                   $t("productsFooter.inquiryEmail")
                 }}</span>
-                <span class="text-white">{{ brandEmail }}</span>
+                <a :href="brandEmailHref" class="text-white hover:underline">{{
+                  brandEmail
+                }}</a>
               </div>
               <div class="flex items-center gap-3 text-[14px] mt-3">
                 <span class="text-[#F8FAFC99]">{{
@@ -104,26 +106,10 @@
 </template>
 
 <script setup>
-const navLinks = [
-  {
-    title: "About Us",
-    to: "/about-us",
-  },
-  {
-    title: "Services",
-    to: "/services",
-  },
-  {
-    title: "Our Works",
-    to: "/our-works",
-  },
-  {
-    title: "Blogs",
-    to: "/blogs",
-  },
-];
-
-const { isUedu, brandEmail, brandName } = useBrand();
+// Currently unmounted (zero imports anywhere in the app). Kept for reuse on
+// a future product page; the email link was fixed here so a future mount
+// can't fail the "mailto: links are correct" acceptance criteria. AB-134.
+const { isUedu, brandEmail, brandEmailHref, brandName } = useBrand();
 
 const trackSealClick = () => {
   console.log("D-U-N-S® Seal clicked");

@@ -24,7 +24,7 @@
       </div>
 
       <!-- 2. Description -->
-      <div class="catalogue-section max-w-3xl w-full text-center">
+      <div class="catalogue-section max-w-3xl w-full text-center space-y-3">
         <p
           v-for="(desc, i) in item.descriptions"
           :key="i"
@@ -34,19 +34,19 @@
         </p>
       </div>
 
-      <!-- 3. Catalogue Number + Product Type -->
+      <!-- 3. Development Status + Product Type -->
       <div class="catalogue-section max-w-3xl w-full space-y-3">
-        <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
+        <div class="flex items-start gap-x-3 flex-wrap gap-y-2">
           <div
-            class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
+            class="bg-[#E96F23] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
           >
-            {{ $t("products.catalogueNumber") }}
+            {{ $t("products.developmentStatus") }}
           </div>
-          <span class="text-[#20252CE5] text-[14px] font-[600] break-all">{{
-            item.catalogueNumber
+          <span class="text-[#20252CE5] text-[14px] font-[600]">{{
+            item.developmentStatus
           }}</span>
         </div>
-        <div class="flex items-center gap-x-3 flex-wrap gap-y-2">
+        <div class="flex items-start gap-x-3 flex-wrap gap-y-2">
           <div
             class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
           >
@@ -79,7 +79,63 @@
         </div>
       </div>
 
-      <!-- 5. Intended Use -->
+      <!-- 5. Core Analysis Capabilities -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.coreCapabilities") }}
+          </p>
+        </div>
+        <div class="space-y-4">
+          <div v-for="(cap, capi) in item.capabilities" :key="capi">
+            <p class="font-satoshi font-bold text-[15px] text-[#0a1628] mb-1">
+              {{ cap.label }}
+            </p>
+            <p class="text-[#20252CE5] text-[14px] font-[600]">{{ cap.body }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Intellectual Property -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.intellectualProperty") }}
+          </p>
+        </div>
+        <p class="text-[#20252CE5] text-[14px] font-[600]">{{ item.ip.portfolio }}</p>
+
+        <p class="font-satoshi font-bold text-[15px] text-[#0a1628] mt-4 mb-2">
+          {{ item.ip.patentsHeading }}
+        </p>
+        <ul class="list-disc ps-6 space-y-2">
+          <li
+            v-for="(patent, pti) in item.ip.patents"
+            :key="pti"
+            class="text-[#20252CE5] text-[14px] font-[600]"
+          >
+            <span>{{ patent.title }}</span>
+            <span class="block text-[#64748B] font-[600]">{{ patent.number }}</span>
+          </li>
+        </ul>
+
+        <p class="text-[#64748B] text-[13px] font-[600] mt-4">{{ item.ip.note }}</p>
+        <p class="text-[#64748B] text-[13px] font-[600] mt-1">{{ item.ip.asOf }}</p>
+      </div>
+
+      <!-- 7. Interoperability & Integration -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.interoperability") }}
+          </p>
+        </div>
+        <ul class="list-disc ps-6 space-y-2 text-[#20252CE5] text-[14px] font-[600]">
+          <li v-for="(line, ii) in item.interoperability" :key="ii">{{ line }}</li>
+        </ul>
+      </div>
+
+      <!-- 8. Intended Use -->
       <div class="catalogue-section max-w-3xl w-full">
         <div class="border-b border-[#64748B] pb-2 mb-4">
           <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
@@ -91,7 +147,7 @@
         </p>
       </div>
 
-      <!-- 6. Research Use Disclaimer -->
+      <!-- 9. Research Use Disclaimer -->
       <div class="catalogue-section max-w-3xl w-full">
         <div class="border-b border-[#64748B] pb-2 mb-4">
           <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
@@ -103,9 +159,9 @@
         </div>
       </div>
 
-      <!-- 7. Feature Cards -->
+      <!-- 10. Feature Cards -->
       <div class="catalogue-section w-full">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
           <div
             v-for="(card, ci) in featureCards"
             :key="ci"
@@ -131,8 +187,7 @@
         </div>
       </div>
 
-      <!-- 8. Report Preview -->
-      <!-- Note: this image should be anonymized before production — see plan notes -->
+      <!-- 11. Report Preview -->
       <div class="catalogue-section w-full max-w-4xl">
         <NuxtImg
           src="/images/revamp/products/report-preview-lcoct.png"
@@ -141,50 +196,44 @@
         />
       </div>
 
-      <!-- 9. Package Components / Pricing / Lead Time -->
-      <div
-        class="catalogue-section grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl"
-      >
-        <!-- Package Components -->
-        <div>
-          <div class="border-b border-[#64748B] pb-2 mb-4">
-            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
-              {{ $t("products.packageComponents") }}
-            </p>
-          </div>
-          <ol class="list-decimal ps-4 text-[#20252CE5] text-[14px] font-[600] space-y-1">
-            <li
-              v-for="(comp, ci) in item.packageComponents"
-              :key="ci"
+      <!-- 12. Availability -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.availability") }}
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div
+            v-for="(row, ri) in item.availability"
+            :key="ri"
+            class="flex items-start gap-x-3 flex-wrap gap-y-1"
+          >
+            <div
+              class="bg-[#64748B] px-2 py-1 rounded-[2px] text-white font-inter font-[600] text-[14px] shrink-0 whitespace-nowrap"
             >
-              {{ comp }}
-            </li>
-          </ol>
-        </div>
-
-        <!-- Pricing -->
-        <div>
-          <div class="border-b border-[#64748B] pb-2 mb-4">
-            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
-              {{ $t("products.pricing") }}
-            </p>
+              {{ row.label }}
+            </div>
+            <span class="text-[#20252CE5] text-[14px] font-[600] flex-1 min-w-[240px]">{{
+              row.value
+            }}</span>
           </div>
-          <p class="text-[#20252CE5] text-[14px] font-[600]">
-            {{ item.pricing || $t("products.pricingUponRequest") }}
+        </div>
+      </div>
+
+      <!-- 13. Planned Configuration at Launch -->
+      <div class="catalogue-section max-w-3xl w-full">
+        <div class="border-b border-[#64748B] pb-2 mb-4">
+          <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
+            {{ $t("products.plannedConfiguration") }}
           </p>
         </div>
-
-        <!-- Lead Time -->
-        <div>
-          <div class="border-b border-[#64748B] pb-2 mb-4">
-            <p class="font-satoshi font-normal text-[24px] leading-8 text-[#0a1628]">
-              {{ $t("products.leadTime") }}
-            </p>
-          </div>
-          <p class="text-[#20252CE5] text-[14px] font-[600]">
-            {{ item.leadTime || $t("products.leadTimeValue") }}
-          </p>
-        </div>
+        <p class="text-[#20252CE5] text-[14px] font-[600] mb-3">
+          {{ item.plannedConfigurationNote }}
+        </p>
+        <ol class="list-decimal ps-4 text-[#20252CE5] text-[14px] font-[600] space-y-1">
+          <li v-for="(comp, ci) in item.packageComponents" :key="ci">{{ comp }}</li>
+        </ol>
       </div>
     </div>
   </div>
@@ -210,7 +259,7 @@ const updateItems = () => {
     {
       productName: t("products.items.lcOct.productName"),
       subText: t("products.items.lcOct.subText"),
-      catalogueNumber: t("products.items.lcOct.catalogueNumber"),
+      developmentStatus: t("products.items.lcOct.developmentStatus"),
       productType: t("products.items.lcOct.productType"),
       descriptions: tm("products.items.lcOct.descriptions"),
       programs: [
@@ -219,20 +268,95 @@ const updateItems = () => {
           features: tm("products.items.lcOct.programs.features"),
         },
       ],
+      // Built from individual t() calls rather than tm() on an array of
+      // objects: tm() on nested objects can return message functions instead
+      // of plain strings on this vue-i18n RC, which would render blank.
+      capabilities: [
+        {
+          label: t("products.items.lcOct.capabilities.reconstruction.label"),
+          body: t("products.items.lcOct.capabilities.reconstruction.body"),
+        },
+        {
+          label: t("products.items.lcOct.capabilities.confidence.label"),
+          body: t("products.items.lcOct.capabilities.confidence.body"),
+        },
+        {
+          label: t("products.items.lcOct.capabilities.metrics.label"),
+          body: t("products.items.lcOct.capabilities.metrics.body"),
+        },
+      ],
+      ip: {
+        portfolio: t("products.items.lcOct.ip.portfolio"),
+        patentsHeading: t("products.items.lcOct.ip.patentsHeading"),
+        patents: [
+          {
+            title: t("products.items.lcOct.ip.patentA.title"),
+            number: t("products.items.lcOct.ip.patentA.number"),
+          },
+          {
+            title: t("products.items.lcOct.ip.patentB.title"),
+            number: t("products.items.lcOct.ip.patentB.number"),
+          },
+          {
+            title: t("products.items.lcOct.ip.patentC.title"),
+            number: t("products.items.lcOct.ip.patentC.number"),
+          },
+        ],
+        note: t("products.items.lcOct.ip.note"),
+        asOf: t("products.items.lcOct.ip.asOf"),
+      },
+      interoperability: tm("products.items.lcOct.interoperability"),
       intendedUse: t("products.items.lcOct.intendedUse"),
       researchUse: [
         t("products.researchUseOnly"),
         t("products.notForCosmetic"),
       ],
+      availability: [
+        {
+          label: t("products.items.lcOct.availability.statusLabel"),
+          value: t("products.items.lcOct.availability.statusValue"),
+        },
+        {
+          label: t("products.items.lcOct.availability.launchLabel"),
+          value: t("products.items.lcOct.availability.launchValue"),
+        },
+        {
+          label: t("products.items.lcOct.availability.collaborationLabel"),
+          value: t("products.items.lcOct.availability.collaborationValue"),
+        },
+        {
+          label: t("products.items.lcOct.availability.pricingLabel"),
+          value: t("products.items.lcOct.availability.pricingValue"),
+        },
+      ],
+      plannedConfigurationNote: t(
+        "products.items.lcOct.plannedConfigurationNote"
+      ),
       packageComponents: tm("products.items.lcOct.packageComponents"),
-      pricing: t("products.items.lcOct.pricing"),
-      leadTime: t("products.items.lcOct.leadTime"),
     },
   ];
 };
 
 const updateFeatureCards = () => {
   featureCards.value = [
+    {
+      label: t("products.featureCards.confidence.label"),
+      sub: t("products.featureCards.confidence.sub"),
+      icon: "blur-radial",
+      color: "#0891b2",
+    },
+    {
+      label: t("products.featureCards.mesh.label"),
+      sub: t("products.featureCards.mesh.sub"),
+      icon: "cube-outline",
+      color: "#a78bfa",
+    },
+    {
+      label: t("products.featureCards.ip.label"),
+      sub: t("products.featureCards.ip.sub"),
+      icon: "certificate-outline",
+      color: "#4c1d95",
+    },
     {
       label: t("products.featureCards.csv.label"),
       sub: t("products.featureCards.csv.sub"),
@@ -244,12 +368,6 @@ const updateFeatureCards = () => {
       sub: t("products.featureCards.dashboard.sub"),
       icon: "view-dashboard-outline",
       color: "#00b8cc",
-    },
-    {
-      label: t("products.featureCards.mesh.label"),
-      sub: t("products.featureCards.mesh.sub"),
-      icon: "cube-outline",
-      color: "#a78bfa",
     },
     {
       label: t("products.featureCards.pdf.label"),
@@ -288,13 +406,23 @@ const initAnimations = () => {
   }, catalogueContainer.value);
 };
 
+// The catalogue now has 13 .catalogue-section blocks, each starting at
+// opacity: 0 with toggleActions "play none none none". ScrollTrigger
+// positions are computed here, before the report-preview and hero images
+// finish loading; once they resolve, later sections shift down and a
+// stale trigger can leave a section permanently invisible. Refreshing on
+// window "load" recomputes positions against the final layout.
+const refreshOnLoad = () => ScrollTrigger.refresh();
+
 onMounted(async () => {
   await nextTick();
   initAnimations();
+  window.addEventListener("load", refreshOnLoad);
 });
 
 onUnmounted(() => {
   ctx?.revert();
+  window.removeEventListener("load", refreshOnLoad);
 });
 
 watch(locale, async () => {

@@ -2,140 +2,110 @@ import { createI18n } from "vue-i18n";
 import enMessages from "~/locales/en.json";
 import koMessages from "~/locales/ko.json";
 
+const SUPPORTED = ["en", "ko"];
+const DEFAULT_LOCALE = "ko";
+const COOKIE_NAME = "lang";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+// Namespaced so it cannot collide with a future useState key.
+const STATE_KEY = "app.locale";
+
+const normalise = (value) => {
+  const base = String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .split(/[-_]/)[0];
+  return SUPPORTED.includes(base) ? base : null;
+};
+
 export default defineNuxtPlugin((nuxtApp) => {
-  // Default fallback
-  let locale = "ko";
-  
-  // Server-side detection
-  if (process.server) {
-    const event = useRequestEvent?.();
-    if (event) {
-      const headers = event.node.req.headers;
-      
-      // Check cookie first - THIS IS THE CRITICAL PART
-      const cookieLang = getCookie(event, "lang");
-      if (cookieLang && (cookieLang === "ko" || cookieLang === "en")) {
-        locale = cookieLang;
-        console.log("[i18n Server] Using cookie language:", cookieLang);
-      } 
-      else {
-        const acceptLanguage = headers["accept-language"];
-        if (acceptLanguage) {
-          const preferredLang = acceptLanguage.split(",")[0].split("-")[0];
-          if (preferredLang === "ko" || preferredLang === "en") {
-            locale = preferredLang;
-            console.log("[i18n Server] Using Accept-Language:", preferredLang);
-          }
-        }
-        console.log("[i18n Server] Using language:", locale);
-      }
+  // One locale per request, decided by server/middleware/locale.ts and
+  // carried to the client in the Nuxt payload. useState serialises into
+  // __NUXT__, so on the client the initialiser below does not run and the
+  // value read here is byte-identical to the one SSR rendered with.
+  // Hydration cannot disagree. The client must never re-detect. AB-134.
+  const localeState = useState(STATE_KEY, () => {
+    if (import.meta.server) {
+      const event = useRequestEvent?.();
+      return normalise(event?.context?.locale) || DEFAULT_LOCALE;
     }
-  } 
-  // Client-side detection - MUST MATCH SERVER PRIORITY
-  else {
-    // CRITICAL: Check cookie FIRST to match server behavior
-    const cookieLang = getClientCookie("lang");
-    if (cookieLang && (cookieLang === "ko" || cookieLang === "en")) {
-      locale = cookieLang;
-      console.log("[i18n Client] Using cookie language:", cookieLang);
-      
-      // Sync localStorage to match cookie (but don't prioritize it)
-      const storedLang = localStorage.getItem("lang");
-      if (storedLang !== cookieLang) {
-        localStorage.setItem("lang", cookieLang);
-      }
-    } 
-    // If no cookie, check localStorage
-    else {
-      const storedLang = localStorage.getItem("lang");
-      if (storedLang && (storedLang === "ko" || storedLang === "en")) {
-        locale = storedLang;
-        console.log("[i18n Client] Using localStorage language:", storedLang);
-        // Set cookie to match
-        setClientCookie("lang", locale, 365);
-      }
-      // Browser detection as last resort
-      else {
-        const browserLang = navigator.language.split("-")[0];
-        if (browserLang === "ko" || browserLang === "en") {
-          locale = browserLang;
-        }
-        console.log("[i18n Client] Using detected language:", locale);
-        
-        // Save detected language to both
-        localStorage.setItem("lang", locale);
-        setClientCookie("lang", locale, 365);
-      }
-    }
-    
-    // Set HTML lang attribute
-    document.documentElement.lang = locale;
-  }
+    // Reached only when there is no payload (e.g. a client-only render).
+    // Cookie first so an explicit choice wins over the browser default.
+    return (
+      normalise(readCookie(COOKIE_NAME)) ||
+      normalise(navigator.language) ||
+      DEFAULT_LOCALE
+    );
+  });
 
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
-    locale: locale,
-    fallbackLocale: "ko",
+    locale: localeState.value,
+    // Korean remains the fallback so a missing EN key never renders blank —
+    // e2e/locale-parity.spec.ts guards against a missing EN key silently
+    // rendering Korean text on an English page instead.
+    fallbackLocale: DEFAULT_LOCALE,
     messages: {
       en: enMessages,
       ko: koMessages,
     },
   });
 
-  // Check if i18n is already installed
   if (!nuxtApp.vueApp.config.globalProperties.$i18n) {
     nuxtApp.vueApp.use(i18n);
   }
 
-  // Watch for language changes - CLIENT SIDE ONLY
-  if (process.client) {
-    // Set up watcher for locale changes
-    const unwatch = watch(() => i18n.global.locale.value, (newLang) => {
-      console.log("[i18n] Language changed to:", newLang);
-      
-      document.documentElement.lang = newLang;
-      
+  if (import.meta.client) {
+    document.documentElement.lang = localeState.value;
 
-      setClientCookie("lang", newLang, 365);
-      localStorage.setItem("lang", newLang);
-    });
+    // Persist an explicit switch so the next server request honours it.
+    // Fires on change only, so an auto-detected locale is never persisted.
+    const unwatch = watch(
+      () => i18n.global.locale.value,
+      (next) => {
+        const locale = normalise(next) || DEFAULT_LOCALE;
+        localeState.value = locale;
+        document.documentElement.lang = locale;
+        writeCookie(COOKIE_NAME, locale, COOKIE_MAX_AGE);
+        try {
+          localStorage.setItem(COOKIE_NAME, locale);
+        } catch {
+          /* private mode */
+        }
+      }
+    );
+    nuxtApp.hook("app:beforeUnmount", () => unwatch?.());
 
-    // Clean up watcher on unmount
-    nuxtApp.hook('app:beforeUnmount', () => {
-      if (unwatch) unwatch();
+    // Migration for visitors from before AB-134 whose `lang` cookie has
+    // expired but whose localStorage preference survives. Deliberately
+    // applied AFTER hydration so it is an ordinary reactive update, not a
+    // hydration mismatch.
+    nuxtApp.hook("app:mounted", () => {
+      if (readCookie(COOKIE_NAME)) return;
+      let stored = null;
+      try {
+        stored = normalise(localStorage.getItem(COOKIE_NAME));
+      } catch {
+        /* private mode */
+      }
+      if (stored && stored !== i18n.global.locale.value) {
+        i18n.global.locale.value = stored; // the watcher above persists it
+      }
     });
   }
 });
 
-// Helper functions
-function getCookie(event, name) {
-  const cookieHeader = event.node.req.headers.cookie;
-  if (!cookieHeader) return null;
-
-  const cookies = cookieHeader.split(";");
-  for (const cookie of cookies) {
-    const [key, value] = cookie.trim().split("=");
-    if (key === name) return decodeURIComponent(value);
-  }
-  return null;
-}
-
-function getClientCookie(name) {
+function readCookie(name) {
   if (typeof document === "undefined") return null;
-
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2)
-    return decodeURIComponent(parts.pop().split(";").shift());
-  return null;
+  const parts = `; ${document.cookie}`.split(`; ${name}=`);
+  return parts.length === 2
+    ? decodeURIComponent(parts.pop().split(";").shift())
+    : null;
 }
 
-function setClientCookie(name, value, days) {
+function writeCookie(name, value, maxAge) {
   if (typeof document === "undefined") return;
-
-  const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  const expires = `expires=${date.toUTCString()}`;
-  document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}; path=/`;
+  document.cookie = `${name}=${encodeURIComponent(
+    value
+  )}; path=/; max-age=${maxAge}; samesite=lax`;
 }

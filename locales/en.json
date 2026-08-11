@@ -1,4 +1,7 @@
 {
+  "language": {
+    "switch": "Switch language"
+  },
   "ContactUs": "Contact Us",
   "OurProjects": "Our Projects",
   "Projects": "Projects",
@@ -335,8 +338,6 @@
   "submit": "Submit",
   "our-office": "Our Office",
   "address": "3F, 219, Segwon-ro, Gwonseon-gu, Suwon-si, Gyeonggi-do, Republic of Korea",
-  "message-success": "Message Sent Successfully!",
-  "message-failed": "Message failed to send!",
   "failed-to-load-blogs": "We’re working on something amazing! Content will be up shortly.",
   "first-name-required": "Please enter your first name",
   "last-name-required": "Please enter your last name",
@@ -536,16 +537,16 @@
   "products": {
     "pageTitle": "Optical Microscope–Based Skin Measurement",
     "productSubtitle": "Digital Optical Observation System with embedded Visual Interface",
-    "catalogueNumber": "Catalogue Number",
+    "developmentStatus": "Development Status",
     "productType": "Product Type",
     "includedProgram": "Included Program",
+    "coreCapabilities": "Core Analysis Capabilities",
+    "intellectualProperty": "Intellectual Property",
+    "interoperability": "Interoperability & Integration",
     "intendedUse": "Intended Use",
     "researchUseDisclaimer": "Research Use Only Disclaimer",
-    "packageComponents": "Package Components",
-    "pricing": "Pricing",
-    "leadTime": "Lead Time",
-    "pricingUponRequest": "Priced Upon Request (USD)",
-    "leadTimeValue": "2-4 weeks",
+    "availability": "Availability",
+    "plannedConfiguration": "Planned Configuration at Launch",
     "researchUseOnly": "For Research Use Only.",
     "notForMedical": "Not for medical, cosmetic efficacy substantiation, or clinical decision-making.",
     "notForCosmetic": "Not for diagnostic, therapeutic, cosmetic, or clinical use.",
@@ -553,42 +554,82 @@
     "notForCosmeticEfficacy": "Not for diagnostic, therapeutic, cosmetic efficacy claims, or clinical use.",
     "notForDiagnostic": "Not for diagnostic or therapeutic use.",
     "featureCards": {
-      "csv":       { "label": "CSV EXPORT",        "sub": "Raw metrics + versioning" },
-      "dashboard": { "label": "DASHBOARD SUMMARY", "sub": "Visual report overview" },
-      "mesh":      { "label": "MESH EXPORT",       "sub": ".PLY / .OBJ 3D file" },
-      "pdf":       { "label": "PDF REPORT",        "sub": "Full quantitative analysis" }
+      "confidence": { "label": "CONFIDENCE MAP",    "sub": "Per-region boundary reliability" },
+      "mesh":       { "label": "MESH EXPORT",        "sub": ".PLY / .OBJ 3D file" },
+      "ip":         { "label": "PATENT PENDING",     "sub": "6 applications filed in Korea" },
+      "csv":        { "label": "CSV EXPORT",         "sub": "Raw metrics + versioning" },
+      "dashboard":  { "label": "DASHBOARD SUMMARY",  "sub": "Visual report overview" },
+      "pdf":        { "label": "PDF REPORT",         "sub": "Full quantitative analysis" }
     },
     "items": {
       "lcOct": {
-        "productName": "SkinArch™ LC-OCT Analyzer v1.0",
+        "productName": "SkinArch™ LC-OCT Analyzer",
         "subText": "LC-OCT Skin Structure Analysis",
-        "catalogueNumber": "SkinArch-LCOCT-Analyzer-v1.0",
+        "developmentStatus": "In development — not yet commercially available. Official launch planned for H1 2027.",
         "productType": "Research-use software for LC-OCT skin volume image analysis",
         "descriptions": [
-          "See beneath the skin's surface without invasive procedures. This cutting-edge imaging technology delivers microscopic views of skin structure in real-time, helping medical professionals diagnose conditions accurately and track treatment progress with unprecedented clarity."
+          "SkinArch™ LC-OCT Analyzer is research-use software for LC-OCT skin volume images. It identifies the skin surface, stratum corneum, and dermal–epidermal junction (DEJ), reconstructs the DEJ as a 3D surface, and computes quantitative structural metrics — with a confidence map reported alongside every segmented boundary.",
+          "It is intended for skin research, pharmaceutical R&D, and CRO analysis workflows. It is not a medical device: it is not used to diagnose, treat, or monitor any condition, and it does not support clinical decision-making."
         ],
         "programs": {
-          "name": "SkinArch™ LC-OCT Analyzer v1.0",
+          "name": "SkinArch™ LC-OCT Analyzer",
           "features": [
             "Image-stack import and standardization module",
             "AI-based LC-OCT skin layer segmentation module",
             "DEJ 3D surface reconstruction module",
+            "Boundary confidence map module",
             "Quantitative analysis module for undulation, thickness, and surface area",
             "2D/3D visualization and report export module"
           ]
         },
-        "intendedUse": "This product is research-use software designed to analyze LC-OCT skin volume images. It identifies key skin layers, including the skin surface, stratum corneum, and dermal-epidermal junction (DEJ), and generates DEJ 3D surfaces and quantitative metrics for skin research, pharmaceutical R&D, and CRO analysis workflows. This product is for research use only and is not intended for diagnostic or therapeutic use.",
-        "packageComponents": [
-          "SkinArch™ LC-OCT Analyzer v1.0 software license",
-          "Installation package or on-premise deployment package",
-          "Basic user guide",
-          "Standard report template",
-          "CSV, mesh, and image export functions",
-          "Initial installation and user support"
+        "capabilities": {
+          "reconstruction": {
+            "label": "DEJ 3D Surface Reconstruction",
+            "body": "The dermal–epidermal junction is reconstructed from the LC-OCT image stack as a continuous 3D surface. Registration between adjacent tomographic slices and continuity constraints keep the surface coherent from slice to slice. The reconstructed surface can be inspected in 2D and 3D and exported as a mesh (.PLY / .OBJ)."
+          },
+          "confidence": {
+            "label": "Boundary Confidence Map",
+            "body": "Every segmented boundary is accompanied by a per-region confidence map, so a researcher can see which parts of a layer or DEJ boundary are well supported by the image data and which are not — before a measurement is interpreted rather than after. Confidence values are also used to stabilize the DEJ surface before quantitative metrics are computed."
+          },
+          "metrics": {
+            "label": "Quantitative Metrics",
+            "body": "Undulation, thickness, and surface-area metrics are computed from the reconstructed DEJ surface and exported as CSV together with the analysis parameters used, so results can be compared across imaging sessions and subjects within a single research protocol."
+          }
+        },
+        "ip": {
+          "portfolio": "The analysis methods in SkinArch are supported by an in-house intellectual-property portfolio: six patent applications filed with the Korean Intellectual Property Office (KIPO).",
+          "patentsHeading": "Key patent applications — pending",
+          "patentA": { "title": "DEJ 3D surface reconstruction based on inter-slice registration and continuity constraints", "number": "KIPO Application No. 10-2026-0116560 — pending" },
+          "patentB": { "title": "Computation of DEJ 3D undulation and quantitative metrics based on boundary stabilization and confidence", "number": "KIPO Application No. 10-2026-0116533 — pending" },
+          "patentC": { "title": "Automatic layer and DEJ segmentation and 3D reconstruction based on a boundary confidence map", "number": "KIPO Application No. 10-2026-0116570 — pending" },
+          "note": "The three applications listed above are pending and have not been granted. Titles are unofficial English translations of the Korean filings.",
+          "asOf": "Portfolio information current as of August 2026."
+        },
+        "interoperability": [
+          "Multi-instrument LC-OCT data — the analyzer is designed to work with LC-OCT image stacks acquired on instruments from more than one vendor, rather than being bound to a single instrument. Each data source is subject to a format review before analysis.",
+          "OEM and SDK integration — the analysis modules can be provided as an SDK or embedded into a partner system under an OEM arrangement, extending use beyond a single instrument."
         ],
-        "pricing": "Priced Upon Request (USD)",
-        "leadTime": "Estimated 4-8 weeks after purchase order, depending on installation environment, data format review, and deployment requirements.",
-        "reportAlt": "SkinArch LC-OCT V1 model performance report preview"
+        "intendedUse": "This product is research-use software designed to analyze LC-OCT skin volume images. It identifies key skin layers, including the skin surface, stratum corneum, and dermal-epidermal junction (DEJ), and generates DEJ 3D surfaces and quantitative metrics for skin research, pharmaceutical R&D, and CRO analysis workflows. This product is for research use only and is not intended for diagnostic or therapeutic use.",
+        "availability": {
+          "statusLabel": "Current Status",
+          "statusValue": "In development. Not commercially available and not offered for sale.",
+          "launchLabel": "Official Launch",
+          "launchValue": "Planned for the first half of 2027 (H1 2027).",
+          "collaborationLabel": "Research Collaboration",
+          "collaborationValue": "Ahead of launch, the analyzer is available for joint research, method evaluation, and pilot studies with research institutions, CROs, and industry partners working with LC-OCT datasets. Collaboration and evaluation inquiries are welcome.",
+          "pricingLabel": "Pricing",
+          "pricingValue": "Commercial pricing has not been set. Pricing will be published at launch."
+        },
+        "plannedConfigurationNote": "The configuration below is the scope currently planned for the commercial release and may change before launch.",
+        "packageComponents": [
+          "SkinArch™ LC-OCT Analyzer application",
+          "On-premise deployment package",
+          "User guide",
+          "Standard report template",
+          "CSV, mesh, and image export",
+          "Installation and onboarding support"
+        ],
+        "reportAlt": "SkinArch LC-OCT Analyzer research build — model performance report preview"
       },
       "skinFlake": {
         "productName": "Optical Microscope–Based Skin Flake Analysis System",
@@ -1081,7 +1122,7 @@
     "animatedProjects": {
       "lcOct": {
         "title": "LC-OCT Skin Structure Analysis",
-        "description": "High-resolution optical coherence tomography that enables non-invasive, real-time imaging of skin microstructures—providing dermatologists with cellular-level insights without the need for biopsy.",
+        "description": "Research-use software for LC-OCT skin volume images: it reconstructs the dermal–epidermal junction in 3D, computes quantitative structural metrics, and reports boundary confidence, enabling non-invasive and reproducible skin-microstructure analysis in research settings.",
         "cta": "Ask about LC-OCT Skin Structure Analysis"
       },
       "aiMeasuring": {
@@ -1653,7 +1694,10 @@
   },
   "optical-microscope": {
     "title": "LC-OCT Skin Structure Analysis",
-    "description": "See beneath the skin's surface without invasive procedures. This cutting-edge imaging technology delivers microscopic views of skin structure in real-time, helping medical professionals diagnose conditions accurately and track treatment progress with unprecedented clarity.",
+    "description": "Research-use analysis of LC-OCT skin volume images: non-invasive 3D reconstruction of the dermal–epidermal junction, quantitative structural metrics, and a confidence map for every segmented boundary. For research use only — not a medical device.",
+    "statusPill": "In development · Official launch H1 2027",
+    "inquiryCta": "Request a Quote",
+    "inquirySubject": "SkinArch™ LC-OCT Analyzer inquiry",
     "imageAlt": "LC-OCT Skin Structure Analysis Device",
     "back": "Back to Products"
   },

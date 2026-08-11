@@ -184,7 +184,7 @@
       </div>
     </div>
 
-    <ContactModal v-model="showContactModal" />
+    <ContactModal v-model="showContactModal" :subject="pageContactSubject" />
   </div>
 </template>
 
@@ -192,9 +192,13 @@
 import { useI18n } from "vue-i18n";
 import { ref, computed } from "vue";
 import Swal from "sweetalert2";
+import { usePageContactSubject } from "~/composables/usePageContactSubject";
 
 const { t, locale } = useI18n();
 const showContactModal = ref(false);
+// The footer's 문의하기 button is global, so it used to open with an empty
+// subject regardless of which page triggered it. AB-134 item 1.
+const pageContactSubject = usePageContactSubject();
 
 const subscribeEmail = ref("");
 const subscribeError = ref("");
@@ -259,7 +263,7 @@ const footerLinks = computed(() => [
   { label: "footer.products", to: "/products", isModal: false },
   { label: "footer.projects", to: "/our-projects", isModal: false },
   { label: "footer.newsroom", to: "/newsroom", isModal: false },
-  { label: "footer.contact_us", to: "/contact", isModal: true },
+  { label: "footer.contact_us", to: "/contact-us", isModal: true },
 ]);
 
 const additionalLinks = computed(() => [

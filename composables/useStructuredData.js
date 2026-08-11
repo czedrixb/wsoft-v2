@@ -458,6 +458,20 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     },
   };
 
+  // SkinArch is pre-launch (AB-134 item 2), so no offers/price/sku/
+  // softwareVersion here — asserting any of those in machine-readable form
+  // would be the exact overstatement being removed from the visible page.
+  const productDetailSchema = {
+    "@type": "Product",
+    name: t("products.items.lcOct.productName"),
+    category: t("products.items.lcOct.productType"),
+    description: t("optical-microscope.description"),
+    url: `${baseUrl}${route.path}`,
+    image: `${baseUrl}/images/revamp/products/oct-banner.png`,
+    brand: { "@type": "Brand", name: ORG_NAME },
+    manufacturer: { "@id": `${baseUrl}` },
+  };
+
   const ourProjectSchema = {
     "@type": "CreativeWork",
     name: pageData?.title || "",
@@ -502,6 +516,35 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     articleBody: stripHtml(blogData.content),
   });
 
+  // pageType -> breadcrumb label key. Previously a nested ternary whose
+  // fallback branch was "Contact Us" — any unrecognized pageType (including
+  // "product-detail" before this map existed) silently claimed to be the
+  // Contact page. Default here is the page's own title key instead. AB-134.
+  const BREADCRUMB_LABELS = {
+    home: "Home",
+    about: "About Us",
+    services: "Services",
+    "our-works": "Our Works",
+    contact: "Contact Us",
+    "product-detail": "products-title",
+  };
+
+  const breadcrumbTrail =
+    pageType === "product-detail"
+      ? [
+          { name: t("products-title"), item: `${baseUrl}/products` },
+          {
+            name: t("products.items.lcOct.productName"),
+            item: `${baseUrl}${route.path}`,
+          },
+        ]
+      : [
+          {
+            name: t(BREADCRUMB_LABELS[pageType] || "products-title"),
+            item: `${baseUrl}${route.path}`,
+          },
+        ];
+
   const breadcrumbSchema = {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -511,22 +554,12 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
         name: "Home",
         item: baseUrl,
       },
-      {
+      ...breadcrumbTrail.map((entry, index) => ({
         "@type": "ListItem",
-        position: 2,
-        name: t(
-          pageType === "home"
-            ? "Home"
-            : pageType === "about"
-              ? "About Us"
-              : pageType === "services"
-                ? "Services"
-                : pageType === "our-works"
-                  ? "Our Works"
-                  : "Contact Us",
-        ),
-        item: `${baseUrl}${route.path}`,
-      },
+        position: index + 2,
+        name: entry.name,
+        item: entry.item,
+      })),
     ],
   };
 
@@ -555,6 +588,8 @@ export const useStructuredData = (pageType = "home", pageData = {}) => {
     schema["@graph"].push(ourProjectsSchema);
   } else if (pageType === "our-project") {
     schema["@graph"].push(ourProjectSchema);
+  } else if (pageType === "product-detail") {
+    schema["@graph"].push(productDetailSchema);
   }
 
   return schema;

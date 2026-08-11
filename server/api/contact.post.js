@@ -1,6 +1,20 @@
 import nodemailer from "nodemailer";
 
+// The submitter's own form fields are interpolated directly into an HTML
+// email below; without escaping, a submitter could inject markup/links into
+// the staff mailbox. AB-134 item 1.
+const esc = (v) =>
+  String(v ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+// Keeps CR/LF out of the mail Subject header (header injection).
+const oneLine = (v) => String(v ?? "").replace(/[\r\n]+/g, " ").trim();
+
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig(event);
   const body = await readBody(event);
   const { first_name, last_name, email, phone, company, subject, message } = body;
 
@@ -158,67 +172,78 @@ export default defineEventHandler(async (event) => {
     </div>
 
     <div class="body">
-      <p class="greeting">Hello, here's what <strong>${first_name} ${last_name}</strong> sent you:</p>
+      <p class="greeting">Hello, here's what <strong>${esc(first_name)} ${esc(last_name)}</strong> sent you:</p>
 
       <div class="field-grid">
         <div class="field">
           <div class="field-label">First Name</div>
-          <div class="field-value">${first_name}</div>
+          <div class="field-value">${esc(first_name)}</div>
         </div>
         <div class="field">
           <div class="field-label">Last Name</div>
-          <div class="field-value">${last_name}</div>
+          <div class="field-value">${esc(last_name)}</div>
         </div>
         <div class="field">
           <div class="field-label">Email</div>
-          <div class="field-value">${email}</div>
+          <div class="field-value">${esc(email)}</div>
         </div>
         <div class="field">
           <div class="field-label">Phone</div>
-          <div class="field-value">${phone}</div>
+          <div class="field-value">${esc(phone)}</div>
         </div>
         ${company ? `
         <div class="field full-width">
           <div class="field-label">Company</div>
-          <div class="field-value">${company}</div>
+          <div class="field-value">${esc(company)}</div>
         </div>` : ""}
         ${subject ? `
         <div class="field full-width">
           <div class="field-label">Topic / Subject</div>
-          <div class="field-value">${subject}</div>
+          <div class="field-value">${esc(subject)}</div>
         </div>` : ""}
       </div>
 
       <div class="message-box">
         <div class="field-label">Message</div>
-        <div class="field-value">${message}</div>
+        <div class="field-value">${esc(message)}</div>
       </div>
 
       <div class="divider"></div>
 
       <div class="cta">
-        <a href="mailto:${email}">Reply to ${first_name}</a>
+        <a href="mailto:${esc(email)}">Reply to ${esc(first_name)}</a>
       </div>
     </div>
 
     <div class="footer">
       <p>This email was sent from the contact form at <a href="https://wsoft.space">wsoft.space</a></p>
-      <p style="margin-top: 6px;">© ${new Date().getFullYear()} WSoft. All rights reserved.</p>
+      <p style="margin-top: 6px;">© ${new Date().getFullYear()} W Labs. All rights reserved.</p>
     </div>
   </div>
 </body>
 </html>
   `;
 
+  // The site advertises contact@wsoft.space in four places (useBrand.js,
+  // the homepage Organization JSON-LD, the contact-page JSON-LD, and
+  // contact-us.vue). Default the recipient to it so the advertised inbox
+  // provably is the receiving inbox even if CONTACT_RECIPIENT_EMAIL is
+  // unset. AB-134 item 1.
+  const recipient = config.contactRecipientEmail;
+
   try {
-    await transporter.sendMail({
-      from: `"WSoft Contact Form" <${process.env.GMAIL_USER}>`,
-      to: process.env.CONTACT_RECIPIENT_EMAIL || process.env.GMAIL_USER,
+    const info = await transporter.sendMail({
+      from: `"W Labs Contact Form" <${process.env.GMAIL_USER}>`,
+      to: recipient,
       replyTo: email,             // reply goes back to the sender
-      subject: subject ? `[${subject}] — ${first_name} ${last_name}` : `New message from ${first_name} ${last_name}`,
+      subject: subject
+        ? `[${oneLine(subject)}] — ${oneLine(first_name)} ${oneLine(last_name)}`
+        : `New message from ${oneLine(first_name)} ${oneLine(last_name)}`,
       html: htmlBody,
     });
-    console.log("✅ Email sent successfully");
+    // Evidence for AB-134's send-and-confirm-receipt acceptance criteria:
+    // journalctl -u wsoftlabs-website | grep '\[contact\]'
+    console.log(`[contact] delivered to ${recipient} messageId=${info.messageId}`);
 
     return { success: true };
   } catch (error) {

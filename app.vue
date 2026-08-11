@@ -31,10 +31,25 @@ const route = useRoute();
 const config = useRuntimeConfig();
 
 const canonicalUrl = computed(() => {
-  const baseUrl = config.public.baseUrl || "https://wsoft.space/";
+  // baseUrl carries a trailing slash and route.path already leads with "/" —
+  // concatenating them unconditionally used to double the slash
+  // (https://wsoft.space//optical-microscope). AB-134.
+  const baseUrl = (config.public.baseUrl || "https://wsoft.space").replace(
+    /\/+$/,
+    ""
+  );
   const path = route.path.replace(/\/+/g, "/");
   return `${baseUrl}${path}`;
 });
+
+// One URL serves both languages (no /en or /ko prefix), so the bare path is
+// x-default and the ?lang= variants — honoured by server/middleware/locale.ts
+// — are how a crawler reaches a specific language. AB-134 item 4.
+const alternateLinks = computed(() => [
+  { rel: "alternate", hreflang: "en", href: `${canonicalUrl.value}?lang=en` },
+  { rel: "alternate", hreflang: "ko", href: `${canonicalUrl.value}?lang=ko` },
+  { rel: "alternate", hreflang: "x-default", href: canonicalUrl.value },
+]);
 
 // OG locale codes, keyed by the app's locale codes. Set here rather than in
 // nuxt.config so the tags follow the resolved locale. WOS-275.
@@ -49,12 +64,13 @@ useHead({
   htmlAttrs: {
     lang: computed(() => locale.value),
   },
-  link: [
+  link: computed(() => [
     {
       rel: "canonical",
-      href: computed(() => canonicalUrl.value),
+      href: canonicalUrl.value,
     },
-  ],
+    ...alternateLinks.value,
+  ]),
   meta: [
     {
       name: "robots",

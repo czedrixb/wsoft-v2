@@ -3,7 +3,7 @@ import { useI18n } from "vue-i18n";
 
 const PRODUCT_ROUTES = {
   wizAssistant: "/wiz-assistant",
-  lcOct: "/optical-microscope",
+  lcOct: "/skin_arch",
 };
 
 const PRODUCT_KEYS = [

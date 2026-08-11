@@ -22,6 +22,19 @@
               </svg>
             </router-link>
 
+            <!-- Pre-launch status pill — must stay above the fold, the first
+                 thing a CES judge sees on the page. AB-134. -->
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-[#64748B]/50 bg-white/70 px-3 py-1 backdrop-blur-[5px]"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-[#E96F23] shrink-0" />
+              <span
+                class="font-opensans font-semibold text-[12px] uppercase tracking-wide text-[#20252CE5]"
+              >
+                {{ $t("optical-microscope.statusPill") }}
+              </span>
+            </div>
+
             <!-- Title -->
             <h2
               class="text-[40px] leading-tight md:text-[64px] md:leading-[80px] font-bold font-satoshi bg-gradient-to-r from-[#FFD5EB] to-[#E1D176] bg-clip-text text-transparent max-w-lg"

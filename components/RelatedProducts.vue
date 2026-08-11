@@ -64,7 +64,7 @@ const relatedProduct = computed(() => {
   if (route.path === "/wiz-assistant") {
     return {
       image: "/images/revamp/products/optical-microscope.png",
-      to: "/optical-microscope",
+      to: "/skin_arch",
       arrowDirection: "left",
     };
   }

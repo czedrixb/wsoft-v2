@@ -39,6 +39,34 @@ export default defineEventHandler(async (event) => {
   </url>
 
   <url>
+    <loc>${baseUrl}/products</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- The CES / SkinArch page — absent from the sitemap until AB-134. One
+       URL serves both languages, so the ?lang= alternates are how a crawler
+       reaches a specific language (server/middleware/locale.ts honours
+       ?lang=). -->
+  <url>
+    <loc>${baseUrl}/optical-microscope</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/optical-microscope?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="${baseUrl}/optical-microscope?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/optical-microscope"/>
+  </url>
+
+  <url>
+    <loc>${baseUrl}/wiz-assistant</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>${baseUrl}/our-works</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>monthly</changefreq>

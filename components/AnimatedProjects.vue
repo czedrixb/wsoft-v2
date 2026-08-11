@@ -152,7 +152,7 @@ const productsSections = [
         titleKey: "product.animatedProjects.lcOct.title",
         descriptionKey: "product.animatedProjects.lcOct.description",
         cta: {
-          to: "/optical-microscope",
+          to: "/skin_arch",
           labelKey: "product.animatedProjects.lcOct.cta",
         },
       },

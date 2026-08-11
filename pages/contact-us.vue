@@ -21,7 +21,9 @@
           <p
             class="text-left font-inter font-[300] text-[18px] text-black mb-0"
           >
-            contact@wsoft.space
+            <a :href="brandEmailHref" class="hover:underline">{{
+              brandEmail
+            }}</a>
           </p>
         </div>
         <div class="card bg-white shadow-md text-primary-content p-8 w-[100%]">
@@ -39,7 +41,9 @@
           <p
             class="text-left font-inter font-[300] text-[18px] text-black mb-0"
           >
-            +82 10 5067 8800
+            <a :href="brandPhoneHref" class="hover:underline">{{
+              brandPhone
+            }}</a>
           </p>
         </div>
         <div class="card bg-white shadow-md text-primary-content p-8 w-[100%]">
@@ -287,6 +291,7 @@ import { useI18n } from "vue-i18n";
 import { useContact } from "@/composables/useContact";
 import { useStructuredData } from "@/composables/useStructuredData";
 import { useCanonical } from "@/composables/useCanonical";
+import { useBrand } from "@/composables/useBrand";
 
 const {
   first_name,
@@ -302,8 +307,13 @@ const {
 const { canonicalUrl } = useCanonical();
 const { t } = useI18n();
 const config = useRuntimeConfig();
+// Was hardcoded to contact@wsoft.space / +82 10 5067 8800 above, so the
+// ueducation.co.kr host showed the wrong address. AB-134 item 1.
+const { brandEmail, brandEmailHref, brandPhone, brandPhoneHref } =
+  useBrand();
 
 const staticMetaTitle = t("contact-title");
+const staticMetaDescription = t("get-back");
 const staticMetaKeywords = Array.from({ length: 10 }, (_, i) =>
   t(`contact-us-meta-keyword-${i + 1}`),
 ).join(", ");
@@ -326,15 +336,11 @@ useHead({
       innerHTML: JSON.stringify(structuredData),
     },
   ],
-  link: [
-    {
-      rel: "canonical",
-      href: canonicalUrl.value,
-    },
-  ],
   meta: [
+    { name: "description", content: staticMetaDescription },
     { name: "keywords", content: staticMetaKeywords },
     { property: "og:title", content: staticMetaTitle },
+    { property: "og:description", content: staticMetaDescription },
     { property: "og:type", content: "website" },
     { property: "og:image", content: shareImageUrl },
     { property: "og:image:width", content: shareImageWidth },

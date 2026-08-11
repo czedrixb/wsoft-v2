@@ -72,7 +72,7 @@ const props = defineProps({
 const route = useRoute();
 
 const isProductsPage = computed(() => {
-  return route.path.startsWith("/optical-microscope");
+  return route.path.startsWith("/skin_arch");
 });
 
 const handleError = () => clearError({ redirect: "/" });

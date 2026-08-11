@@ -137,7 +137,7 @@
     </div>
   </nav>
 
-  <ContactModal v-model="showContactModal" />
+  <ContactModal v-model="showContactModal" :subject="pageContactSubject" />
   <SearchModal v-model="showSearchModal" />
 </template>
 
@@ -145,10 +145,14 @@
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { usePageContactSubject } from "~/composables/usePageContactSubject";
 
 const route = useRoute();
 const { t } = useI18n();
 const { isUedu } = useBrand();
+// The navbar's 문의하기 button is global, so it used to open with an empty
+// subject regardless of which page triggered it. AB-134 item 1.
+const pageContactSubject = usePageContactSubject();
 
 const isExpanded = ref(false);
 const showContactModal = ref(false);
