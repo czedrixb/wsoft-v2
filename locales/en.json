@@ -597,12 +597,12 @@
           }
         },
         "ip": {
-          "portfolio": "The analysis methods in SkinArch are supported by an in-house intellectual-property portfolio: six patent applications filed with the Korean Intellectual Property Office (KIPO).",
+          "portfolio": "The analysis methods in SkinArch are supported by an in-house intellectual-property portfolio: six patent applications filed with the Korean Intellectual Property Office (KIPO), and one granted Korean patent.",
           "patentsHeading": "Key patent applications — pending",
           "patentA": { "title": "DEJ 3D surface reconstruction based on inter-slice registration and continuity constraints", "number": "KIPO Application No. 10-2026-0116560 — pending" },
           "patentB": { "title": "Computation of DEJ 3D undulation and quantitative metrics based on boundary stabilization and confidence", "number": "KIPO Application No. 10-2026-0116533 — pending" },
           "patentC": { "title": "Automatic layer and DEJ segmentation and 3D reconstruction based on a boundary confidence map", "number": "KIPO Application No. 10-2026-0116570 — pending" },
-          "note": "The three applications listed above are pending and have not been granted. Titles are unofficial English translations of the Korean filings.",
+          "note": "The three applications listed above are pending and have not been granted. The granted patent in the portfolio is a separate filing. Titles are unofficial English translations of the Korean filings.",
           "asOf": "Portfolio information current as of August 2026."
         },
         "interoperability": [

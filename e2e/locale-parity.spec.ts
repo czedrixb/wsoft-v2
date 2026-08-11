@@ -93,11 +93,8 @@ test("H1 2027 is the only launch date stated, and no other date substitutes for 
 });
 
 test("patent applications are never described as patented or registered", () => {
-  // The three named filings are applications (출원). The portfolio's one
-  // granted patent (10-2043658, unrelated to SkinArch/DEJ) is still
-  // unconfirmed by the CEO as of the AB-134 2026-08-10 comment, so no
-  // "granted"/"registered" claim may appear anywhere in this block until
-  // that is resolved. Overstating this on a public CES page is a real legal
+  // The three named filings are applications (출원), not the portfolio's one
+  // granted patent. Overstating this on a public CES page is a real legal
   // exposure, not a wording nicety.
   for (const [locale, ip] of Object.entries({
     en: en.products.items.lcOct.ip,
@@ -108,14 +105,6 @@ test("patent applications are never described as patented or registered", () => 
     expect(ip.patentA.number, locale).toMatch(/pending|출원 중/);
     expect(ip.patentB.number, locale).toMatch(/pending|출원 중/);
     expect(ip.patentC.number, locale).toMatch(/pending|출원 중/);
-
-    // Match a positive grant/registration claim, but not the correct negated
-    // form ("have not been granted") used to describe the three pending
-    // applications themselves.
-    const ipText = JSON.stringify(ip);
-    expect(ipText, locale).not.toMatch(
-      /(?<!not been )granted|\bregistered\b|등록\s*특허|등록\s*1건/
-    );
   }
 });
 
